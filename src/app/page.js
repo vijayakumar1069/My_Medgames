@@ -1,9 +1,15 @@
-import Image from "next/image";
+import Courses from "@/components/Public web components/Courses";
+import Services from "@/components/Public web components/Services";
+import Testimonials from "@/components/Public web components/Testimonials";
+import Tutors from "@/components/Public web components/Tutors";
 
 export default function Home() {
   return (
     <>
-      <h1>Welcome to MedGames!</h1>
+      <Services/>
+      <Tutors/>
+      <Testimonials/>
+      <Courses/>
     </>
   );
 }
