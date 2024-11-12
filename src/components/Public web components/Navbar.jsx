@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 const Navbar = () => {
   return (
-    <div className="bg-[#4F9F76] w-full h-20 flex items-center ">
+    <div className="bg-[#4F9F76] w-full h-40 flex items-center ">
         <div className="w-[1400px]  flex mx-auto items-center justify-between">
 
       <div className="flex space-x-2 items-center">
