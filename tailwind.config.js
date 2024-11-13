@@ -13,7 +13,8 @@ module.exports = {
   			foreground: 'var(--foreground)'
   		},
   		fontFamily: {
-  			Poppins: ["var(--font-poppins)"]
+  			Poppins: ["var(--font-poppins)"],
+			Manrope: ["var(--font-manrope)"],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

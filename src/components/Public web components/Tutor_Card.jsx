@@ -4,12 +4,12 @@ import Image from 'next/image';
 import React from 'react';
 
 const Tutor_Card = ({ tutor }) => {
-   console.log(tutor);
+   
   return (
     <div className="max-w-md  text-black rounded-2xl flex flex-col items-center" key={tutor._id}>
         <div className="relative group">
 
-      <div className="h-full flex flex-col items-center">
+      <div className="h-full flex flex-col ">
             <div className="h-72 w-60 relative overflow-hidden rounded-3xl bg-gray-300">
               <Image
                 src={tutor.image}

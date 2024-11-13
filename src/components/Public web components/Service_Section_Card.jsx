@@ -1,11 +1,10 @@
 import React from "react";
 import { Button } from "../ui/button";
-import { IconChevronRight } from '@tabler/icons-react';
+import { IconChevronRight } from "@tabler/icons-react";
 
 const Service_Section_Card = ({ data }) => {
-
   return (
-    <div className="group bg-transparent font-Poppins  text-black rounded-lg rounded-br-[50px] relative shadow-lg p-4 w-full max-w-md mx-auto mb-4">
+    <div className="group bg-transparent font-Manrope  text-black rounded-lg rounded-br-[50px] relative shadow-lg p-4 w-full max-w-md  mx-auto mb-4">
       {/* Green bar that covers the entire card on hover with transition from rounded corner */}
       <div
         className="absolute top-0 left-0 w-full h-1 bg-[#4F9F76] 
@@ -14,24 +13,27 @@ const Service_Section_Card = ({ data }) => {
 
       <div className="w-full group ">
         <div className="flex flex-col">
-          <h2 className="text-xl text-[#4F9F76] font-semibold mb-2 group-hover:text-white">
+          <h1 className="text-2xl text-[#4F9F76] font-semibold mb-2 group-hover:text-white">
             {data.title}
-          </h2>
+          </h1>
           {/* <p className="text-gray-600 mb-2 group-hover:text-white">
             {data.description}
           </p> */}
           <ul className="px-5">
             {data.description.map((item, index) => (
-              <li key={index} className="text-gray-600 mb-2 list-disc group-hover:text-white">
+              <li
+                key={index}
+                className="text-gray-600 mb-2 list-disc text-lg group-hover:text-white"
+              >
                 {item}
               </li>
             ))}
           </ul>
-          <div
-           
-            className="w-full group-hover:text-black font-semibold flex justify-center "
-          >
-            Learn More <span><IconChevronRight stroke={2} className="ml-5" /></span>
+          <div className="w-full group-hover:text-black font-bold text-xl flex justify-center mt-4 ">
+            Learn More{" "}
+            <span>
+              <IconChevronRight stroke={2} className="ml-5" />
+            </span>
           </div>
         </div>
       </div>

@@ -173,6 +173,102 @@ export const const_tutors = [
       },
     ],
   },
+  {
+    id: 5,
+    name: "William Ding ",
+    description: "MD Candidate",
+    college: "University of Toronto",
+    image: "/william.png",
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/fiona.huang",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/fiona.huang/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: "Buvani Sivagnanasunderam",
+    description: "MD Candidate ",
+    college: "McMaster University",
+    image: "/buvani.png",
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/fiona.huang",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/fiona.huang/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: "Rida Sheikh ",
+    description: "MD Candidate ",
+    college: "University of Western Ontario",
+    image: "/rida.png",
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/fiona.huang",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/fiona.huang/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: "Patricia Machekera",
+    description: "MD Candidate ",
+    college: "University of Manitoba ",
+    image: "/patricia.png",
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/fiona.huang",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/fiona.huang/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
+      },
+    ],
+  }
 ];
 
 export const reviews=[
@@ -189,7 +285,21 @@ export const reviews=[
         review_content:"Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
         image:"/lakindu.png",
         rating:4.5,
-    }
+    },
+    {
+      id:3,
+      name:"Sathya",
+      review_content:"Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
+      image:"/lakindu.png",
+      rating:4.5,
+  },
+  {
+    id:4,
+    name:"Sathya",
+    review_content:"Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
+    image:"/lakindu.png",
+    rating:4.5,
+}
 ]
 
 export const courses=[
@@ -224,5 +334,83 @@ export const courses=[
         claasDay:"Sunday's",
         instructor:"Juan Lawson",
         instructor_image:"/casper_inc.png",
-    }
+    },
+    {
+      id:3,
+      name:"CASPer",
+      description:"Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
+      image:"/casper.png",
+      link:"/mcat",
+      price:"300",
+      start_date:"Jan 12,2024",
+      end_date:"Apr 12,2025",
+      via:"Virtual program, zoom",
+      daily_start_time:"6:00 PM",
+      daily_end_time:"9:00 PM",
+      claasDay:"Sunday's",
+      instructor:"Juan Lawson",
+      instructor_image:"/casper_inc.png",
+  },
+  {
+    id:4,
+    name:"CASPer",
+    description:"Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
+    image:"/casper.png",
+    link:"/mcat",
+    price:"300",
+    start_date:"Jan 12,2024",
+    end_date:"Apr 12,2025",
+    via:"Virtual program, zoom",
+    daily_start_time:"6:00 PM",
+    daily_end_time:"9:00 PM",
+    claasDay:"Sunday's",
+    instructor:"Juan Lawson",
+    instructor_image:"/casper_inc.png",
+}
+]
+
+export const blogs = [
+  {
+    id:1,
+    title:"Enhancing Patient Engagement with MedGames",
+    description:"Learn how to effectively approach the CASPer test with expert strategies, helping...",
+    date:"Jan 12,2024",
+    time:"6:00 PM",
+    image:"/blog1.png",
+  },
+  {
+    id:2,
+    title:"testing blog",
+    description:"Discover time-saving tips to ace the MCAT while managing a hectic schedule. Find out how ",
+
+    date:"Jan 12,2024",
+    time:"6:00 PM",
+    image:"/blog2.png",
+  },
+  {
+    id:3,
+    title:"How to Master CASPer: Top Tips from Experts",
+    date:"Jan 12,2024",
+    time:"6:00 PM",
+    image:"/blog3.png",
+    description:"Learn how to effectively approach the CASPer test with expert strategies, helping...",
+  },
+  {
+    id:4,
+    title:"testing blog",
+    description:"Discover time-saving tips to ace the MCAT while managing a hectic schedule. Find out how ",
+
+    date:"Jan 12,2024",
+    time:"6:00 PM",
+    image:"/blog2.png",
+  },
+  {
+    id:5,
+    title:"How to Master CASPer: Top Tips from Experts",
+    date:"Jan 12,2024",
+    time:"6:00 PM",
+    image:"/blog3.png",
+    description:"Learn how to effectively approach the CASPer test with expert strategies, helping...",
+  }
+  
 ]

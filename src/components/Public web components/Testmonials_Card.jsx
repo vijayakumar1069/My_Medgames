@@ -12,7 +12,7 @@ const TestimonialsCard = ({ review }) => {
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
-    <div className="max-w-3xl bg-white font-Poppins rounded-2xl shadow-md flex flex-col space-y-5 p-10">
+    <div className="max-w-3xl bg-white font-Manrope rounded-2xl shadow-md flex flex-col space-y-5 p-10">
       {/* User Info */}
       <div className="flex items-center space-x-4">
         <Avatar className="w-16 h-16">

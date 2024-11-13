@@ -1,3 +1,4 @@
+import Blogs from "@/components/Public web components/Blogs";
 import Courses from "@/components/Public web components/Courses";
 import Services from "@/components/Public web components/Services";
 import Testimonials from "@/components/Public web components/Testimonials";
@@ -10,6 +11,7 @@ export default function Home() {
       <Tutors/>
       <Testimonials/>
       <Courses/>
+      <Blogs/>
     </>
   );
 }

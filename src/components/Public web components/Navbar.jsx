@@ -46,7 +46,7 @@ const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <div className="bg-[#4F9F76] relative font-Poppins w-full h-20 flex">
+    <div className="bg-[#4F9F76] relative font-Manrope w-full h-20 flex">
       <div className="lg:w-[1400px] w-full px-5 md:px-12 lg:px-10 flex mx-auto items-center justify-between">
         {/* Logo and Title */}
         <div className="flex space-x-2 items-center">
@@ -58,7 +58,7 @@ const Navbar = () => {
         <div className="hidden lg:inline-block">
           <ul>
             {navbarvalues.map((item) => (
-              <li className="inline-block mx-2 text-white" key={item.id}>
+              <li className="inline-block mx-2 xl:text-xl sm:text-base text-white" key={item.id}>
                 <a href={item.link}>{item.name}</a>
               </li>
             ))}
