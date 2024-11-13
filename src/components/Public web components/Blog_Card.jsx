@@ -11,7 +11,8 @@ const Blog_Card = ({ blog }) => {
           src={image}
           alt="blog"
           className="object-cover object-center rounded-tr-lg rounded-tl-lg"
-          layout="fill"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Customize sizes for breakpoints
         />
       </div>
       <div className="px-3">

@@ -30,7 +30,6 @@ const itemVariants = {
   },
 };
 
-
 // Variants for the list to control staggering
 const listVariants = {
   hidden: {},
@@ -46,11 +45,17 @@ const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <div className="bg-[#4F9F76] relative font-Manrope w-full h-20 flex">
+    <div className="bg-[#4F9F76] relative font-Manrope w-full h-20 flex overflow-hidden">
       <div className="lg:w-[1400px] w-full px-5 md:px-12 lg:px-10 flex mx-auto items-center justify-between">
         {/* Logo and Title */}
         <div className="flex space-x-2 items-center">
-          <Image src="/logo.png" alt="logo" width={40} height={24} />
+          <Image
+            src="/logo.png"
+            alt="logo"
+            width={40}
+            height={40}
+            // style={{ height: "auto",width:"auto" }} // Ensures the aspect ratio is maintained
+          />
           <h1 className="text-xl text-white">Med Games</h1>
         </div>
 
@@ -58,7 +63,10 @@ const Navbar = () => {
         <div className="hidden lg:inline-block">
           <ul>
             {navbarvalues.map((item) => (
-              <li className="inline-block mx-2 xl:text-xl sm:text-base text-white" key={item.id}>
+              <li
+                className="inline-block mx-2 xl:text-xl sm:text-base text-white"
+                key={item.id}
+              >
                 <a href={item.link}>{item.name}</a>
               </li>
             ))}
@@ -74,7 +82,12 @@ const Navbar = () => {
 
         {/* Mobile Hamburger Icon with Drawer */}
         <div className="lg:hidden inline-block">
-          <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen} className="relative" direction="right">
+          <Drawer
+            open={isDrawerOpen}
+            onOpenChange={setIsDrawerOpen}
+            className="relative"
+            direction="right"
+          >
             <DrawerTrigger asChild>
               <IconMenu2
                 stroke={3}
@@ -82,16 +95,20 @@ const Navbar = () => {
                 onClick={() => setIsDrawerOpen(true)}
               />
             </DrawerTrigger>
-            
+
             <DrawerContent side="right">
               <DrawerHeader>
-                <VisuallyHidden.Root><DrawerTitle>Menu</DrawerTitle></VisuallyHidden.Root>
-                
+                <VisuallyHidden.Root>
+                  <DrawerTitle>Menu</DrawerTitle>
+                </VisuallyHidden.Root>
+
                 <DrawerClose asChild className="absolute right-4 top-4">
-                  <Button variant="outline"><IconX stroke={2} /></Button>
+                  <Button variant="outline">
+                    <IconX stroke={2} />
+                  </Button>
                 </DrawerClose>
               </DrawerHeader>
-              
+
               {/* Drawer Navbar Items with Framer Motion */}
               <motion.ul
                 className="mt-4 space-y-2 flex flex-col justify-center items-center w-full"
@@ -114,7 +131,7 @@ const Navbar = () => {
                   </motion.li>
                 ))}
               </motion.ul>
-              
+
               {/* Get Started Button in Drawer */}
               <motion.div
                 className="mt-4 px-4"

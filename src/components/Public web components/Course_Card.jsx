@@ -28,8 +28,9 @@ const Course_Card = ({ course }) => {
         <Image
           src={image}
           alt="course_image"
-          layout="fill"
+        fill
           className="object-cover object-center rounded-lg"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Customize sizes for breakpoints
         />
         <div className="absolute top-3 right-3 bg-[#fff] text-white px-3 py-1 rounded-full">
           <div className="flex items-center space-x-4">

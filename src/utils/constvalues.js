@@ -414,3 +414,26 @@ export const blogs = [
   }
   
 ]
+
+export const consultation_details=[
+  {
+    id:1,
+    percentage:"90%",
+    description:"of students who have used our services ",
+  },
+  {
+    id:2,
+    percentage:"85%",
+    description:"of students who have used our services ",
+  },
+  {
+    id:3,
+    percentage:"85%",
+    description:"of students who have used our services ",
+  },
+  {
+    id:4,
+    percentage:"90%",
+    description:"of students who have used our services ",
+  }
+]
