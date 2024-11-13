@@ -1,17 +1,19 @@
-import {Manrope, Poppins } from "next/font/google";
+// RootLayout.jsx
+import { Manrope, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Public web components/Navbar";
 
-const poppins=Poppins({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-poppins",
-})
-const manrope=Manrope({
+});
+
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-manrope",
-})
+});
 
 export const metadata = {
   title: "MedGames",
@@ -24,12 +26,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.variable} ${manrope.variable} font-poppins antialiased`}
       >
-        <section>
-          <nav className="fixed top-0 left-0 right-0 z-50 overflow-hidden">
-            <Navbar/>
-          </nav>
-        {children}
-        </section>
+        {/* Navbar */}
+        <Navbar />
+
+        {/* Main content with padding to account for the fixed navbar */}
+        <main className="pt-20"> {/* Adjust pt-20 based on navbar height */}
+          {children}
+        </main>
       </body>
     </html>
   );

@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 
 const Consultation = () => {
   return (
-    <div className="w-full h-full bg-[#fff] relative flex justify-center items-center flex-col space-y-8 px-0 py-10 overflow-hidden">
+    <div className="w-full h-full bg-[#fff] relative font-Manrope flex justify-center items-center flex-col space-y-8 px-0 py-10 overflow-hidden">
       <div className="relative w-full xl:h-[800px] sm:h-[1100px]   xs:h-[1300px] h-[1500px]  ">
         <Image
           src={"/formbg1.png"}
