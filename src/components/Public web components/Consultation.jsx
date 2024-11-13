@@ -21,7 +21,7 @@ const Consultation = () => {
         />
         <div className="absolute inset-0 flex gap-5 flex-col justify-center xl:space-x-3 space-y-5 xl:space-y-0 items-center xl:flex-row">
           <div className="xl:basis-5/12 relative w-full h-full flex flex-col justify-center items-center ">
-            <form action="" className="z-50 bg-white absolute xl:bottom-0 xl:right-0 xl:p-20 lg:p-14 p-10 sm:p-20  shadow-lg mt-10 xl:mt-0 md:w-[500px] sm:w-[600px] w-full">
+            <form action="" className=" bg-white absolute xl:bottom-0 xl:right-0 xl:p-20 lg:p-14 p-10 sm:p-20  shadow-lg mt-10 xl:mt-0 md:w-[500px] sm:w-[600px] w-full">
               <div className="flex flex-col space-y-1">
                 <div className="flex flex-col space-y-2">
                   <label htmlFor="name" className="text-lg font-semibold">

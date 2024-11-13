@@ -34,7 +34,7 @@ const Course_Card = ({ course }) => {
         />
         <div className="absolute top-3 right-3 bg-[#fff] text-white px-3 py-1 rounded-full">
           <div className="flex items-center space-x-4">
-            <Avatar className="w-16 h-16">
+            <Avatar className="w-10 h-10">
               <AvatarImage src={instructor_image} alt={name} />
               <AvatarFallback>{instructor}</AvatarFallback>
             </Avatar>

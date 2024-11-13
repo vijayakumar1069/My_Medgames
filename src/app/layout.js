@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         className={`${poppins.variable} ${manrope.variable} font-poppins antialiased`}
       >
         <section>
-          <nav>
+          <nav className="fixed top-0 left-0 right-0 z-50 overflow-hidden">
             <Navbar/>
           </nav>
         {children}

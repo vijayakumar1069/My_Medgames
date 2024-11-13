@@ -45,7 +45,7 @@ const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <div className="bg-[#4F9F76] relative font-Manrope w-full h-20 flex overflow-hidden">
+    <div className="bg-[#4F9F76] relative font-Manrope w-full h-20 flex overflow-x-hidden">
       <div className="lg:w-[1400px] w-full px-5 md:px-12 lg:px-10 flex mx-auto items-center justify-between">
         {/* Logo and Title */}
         <div className="flex space-x-2 items-center">

@@ -437,3 +437,41 @@ export const consultation_details=[
     description:"of students who have used our services ",
   }
 ]
+
+export const accordion_details = [
+  {
+    id: 1,
+    question: "What qualifications do the tutors have?",
+    answer: "Our tutors are experts with advanced degrees and extensive experience in their subjects, ensuring high-quality guidance."
+  },
+  {
+    id: 2,
+    question: "What subjects or topics do the tutors cover?",
+    answer: "Tutors cover a wide range of subjects, including test prep, academic subjects, and specific skills like clinical reasoning."
+  },
+  {
+    id: 3,
+    question: "How can I schedule a session with a tutor?",
+    answer: "You can schedule a session directly through our platform by selecting a tutor and available time slot."
+  },
+  {
+    id: 4,
+    question: "Can I choose a specific tutor?",
+    answer: "Yes, you can choose a tutor based on their expertise, availability, and your preferences."
+  },
+  {
+    id: 5,
+    question: "Do you offer trial sessions?",
+    answer: "Yes, we offer trial sessions to help you assess a tutor's teaching style and expertise before committing."
+  },
+  {
+    id: 6,
+    question: "Can I get help with clinical skills?",
+    answer: "Yes, we offer expert guidance on clinical skills, including mock scenarios and feedback to improve your practice."
+  },
+  {
+    id: 7,
+    question: "Are the tutoring sessions recorded?",
+    answer: "Yes, tutoring sessions are recorded, and you can review them at any time to reinforce learning."
+  }
+]
