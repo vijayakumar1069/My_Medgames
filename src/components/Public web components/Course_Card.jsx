@@ -69,7 +69,7 @@ const Course_Card = ({ course }) => {
         <p className=" text-sm sm:text-base "> {description}. </p>
       </div>
       <div className="flex items-center justify-between">
-        <Button className="bg-[#4F9F76] text-white px-8 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
+        <Button className="bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
           Get Started
         </Button>
         <div>

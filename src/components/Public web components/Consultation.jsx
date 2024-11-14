@@ -60,7 +60,7 @@ const Consultation = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <Button
-                    className="bg-transparent text-[#4F9F76] border-[#4F9F76] mt-6 px-8 py-2 rounded-md hover:bg-transparent hover:text-white border"
+                    className="bg-transparent text-[#4F9F76] border-[#4F9F76] mt-6 px-4 py-2 rounded-md hover:bg-transparent hover:text-white border"
                   >
                     Send
                   </Button>

@@ -41,6 +41,33 @@ export const navbarvalues = [
     link: "/contact",
   },
 ];
+export const socialMedialinks = [
+  {
+    id: 1,
+    name: "Facebook",
+    link: "https://www.facebook.com/medgames.ai",
+  },
+  {
+    id: 2,
+    name: "Instagram",
+    link: "https://www.instagram.com/medgames.ai/",
+  },
+  {
+    id: 3,
+    name: "Twitter",
+    link: "https://twitter.com/medgames_ai",
+  },
+  {
+    id: 4,
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/medgames_ai",
+  },
+  {
+    id: 5,
+    name: "YouTube",
+    link: "https://www.youtube.com/channel/UC8-s0a5Aon8y3g-2u6-4-0w",
+  },
+];
 
 export const services = [
   {

@@ -15,6 +15,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+import Link from "next/link";
 
 // Variants for individual navbar items in the drawer
 const itemVariants = {
@@ -67,7 +68,7 @@ const Navbar = () => {
                 className="inline-block mx-2 text-base  sm:text-base text-white"
                 key={item.id}
               >
-                <a href={item.link}>{item.name}</a>
+                <Link href={item.link}>{item.name}</Link>
               </li>
             ))}
           </ul>
@@ -125,9 +126,9 @@ const Navbar = () => {
                     whileHover={{ scale: 1.1, color: "#4F9F76" }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <a href={item.link} className="block px-4 py-2">
+                    <Link href={item.link} className="block px-4 py-2">
                       {item.name}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </motion.ul>
@@ -139,7 +140,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <Button className="w-full bg-transparent text-black bg-[#4F9F76] px-8 py-2 rounded-md hover:bg-[#4F9F76] border">
+                <Button className="w-full bg-transparent text-black bg-[#4F9F76] px-4 py-2 rounded-md hover:bg-[#4F9F76] border">
                   Get Started
                 </Button>
               </motion.div>

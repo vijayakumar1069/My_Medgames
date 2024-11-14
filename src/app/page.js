@@ -2,6 +2,7 @@ import Blogs from "@/components/Public web components/Blogs";
 import Consultation from "@/components/Public web components/Consultation";
 import Courses from "@/components/Public web components/Courses";
 import FAQs from "@/components/Public web components/FAQs";
+import Footer from "@/components/Public web components/Footer";
 import Get_Started from "@/components/Public web components/Get_Started";
 import Services from "@/components/Public web components/Services";
 import Testimonials from "@/components/Public web components/Testimonials";
@@ -26,6 +27,7 @@ export default function Home() {
       <Consultation/>
       <FAQs/>
       <Get_Started/>
+      <Footer/>
     </>
   );
 }

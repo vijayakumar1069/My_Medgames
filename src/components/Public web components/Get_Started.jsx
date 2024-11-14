@@ -27,7 +27,7 @@ const Get_Started = () => {
   return (
     <div className="bg-[#F4F6FC] pt-5">
       <div className="sm:w-[90%] w-full mx-auto">
-        <div className="bg-[#376F5F] text-white lg:p-10 p-5 rounded-md flex flex-col space-y-6 lg:space-y-0 h-[90vh] md:h-[80vh] lg:h-full lg:flex-row  ">
+        <div className="bg-[#376F5F] text-white lg:p-10 p-5 rounded-md flex flex-col space-y-3 lg:space-y-0 h-[100vh] md:h-[100vh] lg:h-full lg:flex-row  ">
           <div className="flex-1 justify-center flex  lg:justify-start">
             <div className="flex flex-col justify-center items-center lg:justify-start lg:items-start space-y-5 lg:space-y-4">
               <Small_Title title="Get Started" color={"white"} />
@@ -43,10 +43,10 @@ const Get_Started = () => {
                 you’re preparing for medical exams or need...
               </p>
               <div className="flex justify-start  space-x-5">
-                <Button className="bg-[#E1EBE2] text-[#4F9F76] px-8 py-2 rounded-md">
+                <Button className="bg-[#E1EBE2] text-[#4F9F76] px-4 py-2 rounded-md">
                   Get Started
                 </Button>
-                <Button className="bg-[#E1EBE2] text-[#4F9F76] px-8 py-2 rounded-md">
+                <Button className="bg-[#E1EBE2] text-[#4F9F76] px-4 py-2 rounded-md">
                   Try Now
                 </Button>
               </div>
@@ -62,27 +62,27 @@ const Get_Started = () => {
           </div>
           <div className="flex-1 relative ">
             {/* Container for images with relative positioning */}
-            <div className="relative w-full h-full justify-start sm:justify-center flex lg:justify-start">
+            <div className="relative w-full h-full justify-center sm:justify-center flex lg:justify-start">
               {/* Main get_started image */}
-              <div className="relative w-[60%] h-full z-10">
+              <div className="relative w-[100%] md:w-[80%] h-full z-10">
                 <Image
                   src="/get_started.png"
                   alt="get_started"
                   fill
                   style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="rounded-xl"
                 />
               </div>
               {/* Book image positioned below and partially covered by get_started image */}
-              <div className="absolute bottom-2 w-[100%] h-full z-0 translate-x-0 translate-y-0">
+              <div className="absolute bottom-2 md:w-[100%] lg:w-[80%] h-full z-0 translate-x-1 translate-y-0">
                 <Image
                   src="/book.png"
                   alt="book"
                   fill
                   style={{ objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-                  className="rounded-xl opacity-80"
+                  className="rounded-xl opacity-100"
                 />
               </div>
             </div>

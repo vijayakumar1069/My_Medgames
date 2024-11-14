@@ -18,7 +18,7 @@ const Testimonials = () => {
 
         {/* Right Side: Button */}
         <div className="basis-1/4 flex  justify-center md:text-right">
-          <Button className="bg-[#4F9F76] text-white px-8 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
+          <Button className="bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
             View More
           </Button>
         </div>
