@@ -53,7 +53,7 @@ const Videos = () => {
               controls
               onEnded={handleVideoEnd}
               width="100%"
-              height="100%"
+              height="80%"
               muted  // Set muted based on state
               className=""
               volume={1}  // Adjust volume based on state

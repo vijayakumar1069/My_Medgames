@@ -11,19 +11,14 @@ export const navbarvalues = [
     link: "/about",
   },
   {
-    id: 3,
-    name: "Contact",
-    link: "/contact",
+    id: 5,
+    name: "Our Courses",
+    link: "/our-courses",
   },
   {
     id: 4,
     name: "Testimonials",
     link: "/testimonials",
-  },
-  {
-    id: 5,
-    name: "Services",
-    link: "/services",
   },
   {
     id: 6,
@@ -34,6 +29,16 @@ export const navbarvalues = [
     id: 7,
     name: "Upcoming Events",
     link: "/upcoming_events",
+  },
+  {
+    id: 8,
+    name: "Jobs",
+    link: "/jobs",
+  },
+  {
+    id: 3,
+    name: "Contact Us",
+    link: "/contact",
   },
 ];
 

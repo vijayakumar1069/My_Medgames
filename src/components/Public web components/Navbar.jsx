@@ -64,7 +64,7 @@ const Navbar = () => {
           <ul>
             {navbarvalues.map((item) => (
               <li
-                className="inline-block mx-2 xl:text-xl sm:text-base text-white"
+                className="inline-block mx-2 text-base  sm:text-base text-white"
                 key={item.id}
               >
                 <a href={item.link}>{item.name}</a>
@@ -75,7 +75,7 @@ const Navbar = () => {
 
         {/* Desktop "Get Started" Button */}
         <div className="hidden lg:inline-block">
-          <Button className="bg-transparent text-white px-8 py-2 rounded-md hover:bg-transparent hover:text-white border">
+          <Button className="bg-transparent text-white px-2 py-2 rounded-md hover:bg-transparent hover:text-white border">
             Get Started
           </Button>
         </div>

@@ -7,7 +7,7 @@ import Course_Card from './Course_Card'
 
 const Courses = () => {
   return (
-    <div className="w-full h-full flex justify-center items-center  flex-col space-y-8  py-10 bg-[#fff]">
+    <div className="w-full h-full flex justify-center items-center  flex-col space-y-8 p-3 py-10 bg-[#fff]">
       <div className="lg:w-10/12 md:w-11/12 w-full flex flex-col md:flex-row space-y-5 md:space-y-0 md:justify-between justify-center items-center">
         
         {/* Left Side: Text Content */}

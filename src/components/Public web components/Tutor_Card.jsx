@@ -1,8 +1,8 @@
 import {
-  IconBrandFacebook,
+
   IconBrandInstagram,
   IconBrandLinkedin,
-  IconBrandTwitterFilled,
+
   IconBrandWhatsapp,
 } from "@tabler/icons-react";
 import Image from "next/image";

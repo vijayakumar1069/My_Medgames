@@ -14,10 +14,10 @@ const Consultation = () => {
           src={"/formbg1.png"}
           alt="formbg1"
           fill
-          priority
+          priority={true}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Adjust sizes based on your layout needs
           style={{ objectFit: "cover" }}
-          className="bg-opacity-100"
+          
         />
         <div className="absolute inset-0 flex gap-5 flex-col justify-center xl:space-x-3 space-y-5 xl:space-y-0 items-center xl:flex-row">
           <div className="xl:basis-5/12 relative w-full h-full flex flex-col justify-center items-center ">
