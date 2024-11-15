@@ -6,7 +6,7 @@ import { const_tutors } from '@/utils/constvalues'
 
 const Tutors = () => {
   return (
-    <div className='w-full h-full flex justify-center items-center flex-col space-y-5 px-5 py-10'>
+    <div className='w-full h-full flex justify-center items-center overflow-hidden flex-col space-y-5 px-5 py-10'>
         <Small_Title title='Our Tutors' />
         <Large_Title title="Meet the Professional Tutors"/>
         {/* Add more tutor components here */}

@@ -13,7 +13,8 @@ module.exports = {
   			foreground: 'var(--foreground)'
   		},
   		screens: {
-  			xs: '375px'
+  			"xs": '375px',
+			"slg":"900px",
   		},
 		  dropShadow: {
 			'green': '10px 35px 35px rgba(79, 159, 118, 0.8)',

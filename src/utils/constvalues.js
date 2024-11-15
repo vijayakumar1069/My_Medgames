@@ -44,7 +44,7 @@ export const navbarvalues = [
   {
     id: 3,
     name: "Contact Us",
-    link: "/contact",
+    link: "/contact-us",
   },
 ];
 export const socialMedialinks = [
@@ -341,6 +341,31 @@ export const const_tutors = [
   },
 ];
 
+export const brand_Info={
+  name:"Med Games",
+  description:"The best platform to study medicine in the world",
+  image:"/logo.png",
+   social_links:[
+    {
+      id:1,
+      name:"Website",
+      link:"https://medgamesorg.com/",
+      display_content:"www.medgamesorg.com"
+    },
+    {
+      id:2,
+      name:"Email",
+      link:"med.games.org@gmail.com",
+      display_content:"med.games.org@gmail.com"
+    },
+    {
+      id:3,
+      name:"Instagram",
+      link:"https://www.instagram.com/medgamesorg/",
+      display_content:"@medgamesorg"
+    }
+   ]
+}
 
 
 

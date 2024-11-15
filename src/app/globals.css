@@ -12,3 +12,9 @@ body {
     --radius: 0.5rem;
   }
 }
+
+@layer utilities{
+  .focus_none{
+    @apply bg-white rounded-none focus-visible:ring-0 focus:outline-none focus:ring-0 border-[#4F9F76]/50 border-b-[1px] 
+  }
+}
