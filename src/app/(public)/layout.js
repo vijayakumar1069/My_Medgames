@@ -1,6 +1,6 @@
 // RootLayout.jsx
 import { Manrope, Poppins } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import Navbar from "@/components/Public web components/(Home page)/Navbar";
 
 const poppins = Poppins({

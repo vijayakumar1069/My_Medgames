@@ -1,10 +1,10 @@
 export const navbarvalues = [
-  // {
-  //   id: 1,
-  //   name: "Home",
+  {
+    id: 1,
+    name: "Home",
 
-  //   link: "/",
-  // },
+    link: "/",
+  },
   {
     id: 2,
     name: "About Us",
@@ -119,8 +119,12 @@ export const const_tutors = [
     id: 1,
     name: "Depen Sharma",
     description: "Medical Student",
+    rating: 4.8,
+    reviews: 120,
     college: "University of Ottawa",
+    specialist: "Customized Medical Training",
     image: "/depen.png",
+    location: "Alberta", // Location randomly assigned from 3 options
     socialsLinks: [
       {
         id: 1,
@@ -143,8 +147,12 @@ export const const_tutors = [
     id: 2,
     name: "Adina Borenstein",
     description: "MD/PhD Candidate",
+    rating: 4.8,
+    reviews: 120,
     college: "University of Toronto",
+    specialist: "Specialized Medical Expertise",
     image: "/adina.png",
+    location: "British Columbia", // Random location
     socialsLinks: [
       {
         id: 1,
@@ -167,8 +175,12 @@ export const const_tutors = [
     id: 3,
     name: "Dr. Lakindu Somaweera",
     description: "Internation Medicine Resident",
+    rating: 4.8,
+    reviews: 120,
     college: "Queens University",
+    specialist: "Tailored Expert Guidance",
     image: "/lakindu.png",
+    location: "Ontario", // Random location
     socialsLinks: [
       {
         id: 1,
@@ -191,8 +203,12 @@ export const const_tutors = [
     id: 4,
     name: "Fiona Huang",
     description: "MD Candidate",
+    rating: 4.8,
+    reviews: 120,
     college: "University of British Columbia",
+    specialist: "Focused Medical Mentorship",
     image: "/fiona.png",
+    location: "Alberta", // Random location
     socialsLinks: [
       {
         id: 1,
@@ -213,10 +229,14 @@ export const const_tutors = [
   },
   {
     id: 5,
-    name: "William Ding ",
+    name: "William Ding",
     description: "MD Candidate",
+    rating: 4.8,
+    reviews: 120,
     college: "University of Toronto",
+    specialist: "Individualized Clinical Insight",
     image: "/william.png",
+    location: "British Columbia", // Random location
     socialsLinks: [
       {
         id: 1,
@@ -238,9 +258,13 @@ export const const_tutors = [
   {
     id: 6,
     name: "Buvani Sivagnanasunderam",
-    description: "MD Candidate ",
+    description: "MD Candidate",
+    rating: 4.8,
+    reviews: 120,
     college: "McMaster University",
+    specialist: "Dedicated Clinical Support",
     image: "/buvani.png",
+    location: "Ontario", // Random location
     socialsLinks: [
       {
         id: 1,
@@ -261,10 +285,14 @@ export const const_tutors = [
   },
   {
     id: 7,
-    name: "Rida Sheikh ",
-    description: "MD Candidate ",
+    name: "Rida Sheikh",
+    description: "MD Candidate",
+    rating: 4.8,
+    reviews: 120,
     college: "University of Western Ontario",
+    specialist: "Advanced Medical Coaching",
     image: "/rida.png",
+    location: "Ontario", // Random location
     socialsLinks: [
       {
         id: 1,
@@ -286,9 +314,13 @@ export const const_tutors = [
   {
     id: 8,
     name: "Patricia Machekera",
-    description: "MD Candidate ",
-    college: "University of Manitoba ",
+    description: "MD Candidate",
+    rating: 4.8,
+    reviews: 120,
+    college: "University of Manitoba",
+    specialist: "Tailored Expert Guidance",
     image: "/patricia.png",
+    location: "British Columbia", // Random location
     socialsLinks: [
       {
         id: 1,
@@ -306,8 +338,11 @@ export const const_tutors = [
         link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
       },
     ],
-  }
+  },
 ];
+
+
+
 
 export const reviews=[
     {

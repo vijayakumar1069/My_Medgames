@@ -8,7 +8,7 @@ import Subscribe_Form from "./Subscribe_Form";
 
 const Footer = () => {
   return (
-    <div className="w-full h-full flex flex-col bg-[#274E49] ">
+    <div className="w-full h-full flex flex-col bg-[#274E49]  ">
 
         <div className="w-full flex justify-center items-center flex-col space-y-8 p-4 py-10 ">
           <div className="lg:w-10/12 md:w-11/12 w-full grid grid-cols-1 sm:grid-cols-2 justify-items-center xl:grid-cols-3 gap-8 p-5">
@@ -113,7 +113,7 @@ const Footer = () => {
           </div>
         </div>
           <div className="w-full h-[0.5px] opacity-30 bg-[#fff]"></div>
-          <div className=" p-4 py-3 text-sm sm:text-base flex sm:flex-row flex-col space-y-3 sm:space-y-0 justify-between text-white lg:w-10/12 md:w-11/12 w-full items-center">
+          <div className=" p-4 py-3 text-sm lg:text-base flex sm:flex-row flex-col space-y-3 sm:space-y-0 justify-between text-white lg:w-10/12 md:w-11/12 w-full items-center">
           <div className="flex justify-center items-center flex-1 ">
 
             <h1 className="text-center">Copyright &copy; 2024 Med Games</h1>
