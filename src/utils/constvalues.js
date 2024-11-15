@@ -1,14 +1,20 @@
 export const navbarvalues = [
-  {
-    id: 1,
-    name: "Home",
+  // {
+  //   id: 1,
+  //   name: "Home",
 
-    link: "/",
-  },
+  //   link: "/",
+  // },
   {
     id: 2,
-    name: "About",
+    name: "About Us",
     link: "/about",
+  },
+  {
+    id: 9,
+    name: "Meet Our Tutors",
+    link: "/meet-our-tutors",
+
   },
   {
     id: 5,

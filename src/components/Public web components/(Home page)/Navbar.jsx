@@ -47,7 +47,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#4F9F76] fixed top-0 left-0 right-0 z-50  font-Manrope w-full h-20 flex overflow-x-hidden">
-      <div className="lg:w-[1400px]  w-full px-5 md:px-12 lg:px-10 flex mx-auto items-center justify-between">
+      <div className="lg:w-[1400px]  w-full px-5 md:px-10 lg:px-8 xl:px-12 flex mx-auto items-center justify-between">
         {/* Logo and Title */}
         <div className="flex space-x-2 items-center">
           <Image
@@ -65,7 +65,7 @@ const Navbar = () => {
           <ul>
             {navbarvalues.map((item) => (
               <li
-                className="inline-block mx-2 text-base  sm:text-base text-white"
+                className="inline-block mx-2 text-base sm:text-sm   xl:text-base text-white"
                 key={item.id}
               >
                 <Link href={item.link}>{item.name}</Link>
