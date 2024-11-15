@@ -30,7 +30,7 @@ const Blog_Card = ({ blog }) => {
         </div>
       </div>
       <div className="px-3 pb-5">
-        <p className="text-[#4A4A4A] text-base font-medium ">{description}</p>
+        <p className="text-[#4A4A4A] text-sm sm:text-base ">{description}</p>
       </div>
     </div>
   );

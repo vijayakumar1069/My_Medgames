@@ -34,7 +34,7 @@ const FAQs = () => {
                     : ""
                 }`}
               >
-                <AccordionTrigger className="w-full text-lg font-medium text-black">
+                <AccordionTrigger className="w-full text-sm sm:text-base font-medium text-black">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="w-full">

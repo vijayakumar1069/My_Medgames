@@ -37,7 +37,7 @@ const Consulatation_percetage = ({ details }) => {
 
       {/* Description Text */}
       <div className="flex-1">
-        <p className="text-lg max-w-xs  text-wrap">{description}</p>
+        <p className="text-sm sm:text-base max-w-xs  text-wrap">{description}</p>
       </div>
     </div>
   );

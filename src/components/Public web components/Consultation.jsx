@@ -5,6 +5,7 @@ import Large_Title from "./Large_Title";
 import { consultation_details } from "@/utils/constvalues";
 import Consulatation_percetage from "./Consulatation_percetage";
 import { Button } from "../ui/button";
+import Consultation_Form from "./Coultation_Form";
 
 const Consultation = () => {
   return (
@@ -21,7 +22,7 @@ const Consultation = () => {
         />
         <div className="absolute inset-0 flex gap-5 flex-col justify-center xl:space-x-3 space-y-5 xl:space-y-0 items-center xl:flex-row">
           <div className="xl:basis-5/12 relative w-full h-full flex flex-col justify-center items-center ">
-            <form action="" className=" bg-white absolute xl:bottom-0 xl:right-0 xl:p-20 lg:p-14 p-10 sm:p-20  shadow-lg mt-10 xl:mt-0 md:w-[500px] sm:w-[600px] w-full">
+            {/* <form action="" className=" bg-white absolute xl:bottom-0 xl:right-0 xl:p-20 lg:p-14 p-10 sm:p-20  shadow-lg mt-10 xl:mt-0 md:w-[500px] sm:w-[600px] w-full">
               <div className="flex flex-col space-y-1">
                 <div className="flex flex-col space-y-2">
                   <label htmlFor="name" className="text-lg font-semibold">
@@ -66,7 +67,8 @@ const Consultation = () => {
                   </Button>
                 </div>
               </div>
-            </form>
+            </form> */}
+            <Consultation_Form/>
           </div>
           <div className="flex-1 h-[60%] xl:mt-60 justify-center xl:px-0 px-10 pb-10">
             <div className="flex flex-col space-y-4 justify-center  w-full ">

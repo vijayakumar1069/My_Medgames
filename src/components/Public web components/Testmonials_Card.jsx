@@ -36,7 +36,7 @@ const TestimonialsCard = ({ review }) => {
           ></path>
         </svg>
 
-        <p className="inline text-lg tracking-normal ">{review_content}</p>
+        <p className="inline text-sm sm:text-base  tracking-normal ">{review_content}</p>
 
         <svg
           className="inline-block ml-2 text-[#4F9F76] w-6 h-6 align-bottom"
@@ -61,7 +61,7 @@ const TestimonialsCard = ({ review }) => {
             alt="Vector Image"
             style={{ width: "auto", height: "100%" }} // Adjust styling to enforce the aspect ratio
           />
-          <p>Dr. {name}</p>
+          <p className="">Dr. {name}</p>
         </div>
         <div className="flex items-center space-x-1 text-yellow-500">
           {[...Array(fullStars)].map((_, i) => (

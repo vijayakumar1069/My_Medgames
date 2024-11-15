@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { navbarvalues, socialMedialinks } from "@/utils/constvalues";
 import Link from "next/link";
 import { IconBrandThreads, IconMail, IconPhoneCall } from "@tabler/icons-react";
+import Subscribe_Form from "./Subscribe_Form";
 
 const Footer = () => {
   return (
@@ -31,7 +32,7 @@ const Footer = () => {
                 At Med Games, we are committed to helping medical students and
                 professionals reach their full potential.
               </p>
-              <form action="" className="flex flex-col md:flex-row md:space-x-3 w-full  md:items-center space-y-2 md:space-y-0">
+              {/* <form action="" className="flex flex-col md:flex-row md:space-x-3 w-full  md:items-center space-y-2 md:space-y-0">
                 <input
                   type="email"
                   placeholder="Enter your email"
@@ -43,7 +44,8 @@ const Footer = () => {
                 >
                   Subscribe
                 </Button>
-              </form>
+              </form> */}
+              <Subscribe_Form/>
             </div>
     
             {/* Quick Links and Social Media Links Section */}
@@ -111,7 +113,7 @@ const Footer = () => {
           </div>
         </div>
           <div className="w-full h-[0.5px] opacity-30 bg-[#fff]"></div>
-          <div className=" p-4 py-3 flex sm:flex-row flex-col space-y-3 sm:space-y-0 justify-between text-white lg:w-10/12 md:w-11/12 w-full items-center">
+          <div className=" p-4 py-3 text-sm sm:text-base flex sm:flex-row flex-col space-y-3 sm:space-y-0 justify-between text-white lg:w-10/12 md:w-11/12 w-full items-center">
           <div className="flex justify-center items-center flex-1 ">
 
             <h1 className="text-center">Copyright &copy; 2024 Med Games</h1>
