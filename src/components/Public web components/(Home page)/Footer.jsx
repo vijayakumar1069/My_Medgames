@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { Button } from "../ui/button";
+
 import { navbarvalues, socialMedialinks } from "@/utils/constvalues";
 import Link from "next/link";
 import { IconBrandThreads, IconMail, IconPhoneCall } from "@tabler/icons-react";

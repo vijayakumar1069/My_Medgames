@@ -8,8 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { accordion_details } from "@/utils/constvalues";
-import { Button } from "../ui/button";
-import Avatar_Creation from "./Avatar_Creation";
+
 
 
 const FAQs = () => {

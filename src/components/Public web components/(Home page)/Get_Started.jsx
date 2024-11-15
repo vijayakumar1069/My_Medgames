@@ -2,8 +2,9 @@ import React from "react";
 import Small_Title from "./Small_Title";
 import Large_Title from "./Large_Title";
 import Avatar_Creation from "./Avatar_Creation";
-import { Button } from "../ui/button";
+
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const Get_Started = () => {
   const imgs = [

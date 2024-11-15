@@ -1,9 +1,9 @@
 import React from 'react'
 import Small_Title from './Small_Title'
 import Large_Title from './Large_Title'
-import { Button } from '../ui/button'
 import Testmonials_Card from './Testmonials_Card'
 import { reviews } from '@/utils/constvalues'
+import { Button } from '@/components/ui/button'
 
 const Testimonials = () => {
   return (

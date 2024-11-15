@@ -1,5 +1,5 @@
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import React from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const Avatar_Creation = ({ item, index }) => {
   const { id, src, alt } = item;

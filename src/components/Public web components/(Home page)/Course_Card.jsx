@@ -1,8 +1,9 @@
 import { IconCalendar, IconClockHour2, IconMapPin } from "@tabler/icons-react";
 import Image from "next/image";
 import React from "react";
-import { Button } from "../ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 
 const Course_Card = ({ course }) => {
   const {

@@ -1,9 +1,10 @@
 import React from 'react'
 import Small_Title from './Small_Title'
 import Large_Title from './Large_Title'
-import { Button } from '../ui/button'
+
 import { courses } from '@/utils/constvalues'
 import Course_Card from './Course_Card'
+import { Button } from '@/components/ui/button'
 
 const Courses = () => {
   return (

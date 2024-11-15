@@ -3,7 +3,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
-import { Button } from "../ui/button";
 import { IconX, IconMenu2 } from "@tabler/icons-react";
 import { navbarvalues } from "@/utils/constvalues";
 import {
@@ -16,6 +15,7 @@ import {
 } from "@/components/ui/drawer";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 // Variants for individual navbar items in the drawer
 const itemVariants = {
