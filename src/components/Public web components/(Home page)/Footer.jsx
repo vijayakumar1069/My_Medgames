@@ -89,7 +89,7 @@ const Footer = () => {
                fill
                priority
                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                objectFit="contain"
+                style={{ objectFit: "contain" }}
                 className="rounded-lg opacity-50 z-0"
               />
               <div className="z-10 flex flex-col w-full h-full justify-center items-center space-y-4 text-center p-1">
