@@ -3,6 +3,7 @@ import Link from "next/link";
 import { IconHome, IconChevronRight } from "@tabler/icons-react";
 
 const Breadcrumb = ({ items = [],headingTextColor }) => {
+  console.log(items);
   return (
     <nav className="flex items-center space-x-2 text-gray-700" aria-label="Breadcrumb">
       {/* Home Link */}

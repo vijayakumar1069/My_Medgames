@@ -24,12 +24,12 @@ const Course_Card = ({ course }) => {
   } = course;
 
   return (
-    <div className="max-w-4xl bg-[#F4F6FC] rounded-lg p-5 flex flex-col space-y-5 text-[#4A4A4A]">
+    <div className="max-w-6xl bg-[#F4F6FC] rounded-lg p-5 flex flex-col space-y-5 text-[#4A4A4A]">
       <div className="relative w-full h-72">
         <Image
           src={image}
           alt="course_image"
-        fill
+          fill
           className="object-cover object-center rounded-lg"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Customize sizes for breakpoints
         />
@@ -46,26 +46,30 @@ const Course_Card = ({ course }) => {
         </div>
       </div>
       <h1 className="text-3xl font-semibold text-black"> {name} </h1>
-      <div className="flex lg:flex-row flex-wrap flex-col lg:items-center lg:space-x-2 space-y-3 lg:space-y-0 w-full">
+      <div className="grid md:grid-cols-3  grid-cols-1 gap-3 w-full items-center text-sm">
+        {/* Start Date and End Date */}
         <div className="flex items-center space-x-1">
           <IconCalendar stroke={2} className="text-[#4F9F76]" />
           <span>
-            {" "}
-            {start_date} to {end_date}{" "}
+            {start_date} to {end_date}
           </span>
         </div>
+
+        {/* Location */}
         <div className="flex items-center space-x-1">
           <IconMapPin stroke={2} className="text-[#4F9F76]" />
-          <span> {via} </span>
+          <span>{via}</span>
         </div>
+
+        {/* Time and Class Days */}
         <div className="flex items-center space-x-1">
           <IconClockHour2 stroke={2} className="text-[#4F9F76]" />
           <span>
-            {" "}
             {daily_start_time} to {daily_end_time} on {claasDay}
           </span>
         </div>
       </div>
+
       <div className="">
         <p className=" text-sm sm:text-base "> {description}. </p>
       </div>

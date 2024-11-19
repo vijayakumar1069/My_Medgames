@@ -4,34 +4,36 @@ import Breadcrumb from './Breadcrumb';
 import { usePathname } from 'next/navigation';
 import { navbarvalues } from '@/utils/constvalues';
 
-const Breadcrumb_Wrapper = ({headingTextColor}) => {
+const Breadcrumb_Wrapper = ({ headingTextColor }) => {
   const pathname = usePathname(); // Get the current pathname
 
-  // Extract the dynamic segments (slugs) from the pathname
-  const segments = pathname.split('/').filter(Boolean); // Split the pathname into parts
-  const slug = segments[segments.length - 1]; // Assuming the slug is the last part
+  // Extract the segments from the pathname
+  const segments = pathname.split('/').filter(Boolean); // Split and filter empty strings
 
-  // Find the current page based on the pathname
-  let heading = navbarvalues.filter((item) => item.link === pathname);
+  // Find the base parent path (e.g., "/our-courses" or "/blog")
+  const basePath = `/${segments[0]}`; // The first segment represents the parent path
 
-  // If no exact match is found, try to find the page dynamically based on the slug
-  if (heading.length === 0 && slug) {
-    heading = navbarvalues.filter((item) =>
-      item.link.includes('[slug]') // Match against the dynamic route, assuming the link includes a slug
-    );
-  }
 
-  // Set the breadcrumbItems based on the filtered page and dynamic slug
+  // Find the slug (last part of the path)
+  const slug = segments.length > 1 ? decodeURIComponent(segments[segments.length - 1]) : null;
+
+  // Find the parent page in the navbar
+  const parentPage = navbarvalues.find((item) => item.link === basePath);
+
+  // Build the breadcrumb items
   const breadcrumbItems = [
-    { label: heading[0]?.name || "Page", href: null }, // Use dynamic name or fallback to "Page"
-    // slug ? { label: slug, href: null } : null, // Add slug to breadcrumbs if available
-  ].filter(Boolean); // Remove null values (in case no slug is present)
+
+    parentPage ? { label: parentPage.name, href: parentPage.link } : null, // Add parent page
+    slug ? { label: slug, href: null } : null, // Add the slug as the last breadcrumb if available
+  ].filter(Boolean); // Remove null values
 
   return (
-    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
-      <h1 className={`text-3xl font-bold ${headingTextColor?headingTextColor:"text-white"}`}>{heading[0]?.name}</h1>
+    <div className="absolute inset-0 flex flex-col items-center justify-center">
+      <h1 className={`text-3xl font-bold ${headingTextColor || "text-white"}`}>
+        {slug || parentPage?.name || "Page"} {/* Display slug, parent name, or fallback */}
+      </h1>
       <div className="mt-4">
-        <Breadcrumb items={breadcrumbItems} headingTextColor={headingTextColor}  />
+        <Breadcrumb items={breadcrumbItems} headingTextColor={headingTextColor} />
       </div>
     </div>
   );

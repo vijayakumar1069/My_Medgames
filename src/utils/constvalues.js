@@ -14,7 +14,6 @@ export const navbarvalues = [
     id: 9,
     name: "Meet Our Tutors",
     link: "/meet-our-tutors",
-
   },
   {
     id: 5,
@@ -341,235 +340,393 @@ export const const_tutors = [
   },
 ];
 
-export const brand_Info={
-  name:"Med Games",
-  description:"The best platform to study medicine in the world",
-  image:"/logo.png",
-   social_links:[
+export const brand_Info = {
+  name: "Med Games",
+  description: "The best platform to study medicine in the world",
+  image: "/logo.png",
+  social_links: [
     {
-      id:1,
-      name:"Website",
-      link:"https://medgamesorg.com/",
-      display_content:"www.medgamesorg.com"
+      id: 1,
+      name: "Website",
+      link: "https://medgamesorg.com/",
+      display_content: "www.medgamesorg.com",
     },
     {
-      id:2,
-      name:"Email",
-      link:"med.games.org@gmail.com",
-      display_content:"med.games.org@gmail.com"
+      id: 2,
+      name: "Email",
+      link: "med.games.org@gmail.com",
+      display_content: "med.games.org@gmail.com",
     },
     {
-      id:3,
-      name:"Instagram",
-      link:"https://www.instagram.com/medgamesorg/",
-      display_content:"@medgamesorg"
-    }
-   ]
-}
+      id: 3,
+      name: "Instagram",
+      link: "https://www.instagram.com/medgamesorg/",
+      display_content: "@medgamesorg",
+    },
+  ],
+};
 
-
-
-export const reviews=[
-    {
-        id:1,
-        name:"Joshua",
-        review_content:"The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
-        image:"/lakindu.png",
-        rating:4.5,
-    },
-    {
-        id:2,
-        name:"Sathya",
-        review_content:"Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
-        image:"/lakindu.png",
-        rating:4.5,
-    },
-    {
-      id:3,
-      name:"Sathya",
-      review_content:"Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
-      image:"/lakindu.png",
-      rating:4.5,
+export const reviews = [
+  {
+    id: 1,
+    name: "Joshua",
+    review_content:
+      "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
+    image: "/lakindu.png",
+    rating: 4.5,
   },
   {
-    id:4,
-    name:"Sathya",
-    review_content:"Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
-    image:"/lakindu.png",
-    rating:4.5,
-}
-]
-
-export const courses=[
-    {
-        id:1,
-        name:"CARS",
-        description:"Our flexible weekend classes are tailored to accommodate your schedule, allowing you to engage fully without disrupting your weekday commitments , Our program focuses on hands-on practice with MCAT-style CARS passages to build confidence ",
-        image:"/cars.png",
-        link:"/mcat",
-        price:"600",
-        start_date:"Jan 12,2024",
-        end_date:"Apr 12,2025",
-        via:"Virtual program, zoom",
-        daily_start_time:"6:00 PM",
-        daily_end_time:"9:00 PM",
-        claasDay:"Sunday's",
-        instructor:"Martha Hudson",
-        instructor_image:"/cars_ins.png",
-    },
-    {
-        id:2,
-        name:"CASPer",
-        description:"Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
-        image:"/casper.png",
-        link:"/mcat",
-        price:"300",
-        start_date:"Jan 12,2024",
-        end_date:"Apr 12,2025",
-        via:"Virtual program, zoom",
-        daily_start_time:"6:00 PM",
-        daily_end_time:"9:00 PM",
-        claasDay:"Sunday's",
-        instructor:"Juan Lawson",
-        instructor_image:"/casper_inc.png",
-    },
-    {
-      id:3,
-      name:"CASPer",
-      description:"Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
-      image:"/casper.png",
-      link:"/mcat",
-      price:"300",
-      start_date:"Jan 12,2024",
-      end_date:"Apr 12,2025",
-      via:"Virtual program, zoom",
-      daily_start_time:"6:00 PM",
-      daily_end_time:"9:00 PM",
-      claasDay:"Sunday's",
-      instructor:"Juan Lawson",
-      instructor_image:"/casper_inc.png",
+    id: 2,
+    name: "Sathya",
+    review_content:
+      "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
+    image: "/lakindu.png",
+    rating: 4.5,
   },
   {
-    id:4,
-    name:"CASPer",
-    description:"Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
-    image:"/casper.png",
-    link:"/mcat",
-    price:"300",
-    start_date:"Jan 12,2024",
-    end_date:"Apr 12,2025",
-    via:"Virtual program, zoom",
-    daily_start_time:"6:00 PM",
-    daily_end_time:"9:00 PM",
-    claasDay:"Sunday's",
-    instructor:"Juan Lawson",
-    instructor_image:"/casper_inc.png",
-}
-]
+    id: 3,
+    name: "Sathya",
+    review_content:
+      "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
+    image: "/lakindu.png",
+    rating: 4.5,
+  },
+  {
+    id: 4,
+    name: "Sathya",
+    review_content:
+      "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
+    image: "/lakindu.png",
+    rating: 4.5,
+  },
+];
+
+export const courses = [
+  {
+    id: 1,
+    name: "CARS Program",
+    description:
+      "Our flexible weekend classes are tailored to accommodate your schedule, allowing you to engage fully without disrupting your weekday commitments , Our program focuses on hands-on practice with MCAT-style CARS passages to build confidence ",
+    image: "/cars.png",
+    details_image: "/cars_img.png",
+    link: "/mcat",
+    price: "600",
+    start_date: "Jan 12,2024",
+    end_date: "Apr 12,2025",
+    star: "5",
+    rating: "3",
+    key_features: [
+      "3 edits by medical students",
+      "Post-edit meetings",
+      "Mentorship-based approach",
+      "Region-specific application support",
+    ],
+    via: "Virtual program, zoom",
+    daily_start_time: "6:00 PM",
+    daily_end_time: "9:00 PM",
+    claasDay: "Sunday's",
+    instructor: "Martha Hudson",
+    instructor_image: "/cars_ins.png",
+    enrollerd_student: "120",
+    lessions: "15",
+    teaching_language: "English",
+    reviews:[
+      {
+        id: 1,
+        name: "Joshua",
+        review_content:
+          "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 2,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 3,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 4,
+        name: "Sathya",
+        review_content:"Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 4,
+        small_description: "Lorem ipsum dolor ",
+      }
+    ]
+  },
+  {
+    id: 2,
+    name: "CASPer Program",
+    description:
+      "Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
+    image: "/casper.png",
+    details_image: "/casper_img.png",
+    link: "/mcat",
+    price: "400",
+    star: "5",
+    rating: "3",
+    key_features: [
+      "3 edits by medical students",
+      "Post-edit meetings",
+      "Mentorship-based approach",
+      "Region-specific application support",
+    ],
+    start_date: "Jan 12,2024",
+    end_date: "Apr 12,2025",
+    via: "Virtual program, zoom",
+    daily_start_time: "6:00 PM",
+    daily_end_time: "9:00 PM",
+    claasDay: "Sunday's",
+    instructor: "Juan Lawson",
+    instructor_image: "/casper_inc.png",
+    enrollerd_student: "120",
+    lessions: "15",
+    teaching_language: "English",
+  },
+  {
+    id: 3,
+    name: "Longitudinal MCAT",
+    description:
+      "Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
+    image: "/med_app_img.png",
+    details_image: "/med_app_img.png",
+    link: "/mcat",
+    price: "300",
+    star: "5",
+    rating: "3",
+    start_date: "Jan 12,2024",
+    key_features: [
+      "3 edits by medical students",
+      "Post-edit meetings",
+      "Mentorship-based approach",
+      "Region-specific application support",
+    ],
+    end_date: "Apr 12,2025",
+    via: "Virtual program, zoom",
+    daily_start_time: "6:00 PM",
+    daily_end_time: "9:00 PM",
+    claasDay: "Sunday's",
+    instructor: "Juan Lawson",
+    instructor_image: "/casper_inc.png",
+    enrollerd_student: "120",
+    lessions: "15",
+    teaching_language: "English",
+  },
+  {
+    id: 4,
+    name: "Mentorship",
+    description:
+      "Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
+    image: "/home_mentorship_img.png",
+    details_image: "/mentorship.png",
+    link: "/mcat",
+    price: "300",
+    star: "5",
+    rating: "3",
+    start_date: "Jan 12,2024",
+    key_features: [
+      "3 edits by medical students",
+      "Post-edit meetings",
+      "Mentorship-based approach",
+      "Region-specific application support",
+    ],
+    end_date: "Apr 12,2025",
+    via: "Virtual program, zoom",
+    daily_start_time: "6:00 PM",
+    daily_end_time: "9:00 PM",
+    claasDay: "Sunday's",
+    instructor: "Juan Lawson",
+    instructor_image: "/casper_inc.png",
+    enrollerd_student: "120",
+    lessions: "15",
+    teaching_language: "English",
+  },
+  {
+    id: 5,
+    name: "Interview Program",
+    description:
+      "Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
+    details_image: "/interview_img.png",
+    link: "/mcat",
+    price: "300",
+    star: "5",
+    rating: "3",
+    start_date: "Jan 12,2024",
+    key_features: [
+      "3 edits by medical students",
+      "Post-edit meetings",
+      "Mentorship-based approach",
+      "Region-specific application support",
+    ],
+    end_date: "Apr 12,2025",
+    via: "Virtual program, zoom",
+    daily_start_time: "6:00 PM",
+    daily_end_time: "9:00 PM",
+    claasDay: "Sunday's",
+    instructor: "Juan Lawson",
+    instructor_image: "/casper_inc.png",
+    enrollerd_student: "120",
+    lessions: "15",
+    teaching_language: "English",
+  },
+  {
+    id: 6,
+    name: "Med Applications",
+    description:
+      "Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
+    details_image: "/med_application_img.png",
+    link: "/mcat",
+    price: "300",
+    star: "5",
+    rating: "3",
+    key_features: [
+      "3 edits by medical students",
+      "Post-edit meetings",
+      "Mentorship-based approach",
+      "Region-specific application support",
+    ],
+    start_date: "Jan 12,2024",
+    end_date: "Apr 12,2025",
+    via: "Virtual program, zoom",
+    daily_start_time: "6:00 PM",
+    daily_end_time: "9:00 PM",
+    claasDay: "Sunday's",
+    instructor: "Juan Lawson",
+    instructor_image: "/casper_inc.png",
+    enrollerd_student: "120",
+    lessions: "15",
+    teaching_language: "English",
+  },
+];
 
 export const blogs = [
   {
-    id:1,
-    title:"Enhancing Patient Engagement with MedGames",
-    description:"Learn how to effectively approach the CASPer test with expert strategies, helping...",
-    date:"Jan 12,2024",
-    time:"6:00 PM",
-    image:"/blog1.png",
+    id: 1,
+    title: "Enhancing Patient Engagement with MedGames",
+    description:
+      "Learn how to effectively approach the CASPer test with expert strategies, helping...",
+    date: "Jan 12,2024",
+    time: "6:00 PM",
+    image: "/blog1.png",
   },
   {
-    id:2,
-    title:"testing blog",
-    description:"Discover time-saving tips to ace the MCAT while managing a hectic schedule. Find out how ",
+    id: 2,
+    title: "testing blog",
+    description:
+      "Discover time-saving tips to ace the MCAT while managing a hectic schedule. Find out how ",
 
-    date:"Jan 12,2024",
-    time:"6:00 PM",
-    image:"/blog2.png",
+    date: "Jan 12,2024",
+    time: "6:00 PM",
+    image: "/blog2.png",
   },
   {
-    id:3,
-    title:"How to Master CASPer: Top Tips from Experts",
-    date:"Jan 12,2024",
-    time:"6:00 PM",
-    image:"/blog3.png",
-    description:"Learn how to effectively approach the CASPer test with expert strategies, helping...",
+    id: 3,
+    title: "How to Master CASPer: Top Tips from Experts",
+    date: "Jan 12,2024",
+    time: "6:00 PM",
+    image: "/blog3.png",
+    description:
+      "Learn how to effectively approach the CASPer test with expert strategies, helping...",
   },
   {
-    id:4,
-    title:"testing blog",
-    description:"Discover time-saving tips to ace the MCAT while managing a hectic schedule. Find out how ",
+    id: 4,
+    title: "testing blog",
+    description:
+      "Discover time-saving tips to ace the MCAT while managing a hectic schedule. Find out how ",
 
-    date:"Jan 12,2024",
-    time:"6:00 PM",
-    image:"/blog2.png",
+    date: "Jan 12,2024",
+    time: "6:00 PM",
+    image: "/blog2.png",
   },
   {
-    id:5,
-    title:"How to Master CASPer: Top Tips from Experts",
-    date:"Jan 12,2024",
-    time:"6:00 PM",
-    image:"/blog3.png",
-    description:"Learn how to effectively approach the CASPer test with expert strategies, helping...",
-  }
-  
-]
+    id: 5,
+    title: "How to Master CASPer: Top Tips from Experts",
+    date: "Jan 12,2024",
+    time: "6:00 PM",
+    image: "/blog3.png",
+    description:
+      "Learn how to effectively approach the CASPer test with expert strategies, helping...",
+  },
+];
 
-export const consultation_details=[
+export const consultation_details = [
   {
-    id:1,
-    percentage:"90%",
-    description:"of students who have used our services ",
+    id: 1,
+    percentage: "90%",
+    description: "of students who have used our services ",
   },
   {
-    id:2,
-    percentage:"85%",
-    description:"of students who have used our services ",
+    id: 2,
+    percentage: "85%",
+    description: "of students who have used our services ",
   },
   {
-    id:3,
-    percentage:"85%",
-    description:"of students who have used our services ",
+    id: 3,
+    percentage: "85%",
+    description: "of students who have used our services ",
   },
   {
-    id:4,
-    percentage:"90%",
-    description:"of students who have used our services ",
-  }
-]
+    id: 4,
+    percentage: "90%",
+    description: "of students who have used our services ",
+  },
+];
 
 export const accordion_details = [
   {
     id: 1,
     question: "What qualifications do the tutors have?",
-    answer: "Our tutors are experts with advanced degrees and extensive experience in their subjects, ensuring high-quality guidance."
+    answer:
+      "Our tutors are experts with advanced degrees and extensive experience in their subjects, ensuring high-quality guidance.",
   },
   {
     id: 2,
     question: "What subjects or topics do the tutors cover?",
-    answer: "Tutors cover a wide range of subjects, including test prep, academic subjects, and specific skills like clinical reasoning."
+    answer:
+      "Tutors cover a wide range of subjects, including test prep, academic subjects, and specific skills like clinical reasoning.",
   },
   {
     id: 3,
     question: "How can I schedule a session with a tutor?",
-    answer: "You can schedule a session directly through our platform by selecting a tutor and available time slot."
+    answer:
+      "You can schedule a session directly through our platform by selecting a tutor and available time slot.",
   },
   {
     id: 4,
     question: "Can I choose a specific tutor?",
-    answer: "Yes, you can choose a tutor based on their expertise, availability, and your preferences."
+    answer:
+      "Yes, you can choose a tutor based on their expertise, availability, and your preferences.",
   },
   {
     id: 5,
     question: "Do you offer trial sessions?",
-    answer: "Yes, we offer trial sessions to help you assess a tutor's teaching style and expertise before committing."
+    answer:
+      "Yes, we offer trial sessions to help you assess a tutor's teaching style and expertise before committing.",
   },
   {
     id: 6,
     question: "Can I get help with clinical skills?",
-    answer: "Yes, we offer expert guidance on clinical skills, including mock scenarios and feedback to improve your practice."
+    answer:
+      "Yes, we offer expert guidance on clinical skills, including mock scenarios and feedback to improve your practice.",
   },
   {
     id: 7,
     question: "Are the tutoring sessions recorded?",
-    answer: "Yes, tutoring sessions are recorded, and you can review them at any time to reinforce learning."
-  }
-]
+    answer:
+      "Yes, tutoring sessions are recorded, and you can review them at any time to reinforce learning.",
+  },
+];
