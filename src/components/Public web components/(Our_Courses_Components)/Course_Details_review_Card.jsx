@@ -7,7 +7,7 @@ const Course_Details_review_Card = ({review}) => {
   return (
     <div>
        <div className="flex items-center space-x-4">
-        <Avatar className="w-20 h-20 md:w-28 md:h-28  bg-slate-400">
+        <Avatar className="w-20 h-20 md:w-24 md:h-24  bg-slate-400">
           <AvatarImage src={image} />
           <AvatarFallback>{name}</AvatarFallback>
         </Avatar>

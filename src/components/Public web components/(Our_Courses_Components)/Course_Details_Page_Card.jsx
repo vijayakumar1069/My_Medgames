@@ -24,7 +24,7 @@ const Course_Details_Page_Card = ({ course }) => {
     daily_start_time,
     details_image,
     daily_end_time,
-    claasDay,
+    classday,
     key_features,
   } = course;
 
@@ -88,7 +88,7 @@ const Course_Details_Page_Card = ({ course }) => {
         <div className="flex items-center space-x-1 w-full text-sm">
           <IconClockHour2 stroke={2} className="text-[#4F9F76]" />
           <span>
-            {daily_start_time} to {daily_end_time} on {claasDay}
+            {daily_start_time} to {daily_end_time} on {classday}
           </span>
         </div>
       </div>
@@ -135,7 +135,7 @@ const Course_Details_Page_Card = ({ course }) => {
           <div className="flex items-center space-x-1 text-sm mt-2">
             <IconClockHour2 stroke={2} className="text-[#fff]" />
             <span>
-              {daily_start_time} to {daily_end_time} on {claasDay}
+              {daily_start_time} to {daily_end_time} on {classday}
             </span>
           </div>
           <div className="">

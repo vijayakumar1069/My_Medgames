@@ -16,7 +16,7 @@ const Course_Review_Component = ({ course }) => {
         100
       : 0,
   }));
-  console.log(starCounts);
+
 
   return (
     <div className="mt-6 p-3 flex flex-col space-y-5">

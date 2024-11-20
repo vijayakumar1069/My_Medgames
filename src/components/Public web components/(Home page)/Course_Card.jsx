@@ -18,7 +18,7 @@ const Course_Card = ({ course }) => {
     via,
     daily_start_time,
     daily_end_time,
-    claasDay,
+    classDay,
     instructor,
     instructor_image,
   } = course;
@@ -65,7 +65,7 @@ const Course_Card = ({ course }) => {
         <div className="flex items-center space-x-1">
           <IconClockHour2 stroke={2} className="text-[#4F9F76]" />
           <span>
-            {daily_start_time} to {daily_end_time} on {claasDay}
+            {daily_start_time} to {daily_end_time} on {classDay}
           </span>
         </div>
       </div>

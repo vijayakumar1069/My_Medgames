@@ -29,7 +29,7 @@ const Tutor_Filter_Component = ({ setLocation }) => {
 
   // Submit handler
   const onSubmit = (data) => {
-    console.log("Selected location:", data.location);
+   
     setLocation(data.location);
   };
 
