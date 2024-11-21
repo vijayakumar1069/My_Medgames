@@ -45,6 +45,11 @@ export const navbarvalues = [
     name: "Contact Us",
     link: "/contact-us",
   },
+  {
+    id: 10,
+    name: "Privacy Policy",
+    link: "/privacy-policy",
+  },
 ];
 export const socialMedialinks = [
   {
@@ -666,7 +671,7 @@ export const courses = [
         small_description: "Lorem ipsum dolor ",
       },
     ],
-    course_faqs:  [
+    course_faqs: [
       {
         id: 1,
         question: "What is covered in the Longitudinal MCAT program?",
@@ -697,7 +702,7 @@ export const courses = [
         answer:
           "Yes, it includes detailed performance analytics, mentorship, and a buddy system to facilitate studying.",
       },
-    ]
+    ],
   },
   {
     id: 4,
@@ -837,7 +842,8 @@ export const courses = [
       {
         id: 3,
         question: "Can I customize the package?",
-        answer: "Yes, you can select three application services and add more for an additional charge.",
+        answer:
+          "Yes, you can select three application services and add more for an additional charge.",
       },
       {
         id: 4,
@@ -848,9 +854,10 @@ export const courses = [
       {
         id: 5,
         question: "How many edits are included for essays?",
-        answer: "Each essay receives up to three edits by experienced medical students.",
+        answer:
+          "Each essay receives up to three edits by experienced medical students.",
       },
-    ]
+    ],
   },
 ];
 
@@ -969,4 +976,175 @@ export const home_FAQs = [
   //   answer:
   //     "Yes, tutoring sessions are recorded, and you can review them at any time to reinforce learning.",
   // },
+];
+
+export const privacyPolicy = [
+  {
+    title: "Who we are",
+    content: `Our website address is: https://medgamesorg.com. We are a group of passionate medical students who are dedicated to helping aspiring medical students succeed in their journey to becoming a doctor.`,
+  },
+  {
+    title: "Comments",
+    content: `
+      - When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.
+      - An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here:(https://automattic.com/privacy/).
+    `,
+  },
+  {
+    title: "What we collect and store",
+    content: `
+      - While you visit our site, we’ll track:
+        - Products you’ve viewed: we’ll use this to, for example, show you products you’ve recently viewed.
+        - Location, IP address, and browser type: we’ll use this for purposes like estimating taxes and shipping.
+        - We’ll also use cookies to keep track of cart contents while you’re browsing our site.
+    `,
+  },
+  {
+    title: "Who on our team has access",
+    content: `
+      - Members of our team have access to the information you provide us. For example, both Administrators and Shop Managers can access:
+        - Order information like what was purchased, when it was purchased, and where it should be sent.
+        - Customer information like your name, email address, and billing and shipping information.
+      - Our team members have access to this information to help fulfill orders, process refunds, and support you.
+    `,
+  },
+  {
+    title: "Payments",
+    content: `
+      - We accept payments through PayPal. When processing payments, some of your data will be passed to PayPal, including information required to process or support the payment, such as the purchase total and billing information.
+      - Please see the PayPal Privacy Policy for more details:(https://www.paypal.com/privacy).
+    `,
+  },
+  {
+    title: "Cookies",
+    content: `
+      - If you leave a comment on our site you may opt-in to saving your name, email address, and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.
+      - If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.
+      - When you log in, we will also set up several cookies to save your login information and your screen display choices.
+    `,
+  },
+  {
+    title: "Embedded content from other websites",
+    content: `
+      - Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.
+      - These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.
+    `,
+  },
+  {
+    title: "How long we retain your data",
+    content: `
+      - If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.
+      - For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.
+    `,
+  },
+  {
+    title: "What rights you have over your data",
+    content: `
+      - If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us.
+      - You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.
+    `,
+  },
+  {
+    title: "Where your data is sent",
+    content: `
+      - Our Akismet anti-spam service is sent information that we collect, which includes the commenter’s IP address, user agent, referrer, and Site URL (along with other information directly provided by the commenter such as their name, username, email address, and the comment itself).
+      - This helps us to prevent spam on our site and ensure the integrity of the comment system.
+    `,
+  },
+];
+
+export const customized_privacy_policy = [
+  {
+    type: "heading with content",
+    title: "Who we are",
+    content: [
+      "Our website address is: https://medgamesorg.com. We are a group of passionate medical students who are dedicated to helping aspiring medical students succeed in their journey to becoming a doctor.",
+    ],
+  },
+  {
+    type: "heading with content",
+    title: "Comments",
+    content: [
+      "When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.",
+      "An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.",
+      "We collect information about you during the checkout process on our store.",
+    ],
+  },
+  {
+    type: "list with content",
+    title: "What we collect and store",
+    list_tittle: "While you visit our site, we’ll track:",
+    list_content: [
+      "Products you’ve viewed: we’ll use this to, for example, show you products you’ve recently viewed",
+      "Location, IP address, and browser type: we’ll use this for purposes like estimating taxes and shipping.",
+    ],
+    content: [
+      "We generally store information about you for as long as we need the information for the purposes for which we collect and use it, and we are not legally required to continue to keep it. For example, we will store order information for 10 years for tax and accounting purposes. This includes your name, email address and billing and shipping addresses",
+      "We will also store comments or reviews, if you choose to leave them.",
+    ],
+  },
+  {
+    type: "list with content",
+    title: "Who on our team has access",
+    list_tittle:
+      "Members of our team have access to the information you provide us. For example, both Administrators and Shop Managers can access:",
+    list_content: [
+      "Order information like what was purchased, when it was purchased and where it should be sent, and",
+      "Customer information like your name, email address, and billing and shipping information.",
+    ],
+    content: [
+      "Our team members have access to this information to help fulfill orders, process refunds and support you.",
+    ],
+  },
+  {
+    type: "link with content",
+    title: "Payments",
+    content: [
+      "We accept payments through PayPal. When processing payments, some of your data will be passed to PayPal, including information required to process or support the payment, such as the purchase total and billing information.",
+      { 
+        content: "For more details, please visit the ", 
+        link: "PayPal Privacy Policy", 
+        url: "https://www.paypal.com/privacy" 
+      },
+      "."
+    ]
+  },  
+  
+  {
+    type: "heading with content",
+    title: "Media",
+    content: [
+      "If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.",
+    ],
+  },
+  {
+    type: "heading with content",
+    title: "Cookies",
+    content: [
+      "If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.",
+      "When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.",
+    ],
+  },
+  {
+    type: "heading with content",
+    title: "Embedded content from other websites",
+    content: [
+      "Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website. These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.",
+      "For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.",
+    ],
+  },
+  {
+    type: "heading with content",
+    title: "What rights you have over your data",
+    content: [
+      "If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.",
+    ],
+  },
+  {
+    type: "heading with content",
+    title: "Where your data is sent",
+    content: [
+      "Our Akismet anti-spam service is sent information that we collect, which includes the commenter’s IP address, user agent, referrer, and Site URL (along with other information directly provided by the commenter such as their name, username, email address, and the comment itself). This helps us to prevent spam on our site and ensure the integrity of the comment system.",
+    ],
+  }
 ];
