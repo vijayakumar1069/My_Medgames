@@ -13,6 +13,9 @@ import {
 import CourseDetailItem from "./CourseDetailItem";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Course_OverView_Component from "./Course_OverView_Component";
+import Course_Suggestions from "./Course_Suggestions";
+import User_Selected_Course_FAQs from "./User_Selected_Course_FAQs";
 
 const User_Selected_Course_Component = ({ course }) => {
   const details = [
@@ -28,34 +31,41 @@ const User_Selected_Course_Component = ({ course }) => {
     { icon: IconWorld, label: "Language", value: course.teaching_language },
     { icon: IconUsers, label: "Students", value: course.enrollerd_student },
   ];
+
   return (
-    <div>
-      <div className="w-full h-full flex justify-center items-center  flex-col space-y-8 p-3 py-10 ">
-        <div className="lg:w-10/12 md:w-11/12 w-full flex md:flex-row flex-col md:space-y-0 space-y-10   space-x-10">
-          <div className="basis-3/4">
+    <div className="w-full h-full flex flex-col justify-center items-center space-y-10  py-10">
+      <div className="lg:w-10/12 md:w-11/12 flex flex-col justify-center items-center space-y-10">
+        {/* Main Content */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-10">
+          {/* Left Column: Tabs for Overview and Reviews */}
+          <div className="lg:col-span-2 w-full flex flex-col space-y-6">
             <Tabs defaultValue="overview" className="w-full">
               {/* Tabs Header */}
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="reviews">Reviews</TabsTrigger>
+                {course.reviews?.length > 0 && (
+                  <TabsTrigger value="reviews">Reviews</TabsTrigger>
+                )}
               </TabsList>
 
               {/* Overview Tab Content */}
               <TabsContent value="overview">
-                <h1 className="text-xl font-bold">Overview</h1>
+                <Course_OverView_Component />
               </TabsContent>
 
               {/* Reviews Tab Content */}
               <TabsContent value="reviews">
-                <Course_Review_Component course={course} />
+                {course.reviews?.length > 0 && (
+                  <Course_Review_Component course={course} />
+                )}
               </TabsContent>
             </Tabs>
           </div>
-          <div className="basis-1/4 h-fit flex flex-col space-y-4 bg-white shadow-xl p-5">
-            <div>
-              <h1 className="text-lg font-bold">Course Includes :</h1>
-            </div>
-            <div className="flex flex-col space-y-6">
+
+          {/* Right Column: Course Details and Enroll Button */}
+          <div className="lg:col-span-1 w-full h-fit max-w-sm bg-white shadow-xl p-6 rounded-lg">
+            <h1 className="text-lg font-bold mb-4">Course Includes :</h1>
+            <div className="space-y-6">
               {details.map((detail, index) => (
                 <CourseDetailItem
                   key={index}
@@ -65,15 +75,28 @@ const User_Selected_Course_Component = ({ course }) => {
                 />
               ))}
             </div>
-            <div className="">
+            <div className="mt-6">
               <Link href={`/payment?courseName=${course.name}`}>
-              <Button className="bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76] w-full">
-                Enroll Now
-              </Button>
+                <Button className="w-full bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
+                  Enroll Now
+                </Button>
               </Link>
             </div>
           </div>
         </div>
+
+        {/* Course Suggestions Section */}
+        <div className="w-full mt-8">
+          <Course_Suggestions currentCourse_Name={course.name} />
+        </div>
+      </div>
+      <div className="w-full">
+        {course.course_faqs?.length > 0 && (
+          <User_Selected_Course_FAQs
+            items={course.course_faqs}
+            heading={course.name + " FAQs"}
+          />
+        )}
       </div>
     </div>
   );

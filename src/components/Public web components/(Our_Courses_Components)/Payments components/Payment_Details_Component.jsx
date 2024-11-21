@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import React from "react";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,16 @@ const DetailRow = ({ label, value, isCapitalize = false }) => {
 const Payment_Details_Component = ({ paymentData }) => {
   const isSuccess = paymentData.status === "succeeded";
   const courseName = paymentData.description.split(": ")[1];
+
+  const handleDownload = async () => {
+    try {
+      console.log("Calling generateReceiptPDF...");
+      await generateReceiptPDF(paymentData);
+    } catch (err) {
+      console.error("Error in handleDownload:", err);
+    }
+  };
+  
 
   return (
     <div className="w-full min-h-screen flex justify-center items-center flex-col space-y-8 py-10 px-4 bg-[#f9fafb]">
@@ -93,7 +104,7 @@ const Payment_Details_Component = ({ paymentData }) => {
         {/* Payment Button */}
         <div className="flex w-full justify-center">
           <Button
-          onClick={() => generateReceiptPDF(paymentData)}
+          onClick={() => handleDownload()}
             className={`w-fit text-center ${
               isSuccess
                 ? "text-white bg-[#4F9F76] hover:bg-[#376F5F]"

@@ -430,7 +430,7 @@ export const courses = [
     enrollerd_student: "120",
     lessons: "15",
     teaching_language: "English",
-    reviews:[
+    reviews: [
       {
         id: 1,
         name: "Joshua",
@@ -461,12 +461,45 @@ export const courses = [
       {
         id: 4,
         name: "Sathya",
-        review_content:"Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
         image: "/lakindu.png",
         rating: 4,
         small_description: "Lorem ipsum dolor ",
-      }
-    ]
+      },
+    ],
+    course_faqs: [
+      {
+        id: 1,
+        question: "What are the objectives of the CARS program?",
+        answer:
+          "To help students actively read, understand passages, and apply effective strategies to improve accuracy and timing.",
+      },
+      {
+        id: 2,
+        question: "When does the CARS program start?",
+        answer:
+          "The program runs from January 12, 2024, to April 12, 2025, with sessions every Sunday from 6 PM to 9 PM EST.",
+      },
+      {
+        id: 3,
+        question: "What materials are provided for practice?",
+        answer:
+          "Students receive ten CARS tests, customizable study schedules, and participate in interactive sessions.",
+      },
+      {
+        id: 4,
+        question: "Who teaches the CARS program?",
+        answer:
+          "Expert tutors with 130+ scores in the CARS section teach the program.",
+      },
+      {
+        id: 5,
+        question: "What strategies are covered in the program?",
+        answer:
+          "Strategies include active reading, timing techniques, and methods for reviewing strategies and reasoning.",
+      },
+    ],
   },
   {
     id: 2,
@@ -496,6 +529,76 @@ export const courses = [
     enrollerd_student: "120",
     lessons: "15",
     teaching_language: "English",
+    reviews: [
+      {
+        id: 1,
+        name: "Joshua",
+        review_content:
+          "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 2,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 3,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 4,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 4,
+        small_description: "Lorem ipsum dolor ",
+      },
+    ],
+    course_faqs: [
+      {
+        id: 1,
+        question: "What does the CASPer program include?",
+        answer:
+          "It includes two live sessions, video recordings, four PDF tests, and six pre-recorded videos.",
+      },
+      {
+        id: 2,
+        question: "Who teaches the CASPer program?",
+        answer:
+          "Medical students with 4th-quartile CASPer scores and experience teaching successful sessions.",
+      },
+      {
+        id: 3,
+        question: "Are practice scenarios provided?",
+        answer:
+          "Yes, sample scenarios and feedback on timed responses are part of the program.",
+      },
+      {
+        id: 4,
+        question: "What are the main strategies taught for CASPer?",
+        answer:
+          "Focus on concise, ethical, and professional responses, as well as addressing questions clearly with examples.",
+      },
+      {
+        id: 5,
+        question: "When is the program available?",
+        answer:
+          "Live sessions are held in August, September, or October, depending on the student’s CASPer exam date.",
+      },
+    ],
   },
   {
     id: 3,
@@ -525,6 +628,76 @@ export const courses = [
     enrollerd_student: "120",
     lessons: "15",
     teaching_language: "English",
+    reviews: [
+      {
+        id: 1,
+        name: "Joshua",
+        review_content:
+          "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 2,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 3,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 4,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 4,
+        small_description: "Lorem ipsum dolor ",
+      },
+    ],
+    course_faqs:  [
+      {
+        id: 1,
+        question: "What is covered in the Longitudinal MCAT program?",
+        answer:
+          "It includes a comprehensive review based on the AAMC Official Syllabus, high-yield concepts, 5000+ practice passages, mock tests, and 50+ self-paced videos.",
+      },
+      {
+        id: 2,
+        question: "When does the program take place?",
+        answer:
+          "It runs from October 12, 2024, to April 12, 2025, with live sessions on Saturdays and Sundays from 10 AM to 1 PM EST.",
+      },
+      {
+        id: 3,
+        question: "What makes this program unique?",
+        answer:
+          "It is taught by experienced medical students who have scored 130+ in the MCAT and features small class sizes, customizable schedules, and high-yield resources.",
+      },
+      {
+        id: 4,
+        question: "Can I access recordings if I miss a session?",
+        answer:
+          "Yes, all live lectures are recorded and provided for student access.",
+      },
+      {
+        id: 5,
+        question: "Does this program include personalized support?",
+        answer:
+          "Yes, it includes detailed performance analytics, mentorship, and a buddy system to facilitate studying.",
+      },
+    ]
   },
   {
     id: 4,
@@ -610,6 +783,74 @@ export const courses = [
     enrollerd_student: "120",
     lessons: "15",
     teaching_language: "English",
+    reviews: [
+      {
+        id: 1,
+        name: "Joshua",
+        review_content:
+          "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 2,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 3,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Lorem ipsum dolor ",
+      },
+      {
+        id: 4,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/lakindu.png",
+        rating: 4,
+        small_description: "Lorem ipsum dolor ",
+      },
+    ],
+    course_faqs: [
+      {
+        id: 1,
+        question: "What does the Med Applications program cover?",
+        answer:
+          "It offers support for OMSAS ABS entries, essays for various universities, and top activities for schools like UCalgary and UBC.",
+      },
+      {
+        id: 2,
+        question: "What type of mentorship is included?",
+        answer:
+          "Monthly one-on-one meetings focusing on MCAT preparation, CASPer guidance, and course selection.",
+      },
+      {
+        id: 3,
+        question: "Can I customize the package?",
+        answer: "Yes, you can select three application services and add more for an additional charge.",
+      },
+      {
+        id: 4,
+        question: "What makes this program effective?",
+        answer:
+          "It offers a mentorship-based approach, expert edits by medical students, and tailored support.",
+      },
+      {
+        id: 5,
+        question: "How many edits are included for essays?",
+        answer: "Each essay receives up to three edits by experienced medical students.",
+      },
+    ]
   },
 ];
 
@@ -686,47 +927,46 @@ export const consultation_details = [
   },
 ];
 
-export const accordion_details = [
+export const home_FAQs = [
   {
     id: 1,
-    question: "What qualifications do the tutors have?",
+    question: "What makes Med Games different from other services?",
     answer:
-      "Our tutors are experts with advanced degrees and extensive experience in their subjects, ensuring high-quality guidance.",
+      "Med Games focuses on small class sizes, interactive sessions, and mentorship by experienced medical students.",
   },
   {
     id: 2,
-    question: "What subjects or topics do the tutors cover?",
-    answer:
-      "Tutors cover a wide range of subjects, including test prep, academic subjects, and specific skills like clinical reasoning.",
+    question: "Are programs available virtually?",
+    answer: "Yes, all programs are conducted virtually via Zoom.",
   },
   {
     id: 3,
-    question: "How can I schedule a session with a tutor?",
+    question: "Can I book a consultation before enrolling?",
     answer:
-      "You can schedule a session directly through our platform by selecting a tutor and available time slot.",
+      "Yes, you can book a free 15-minute consultation by emailing med.games.org@gmail.com.",
   },
   {
     id: 4,
-    question: "Can I choose a specific tutor?",
+    question: "What is the success rate of Med Games students?",
     answer:
-      "Yes, you can choose a tutor based on their expertise, availability, and your preferences.",
+      "96% of students with the Ultimate Package received medical school interview invites last year.",
   },
   {
     id: 5,
-    question: "Do you offer trial sessions?",
+    question: "How do I enroll in a program?",
     answer:
-      "Yes, we offer trial sessions to help you assess a tutor's teaching style and expertise before committing.",
+      "Visit the website or contact Med Games via email or Instagram for enrollment details",
   },
-  {
-    id: 6,
-    question: "Can I get help with clinical skills?",
-    answer:
-      "Yes, we offer expert guidance on clinical skills, including mock scenarios and feedback to improve your practice.",
-  },
-  {
-    id: 7,
-    question: "Are the tutoring sessions recorded?",
-    answer:
-      "Yes, tutoring sessions are recorded, and you can review them at any time to reinforce learning.",
-  },
+  // {
+  //   id: 6,
+  //   question: "Can I get help with clinical skills?",
+  //   answer:
+  //     "Yes, we offer expert guidance on clinical skills, including mock scenarios and feedback to improve your practice.",
+  // },
+  // {
+  //   id: 7,
+  //   question: "Are the tutoring sessions recorded?",
+  //   answer:
+  //     "Yes, tutoring sessions are recorded, and you can review them at any time to reinforce learning.",
+  // },
 ];

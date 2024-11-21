@@ -9,10 +9,12 @@ import Testimonials from "@/components/Public web components/(Home page)/Testimo
 import Tutors from "@/components/Public web components/(Home page)/Tutors";
 import Videos from "@/components/Public web components/(Home page)/Videos";
 import YouTubePlayer from "@/components/Public web components/(Home page)/YouTubePlayer";
+import { home_FAQs } from "@/utils/constvalues";
 import { Suspense } from "react";
 
 
 export default function Home() {
+  
   return (
     <>
     {/* <Suspense fallback={<div>Loading...</div>}>
@@ -26,7 +28,7 @@ export default function Home() {
       <Courses/>
       <Blogs/>
       <Consultation/>
-      <FAQs/>
+      <FAQs  items={home_FAQs}/>
       <Get_Started/>
       <Footer/>
     </>

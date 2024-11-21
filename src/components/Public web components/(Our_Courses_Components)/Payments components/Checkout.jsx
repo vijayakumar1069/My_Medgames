@@ -125,6 +125,7 @@ const Checkout = ({ purchaseCourseDetails }) => {
         throw new Error(stripeError.message);
       }
       setPayment_Id(paymentIntent.id);
+      
   
   
       if (paymentIntent.status === "succeeded") {

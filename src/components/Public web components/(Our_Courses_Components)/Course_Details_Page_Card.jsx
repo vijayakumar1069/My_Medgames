@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   IconCalendar,
@@ -9,7 +10,7 @@ import {
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const Course_Details_Page_Card = ({ course }) => {
   const {
@@ -32,16 +33,22 @@ const Course_Details_Page_Card = ({ course }) => {
   const hasHalfStar = star % 1 !== 0;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="relative max-w-xl w-full bg-[#F4F6FC] rounded-lg overflow-hidden group shadow-md hover:shadow-lg transition-shadow duration-300">
+    <div
+      className="relative max-w-xl w-full bg-[#F4F6FC] rounded-lg overflow-hidden group shadow-md hover:shadow-lg transition-shadow duration-300"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {/* Top Image/Preview Section */}
       <div className="relative w-full h-72">
         <Image
           src={details_image}
           alt="course_image"
           fill
-          className="object-cover object-center "
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Customize sizes for breakpoints
+          className="object-cover object-center"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
 
@@ -68,22 +75,17 @@ const Course_Details_Page_Card = ({ course }) => {
           </span>
         </div>
         <p className="text-[#F61212] font-bold">$ {price}</p>
-        <div className="grid lg:grid-cols-2  grid-cols-1 gap-1 w-full items-center text-sm">
-          {/* Start Date and End Date */}
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-1 w-full items-center text-sm">
           <div className="flex items-center space-x-1">
             <IconCalendar stroke={2} className="text-[#4F9F76]" />
             <span>
               {start_date} to {end_date}
             </span>
           </div>
-
-          {/* Location */}
           <div className="flex items-center space-x-1">
             <IconMapPin stroke={2} className="text-[#4F9F76]" />
             <span>{via}</span>
           </div>
-
-          {/* Time and Class Days */}
         </div>
         <div className="flex items-center space-x-1 w-full text-sm">
           <IconClockHour2 stroke={2} className="text-[#4F9F76]" />
@@ -91,14 +93,23 @@ const Course_Details_Page_Card = ({ course }) => {
             {daily_start_time} to {daily_end_time} on {classday}
           </span>
         </div>
+        <div className="block lg:hidden">
+          <Link href={`/our-courses/${name}`}>
+            <Button className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
+              View Details
+            </Button>
+          </Link>
+        </div>
       </div>
 
       {/* Hover Details Section */}
-      <div className="absolute bottom-0 left-0 h-full text-white w-full bg-[#274E49]  p-5 rounded-lg transform translate-y-full group-hover:translate-y-0 transition-transform duration-1500">
-        
+      <div
+        className={`absolute bottom-0 left-0 lg:inline-flex hidden h-full text-white w-full bg-[#274E49] p-5 rounded-lg transform ${
+          isHovered ? "translate-y-0" : "translate-y-full"
+        } transition-transform duration-1500`}
+      >
         <div className="flex flex-col space-y-3 p-6 w-full h-full">
           <h1 className="text-xl font-semibold">{name}</h1>
-       
           <p className="text-[#fff] line-clamp-1">{description}</p>
           <p> $ {price} </p>
           <div className="flex items-center space-x-2 my-2">
@@ -138,25 +149,25 @@ const Course_Details_Page_Card = ({ course }) => {
               {daily_start_time} to {daily_end_time} on {classday}
             </span>
           </div>
-          <div className="">
-            <ul>
-              {key_features.map((feature, index) => (
-                <li
-                  key={index}
-                  className="flex items-center space-x-1 text-sm mt-2"
-                >
-                  <IconCheck
-                    stroke={2}
-                    className="text-[#fff] p-1 bg-[#4F9F76] rounded-full"
-                  />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <Button className="bg-transparent mt-4 w-fit text-[#fff] px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white ">
-            <Link href={`/our-courses/${name}`}> Enroll Now</Link>{" "}
-          </Button>
+          <ul>
+            {key_features.map((feature, index) => (
+              <li
+                key={index}
+                className="flex items-center space-x-1 text-sm mt-2"
+              >
+                <IconCheck
+                  stroke={2}
+                  className="text-[#fff] p-1 bg-[#4F9F76] rounded-full"
+                />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <Link href={`/our-courses/${name}`}>
+            <Button className="bg-transparent mt-4 w-fit text-[#fff] px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white ">
+              View Details
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
