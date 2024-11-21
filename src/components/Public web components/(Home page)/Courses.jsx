@@ -27,7 +27,7 @@ const Courses = () => {
           </Button>
         </div>
       </div>
-      <div className="lg:w-10/12 md:w-11/12 w-full grid grid-cols-1 xl:grid-cols-2 gap-5 p-5 md:p-0 justify-items-center xl:justify-items-start">
+      <div className="lg:w-10/12 md:w-11/12 w-full grid grid-cols-1 md:grid-cols-2 gap-5 p-5 md:p-0 justify-items-center xl:justify-items-start">
         {courses.slice(0, 4).map((item) => (
           <Course_Card key={item.id} course={item} />
         ))}

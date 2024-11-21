@@ -38,7 +38,7 @@ export const navbarvalues = [
   {
     id: 8,
     name: "Jobs",
-    link: "/jobs",
+    link: "/jobs-opportunities",
   },
   {
     id: 3,

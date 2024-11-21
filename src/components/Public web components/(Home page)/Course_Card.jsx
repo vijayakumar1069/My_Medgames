@@ -24,7 +24,7 @@ const Course_Card = ({ course }) => {
   } = course;
 
   return (
-    <div className="max-w-6xl bg-[#F4F6FC] rounded-lg p-5 flex flex-col space-y-5 text-[#4A4A4A]">
+    <div className="max-w-5xl bg-[#F4F6FC] rounded-lg p-3 flex flex-col space-y-5 text-[#4A4A4A]">
       <div className="relative w-full h-72">
         <Image
           src={image}
@@ -46,7 +46,7 @@ const Course_Card = ({ course }) => {
         </div>
       </div>
       <h1 className="text-3xl font-semibold text-black"> {name} </h1>
-      <div className="grid md:grid-cols-3  grid-cols-1 gap-3 w-full items-center text-sm">
+      <div className="grid xl:grid-cols-3 lg:grid-cols-2  grid-cols-1 gap-y-3 gap-x-2 w-full items-center text-sm">
         {/* Start Date and End Date */}
         <div className="flex items-center space-x-1">
           <IconCalendar stroke={2} className="text-[#4F9F76]" />
@@ -62,7 +62,7 @@ const Course_Card = ({ course }) => {
         </div>
 
         {/* Time and Class Days */}
-        <div className="flex items-center space-x-1">
+        <div className="flex items-center space-x-1 lg:col-span-2 xl:col-span-1">
           <IconClockHour2 stroke={2} className="text-[#4F9F76]" />
           <span>
             {daily_start_time} to {daily_end_time} on {classDay}

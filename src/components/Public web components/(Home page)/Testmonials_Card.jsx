@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
-import { IconStar, IconStarHalfFilled } from "@tabler/icons-react";
+import { IconBookmark, IconStar, IconStarHalfFilled } from "@tabler/icons-react";
 
 const TestimonialsCard = ({ review }) => {
   const { name, review_content, image, rating } = review;
@@ -53,14 +53,15 @@ const TestimonialsCard = ({ review }) => {
 
       <div className="h-[0.5px] bg-gray-100"></div>
       <div className="w-full flex justify-between items-center">
-        <div className="flex space-x-4 items-center">
-          <Image
-            src="/vector.png"
-            width={20}     // Replace with desired width
-            height={20}   // Ensures height adjusts to maintain aspect ratio
+        <div className="flex space-x-2 items-center">
+          {/* <Image
+            src="/Vector.png"
+            width={17}     // Replace with desired width
+            height={17}   // Ensures height adjusts to maintain aspect ratio
             alt="Vector Image"
-            style={{ width: "auto", height: "100%" }} // Adjust styling to enforce the aspect ratio
-          />
+            // style={{ width: "auto", height: "100%" }} // Adjust styling to enforce the aspect ratio
+          /> */}
+          <IconBookmark className="text-[#4F9F76]" size={24} />
           <p className="">Dr. {name}</p>
         </div>
         <div className="flex items-center space-x-1 text-yellow-500">

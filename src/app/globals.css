@@ -17,4 +17,7 @@ body {
   .focus_none{
     @apply bg-white rounded-none focus-visible:ring-0 focus:outline-none focus:ring-0 border-[#4F9F76]/50 border-b-[1px] 
   }
+  .job_application_style{
+    @apply rounded-xl w-full py-1 px-3  focus:outline-none focus-visible:ring-0 bg-[#F4F6FC]
+  }
 }
