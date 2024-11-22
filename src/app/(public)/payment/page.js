@@ -3,10 +3,10 @@ import { courses } from "@/utils/constvalues";
 
 export default async function Payment_Page({searchParams}) {
      // Await the params object to access its properties safely
-     const {courseName} = await searchParams || {}; // Ensure params is awaited
+     const {id} = await searchParams || {}; // Ensure params is awaited
 
 
-     const user_selected_course=courses.filter(course => course.name===courseName);
+     const user_selected_course=courses.filter(course => course.id==id);
 
     return (
         <div>

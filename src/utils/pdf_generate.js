@@ -3,13 +3,12 @@ import { saveAs } from "file-saver";
 
 const generateReceiptPDF = async (paymentData) => {
   try {
-    console.log("Starting PDF generation...");
+
 
     // Create a new PDF Document
     const pdfDoc = await PDFDocument.create();
     const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
-    console.log("Font embedded successfully.");
 
     // Add a page to the PDF
     const page = pdfDoc.addPage([600, 800]);
@@ -133,7 +132,7 @@ const generateReceiptPDF = async (paymentData) => {
     const blob = new Blob([pdfBytes], { type: "application/pdf" });
 
     saveAs(blob, "payment_receipt.pdf");
-    console.log("PDF download initiated successfully.");
+  
   } catch (error) {
     console.error("Error generating PDF:", error);
   }

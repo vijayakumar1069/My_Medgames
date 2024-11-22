@@ -14,6 +14,7 @@ import React, { useState } from "react";
 
 const Course_Details_Page_Card = ({ course }) => {
   const {
+    id,
     name,
     description,
     price,
@@ -94,7 +95,7 @@ const Course_Details_Page_Card = ({ course }) => {
           </span>
         </div>
         <div className="block lg:hidden">
-          <Link href={`/our-courses/${name}`}>
+          <Link href={`/our-courses/${id}`}>
             <Button className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
               View Details
             </Button>
@@ -163,7 +164,7 @@ const Course_Details_Page_Card = ({ course }) => {
               </li>
             ))}
           </ul>
-          <Link href={`/our-courses/${name}`}>
+          <Link href={`/our-courses/${id}`}>
             <Button className="bg-transparent mt-4 w-fit text-[#fff] px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white ">
               View Details
             </Button>

@@ -70,7 +70,7 @@ const Checkout = ({ purchaseCourseDetails }) => {
 
   const onSubmit = async () => {
     if (!stripe || !elements) {
-      console.log("Stripe or elements not loaded correctly");
+    
       return; // Ensure Stripe is ready
     }
   
@@ -78,7 +78,7 @@ const Checkout = ({ purchaseCourseDetails }) => {
     setError(null);
   
     try {
-      console.log("Fetching client secret...");
+     
       // Fetch client secret asynchronously
       const payment = await paymentclientSecret({
         purchaseCourseDetails,
@@ -87,7 +87,7 @@ const Checkout = ({ purchaseCourseDetails }) => {
   
       // Set the client secret from the response
       const clientSecret = payment.clientSecret;
-      console.log("Client secret fetched: ", clientSecret);
+    
   
       // Check if clientSecret is available
       if (!clientSecret) {
@@ -96,7 +96,7 @@ const Checkout = ({ purchaseCourseDetails }) => {
       }
   
       // Submit the elements to start the payment process
-      console.log("Submitting elements...");
+    
       const { error: submitError } = await elements.submit();
       if (submitError) {
         setError(submitError.message);
@@ -105,7 +105,7 @@ const Checkout = ({ purchaseCourseDetails }) => {
       }
   
       // Confirm payment using the client secret
-      console.log("Confirming payment...");
+   
       const { error: stripeError, paymentIntent } = await stripe.confirmPayment({
         elements,
         clientSecret, // Pass the clientSecret here

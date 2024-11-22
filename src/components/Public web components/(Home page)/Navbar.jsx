@@ -65,7 +65,7 @@ const Navbar = () => {
           <ul>
             {navbarvalues.map((item) => (
               <li
-                className="inline-block mx-2 text-base sm:text-sm   xl:text-base text-white"
+                className="inline-block mx-2 text-base    xl:text-base text-white"
                 key={item.id}
               >
                 <Link href={item.link}>{item.name}</Link>

@@ -2,7 +2,7 @@
 import React from 'react';
 import Breadcrumb from './Breadcrumb';
 import { usePathname } from 'next/navigation';
-import { navbarvalues } from '@/utils/constvalues';
+import { courses, navbarvalues, upcoming_events } from '@/utils/constvalues';
 
 const Breadcrumb_Wrapper = ({ headingTextColor }) => {
   const pathname = usePathname(); // Get the current pathname
@@ -15,10 +15,26 @@ const Breadcrumb_Wrapper = ({ headingTextColor }) => {
 
 
   // Find the slug (last part of the path)
-  const slug = segments.length > 1 ? decodeURIComponent(segments[segments.length - 1]) : null;
+  let slug = segments.length > 1 ? decodeURIComponent(segments[segments.length - 1]) : null;
+  console.log(slug)
 
   // Find the parent page in the navbar
   const parentPage = navbarvalues.find((item) => item.link === basePath);
+  console.log(parentPage)
+
+  if(parentPage.link =="/our-courses")
+  {
+    const findcurrentslug=courses.find((item) => item.id == slug);
+    slug = findcurrentslug?.name;
+
+  }
+  if(parentPage.link =="/upcoming-events")
+    {
+      const findcurrentslug=upcoming_events.find((item) => item.id == slug);
+      slug = findcurrentslug?.title;
+  
+    }
+  
 
   // Build the breadcrumb items
   const breadcrumbItems = [

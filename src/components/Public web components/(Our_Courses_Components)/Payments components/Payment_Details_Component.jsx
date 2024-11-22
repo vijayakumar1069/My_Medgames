@@ -25,10 +25,10 @@ const Payment_Details_Component = ({ paymentData }) => {
 
   const handleDownload = async () => {
     try {
-      console.log("Calling generateReceiptPDF...");
+  
       await generateReceiptPDF(paymentData);
     } catch (err) {
-      console.error("Error in handleDownload:", err);
+     
     }
   };
   
