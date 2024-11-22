@@ -17,13 +17,13 @@ const Contact_Us = () => {
             </p>
           </div>
         </div>
+        <div className="">
+            <Contact_us_Form/>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  justify-items-center  gap-x-4 gap-y-2">
           {brand_Info.social_links.map((item, index) => (
             <Contact_Us_card key={`${item.id}-${index}`} item={item} />
           ))}
-        </div>
-        <div className="">
-            <Contact_us_Form/>
         </div>
       </div>
     </div>

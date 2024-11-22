@@ -175,7 +175,7 @@ const Contact_us_Form = () => {
                 )}
               />
               {/* Submit Button */}
-              <Button type="submit" className="w-full bg-[#4F9F76]/80 hover:bg-[#4F9F76]">
+              <Button  className="w-full bg-[#4F9F76]/80 hover:bg-[#4F9F76]">
                 Submit
               </Button>
             </form>
