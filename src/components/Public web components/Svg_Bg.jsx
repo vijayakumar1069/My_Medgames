@@ -13,6 +13,7 @@ const Svg_Bg = () => {
             alt="Green Circle"
             className="object-center object-cover rounded-full"
             fill
+            style={{ objectFit: "cover" }}
             sizes="(max-width: 768px) 100px, (max-width: 1200px) 200px, 300px"
           />
         </div>

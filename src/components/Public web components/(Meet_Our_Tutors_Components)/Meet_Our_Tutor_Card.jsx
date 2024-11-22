@@ -16,7 +16,7 @@ const Meet_Our_Tutor_Card = ({ tutor }) => {
     socialsLinks,
   } = tutor;
   return (
-    <div className="max-w-xl h-full p-2 flex flex-col space-y-4 border-2 border-[#F4F6FC] bg-white rounded-xl">
+    <div className="max-w-xl h-full p-2 flex flex-col space-y-4 border-2 border-[#F4F6FC] bg-white rounded-xl" key={id}>
       <div className="relative w-full h-[250px] lg:h-[300px] rounded-xl p-6 bg-[#F4F6FC]">
         <Image
           src={image}

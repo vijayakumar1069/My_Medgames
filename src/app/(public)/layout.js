@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
         <Navbar />
 
         {/* Main content with padding to account for the fixed navbar */}
-        <main className="pt-20"> {/* Adjust pt-20 based on navbar height */}
+        <main className="pt-20"> 
           {children}
         </main>
         <Footer/>

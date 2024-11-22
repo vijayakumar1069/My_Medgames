@@ -41,6 +41,7 @@ const Course_Details_Page_Card = ({ course }) => {
       className="relative max-w-xl w-full bg-[#F4F6FC] rounded-lg overflow-hidden group shadow-md hover:shadow-lg transition-shadow duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      key={id}
     >
       {/* Top Image/Preview Section */}
       <div className="relative w-full h-72">
@@ -48,7 +49,7 @@ const Course_Details_Page_Card = ({ course }) => {
           src={details_image}
           alt="course_image"
           fill
-          className="object-cover object-center"
+          style={{ objectFit: "cover" }}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
@@ -95,11 +96,9 @@ const Course_Details_Page_Card = ({ course }) => {
           </span>
         </div>
         <div className="block lg:hidden">
-          <Link href={`/our-courses/${id}`}>
-            <Button className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
-              View Details
-            </Button>
-          </Link>
+          <Button className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
+            <Link href={`/our-courses/${id}`}>View Details</Link>
+          </Button>
         </div>
       </div>
 
@@ -164,11 +163,9 @@ const Course_Details_Page_Card = ({ course }) => {
               </li>
             ))}
           </ul>
-          <Link href={`/our-courses/${id}`}>
-            <Button className="bg-transparent mt-4 w-fit text-[#fff] px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white ">
-              View Details
-            </Button>
-          </Link>
+          <Button className="bg-transparent mt-4 w-fit text-[#fff] px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white ">
+            <Link href={`/our-courses/${id}`}>View Details</Link>
+          </Button>
         </div>
       </div>
     </div>

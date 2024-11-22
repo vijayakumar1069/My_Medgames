@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Breadcrumb from "./Breadcrumb";
+
 import Breadcrumb_Wrapper from "./Breadcrumb_Wrapper";
 
 const Image_Bg = () => {
@@ -14,6 +14,7 @@ const Image_Bg = () => {
           src="/tutorbg.png"
           alt="Tutor Background"
           fill
+            style={{ objectFit: "cover" }}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover"
         />
