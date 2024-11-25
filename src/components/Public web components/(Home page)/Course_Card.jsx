@@ -33,7 +33,7 @@ const Course_Card = ({ course }) => {
           className="object-cover object-center rounded-lg"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Customize sizes for breakpoints
         />
-        <div className="absolute top-3 right-3 bg-[#fff] text-white px-3 py-1 rounded-full">
+        {/* <div className="absolute top-3 right-3 bg-[#fff] text-white px-3 py-1 rounded-full">
           <div className="flex items-center space-x-4">
             <Avatar className="w-10 h-10">
               <AvatarImage src={instructor_image} alt={name} />
@@ -43,7 +43,7 @@ const Course_Card = ({ course }) => {
               {instructor}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <h1 className="text-3xl font-semibold text-black"> {name} </h1>
       <div className="grid xl:grid-cols-3 lg:grid-cols-2  grid-cols-1 gap-y-3 gap-x-2 w-full items-center text-sm">

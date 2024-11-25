@@ -88,9 +88,9 @@ const User_Selected_Event_Component = ({ selected_Event }) => {
               ))}
             </div>
             <div className="mt-6">
-              <Link href={`/upcoming-events/${selected_Event.id}/events-register?id=${selected_Event.id}`}>
-                <Button className="w-full bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
-                  Register Now
+              <Link href={`/upcoming-events/${selected_Event.id}/events-register?id=${selected_Event.id}`} passHref>
+                <Button asChild className="w-full bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
+                  <span>Register Now</span>
                 </Button>
               </Link>
             </div>

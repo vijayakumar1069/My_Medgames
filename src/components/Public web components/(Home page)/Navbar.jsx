@@ -50,6 +50,7 @@ const Navbar = () => {
       <div className="lg:w-[1400px]  w-full px-5 md:px-10 lg:px-8 xl:px-12 flex mx-auto items-center justify-between">
         {/* Logo and Title */}
         <div className="flex space-x-2 items-center">
+          <Link href={"/"} className="flex space-x-2 items-center">
           <Image
             src="/logo.png"
             alt="logo"
@@ -58,6 +59,7 @@ const Navbar = () => {
             // style={{ height: "auto",width:"auto" }} // Ensures the aspect ratio is maintained
           />
           <h1 className="text-xl text-white">Med Games</h1>
+          </Link>
         </div>
 
         {/* Desktop Navbar Links */}

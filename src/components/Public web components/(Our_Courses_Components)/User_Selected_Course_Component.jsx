@@ -50,7 +50,7 @@ const User_Selected_Course_Component = ({ course }) => {
 
               {/* Overview Tab Content */}
               <TabsContent value="overview">
-                <Course_OverView_Component />
+                <Course_OverView_Component course={course} />
               </TabsContent>
 
               {/* Reviews Tab Content */}
@@ -76,9 +76,12 @@ const User_Selected_Course_Component = ({ course }) => {
               ))}
             </div>
             <div className="mt-6">
-              <Link href={`/payment?id=${course.id}`}>
-                <Button className="w-full bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
-                  Enroll Now
+              <Link href={`/payment?id=${course.id}`} passHref>
+                <Button
+                  asChild
+                  className="w-full bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]"
+                >
+                  <span>Enroll Now</span>
                 </Button>
               </Link>
             </div>

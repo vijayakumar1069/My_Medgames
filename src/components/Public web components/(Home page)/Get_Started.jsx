@@ -47,11 +47,11 @@ const Get_Started = () => {
                 <Button className="bg-[#E1EBE2] text-[#4F9F76] px-4 py-2 rounded-md">
                   Get Started
                 </Button>
-                <Button className="bg-[#E1EBE2] text-[#4F9F76] px-4 py-2 rounded-md">
+                {/* <Button className="bg-[#E1EBE2] text-[#4F9F76] px-4 py-2 rounded-md">
                   Try Now
-                </Button>
+                </Button> */}
               </div>
-              <div className="flex items-center justify-center  space-x-5 w-full">
+              <div className="flex items-center lg:justify-start justify-center space-x-5 w-full">
                 <div className="relative flex   ">
                   {imgs.map((item, index) => (
                     <Avatar_Creation key={index} item={item} />

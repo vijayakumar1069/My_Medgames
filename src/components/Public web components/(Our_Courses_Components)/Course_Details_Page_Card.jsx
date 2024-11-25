@@ -10,7 +10,7 @@ import {
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Course_Details_Page_Card = ({ course }) => {
   const {
@@ -30,11 +30,30 @@ const Course_Details_Page_Card = ({ course }) => {
     key_features,
   } = course;
 
-  const fullStars = Math.floor(star);
-  const hasHalfStar = star % 1 !== 0;
+  const [isClient, setIsClient] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Precompute values to ensure consistency
+  const fullStars = Math.floor(course.star);
+  const hasHalfStar = course.star % 1 !== 0;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
-  const [isHovered, setIsHovered] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Prevent hydration mismatches with conditional rendering
+  if (!isClient) {
+    return (
+      <div className="max-w-xl w-full bg-[#F4F6FC] rounded-lg overflow-hidden">
+        <div className="w-full h-72 bg-gray-200 animate-pulse"></div>
+        <div className="p-4">
+          <h1 className="text-xl font-semibold">{course.name}</h1>
+        </div>
+      </div>
+    );
+  }
+
 
   return (
     <div
@@ -96,9 +115,11 @@ const Course_Details_Page_Card = ({ course }) => {
           </span>
         </div>
         <div className="block lg:hidden">
-          <Button className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
-            <Link href={`/our-courses/${id}`}>View Details</Link>
-          </Button>
+      
+          <Link href={`/our-courses/${id}`}  className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
+           <span> View Details</span>
+          </Link>
+        
         </div>
       </div>
 
@@ -163,9 +184,14 @@ const Course_Details_Page_Card = ({ course }) => {
               </li>
             ))}
           </ul>
-          <Button className="bg-transparent mt-4 w-fit text-[#fff] px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white ">
-            <Link href={`/our-courses/${id}`}>View Details</Link>
+          {/* <Link href={`/our-courses/${id}`} passHref>
+          <Button asChild className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
+           <span> View Details</span>
           </Button>
+          </Link> */}
+           <Link href={`/our-courses/${id}`}  className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
+           <span> View Details</span>
+          </Link>
         </div>
       </div>
     </div>

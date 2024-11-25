@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';  // Import Framer Motio
 
 const Videos = () => {
   const videoUrls = [
-    "/v6.mp4",
+    // "/v6.mp4",
 
     "/v2.mp4",
     "/v1.mp4",

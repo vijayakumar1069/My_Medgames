@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import React from "react";
 import Small_Title from "./Small_Title";
@@ -5,7 +6,10 @@ import Large_Title from "./Large_Title";
 import { consultation_details } from "@/utils/constvalues";
 import Consulatation_percetage from "./Consulatation_percetage";
 
-import Consultation_Form from "./Coultation_Form";
+import dynamic from "next/dynamic";
+const Consultation_Form_Client = dynamic(() => import("./Coultation_Form"), {
+  ssr: false,
+});
 
 const Consultation = () => {
   return (
@@ -13,7 +17,7 @@ const Consultation = () => {
       <div className="relative w-full xl:h-[800px] sm:h-[1100px]   xs:h-[1300px] h-[1500px]  ">
         <Image
           src={"/formbg1.png"}
-          alt="formbg1"
+          alt="form alternative"
           fill
         
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Adjust sizes based on your layout needs
@@ -24,7 +28,7 @@ const Consultation = () => {
         <div className="absolute inset-0 flex gap-5 flex-col justify-center xl:space-x-3 space-y-5 xl:space-y-0 items-center xl:flex-row">
           <div className="xl:basis-5/12 relative w-full h-full flex flex-col justify-center items-center ">
            
-            <Consultation_Form/>
+            <Consultation_Form_Client/>
           </div>
           <div className="flex-1 h-[60%] xl:mt-60 justify-center xl:px-0 px-10 pb-10">
             <div className="flex flex-col space-y-4 justify-center  w-full ">

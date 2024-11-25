@@ -250,10 +250,10 @@ const Job_Application_Form = () => {
               />
 
               {/* Buttons */}
-              <div className="flex space-x-4 justify-between">
-                <Button type="button" onClick={onReset} className="w-full bg-gray-400 text-white">
+              <div className="flex space-x-4 justify-between w-96">
+                <button type="reset"  onClick={onReset} className="w-full rounded-md bg-gray-400 text-white">
                   Reset Form
-                </Button>
+                </button>
                 <Button type="submit" className="w-full bg-[#4F9F76] text-white">
                   Submit
                 </Button>

@@ -14,13 +14,15 @@ import { Suspense } from "react";
 
 
 export default function Home() {
+
+  const home_page_faqs=home_FAQs;
   
   return (
     <>
-    {/* <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
     <Videos/>
-    <YouTubePlayer/>
-    </Suspense> */}
+    {/* <YouTubePlayer/> */}
+    </Suspense>
     {/* <Videos/> */}
       <Services/>
       <Tutors/>
@@ -28,7 +30,7 @@ export default function Home() {
       <Courses/>
       <Blogs/>
       <Consultation/>
-      <FAQs  items={home_FAQs}/>
+      <FAQs  items={home_page_faqs}/>
       <Get_Started/>
       
     </>

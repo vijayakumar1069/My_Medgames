@@ -47,17 +47,17 @@ const PaymentStatusDialog = ({
         <DialogFooter className={`flex sm:justify-center space-x-2 w-full sm:items-center`}>
             {
               paymentStatus === "success" ? (
-                <Link href={`/view-receipt?id=${payment_Id}`} >
+                <Link href={`/view-receipt?id=${payment_Id}`} passHref >
                 
-                <Button  onClick={onClose} className="w-fit text-center   text-[#fff] bg-[#4F9F76] hover:bg-[#376F5F] sm:justify-center flex items-center">
-                  View Receipt
+                <Button asChild  onClick={onClose} className="w-fit text-center   text-[#fff] bg-[#4F9F76] hover:bg-[#376F5F] sm:justify-center flex items-center">
+               <span>   View Receipt</span>
                 </Button>
                 </Link>
               ) : (
-                <Link href={`/view-receipt?id=${payment_Id}`}>
+                <Link href={`/view-receipt?id=${payment_Id}`} passHref>
                 
-                <Button  onClick={onClose} className="w-fit text-center text-[#EF3636] bg-[#F5DCDc] hover:bg-[#f3acac]   sm:justify-center flex items-center">
-                  View Receipt
+                <Button asChild onClick={onClose} className="w-fit text-center text-[#EF3636] bg-[#F5DCDc] hover:bg-[#f3acac]   sm:justify-center flex items-center">
+               <span>   View Receipt</span>
                 </Button>
                 </Link>
               )

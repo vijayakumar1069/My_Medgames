@@ -25,8 +25,8 @@ const formSchema = z.object({
   phone: z.string().regex(/^\d{10}$/, {
     message: "Phone number must be 10 digits.",
   }),
-  courseCategory: z.enum(["medical", "engineering", "arts", "science"], {
-    message: "Select a valid course category.",
+  courseCategory: z.string().min(1, {
+    message: "Please select a course category.",
   }),
 })
 
@@ -36,7 +36,7 @@ const Consultation_Form = () => {
     defaultValues: {
       name: "",
       phone: "",
-      courseCategory: "medical", // default value
+      courseCategory: "", // default value
     },
   })
 
@@ -108,7 +108,7 @@ const Consultation_Form = () => {
           )}
         />
 
-        <Button type="submit" className="bg-[#fff] w-fit text-[#4F9F76] border-[#4F9F76] border-2 px-4 py-2 rounded-md hover:bg-[#4F9F76]/80">Submit</Button>
+        <Button  className="bg-[#fff] w-fit text-[#4F9F76] border-[#4F9F76] border-2 px-4 py-2 rounded-md hover:bg-[#4F9F76]/80">Submit</Button>
       </form>
     </Form>
   )

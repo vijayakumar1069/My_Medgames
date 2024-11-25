@@ -24,7 +24,7 @@ const Tutor_Card = ({ tutor }) => {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw" // Customize sizes for breakpoints
               alt={tutor.name}
             />
-            <div className="absolute inset-0 bg-green-300 bg-opacity-30 opacity-0 group-hover:opacity-100 flex justify-center items-center space-x-4">
+            {/* <div className="absolute inset-0 bg-green-300 bg-opacity-30 opacity-0 group-hover:opacity-100 flex justify-center items-center space-x-4">
               {tutor.socialsLinks.map((item, index) => (
                 <div className="" key={`${item.id}-${index}`}>
                   {item.name === "whatsapp" && (
@@ -54,7 +54,7 @@ const Tutor_Card = ({ tutor }) => {
                   )}
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
           <div className="text-left">
             <h4 className="font-bold text-xl text-[#1A1A1A]">{tutor.name}</h4>

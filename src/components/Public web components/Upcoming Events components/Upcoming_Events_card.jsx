@@ -58,10 +58,10 @@ const Upcoming_Events_card = ({ event }) => {
             <p className="text-sm text-gray-600">{via}</p>
           </div>
         <div className="lg:hidden block group-hover:block  transition-opacity duration-500">
-          <Link href={`/upcoming-events/${id}`}>
-            <Button className="w-fit bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
+          <Link href={`/upcoming-events/${id}`} className="w-fit bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
+      
               Enroll Now
-            </Button>
+      
           </Link>
         </div>
         </div>

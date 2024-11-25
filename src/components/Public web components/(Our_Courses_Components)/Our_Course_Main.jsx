@@ -2,7 +2,7 @@ import React from "react";
 import Small_Title from "../(Home page)/Small_Title";
 import Large_Title from "../(Home page)/Large_Title";
 import { courses } from "@/utils/constvalues";
-import Course_Details_Page_Card from "./Course_Details_Page_Card";
+import CourseCardWrapper from "./CourseCardWrapper";
 
 const Our_Course_Main = () => {
   return (
@@ -15,7 +15,7 @@ const Our_Course_Main = () => {
         <div className=" w-full grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-10 p-3 md:p-0 justify-items-center xl:justify-items-start">
           {courses.map((item) => (
             // <Course_Card key={item.id} course={item} />
-            <Course_Details_Page_Card key={item.id} course={item} />
+            <CourseCardWrapper key={item.id} course={item} />
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 
 import { IconChevronRight } from "@tabler/icons-react";
+import Link from "next/link";
 
 const Service_Section_Card = ({ data }) => {
   return (
@@ -29,12 +30,12 @@ const Service_Section_Card = ({ data }) => {
               </li>
             ))}
           </ul>
-          <div className="w-full group-hover:text-black font-bold text-xl flex justify-center mt-4 ">
-            Learn More{" "}
+          <Link  href={data.link} className="w-full group-hover:text-black font-bold text-xl flex justify-center mt-4 ">
+            Learn More
             <span>
               <IconChevronRight stroke={2} className="ml-5" />
             </span>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

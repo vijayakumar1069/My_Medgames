@@ -87,7 +87,7 @@ export const services = [
       "Learn from medical students who have mastered the CARS section and possess the expertise to guide you toward",
       "Take up of 1 test every weekend to ensure optimal practice",
     ],
-    link: "/",
+    link: "/our-courses/1",
   },
   {
     id: 2,
@@ -96,7 +96,7 @@ export const services = [
       "We value personal attention. Small class sizes give you plenty of time with mentors and peers.",
       "CASPer demands a strategic mindset. Our program guides you in crafting well-structured",
     ],
-    link: "/",
+    link: "/our-courses/2",
   },
   {
     id: 3,
@@ -105,7 +105,7 @@ export const services = [
       "Elevate your application with insights from current students at your target medical schools.",
       "Our mentorship goes beyond proofreading, shaping your narrative to address gaps",
     ],
-    link: "/",
+    link: "/our-courses/6",
   },
   {
     id: 4,
@@ -114,7 +114,7 @@ export const services = [
       "MCAT Preparation: Strategies, study plans, and resources",
       "Extracurricular Activities: Recommendations and planning for impactful involvement     ",
     ],
-    link: "/",
+    link: "/our-courses/4",
   },
 ];
 
@@ -377,7 +377,7 @@ export const reviews = [
     name: "Joshua",
     review_content:
       "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
-    image: "/lakindu.png",
+    image: "/t1.png",
     rating: 4.5,
   },
   {
@@ -385,7 +385,7 @@ export const reviews = [
     name: "Sathya",
     review_content:
       "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
-    image: "/lakindu.png",
+    image: "/t2.png",
     rating: 4.5,
   },
   {
@@ -393,7 +393,7 @@ export const reviews = [
     name: "Sathya",
     review_content:
       "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
-    image: "/lakindu.png",
+    image: "/t3.png",
     rating: 4.5,
   },
   {
@@ -419,6 +419,7 @@ export const courses = [
     start_date: "Jan 12,2024",
     end_date: "Apr 12,2025",
     star: "5",
+    downloadable_pdf:"/cars_pdf.pdf",
     rating: "3",
     key_features: [
       "3 edits by medical students",
@@ -515,6 +516,7 @@ export const courses = [
     details_image: "/casper_img.png",
     link: "/mcat",
     price: "400",
+    downloadable_pdf:"/casper_pdf.pdf",
     star: "5",
     rating: "3",
     key_features: [
@@ -614,6 +616,7 @@ export const courses = [
     details_image: "/med_app_img.png",
     link: "/mcat",
     price: "300",
+    downloadable_pdf:"/long_pdf1.pdf",
     star: "5",
     rating: "3",
     start_date: "Jan 12,2024",
@@ -715,6 +718,7 @@ export const courses = [
     price: "300",
     star: "5",
     rating: "3",
+    downloadable_pdf:"/mentorship_pdf.pdf",
     start_date: "Jan 12,2024",
     key_features: [
       "3 edits by medical students",
@@ -743,6 +747,7 @@ export const courses = [
     price: "300",
     star: "5",
     rating: "3",
+    downloadable_pdf:"/cars_pdf.pdf",
     start_date: "Jan 12,2024",
     key_features: [
       "3 edits by medical students",
@@ -768,6 +773,7 @@ export const courses = [
       "Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
     details_image: "/med_application_img.png",
     link: "/mcat",
+    downloadable_pdf:"/med_app_pdf.pdf",
     price: "300",
     star: "5",
     rating: "3",
@@ -964,18 +970,7 @@ export const home_FAQs = [
     answer:
       "Visit the website or contact Med Games via email or Instagram for enrollment details",
   },
-  // {
-  //   id: 6,
-  //   question: "Can I get help with clinical skills?",
-  //   answer:
-  //     "Yes, we offer expert guidance on clinical skills, including mock scenarios and feedback to improve your practice.",
-  // },
-  // {
-  //   id: 7,
-  //   question: "Are the tutoring sessions recorded?",
-  //   answer:
-  //     "Yes, tutoring sessions are recorded, and you can review them at any time to reinforce learning.",
-  // },
+ 
 ];
 
 export const customized_privacy_policy = [
