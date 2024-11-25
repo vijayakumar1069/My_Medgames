@@ -881,6 +881,7 @@ export const blogs = [
     date: "Jan 12,2024",
     time: "6:00 PM",
     image: "/blog1.png",
+    category: "CARS program",
   },
   {
     id: 2,
@@ -891,6 +892,7 @@ export const blogs = [
     date: "Jan 12,2024",
     time: "6:00 PM",
     image: "/blog2.png",
+    category: "CARS program",
   },
   {
     id: 3,
@@ -898,6 +900,7 @@ export const blogs = [
     date: "Jan 12,2024",
     time: "6:00 PM",
     image: "/blog3.png",
+    category: "CARS program",
     description:
       "Learn how to effectively approach the CASPer test with expert strategies, helping...",
   },
@@ -910,6 +913,7 @@ export const blogs = [
     date: "Jan 12,2024",
     time: "6:00 PM",
     image: "/blog2.png",
+    category: "CARS program",
   },
   {
     id: 5,
@@ -917,6 +921,7 @@ export const blogs = [
     date: "Jan 12,2024",
     time: "6:00 PM",
     image: "/blog3.png",
+    category: "CARS program",
     description:
       "Learn how to effectively approach the CASPer test with expert strategies, helping...",
   },

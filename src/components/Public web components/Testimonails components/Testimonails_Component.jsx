@@ -150,7 +150,7 @@ const Testimonials_Component = ({ reviews }) => {
                       {currentReview.review_content}
                     </p>
                     <div className="space-y-1">
-                      <p className="text-xl font-semibold text-green-800">
+                      <p className="text-xl font-bold text-green-800">
                         {currentReview.name}
                       </p>
                       {currentReview.position && (
