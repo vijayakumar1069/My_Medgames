@@ -378,6 +378,7 @@ export const reviews = [
     review_content:
       "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
     image: "/t1.png",
+    position:"student",
     rating: 4.5,
   },
   {
@@ -386,6 +387,8 @@ export const reviews = [
     review_content:
       "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
     image: "/t2.png",
+    position:"student",
+
     rating: 4.5,
   },
   {
@@ -394,6 +397,7 @@ export const reviews = [
     review_content:
       "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
     image: "/t3.png",
+    position:"student",
     rating: 4.5,
   },
   {
@@ -402,6 +406,7 @@ export const reviews = [
     review_content:
       "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
     image: "/lakindu.png",
+    position:"student",
     rating: 4.5,
   },
 ];

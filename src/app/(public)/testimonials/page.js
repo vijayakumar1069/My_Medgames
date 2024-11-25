@@ -1,11 +1,12 @@
 import Svg_Bg from "@/components/Public web components/Svg_Bg";
-import Testimonails_Component from "@/components/Public web components/Testimonails components/Testimonails_Component";
+import Testimonials_Component from "@/components/Public web components/Testimonails components/Testimonails_Component";
+import { reviews } from "@/utils/constvalues";
 
 export default function Testmonials_Page() {
     return (
         <div>
             <Svg_Bg/>
-            <Testimonails_Component/>
+            <Testimonials_Component reviews={reviews} />
         </div>
     );
 }
