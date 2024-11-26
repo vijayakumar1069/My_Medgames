@@ -1,69 +1,73 @@
-import React from "react";
+// BlogCategoriesComponent.jsx
+import React, { useMemo } from "react";
 import Link from "next/link";
 import { BookOpen, ChevronRight } from "lucide-react";
+import { blogService } from "@/utils/blogService";
 
-const BLOG_CATEGORIES = [
-  {
-    name: "Medical Education",
-    slug: "medical-education",
-    count: 12
-  },
-  {
-    name: "Test Preparation",
-    slug: "test-preparation",
-    count: 8
-  },
-  {
-    name: "Healthcare Trends",
-    slug: "healthcare-trends",
-    count: 5
-  },
-  {
-    name: "Student Success",
-    slug: "student-success",
-    count: 6
-  },
-  {
-    name: "Technology in Medicine",
-    slug: "technology-medicine",
-    count: 4
-  }
-];
+const BlogCategoriesComponent = ({ currentCategory }) => {
+  const categories = useMemo(() => {
+    try {
+      const cat = blogService.getBlogCategories();
+      console.log(cat);
+      return cat;
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+      return [];
+    }
+  }, []);
 
-const BlogCategoriesComponent = () => {
   return (
     <div className="bg-white shadow-md rounded-lg p-6 space-y-4">
       <h2 className="text-xl font-semibold text-gray-800 flex items-center">
         <BookOpen className="mr-2 text-green-600" /> Blog Categories
       </h2>
-      
-      <div className="space-y-2">
-        {BLOG_CATEGORIES.map((category) => (
+
+      {categories.length === 0 ? (
+        <p className="text-gray-500 text-center">No categories available</p>
+      ) : (
+        <div className="space-y-2">
           <Link
-            key={category.slug}
-            href={`/blogs/category/${category.slug}`}
-            className="flex justify-between items-center 
-              hover:bg-gray-50 p-3 rounded-lg 
-              transition group"
+            href="/blog"
+            className={`flex justify-between items-center
+              hover:bg-gray-50 p-3 rounded-lg transition group
+              ${!currentCategory ? 'bg-green-50' : ''}`}
           >
             <div className="flex items-center space-x-3">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="text-gray-800 group-hover:text-green-600">
-                {category.name}
+              <span className={`${!currentCategory ? 'text-green-600' : 'text-gray-800'} group-hover:text-green-600`}>
+                All Categories
               </span>
             </div>
-            
-            <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-500">
-                ({category.count})
-              </span>
-              <ChevronRight 
-                className="w-5 h-5 text-gray-400 group-hover:text-green-600" 
-              />
-            </div>
+            <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-green-600
+              transition-transform group-hover:translate-x-1" />
           </Link>
-        ))}
-      </div>
+
+          {categories.map((category) => (
+            <Link
+              key={category.slug}
+              href={`/blog?category=${category.slug}`}
+              className={`flex justify-between items-center
+                hover:bg-gray-50 p-3 rounded-lg transition group
+                ${currentCategory === category.slug ? 'bg-green-50' : ''}`}
+            >
+              <div className="flex items-center space-x-3">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className={`${currentCategory === category.slug ? 'text-green-600' : 'text-gray-800'} group-hover:text-green-600`}>
+                  {category.name}
+                </span>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-gray-500">
+                  ({category.count})
+                </span>
+                <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-green-600
+                  transition-transform group-hover:translate-x-1" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

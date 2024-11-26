@@ -875,57 +875,649 @@ export const courses = [
 export const blogs = [
   {
     id: 1,
-    title: "Enhancing Patient Engagement with MedGames",
-    description:
-      "Learn how to effectively approach the CASPer test with expert strategies, helping...",
-    date: "Jan 12,2024",
+    title: "Mastering the CARS Program: Key Strategies for Success",
+    description: "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
+    date: "Jan 12, 2024",
     time: "6:00 PM",
     image: "/blog1.png",
-    category: "CARS program",
+    category: "CARS Program",
+    tags: ["CARS", "MCAT Preparation", "Active Reading"],
+    blog_details: [
+      {
+        type: "standard_section",
+        heading: "What is the CARS Program?",
+        content: "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
+        icons: ["🧠", "📚"]
+      },
+      {
+        type: "highlight_section",
+        heading: "Key Program Insights",
+        highlightedText: "Unlock your potential with our unique approach!",
+        importantLinks: [
+          {
+            text: "CARS Preparation Guide",
+            url: "https://example.com/cars-guide",
+            icon: "🔗"
+          }
+        ],
+        embeddedLinks: [
+          {
+            text: "critical thinking",
+            url: "https://example.com/critical-thinking",
+            context: "Develop your {link} skills"
+          }
+        ]
+      },
+      {
+        type: "numbered_list",
+        heading: "Program Highlights",
+        listItems: [
+          "3 expert-led editing sessions",
+          "Personalized feedback meetings",
+          "Comprehensive study materials"
+        ]
+      },
+      {
+        type: "quote_section",
+        quote: "Success is not just about hard work, but smart preparation.",
+        author: "Medical Admissions Expert",
+        icon: "💡"
+      },
+      {
+        type: "statistic_section",
+        heading: "Student Success Rates",
+        statistics: [
+          { label: "Average Score Improvement", value: "15%" },
+          { label: "Student Satisfaction", value: "95%" }
+        ]
+      },
+      {
+        type: "testimonial_section",
+        testimonials: [
+          {
+            text: "This program transformed my CARS performance!",
+            author: "Jane Doe",
+            role: "Medical School Applicant"
+          }
+        ]
+      },
+      {
+        type: "resource_section",
+        heading: "Recommended Resources",
+        resources: [
+          {
+            title: "MCAT Prep Book",
+            description: "Comprehensive CARS strategy guide",
+            link: "https://example.com/mcat-book"
+          }
+        ]
+      },
+      {
+        type: "interactive_section",
+        heading: "Self-Assessment Quiz",
+        quizLink: "https://example.com/cars-quiz",
+        description: "Test your CARS readiness!"
+      },
+      {
+        type: "timeline_section",
+        heading: "MCAT Preparation Journey",
+        timelineEvents: [
+          {
+            date: "Month 1",
+            title: "Diagnostic Test",
+            description: "Understand your current level and create a personalized study plan",
+            icon: "🏁"
+          },
+          {
+            date: "Month 2-3",
+            title: "Intensive Study",
+            description: "Deep dive into content review and practice passages",
+            icon: "📚"
+          },
+          {
+            date: "Month 4",
+            title: "Mock Exams",
+            description: "Full-length practice tests and detailed performance analysis",
+            icon: "🎯"
+          }
+        ]
+      },
+      {
+        type: "comparison_section",
+        heading: "Study Methods Comparison",
+        comparisonTitle: "Traditional vs. Our Approach",
+        comparisons: [
+          {
+            category: "Study Materials",
+            traditional: "Generic textbooks",
+            ourApproach: "Customized, high-yield resources"
+          },
+          {
+            category: "Mentorship",
+            traditional: "Limited guidance",
+            ourApproach: "Personalized 1-on-1 mentorship"
+          },
+          {
+            category: "Practice Strategy",
+            traditional: "Passive reading",
+            ourApproach: "Active learning and strategy development"
+          }
+        ]
+      },
+      {
+        type: "multimedia_section",
+        heading: "Multimedia Learning Resources",
+        mediaItems: [
+          {
+            type: "video",
+            title: "CARS Strategy Masterclass",
+            duration: "45 mins",
+            thumbnail: "/video-thumbnail.jpg",
+            url: "https://example.com/cars-masterclass"
+          },
+          {
+            type: "podcast",
+            title: "Medical School Admissions Insights",
+            duration: "30 mins",
+            thumbnail: "/podcast-thumbnail.jpg",
+            url: "https://example.com/admissions-podcast"
+          },
+          {
+            type: "webinar",
+            title: "MCAT Preparation Strategies",
+            duration: "60 mins",
+            thumbnail: "/webinar-thumbnail.jpg",
+            url: "https://example.com/mcat-webinar"
+          }
+        ]
+      }
+    ]
   },
   {
     id: 2,
-    title: "testing blog",
-    description:
-      "Discover time-saving tips to ace the MCAT while managing a hectic schedule. Find out how ",
-
-    date: "Jan 12,2024",
+    title: "Mastering the CARS Program: Key Strategies for Success",
+    description: "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
+    date: "Jan 12, 2024",
     time: "6:00 PM",
-    image: "/blog2.png",
-    category: "CARS program",
+    image: "/blog1.png",
+    category: "Med Application",
+    tags: ["CARS", "MCAT Preparation", "Active Reading"],
+    blog_details: [
+      {
+        type: "standard_section",
+        heading: "What is the CARS Program?",
+        content: "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
+        icons: ["🧠", "📚"]
+      },
+      {
+        type: "highlight_section",
+        heading: "Key Program Insights",
+        highlightedText: "Unlock your potential with our unique approach!",
+        importantLinks: [
+          {
+            text: "CARS Preparation Guide",
+            url: "https://example.com/cars-guide",
+            icon: "🔗"
+          }
+        ],
+        embeddedLinks: [
+          {
+            text: "critical thinking",
+            url: "https://example.com/critical-thinking",
+            context: "Develop your {link} skills"
+          }
+        ]
+      },
+      {
+        type: "numbered_list",
+        heading: "Program Highlights",
+        listItems: [
+          "3 expert-led editing sessions",
+          "Personalized feedback meetings",
+          "Comprehensive study materials"
+        ]
+      },
+      {
+        type: "quote_section",
+        quote: "Success is not just about hard work, but smart preparation.",
+        author: "Medical Admissions Expert",
+        icon: "💡"
+      },
+      {
+        type: "statistic_section",
+        heading: "Student Success Rates",
+        statistics: [
+          { label: "Average Score Improvement", value: "15%" },
+          { label: "Student Satisfaction", value: "95%" }
+        ]
+      },
+      {
+        type: "testimonial_section",
+        testimonials: [
+          {
+            text: "This program transformed my CARS performance!",
+            author: "Jane Doe",
+            role: "Medical School Applicant"
+          }
+        ]
+      },
+      {
+        type: "resource_section",
+        heading: "Recommended Resources",
+        resources: [
+          {
+            title: "MCAT Prep Book",
+            description: "Comprehensive CARS strategy guide",
+            link: "https://example.com/mcat-book"
+          }
+        ]
+      },
+      {
+        type: "interactive_section",
+        heading: "Self-Assessment Quiz",
+        quizLink: "https://example.com/cars-quiz",
+        description: "Test your CARS readiness!"
+      },
+      {
+        type: "timeline_section",
+        heading: "MCAT Preparation Journey",
+        timelineEvents: [
+          {
+            date: "Month 1",
+            title: "Diagnostic Test",
+            description: "Understand your current level and create a personalized study plan",
+            icon: "🏁"
+          },
+          {
+            date: "Month 2-3",
+            title: "Intensive Study",
+            description: "Deep dive into content review and practice passages",
+            icon: "📚"
+          },
+          {
+            date: "Month 4",
+            title: "Mock Exams",
+            description: "Full-length practice tests and detailed performance analysis",
+            icon: "🎯"
+          }
+        ]
+      },
+      {
+        type: "comparison_section",
+        heading: "Study Methods Comparison",
+        comparisonTitle: "Traditional vs. Our Approach",
+        comparisons: [
+          {
+            category: "Study Materials",
+            traditional: "Generic textbooks",
+            ourApproach: "Customized, high-yield resources"
+          },
+          {
+            category: "Mentorship",
+            traditional: "Limited guidance",
+            ourApproach: "Personalized 1-on-1 mentorship"
+          },
+          {
+            category: "Practice Strategy",
+            traditional: "Passive reading",
+            ourApproach: "Active learning and strategy development"
+          }
+        ]
+      },
+      {
+        type: "multimedia_section",
+        heading: "Multimedia Learning Resources",
+        mediaItems: [
+          {
+            type: "video",
+            title: "CARS Strategy Masterclass",
+            duration: "45 mins",
+            thumbnail: "/video-thumbnail.jpg",
+            url: "https://example.com/cars-masterclass"
+          },
+          {
+            type: "podcast",
+            title: "Medical School Admissions Insights",
+            duration: "30 mins",
+            thumbnail: "/podcast-thumbnail.jpg",
+            url: "https://example.com/admissions-podcast"
+          },
+          {
+            type: "webinar",
+            title: "MCAT Preparation Strategies",
+            duration: "60 mins",
+            thumbnail: "/webinar-thumbnail.jpg",
+            url: "https://example.com/mcat-webinar"
+          }
+        ]
+      }
+    ]
   },
   {
     id: 3,
-    title: "How to Master CASPer: Top Tips from Experts",
-    date: "Jan 12,2024",
+    title: "Mastering the CARS Program: Key Strategies for Success",
+    description: "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
+    date: "Jan 12, 2024",
     time: "6:00 PM",
-    image: "/blog3.png",
-    category: "CARS program",
-    description:
-      "Learn how to effectively approach the CASPer test with expert strategies, helping...",
+    image: "/blog1.png",
+    category: "MCAT Program",
+    tags: ["CARS", "MCAT Preparation", "Active Reading"],
+    blog_details: [
+      {
+        type: "standard_section",
+        heading: "What is the CARS Program?",
+        content: "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
+        icons: ["🧠", "📚"]
+      },
+      {
+        type: "highlight_section",
+        heading: "Key Program Insights",
+        highlightedText: "Unlock your potential with our unique approach!",
+        importantLinks: [
+          {
+            text: "CARS Preparation Guide",
+            url: "https://example.com/cars-guide",
+            icon: "🔗"
+          }
+        ],
+        embeddedLinks: [
+          {
+            text: "critical thinking",
+            url: "https://example.com/critical-thinking",
+            context: "Develop your {link} skills"
+          }
+        ]
+      },
+      {
+        type: "numbered_list",
+        heading: "Program Highlights",
+        listItems: [
+          "3 expert-led editing sessions",
+          "Personalized feedback meetings",
+          "Comprehensive study materials"
+        ]
+      },
+      {
+        type: "quote_section",
+        quote: "Success is not just about hard work, but smart preparation.",
+        author: "Medical Admissions Expert",
+        icon: "💡"
+      },
+      {
+        type: "statistic_section",
+        heading: "Student Success Rates",
+        statistics: [
+          { label: "Average Score Improvement", value: "15%" },
+          { label: "Student Satisfaction", value: "95%" }
+        ]
+      },
+      {
+        type: "testimonial_section",
+        testimonials: [
+          {
+            text: "This program transformed my CARS performance!",
+            author: "Jane Doe",
+            role: "Medical School Applicant"
+          }
+        ]
+      },
+      {
+        type: "resource_section",
+        heading: "Recommended Resources",
+        resources: [
+          {
+            title: "MCAT Prep Book",
+            description: "Comprehensive CARS strategy guide",
+            link: "https://example.com/mcat-book"
+          }
+        ]
+      },
+      {
+        type: "interactive_section",
+        heading: "Self-Assessment Quiz",
+        quizLink: "https://example.com/cars-quiz",
+        description: "Test your CARS readiness!"
+      },
+      {
+        type: "timeline_section",
+        heading: "MCAT Preparation Journey",
+        timelineEvents: [
+          {
+            date: "Month 1",
+            title: "Diagnostic Test",
+            description: "Understand your current level and create a personalized study plan",
+            icon: "🏁"
+          },
+          {
+            date: "Month 2-3",
+            title: "Intensive Study",
+            description: "Deep dive into content review and practice passages",
+            icon: "📚"
+          },
+          {
+            date: "Month 4",
+            title: "Mock Exams",
+            description: "Full-length practice tests and detailed performance analysis",
+            icon: "🎯"
+          }
+        ]
+      },
+      {
+        type: "comparison_section",
+        heading: "Study Methods Comparison",
+        comparisonTitle: "Traditional vs. Our Approach",
+        comparisons: [
+          {
+            category: "Study Materials",
+            traditional: "Generic textbooks",
+            ourApproach: "Customized, high-yield resources"
+          },
+          {
+            category: "Mentorship",
+            traditional: "Limited guidance",
+            ourApproach: "Personalized 1-on-1 mentorship"
+          },
+          {
+            category: "Practice Strategy",
+            traditional: "Passive reading",
+            ourApproach: "Active learning and strategy development"
+          }
+        ]
+      },
+      {
+        type: "multimedia_section",
+        heading: "Multimedia Learning Resources",
+        mediaItems: [
+          {
+            type: "video",
+            title: "CARS Strategy Masterclass",
+            duration: "45 mins",
+            thumbnail: "/video-thumbnail.jpg",
+            url: "https://example.com/cars-masterclass"
+          },
+          {
+            type: "podcast",
+            title: "Medical School Admissions Insights",
+            duration: "30 mins",
+            thumbnail: "/podcast-thumbnail.jpg",
+            url: "https://example.com/admissions-podcast"
+          },
+          {
+            type: "webinar",
+            title: "MCAT Preparation Strategies",
+            duration: "60 mins",
+            thumbnail: "/webinar-thumbnail.jpg",
+            url: "https://example.com/mcat-webinar"
+          }
+        ]
+      }
+    ]
   },
   {
-    id: 4,
-    title: "testing blog",
-    description:
-      "Discover time-saving tips to ace the MCAT while managing a hectic schedule. Find out how ",
+    id: 3,
+    title: "Mastering the CARS Program: Key Strategies for Success",
+    description: "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
+    date: "Jan 12, 2024",
+    time: "6:00 PM",
+    image: "/blog1.png",
+    category: "CARS Program",
+    tags: ["CARS", "MCAT Preparation", "Active Reading"],
+    blog_details: [
+      {
+        type: "standard_section",
+        heading: "What is the CARS Program?",
+        content: "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
+        icons: ["🧠", "📚"]
+      },
+      {
+        type: "highlight_section",
+        heading: "Key Program Insights",
+        highlightedText: "Unlock your potential with our unique approach!",
+        importantLinks: [
+          {
+            text: "CARS Preparation Guide",
+            url: "https://example.com/cars-guide",
+            icon: "🔗"
+          }
+        ],
+        embeddedLinks: [
+          {
+            text: "critical thinking",
+            url: "https://example.com/critical-thinking",
+            context: "Develop your {link} skills"
+          }
+        ]
+      },
+      {
+        type: "numbered_list",
+        heading: "Program Highlights",
+        listItems: [
+          "3 expert-led editing sessions",
+          "Personalized feedback meetings",
+          "Comprehensive study materials"
+        ]
+      },
+      {
+        type: "quote_section",
+        quote: "Success is not just about hard work, but smart preparation.",
+        author: "Medical Admissions Expert",
+        icon: "💡"
+      },
+      {
+        type: "statistic_section",
+        heading: "Student Success Rates",
+        statistics: [
+          { label: "Average Score Improvement", value: "15%" },
+          { label: "Student Satisfaction", value: "95%" }
+        ]
+      },
+      {
+        type: "testimonial_section",
+        testimonials: [
+          {
+            text: "This program transformed my CARS performance!",
+            author: "Jane Doe",
+            role: "Medical School Applicant"
+          }
+        ]
+      },
+      {
+        type: "resource_section",
+        heading: "Recommended Resources",
+        resources: [
+          {
+            title: "MCAT Prep Book",
+            description: "Comprehensive CARS strategy guide",
+            link: "https://example.com/mcat-book"
+          }
+        ]
+      },
+      {
+        type: "interactive_section",
+        heading: "Self-Assessment Quiz",
+        quizLink: "https://example.com/cars-quiz",
+        description: "Test your CARS readiness!"
+      },
+      {
+        type: "timeline_section",
+        heading: "MCAT Preparation Journey",
+        timelineEvents: [
+          {
+            date: "Month 1",
+            title: "Diagnostic Test",
+            description: "Understand your current level and create a personalized study plan",
+            icon: "🏁"
+          },
+          {
+            date: "Month 2-3",
+            title: "Intensive Study",
+            description: "Deep dive into content review and practice passages",
+            icon: "📚"
+          },
+          {
+            date: "Month 4",
+            title: "Mock Exams",
+            description: "Full-length practice tests and detailed performance analysis",
+            icon: "🎯"
+          }
+        ]
+      },
+      {
+        type: "comparison_section",
+        heading: "Study Methods Comparison",
+        comparisonTitle: "Traditional vs. Our Approach",
+        comparisons: [
+          {
+            category: "Study Materials",
+            traditional: "Generic textbooks",
+            ourApproach: "Customized, high-yield resources"
+          },
+          {
+            category: "Mentorship",
+            traditional: "Limited guidance",
+            ourApproach: "Personalized 1-on-1 mentorship"
+          },
+          {
+            category: "Practice Strategy",
+            traditional: "Passive reading",
+            ourApproach: "Active learning and strategy development"
+          }
+        ]
+      },
+      {
+        type: "multimedia_section",
+        heading: "Multimedia Learning Resources",
+        mediaItems: [
+          {
+            type: "video",
+            title: "CARS Strategy Masterclass",
+            duration: "45 mins",
+            thumbnail: "/video-thumbnail.jpg",
+            url: "https://example.com/cars-masterclass"
+          },
+          {
+            type: "podcast",
+            title: "Medical School Admissions Insights",
+            duration: "30 mins",
+            thumbnail: "/podcast-thumbnail.jpg",
+            url: "https://example.com/admissions-podcast"
+          },
+          {
+            type: "webinar",
+            title: "MCAT Preparation Strategies",
+            duration: "60 mins",
+            thumbnail: "/webinar-thumbnail.jpg",
+            url: "https://example.com/mcat-webinar"
+          }
+        ]
+      }
+    ]
+  },
 
-    date: "Jan 12,2024",
-    time: "6:00 PM",
-    image: "/blog2.png",
-    category: "CARS program",
-  },
-  {
-    id: 5,
-    title: "How to Master CASPer: Top Tips from Experts",
-    date: "Jan 12,2024",
-    time: "6:00 PM",
-    image: "/blog3.png",
-    category: "CARS program",
-    description:
-      "Learn how to effectively approach the CASPer test with expert strategies, helping...",
-  },
-];
+
+]
+
+
 
 export const consultation_details = [
   {

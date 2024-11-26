@@ -9,7 +9,7 @@ const BlogCard_For_Blog_Page = ({ blog_data }) => {
   return (
     <div
      
-      className="bg-white rounded-xl shadow-md max-w-md overflow-hidden"
+      className="bg-white rounded-xl shadow-md max-w-md overflow-hidden hover:scale-105"
       key={blog_data.id}
     >
       <div className="relative h-60 w-full">
@@ -17,6 +17,7 @@ const BlogCard_For_Blog_Page = ({ blog_data }) => {
           src={blog_data.image}
           alt={blog_data.title}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
           className="object-cover"
         />
       </div>
@@ -44,8 +45,8 @@ const BlogCard_For_Blog_Page = ({ blog_data }) => {
         <p className="text-gray-600 mb-4">{blog_data.description}</p>
 
         <Link
-          href={`/blog_datas/${blog_data.id}`}
-          className="inline-block bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition"
+          href={`/blog/${blog_data.id}`}
+          className="inline-block bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-[#274E49] transition"
         >
           Read More
         </Link>

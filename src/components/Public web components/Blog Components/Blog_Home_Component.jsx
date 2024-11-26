@@ -1,41 +1,117 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BlogCard_For_Blog_Page from "./BlogCard_For_Blog_Page";
-import BlogSearchComponent from "./BlogSearchComponent";
-import LatestBlogsComponent from "./LatestBlogsComponent";
-import BlogCategoriesComponent from "./BlogCategoriesComponent";
+import BlogSidebarComponent from "./BlogSidebarComponent";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Blog_Home_Component = ({ blog, latestBlogs }) => {
-  const [filteredBlogs, setFilteredBlogs] = useState(blog);
+  const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const categoryParam = searchParams.get("category");
+  const searchQuery = searchParams.get("search");
 
+  // Filter blogs based on category and search parameters
+  useEffect(() => {
+    setIsLoading(true);
+    try {
+      let filtered = [...blog];
+      console.log(categoryParam)
+
+      // Apply category filter if present
+      if (categoryParam) {
+        filtered = filtered.filter(
+          (item) => item.category.toLowerCase() === categoryParam.toLowerCase().split("-").join(" ")
+        );
+      }
+
+      // Apply search filter if present
+      if (searchQuery) {
+        filtered = filtered.filter(
+          (item) =>
+            item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            item.description.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+      }
+
+      setFilteredBlogs(filtered);
+    } catch (error) {
+      console.error("Error filtering blogs:", error);
+      setFilteredBlogs([]);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [blog, categoryParam, searchQuery]);
+
+  // Handle search functionality
   const handleSearch = (searchTerm) => {
-    const filtered = blog.filter(
-      (item) => 
-        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredBlogs(filtered);
+    if (searchTerm) {
+      router.push(
+        `/blogs?search=${encodeURIComponent(searchTerm)}${
+          categoryParam ? `&category=${categoryParam}` : ""
+        }`
+      );
+    } else {
+      router.push(
+        categoryParam ? `/blogs?category=${categoryParam}` : "/blogs"
+      );
+    }
   };
 
+  // Handle category selection
+  const handleCategoryChange = (category) => {
+    router.push(
+      `/blogs?category=${encodeURIComponent(category)}${
+        searchQuery ? `&search=${searchQuery}` : ""
+      }`
+    );
+  };
+
+  if (isLoading) {
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full h-full flex justify-center items-center flex-col space-y-8 p-3 py-10 bg-[#fff]">
-      <div className="md:w-11/12 w-full grid grid-cols-2 md:grid-cols-4 justify-center gap-3">
-        <div className="md:col-span-2 lg:col-span-3 col-span-2 flex h-fit">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-            {filteredBlogs.map((item, index) => (
-              <BlogCard_For_Blog_Page
-                key={`${item.id}-${index}`}
-                blog_data={item}
-              />
-            ))}
+    <div className="w-full min-h-screen bg-[#fff] py-10">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          {/* Blog Cards Section */}
+          <div className="lg:col-span-3">
+            {filteredBlogs.length === 0 ? (
+              <div className="text-center py-10">
+                <h3 className="text-xl text-gray-600">No blogs found</h3>
+                <button
+                  onClick={() => router.push("/blogs")}
+                  className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                >
+                  View All Blogs
+                </button>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                {filteredBlogs.map((item, index) => (
+                  <BlogCard_For_Blog_Page
+                    key={`${item.id}-${index}`}
+                    blog_data={item}
+                  />
+                ))}
+              </div>
+            )}
           </div>
-        </div>
-        
-        <div className="md:col-span-2 lg:col-span-1 col-span-2 flex flex-col w-full h-fit space-y-4">
-          <BlogSearchComponent onSearch={handleSearch} />
-          <LatestBlogsComponent latestBlogs={latestBlogs} />
-          <BlogCategoriesComponent />
+
+          {/* Sidebar Section */}
+          <BlogSidebarComponent
+            onSearch={handleSearch}
+            latestBlogs={latestBlogs}
+            currentCategory={categoryParam}
+          />
         </div>
       </div>
     </div>

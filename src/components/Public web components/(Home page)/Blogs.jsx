@@ -1,10 +1,11 @@
 import React from 'react'
 import Small_Title from './Small_Title'
 import Large_Title from './Large_Title'
-import { blogs } from '@/utils/constvalues'
 import Blog_Card from './Blog_Card'
+import { blogService } from '@/utils/blogService'
 
 const Blogs = () => {
+  const blogs=blogService.getAllBlogs();
   return (
     <div className='w-full h-full bg-[#F4F6FC] flex justify-center items-center flex-col space-y-8 px-5 py-10'>
     <Small_Title title='Blogs & News' />

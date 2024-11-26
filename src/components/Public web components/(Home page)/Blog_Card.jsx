@@ -1,11 +1,12 @@
 import { IconCalendar, IconClockHour2 } from "@tabler/icons-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Blog_Card = ({ blog }) => {
   const { id, title, description, image, date, time } = blog;
   return (
-    <div className="max-w-7xl bg-[#fff] rounded-lg font-Manrope shadow-md  flex flex-col space-y-5 ">
+    <div className="max-w-7xl bg-[#fff] rounded-lg font-Manrope shadow-md  flex flex-col space-y-3 hover:scale-105">
       <div className="relative w-full h-60">
         <Image
           src={image}
@@ -29,8 +30,12 @@ const Blog_Card = ({ blog }) => {
           <span> {time}</span>
         </div>
       </div>
-      <div className="px-3 pb-5">
+      <div className="px-3 pb-2">
         <p className="text-[#4A4A4A] text-sm sm:text-base ">{description}</p>
+      </div>
+      <div className="pb-6 px-3">
+
+      <Link href={`/blog/${id}`} className="text-[#fff] bg-[#4F9F76] p-2 rounded-md font-semibold  ">Read More</Link>
       </div>
     </div>
   );

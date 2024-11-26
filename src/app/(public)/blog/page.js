@@ -1,10 +1,11 @@
 import Blog_Home_Component from "@/components/Public web components/Blog Components/Blog_Home_Component";
 import Svg_Bg from "@/components/Public web components/Svg_Bg";
-import { blogs } from "@/utils/constvalues";
+import { blogService } from "@/utils/blogService";
 
 export default function Blogs_Home_Page() {
-    const blog = blogs;
-  const latestBlogs = blogs.slice(0, 3);
+    const blog = blogService.getAllBlogs();
+    const latestBlogs = blogService.getLatestBlogs();
+
     return (
         <div>
            <Svg_Bg/>
