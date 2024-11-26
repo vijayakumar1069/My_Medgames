@@ -6,7 +6,7 @@ export default function Meet_Our_Tutors_Page() {
     return (
         <div className="mt-[0.1px]">
           
-           <Image_Bg/>
+           <Image_Bg bg_Image="/tutorbg.png"/>
            <Meet_Our_Tutor/>
         
         </div>

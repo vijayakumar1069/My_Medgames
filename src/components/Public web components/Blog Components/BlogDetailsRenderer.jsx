@@ -1,21 +1,21 @@
 "use client";
-import React from 'react';
-import Link from 'next/link';
-import { 
-  BookOpen, 
-  Link2, 
-  Target, 
-  Quote, 
-  TrendingUp, 
-  MessageCircle, 
-  Book, 
-  CheckCircle, 
+import React from "react";
+import Link from "next/link";
+import {
+  BookOpen,
+  Link2,
+  Target,
+  Quote,
+  TrendingUp,
+  MessageCircle,
+  Book,
+  CheckCircle,
   Clock,
   PlayCircle,
   Headphones,
-  Monitor
-} from 'lucide-react';
-import Image from 'next/image';
+  Monitor,
+} from "lucide-react";
+import Image from "next/image";
 
 const BlogDetailsRenderer = ({ blogDetails }) => {
   const renderSection = (section) => {
@@ -25,7 +25,9 @@ const BlogDetailsRenderer = ({ blogDetails }) => {
           <div className="bg-gray-50 p-4 rounded-lg mb-4">
             <h2 className="text-xl font-bold mb-2 flex items-center">
               {section.icons?.map((icon, index) => (
-                <span key={index} className="mr-2">{icon}</span>
+                <span key={index} className="mr-2">
+                  {icon}
+                </span>
               ))}
               {section.heading}
             </h2>
@@ -37,26 +39,24 @@ const BlogDetailsRenderer = ({ blogDetails }) => {
         return (
           <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-4">
             <h3 className="font-bold text-lg mb-2">{section.heading}</h3>
-            
+
             {section.highlightedText && (
               <div className="text-yellow-700 font-semibold mb-3">
                 <Link2 className="inline-block mr-2 text-yellow-600" />
                 {section.highlightedText}
               </div>
             )}
-            
+
             {section.importantLinks?.map((link, index) => (
-              <Link 
-                key={index} 
-                href={link.url} 
-                target="_blank" 
+              <Link
+                key={index}
+                href={link.url}
+                target="_blank"
                 className="text-blue-600 hover:underline block"
               >
                 {link.icon} {link.text}
               </Link>
             ))}
-            
-       
           </div>
         );
 
@@ -69,7 +69,9 @@ const BlogDetailsRenderer = ({ blogDetails }) => {
             </h3>
             <ol className="list-decimal pl-5">
               {section.listItems.map((item, index) => (
-                <li key={index} className="mb-1">{item}</li>
+                <li key={index} className="mb-1">
+                  {item}
+                </li>
               ))}
             </ol>
           </div>
@@ -101,9 +103,7 @@ const BlogDetailsRenderer = ({ blogDetails }) => {
                   <div className="text-2xl font-bold text-purple-700">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-600">
-                    {stat.label}
-                  </div>
+                  <div className="text-sm text-gray-600">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -134,8 +134,8 @@ const BlogDetailsRenderer = ({ blogDetails }) => {
             </h3>
             {section.resources.map((resource, index) => (
               <div key={index} className="mb-2">
-                <Link 
-                  href={resource.link} 
+                <Link
+                  href={resource.link}
                   className="text-teal-600 hover:underline font-semibold"
                 >
                   {resource.title}
@@ -154,8 +154,8 @@ const BlogDetailsRenderer = ({ blogDetails }) => {
               {section.heading}
             </h3>
             <p>{section.description}</p>
-            <Link 
-              href={section.quizLink} 
+            <Link
+              href={section.quizLink}
               className="mt-2 inline-block bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
             >
               Start Quiz
@@ -163,26 +163,28 @@ const BlogDetailsRenderer = ({ blogDetails }) => {
           </div>
         );
 
-        case "timeline_section":
-      return (
-        <div className="bg-blue-50 p-4 rounded-lg mb-4">
-          <h3 className="font-bold text-lg mb-4 flex items-center">
-            <Clock className="mr-2 text-blue-600" />
-            {section.heading}
-          </h3>
-          <div className="space-y-4">
-            {section.timelineEvents.map((event, index) => (
-              <div key={index} className="flex items-start">
-                <div className="mr-4 text-2xl">{event.icon}</div>
-                <div>
-                  <h4 className="font-semibold">{event.date} - {event.title}</h4>
-                  <p className="text-gray-600">{event.description}</p>
+      case "timeline_section":
+        return (
+          <div className="bg-blue-50 p-4 rounded-lg mb-4">
+            <h3 className="font-bold text-lg mb-4 flex items-center">
+              <Clock className="mr-2 text-blue-600" />
+              {section.heading}
+            </h3>
+            <div className="space-y-4">
+              {section.timelineEvents.map((event, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="mr-4 text-2xl">{event.icon}</div>
+                  <div>
+                    <h4 className="font-semibold">
+                      {event.date} - {event.title}
+                    </h4>
+                    <p className="text-gray-600">{event.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      );
+        );
       case "comparison_section":
         return (
           <div className="bg-green-50 p-4 rounded-lg mb-4">
@@ -201,63 +203,76 @@ const BlogDetailsRenderer = ({ blogDetails }) => {
               <tbody>
                 {section.comparisons.map((comparison, index) => (
                   <tr key={index}>
-                    <td className="border p-2 font-semibold">{comparison.category}</td>
-                    <td className="border p-2 text-red-600">{comparison.traditional}</td>
-                    <td className="border p-2 text-green-600">{comparison.ourApproach}</td>
+                    <td className="border p-2 font-semibold">
+                      {comparison.category}
+                    </td>
+                    <td className="border p-2 text-red-600">
+                      {comparison.traditional}
+                    </td>
+                    <td className="border p-2 text-green-600">
+                      {comparison.ourApproach}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         );
-        case "multimedia_section":
-      return (
-        <div className="bg-purple-50 p-4 rounded-lg mb-4">
-          <h3 className="font-bold text-lg mb-4 flex items-center">
-            <Monitor className="mr-2 text-purple-600" />
-            {section.heading}
-          </h3>
-          <div className="grid md:grid-cols-3 gap-4">
-            {section.mediaItems.map((media, index) => {
-              const iconMap = {
-                video: <PlayCircle className="text-red-500" />,
-                podcast: <Headphones className="text-green-500" />,
-                webinar: <Monitor className="text-blue-500" />
-              };
+      // case "multimedia_section":
+      //   return (
+      //     <div className="bg-purple-50 p-4 rounded-lg mb-4">
+      //       <h3 className="font-bold text-lg mb-4 flex items-center">
+      //         <Monitor className="mr-2 text-purple-600" />
+      //         {section.heading}
+      //       </h3>
+      //       <div className="grid md:grid-cols-3 gap-4">
+      //         {section.mediaItems.map((media, index) => {
+      //           const iconMap = {
+      //             video: <PlayCircle className="text-red-500" />,
+      //             podcast: <Headphones className="text-green-500" />,
+      //             webinar: <Monitor className="text-blue-500" />,
+      //           };
 
-              return (
-                <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                  <div className="relative h-48 w-full">
-                    <Image 
-                      src={media.thumbnail} 
-                      alt={media.title} 
-                      fill 
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <div className="flex items-center mb-2">
-                      {iconMap[media.type]}
-                      <span className="ml-2 font-semibold">{media.type.toUpperCase()}</span>
-                    </div>
-                    <h4 className="font-bold mb-2">{media.title}</h4>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-500">{media.duration}</span>
-                      <Link 
-                        href={media.url} 
-                        target="_blank" 
-                        className="text-purple-600 hover:underline"
-                      >
-                        Watch Now
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      );
+      //           return (
+      //             <div
+      //               key={index}
+      //               className="bg-white rounded-lg shadow-md overflow-hidden"
+      //             >
+      //               <div className="relative h-48 w-full">
+      //                 <Image
+      //                   src={media.thumbnail}
+      //                   alt={media.title}
+      //                   fill
+      //                   className="object-cover"
+      //                 />
+      //               </div>
+      //               <div className="p-4">
+      //                 <div className="flex items-center mb-2">
+      //                   {iconMap[media.type]}
+      //                   <span className="ml-2 font-semibold">
+      //                     {media.type.toUpperCase()}
+      //                   </span>
+      //                 </div>
+      //                 <h4 className="font-bold mb-2">{media.title}</h4>
+      //                 <div className="flex justify-between items-center">
+      //                   <span className="text-sm text-gray-500">
+      //                     {media.duration}
+      //                   </span>
+      //                   <Link
+      //                     href={media.url}
+      //                     target="_blank"
+      //                     className="text-purple-600 hover:underline"
+      //                   >
+      //                     Watch Now
+      //                   </Link>
+      //                 </div>
+      //               </div>
+      //             </div>
+      //           );
+      //         })}
+      //       </div>
+      //     </div>
+      //   );
 
       default:
         return null;
@@ -267,9 +282,7 @@ const BlogDetailsRenderer = ({ blogDetails }) => {
   return (
     <div className="space-y-4">
       {blogDetails.map((section, index) => (
-        <React.Fragment key={index}>
-          {renderSection(section)}
-        </React.Fragment>
+        <React.Fragment key={index}>{renderSection(section)}</React.Fragment>
       ))}
     </div>
   );

@@ -8,12 +8,12 @@ const Contact_Us_card = ({ item }) => {
   const getIcon = (name) => {
     switch (name.toLowerCase()) {
       case "website":
-        return <IconWorld stroke={2} size={50} className="text-[#376F5F]" />;
+        return <IconWorld stroke={1} size={30} className="text-[#376F5F]" />;
       case "email":
-        return <IconMail stroke={2} size={50} className="text-[#376F5F]" />;
+        return <IconMail stroke={1} size={30} className="text-[#376F5F]" />;
       case "instagram":
         return (
-          <IconBrandInstagram stroke={2} size={50} className="text-[#376F5F]" />
+          <IconBrandInstagram stroke={1} size={30} className="text-[#376F5F]" />
         );
       default:
         return null;
@@ -29,16 +29,16 @@ const Contact_Us_card = ({ item }) => {
   };
 
   return (
-    <div className="text-black w-80 xl:w-96 bg-white shadow-lg flex flex-col items-center space-y-4 p-6 rounded-lg hover:shadow-xl transition-shadow">
-      <div>{getIcon(name)}</div>
-      <p className="text-center text-xl font-semibold capitalize">{name}</p>
+    <div className=" rounded-full bg-[#fff] shadow-sm border border-[#376F5F] p-1">
+      {/* <div>{getIcon(name)}</div> */}
+     
       <a
         href={generateLink(name, link)}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-center text-[#4A4A4A] hover:underline text-lg"
+        className="text-center text-[#376F5F] hover:underline text-lg"
       >
-        {display_content} {/* Display only the name */}
+       {getIcon(name)}
       </a>
     </div>
   );

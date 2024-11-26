@@ -2,7 +2,9 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { z } from "zod";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -22,7 +24,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import Image from "next/image";
+import Contact_Us_card from "./Contact_Us_card";
+import { brand_Info } from "@/utils/constvalues";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -38,6 +50,8 @@ const formSchema = z.object({
 });
 
 const Contact_us_Form = () => {
+  const router = useRouter();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,11 +65,28 @@ const Contact_us_Form = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    setIsDialogOpen(true); // Open the confirmation dialog
+  };
+
+  const handleYesClick = () => {
+    const data = form.getValues(); // Get form values
+    const params = new URLSearchParams({
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+    });
+    setIsDialogOpen(false);
+    router.push(`/schedule-a-call?${params.toString()}`); // Redirect with query parameters
+  };
+
+  const handleNoClick = () => {
+    setIsDialogOpen(false);
+    form.reset(); // Reset the form
   };
 
   return (
     <div className="flex justify-center items-center w-full h-full bg-white">
-      <div className="flex flex-col slg:flex-row space-x-5 lg:w-full  w-full max-w-7xl shadow-lg rounded-lg overflow-hidden bg-white">
+      <div className="flex flex-col slg:flex-row space-x-5 lg:w-full w-full max-w-7xl shadow-lg rounded-lg overflow-hidden bg-white">
         {/* Image Section */}
         <div className="relative hidden slg:inline-flex flex-shrink-0 slg:flex-1 w-full p-10 h-[500px] slg:h-auto">
           <Image
@@ -70,16 +101,16 @@ const Contact_us_Form = () => {
 
         {/* Form Section */}
         <div className="flex-1 p-6 flex flex-col space-y-4">
-        <div className="w-full flex flex-col space-y-4 justify-center items-center ">
-          <h1 className="text-white xl:text-xl md:text-lg bg-[#4F9F76] px-4 py-2 rounded-full">
-          Medical Education for All
-          </h1>
-          <div className="max-w-sm text-center">
-            <p className="text-black font-bold text-2xl">
-            Access a Complimentary Medical Course Connect with Us
-            </p>
+          <div className="w-full flex flex-col space-y-4 justify-center items-center">
+            <h1 className="text-white xl:text-xl md:text-lg bg-[#4F9F76] px-4 py-2 rounded-full">
+              Medical Education for All
+            </h1>
+            <div className="max-w-sm text-center">
+              <p className="text-black font-bold text-2xl">
+                Access a Complimentary Medical Course Connect with Us
+              </p>
+            </div>
           </div>
-        </div>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               {/* Name Field */}
@@ -90,7 +121,11 @@ const Contact_us_Form = () => {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input className="focus_none" placeholder="Your Name" {...field} />
+                      <Input
+                        className="focus_none"
+                        placeholder="Your Name"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -104,7 +139,12 @@ const Contact_us_Form = () => {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input className="focus_none" type="email" placeholder="Your Email" {...field} />
+                      <Input
+                        className="focus_none"
+                        type="email"
+                        placeholder="Your Email"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -119,7 +159,7 @@ const Contact_us_Form = () => {
                     <FormLabel>Phone</FormLabel>
                     <FormControl>
                       <Input
-                        type="tel" 
+                        type="tel"
                         className="focus_none"
                         placeholder="Your Phone Number"
                         {...field}
@@ -140,10 +180,12 @@ const Contact_us_Form = () => {
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
-                       
                       >
-                        <SelectTrigger  className="rounded-none focus_none focus-none focus:outline-none focus-visible:ring-0 bodrer-b-2">
-                          <SelectValue className="focus_none focus:outline-none" placeholder="Select a course" />
+                        <SelectTrigger className="rounded-none focus_none focus-none focus:outline-none focus-visible:ring-0 bodrer-b-2">
+                          <SelectValue
+                            className="focus_none focus:outline-none"
+                            placeholder="Select a course"
+                          />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="medicine">Medicine</SelectItem>
@@ -175,13 +217,42 @@ const Contact_us_Form = () => {
                 )}
               />
               {/* Submit Button */}
-              <Button  className="w-full bg-[#4F9F76]/80 hover:bg-[#4F9F76]">
+              <Button
+                className="w-full bg-[#4F9F76] hover:bg-[#4F9F76]/80"
+                type="submit"
+              >
                 Submit
               </Button>
             </form>
           </Form>
+          <div className="grid grid-cols-3 lg:max-w-48 mx-auto justify-items-center  gap-x-4 gap-y-2">
+          {brand_Info.social_links.map((item, index) => (
+            <Contact_Us_card key={`${item.id}-${index}`} item={item} />
+          ))}
+        </div>
         </div>
       </div>
+
+      {/* Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Would you like to schedule a call?</DialogTitle>
+            <DialogDescription>
+              Click &quot;Yes&quot; to schedule a call with your entered
+              details.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button onClick={handleYesClick} className="bg-green-600">
+              Yes
+            </Button>
+            <Button onClick={handleNoClick} className="bg-red-600">
+              No
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

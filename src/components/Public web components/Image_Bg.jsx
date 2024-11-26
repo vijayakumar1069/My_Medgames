@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import Breadcrumb_Wrapper from "./Breadcrumb_Wrapper";
 
-const Image_Bg = () => {
+const Image_Bg = ({bg_Image}) => {
   
 
 
@@ -11,7 +11,7 @@ const Image_Bg = () => {
       {/* Image with custom overlay */}
       <div className="relative w-full h-full">
         <Image
-          src="/tutorbg.png"
+          src={bg_Image}
           alt="Tutor Background"
           fill
             style={{ objectFit: "cover" }}

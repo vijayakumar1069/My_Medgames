@@ -51,14 +51,14 @@ const Navbar = () => {
         {/* Logo and Title */}
         <div className="flex space-x-2 items-center">
           <Link href={"/"} className="flex space-x-2 items-center">
-          <Image
-            src="/logo.png"
-            alt="logo"
-            width={40}
-            height={40}
-            // style={{ height: "auto",width:"auto" }} // Ensures the aspect ratio is maintained
-          />
-          <h1 className="text-xl text-white">Med Games</h1>
+            <Image
+              src="/logo.png"
+              alt="logo"
+              width={40}
+              height={40}
+              // style={{ height: "auto",width:"auto" }} // Ensures the aspect ratio is maintained
+            />
+            <h1 className="text-xl text-white">Med Games</h1>
           </Link>
         </div>
 
@@ -67,20 +67,24 @@ const Navbar = () => {
           <ul>
             {navbarvalues.map((item) => (
               <li
-                className="inline-block mx-2 text-base    xl:text-base text-white"
+                className="inline-block mx-[6px] text-base    xl:text-base text-white"
                 key={item.id}
               >
-                <Link href={item.link}>{item.name}</Link>
+                <Link href={item.link}>
+                  {item.name != "Schedule A Call" ? item.name : ""}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Desktop "Get Started" Button */}
+        {/* Desktop "Schedule a Demo" Button */}
         <div className="hidden lg:inline-block">
-          <Button className="bg-transparent text-white px-2 py-2 rounded-md hover:bg-transparent hover:text-white border">
-            Get Started
-          </Button>
+          <Link href={"/schedule-a-call"}>
+            <Button className="bg-transparent text-white px-2 py-2 rounded-md hover:bg-transparent hover:text-white border">
+              Scheduling call
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Hamburger Icon with Drawer */}
@@ -112,7 +116,6 @@ const Navbar = () => {
                 </DrawerClose>
               </DrawerHeader>
 
-              {/* Drawer Navbar Items with Framer Motion */}
               <motion.ul
                 className="mt-4 space-y-2 flex flex-col justify-center items-center w-full"
                 initial="hidden"
@@ -120,19 +123,21 @@ const Navbar = () => {
                 exit="hidden"
                 variants={listVariants}
               >
-                {navbarvalues.map((item) => (
-                  <motion.li
-                    key={item.id}
-                    className="text-lg text-gray-700"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.1, color: "#4F9F76" }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link href={item.link} className="block px-4 py-2">
-                      {item.name}
-                    </Link>
-                  </motion.li>
-                ))}
+                {navbarvalues
+                  .filter((item) => item.name !== "Schedule A Call") // Exclude "Schedule A Call"
+                  .map((item) => (
+                    <motion.li
+                      key={item.id}
+                      className="text-lg text-gray-700"
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.1, color: "#4F9F76" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link href={item.link} className="inline-flex px-4 py-2">
+                        {item.name}
+                      </Link>
+                    </motion.li>
+                  ))}
               </motion.ul>
 
               {/* Get Started Button in Drawer */}
@@ -142,9 +147,11 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <Button className="w-full bg-transparent text-black bg-[#4F9F76] px-4 py-2 rounded-md hover:bg-[#4F9F76] border">
-                  Get Started
-                </Button>
+                <Link href={"/schedule-a-call"}>
+                  <Button className="w-full bg-transparent text-white bg-[#4F9F76] px-4 py-2 rounded-md hover:bg-[#4F9F76] border">
+                    Scheduling call
+                  </Button>
+                </Link>
               </motion.div>
             </DrawerContent>
           </Drawer>

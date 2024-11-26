@@ -5,11 +5,11 @@ export const navbarvalues = [
 
   //   link: "/",
   // },
-  // {
-  //   id: 2,
-  //   name: "About Us",
-  //   link: "/about",
-  // },
+  {
+    id: 2,
+    name: "About Us",
+    link: "/about-us",
+  },
   {
     id: 5,
     name: "Courses",
@@ -50,6 +50,11 @@ export const navbarvalues = [
   //   name: "Privacy Policy",
   //   link: "/privacy-policy",
   // },
+  {
+    id:11,
+    name:"Schedule A Call",
+    link: "/schedule-a-call",
+  }
 ];
 export const socialMedialinks = [
   {
@@ -1354,7 +1359,7 @@ export const blogs = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Mastering the CARS Program: Key Strategies for Success",
     description: "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
     date: "Jan 12, 2024",

@@ -51,11 +51,21 @@ module.exports = {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+			  float: {
+				'0%, 100%': { transform: 'translateY(0)' },
+				'50%': { transform: 'translateY(-15px)' },
+			  },
+			  ping: {
+				'0%, 100%': { transform: 'scale(1)', opacity: '1' },
+				'50%': { transform: 'scale(1.5)', opacity: '0.5' },
+			  }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+			  'float': 'float 4s ease-in-out infinite',
+			  'ping': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
   		}
   	}
   },

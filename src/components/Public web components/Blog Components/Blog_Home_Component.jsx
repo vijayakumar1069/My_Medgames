@@ -50,13 +50,13 @@ const Blog_Home_Component = ({ blog, latestBlogs }) => {
   const handleSearch = (searchTerm) => {
     if (searchTerm) {
       router.push(
-        `/blogs?search=${encodeURIComponent(searchTerm)}${
+        `/blog?search=${encodeURIComponent(searchTerm)}${
           categoryParam ? `&category=${categoryParam}` : ""
         }`
       );
     } else {
       router.push(
-        categoryParam ? `/blogs?category=${categoryParam}` : "/blogs"
+        categoryParam ? `/blog?category=${categoryParam}` : "/blog"
       );
     }
   };
@@ -88,7 +88,7 @@ const Blog_Home_Component = ({ blog, latestBlogs }) => {
               <div className="text-center py-10">
                 <h3 className="text-xl text-gray-600">No blogs found</h3>
                 <button
-                  onClick={() => router.push("/blogs")}
+                  onClick={() => router.push("/blog")}
                   className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
                 >
                   View All Blogs
