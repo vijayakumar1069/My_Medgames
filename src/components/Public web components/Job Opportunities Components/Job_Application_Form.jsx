@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 // Define the schema for the job application form
 const formSchema = z.object({
@@ -68,16 +69,53 @@ const Job_Application_Form = () => {
     <div className="w-full h-full flex justify-center items-center bg-white py-10 px-5">
       <div className="relative w-full flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8 bg-white shadow-lg rounded-lg p-5">
         {/* Image Section */}
-        <div className="relative flex-shrink-0 w-full md:w-1/2 h-[500px] md:h-auto">
-          <Image
+        <div className="w-full aspect-square flex-1 bg-white shadow-2xl rounded-2xl overflow-hidden flex">
+        {/* Image Section with Enhanced Quality and Animations */}
+        <motion.div 
+          className="w-full  relative overflow-hidden"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ 
+            type: "spring", 
+            stiffness: 100, 
+            delay: 0.2 
+          }}
+        >
+          <div className="absolute inset-0 z-10 bg-[#4F9F76] opacity-10"></div>
+          
+          {/* Image with Enhanced Quality */}
+          <Image 
             src="/job_img2.png"
             alt="Job Application Background"
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority
-            className="object-cover object-center w-full h-full rounded-lg"
+            quality={100}
+            className="object-cover object-center transition-all duration-500 hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
+          
+          {/* Overlay Content */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 z-20 bg-black/30 text-white">
+            <motion.h2 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="text-2xl font-bold"
+            >
+              Join Our Team
+            </motion.h2>
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="text-sm"
+            >
+              Exciting opportunities await you!
+            </motion.p>
+          </div>
+        </motion.div>
         </div>
+
 
         {/* Form Section */}
         <div className="w-full md:w-1/2 flex flex-col space-y-4">

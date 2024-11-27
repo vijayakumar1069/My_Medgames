@@ -5,7 +5,7 @@ import Breadcrumb_Wrapper from "./Breadcrumb_Wrapper";
 const Svg_Bg = () => {
   return (
     <div className="relative bg-[#E9f8F3] py-8">
-      <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto px-4 lg:px-16 h-[450px] md:h-[400px] space-y-20 md:space-y-0">
+      <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto px-4 lg:px-16 h-[400px] md:h-[400px] space-y-10 md:space-y-0">
         {/* Left Image */}
         <div className="relative flex-shrink-0 w-24 h-24 md:w-40 md:h-40 lg:w-48 lg:h-48">
           <Image

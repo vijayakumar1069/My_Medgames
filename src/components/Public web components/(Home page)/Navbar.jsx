@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
-import { IconX, IconMenu2 } from "@tabler/icons-react";
-import { navbarvalues } from "@/utils/constvalues";
+import { motion } from "framer-motion";
+import { IconX, IconMenu2, IconChevronDown } from "@tabler/icons-react";
+import Link from "next/link";
+
 import {
   Drawer,
   DrawerClose,
@@ -13,9 +14,15 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { navbarvalues } from "@/utils/constvalues";
 
 // Variants for individual navbar items in the drawer
 const itemVariants = {
@@ -42,120 +49,193 @@ const listVariants = {
   },
 };
 
+// Organize navbar values by groups
+const organizeNavbarValues = (navbarvalues) => {
+  const regularItems = navbarvalues.filter(
+    (item) => !item.group && item.name !== "Schedule A Call"
+  );
+  const groupItems = navbarvalues.filter((item) => item.group);
+  const scheduleCallItem = navbarvalues.find(
+    (item) => item.name === "Schedule A Call"
+  );
+
+  return {
+    regularItems,
+    groupItems,
+    scheduleCallItem,
+  };
+};
+
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const { regularItems, groupItems, scheduleCallItem } =
+    organizeNavbarValues(navbarvalues);
+
+  // Close drawer when a link is clicked
+  const handleLinkClick = () => {
+    setIsDrawerOpen(false);
+  };
 
   return (
-    <div className="bg-[#4F9F76] fixed top-0 left-0 right-0 z-50  font-Manrope w-full h-20 flex overflow-x-hidden">
-      <div className="lg:w-[1400px]  w-full px-5 md:px-10 lg:px-8 xl:px-12 flex mx-auto items-center justify-between">
-        {/* Logo and Title */}
-        <div className="flex space-x-2 items-center">
-          <Link href={"/"} className="flex space-x-2 items-center">
+    <div className="bg-[#4F9F76] f font-Manrope  h-20 flex ">
+      <div className="w-full max-w-[1400px] px-4 md:px-8  mx-auto flex items-center justify-between">
+        {/* Logo and Name Section */}
+        <div className="flex items-center space-x-2">
+          <Link href={"/"} className="flex items-center space-x-2">
             <Image
               src="/logo.png"
-              alt="logo"
+              alt="Med Games Logo"
               width={40}
               height={40}
-              // style={{ height: "auto",width:"auto" }} // Ensures the aspect ratio is maintained
             />
-            <h1 className="text-xl text-white">Med Games</h1>
+            <h1 className="text-xl font-bold text-white ">
+              Med Games
+            </h1>
           </Link>
         </div>
 
-        {/* Desktop Navbar Links */}
-        <div className="hidden lg:inline-block">
-          <ul>
-            {navbarvalues.map((item) => (
-              <li
-                className="inline-block mx-[6px] text-base    xl:text-base text-white"
+        {/* Navigation Links Section */}
+        <div className="hidden lg:flex items-center justify-center flex-grow">
+          <nav className="flex space-x-5">
+            {regularItems.map((item) => (
+              <Link
                 key={item.id}
+                href={item.link}
+                className="text-base text-white  transition-colors"
               >
-                <Link href={item.link}>
-                  {item.name != "Schedule A Call" ? item.name : ""}
-                </Link>
-              </li>
+                {item.name}
+              </Link>
             ))}
-          </ul>
-        </div>
 
-        {/* Desktop "Schedule a Demo" Button */}
-        <div className="hidden lg:inline-block">
-          <Link href={"/schedule-a-call"}>
-            <Button className="bg-transparent text-white px-2 py-2 rounded-md hover:bg-transparent hover:text-white border">
-              Scheduling call
+            {/* Grouped Items Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-white ">
+                More <IconChevronDown className="ml-1" size={18} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {groupItems.map((item) => (
+                  <DropdownMenuItem key={item.id} asChild>
+                    <Link href={item.link} className="cursor-pointer">
+                      {item.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </nav>
+        </div>
+        <div className="hidden lg:inline-flex">
+          <Link href={scheduleCallItem.link}>
+            <Button
+              className="bg-transparent text-white px-2 py-2 rounded-md 
+              hover:bg-white hover:text-[#4F9F76] 
+              border border-white 
+              transition-colors duration-300"
+            >
+              {scheduleCallItem.name}
             </Button>
           </Link>
         </div>
+      {/* Mobile Menu Trigger */}
+      <div className="lg:hidden top-10 ">
+        <Drawer
+          open={isDrawerOpen}
+          onOpenChange={setIsDrawerOpen}
+          direction="right"
+        >
+          <DrawerTrigger asChild>
+            <IconMenu2
+              stroke={3}
+              className="text-white cursor-pointer"
+              onClick={() => setIsDrawerOpen(true)}
+            />
+          </DrawerTrigger>
 
-        {/* Mobile Hamburger Icon with Drawer */}
-        <div className="lg:hidden inline-block">
-          <Drawer
-            open={isDrawerOpen}
-            onOpenChange={setIsDrawerOpen}
-            className="relative"
-            direction="right"
-          >
-            <DrawerTrigger asChild>
-              <IconMenu2
-                stroke={3}
-                className="text-white cursor-pointer"
-                onClick={() => setIsDrawerOpen(true)}
-              />
-            </DrawerTrigger>
+          <DrawerContent side="right">
+            <DrawerHeader>
+              <VisuallyHidden.Root>
+                <DrawerTitle>Menu</DrawerTitle>
+              </VisuallyHidden.Root>
 
-            <DrawerContent side="right">
-              <DrawerHeader>
-                <VisuallyHidden.Root>
-                  <DrawerTitle>Menu</DrawerTitle>
-                </VisuallyHidden.Root>
-
-                <DrawerClose asChild className="absolute right-4 top-4">
-                  <Button variant="outline">
-                    <IconX stroke={2} />
-                  </Button>
-                </DrawerClose>
-              </DrawerHeader>
-
-              <motion.ul
-                className="mt-4 space-y-2 flex flex-col justify-center items-center w-full"
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                variants={listVariants}
+              <DrawerClose
+                asChild
+                className="absolute right-4 top-4"
+                onClick={handleLinkClick}
               >
-                {navbarvalues
-                  .filter((item) => item.name !== "Schedule A Call") // Exclude "Schedule A Call"
-                  .map((item) => (
-                    <motion.li
-                      key={item.id}
-                      className="text-lg text-gray-700"
-                      variants={itemVariants}
-                      whileHover={{ scale: 1.1, color: "#4F9F76" }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Link href={item.link} className="inline-flex px-4 py-2">
-                        {item.name}
-                      </Link>
-                    </motion.li>
-                  ))}
-              </motion.ul>
+                <Button variant="outline">
+                  <IconX stroke={2} />
+                </Button>
+              </DrawerClose>
+            </DrawerHeader>
 
-              {/* Get Started Button in Drawer */}
-              <motion.div
-                className="mt-4 px-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
+            {/* Mobile Menu Content */}
+            <motion.ul
+              className="mt-4 space-y-2 flex flex-col justify-center items-center w-full"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={listVariants}
+            >
+              {/* Regular Items */}
+              {regularItems.map((item) => (
+                <motion.li
+                  key={item.id}
+                  className="text-lg text-gray-700 w-full text-center"
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05, color: "#4F9F76" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    href={item.link}
+                    className="inline-flex px-4 py-2 w-full justify-center"
+                    onClick={handleLinkClick}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.li>
+              ))}
+
+              {/* Grouped Items Dropdown */}
+              <motion.li
+                className="text-lg text-gray-700 w-full text-center"
+                variants={itemVariants}
               >
-                <Link href={"/schedule-a-call"}>
-                  <Button className="w-full bg-transparent text-white bg-[#4F9F76] px-4 py-2 rounded-md hover:bg-[#4F9F76] border">
-                    Scheduling call
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="inline-flex items-center px-4 py-2 w-full justify-center hover:text-[#4F9F76]">
+                    More <IconChevronDown className="ml-1" size={18} />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    {groupItems.map((item) => (
+                      <DropdownMenuItem key={item.id} asChild>
+                        <Link
+                          href={item.link}
+                          className="cursor-pointer"
+                          onClick={handleLinkClick}
+                        >
+                          {item.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </motion.li>
+
+              {/* Mobile Schedule Call Button */}
+              <motion.div className="mt-4 px-4 w-full" variants={itemVariants}>
+                <Link
+                  href={scheduleCallItem.link}
+                  onClick={handleLinkClick}
+                  className="w-full block"
+                >
+                  <Button className="w-full bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-[#3a7d5e] border">
+                    {scheduleCallItem.name}
                   </Button>
                 </Link>
               </motion.div>
-            </DrawerContent>
-          </Drawer>
-        </div>
+            </motion.ul>
+          </DrawerContent>
+        </Drawer>
+      </div>
       </div>
     </div>
   );

@@ -28,7 +28,10 @@ export default function RootLayout({ children }) {
         className={`${poppins.variable} ${manrope.variable} font-poppins antialiased`}
       >
         {/* Navbar */}
+        <div className="fixed top-0 left-0 right-0 z-50 overflow-hidden">
+
         <Navbar />
+        </div>
 
         {/* Main content with padding to account for the fixed navbar */}
         <main className="pt-20"> 

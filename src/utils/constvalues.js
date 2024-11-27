@@ -20,13 +20,15 @@ export const navbarvalues = [
   },
   {
     id: 4,
-    name: "Blog",
+    name: "Blogs",
     link: "/blog",
+    
   },
   {
     id: 5,
     name: "Upcoming Events",
     link: "/upcoming-events",
+    group: true,
   },
   {
     id: 6,
@@ -38,12 +40,25 @@ export const navbarvalues = [
     name: "Contact Us",
     link: "/contact-us",
   },
+
  
   {
-    id:11,
+    id:8,
     name:"Schedule A Call",
     link: "/schedule-a-call",
-  }
+  },
+  {
+    id: 9,
+    name: "Privacy Policy",
+    link: "/privacy-policy",
+    group: true,
+  },
+  {
+    id: 10,
+    name: "About Us",
+    link: "/about-us",
+    group: true,
+  },
 ];
 
 export const footerLinks=[
