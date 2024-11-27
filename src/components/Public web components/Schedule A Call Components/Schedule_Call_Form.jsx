@@ -30,7 +30,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import { PlusCircle, Trash2 } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -103,6 +103,8 @@ const Schedule_Call_Form = () => {
   };
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
+      
     <div className="flex justify-center items-center w-full h-full bg-white">
       <div className="flex flex-col slg:flex-row space-x-5 lg:w-full w-full max-w-7xl shadow-lg rounded-lg overflow-hidden bg-white">
         {/* Image Section */}
@@ -343,6 +345,7 @@ const Schedule_Call_Form = () => {
         </div>
       </div>
     </div>
+      </Suspense>
   );
 };
 

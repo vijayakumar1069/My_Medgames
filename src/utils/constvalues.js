@@ -1,57 +1,44 @@
 import { BriefcaseMedical, CalendarClock, HandCoins } from "lucide-react";
 
 export const navbarvalues = [
-  // {
-  //   id: 1,
-  //   name: "Home",
+ 
 
-  //   link: "/",
-  // },
   {
-    id: 2,
-    name: "About Us",
-    link: "/about-us",
-  },
-  {
-    id: 5,
+    id: 1,
     name: "Courses",
     link: "/our-courses",
   },
   {
-    id: 9,
+    id: 2,
     name: "Tutors",
     link: "/meet-our-tutors",
   },
   {
-    id: 4,
+    id: 3,
     name: "Testimonials",
     link: "/testimonials",
   },
   {
-    id: 6,
+    id: 4,
     name: "Blog",
     link: "/blog",
   },
   {
-    id: 7,
+    id: 5,
     name: "Upcoming Events",
     link: "/upcoming-events",
   },
   {
-    id: 8,
+    id: 6,
     name: "Jobs Opportunities",
     link: "/jobs-opportunities",
   },
   {
-    id: 3,
+    id: 7,
     name: "Contact Us",
     link: "/contact-us",
   },
-  // {
-  //   id: 10,
-  //   name: "Privacy Policy",
-  //   link: "/privacy-policy",
-  // },
+ 
   {
     id:11,
     name:"Schedule A Call",

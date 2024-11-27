@@ -1,6 +1,5 @@
-import React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Course_Review_Component from "./Course_Review_Component";
+import React, { useMemo } from "react";
+import Link from "next/link";
 import {
   IconBook,
   IconChalkboard,
@@ -10,99 +9,189 @@ import {
   IconUsers,
   IconWorld,
 } from "@tabler/icons-react";
-import CourseDetailItem from "./CourseDetailItem";
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+
+import CourseDetailItem from "./CourseDetailItem";
+
 import Course_OverView_Component from "./Course_OverView_Component";
+import Course_Review_Component from "./Course_Review_Component";
 import Course_Suggestions from "./Course_Suggestions";
 import User_Selected_Course_FAQs from "./User_Selected_Course_FAQs";
 
+// Constants for repeated values or configuration
+const COURSE_DETAILS_CONFIG = {
+  overviewTab: "overview",
+  reviewsTab: "reviews",
+  enrollButtonText: "Enroll Now",
+  courseIncludesTitle: "Course Includes:",
+};
+
+// Utility function to format course details
+const formatCourseDetails = (course) => [
+  {
+    icon: IconPremiumRights,
+    label: "Price",
+    value: `$${course.price}`,
+  },
+  {
+    icon: IconChalkboard,
+    label: "Tutor",
+    value: course.instructor,
+  },
+  {
+    icon: IconClockHour2,
+    label: "Time",
+    value: `${course.daily_start_time} to ${course.daily_end_time} on ${course.classDay}`,
+  },
+  {
+    icon: IconBook,
+    label: "Lessons",
+    value: course.lessons,
+  },
+  {
+    icon: IconMapPin,
+    label: "Location",
+    value: course.via,
+  },
+  {
+    icon: IconWorld,
+    label: "Language",
+    value: course.teaching_language,
+  },
+  {
+    icon: IconUsers,
+    label: "Students",
+    value: course.enrollerd_student,
+  },
+];
+
+// Error Boundary Component
+const ErrorBoundary = ({ children, fallback }) => {
+  try {
+    return children;
+  } catch (error) {
+    console.error("Error in component:", error);
+    return fallback || <div>Something went wrong</div>;
+  }
+};
+
+// Main Component
 const User_Selected_Course_Component = ({ course }) => {
-  const details = [
-    { icon: IconPremiumRights, label: "Price", value: course.price },
-    { icon: IconChalkboard, label: "Tutor", value: course.instructor },
-    {
-      icon: IconClockHour2,
-      label: "Time",
-      value: `${course.daily_start_time} to ${course.daily_end_time} on ${course.classDay}`,
-    },
-    { icon: IconBook, label: "Lessons", value: course.lessons },
-    { icon: IconMapPin, label: "Location", value: course.via },
-    { icon: IconWorld, label: "Language", value: course.teaching_language },
-    { icon: IconUsers, label: "Students", value: course.enrollerd_student },
-  ];
+  
 
-  return (
-    <div className="w-full h-full flex flex-col justify-center items-center space-y-10  py-10">
-      <div className="lg:w-10/12 md:w-11/12 flex flex-col justify-center items-center space-y-10">
-        {/* Main Content */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-10">
-          {/* Left Column: Tabs for Overview and Reviews */}
-          <div className="lg:col-span-2 w-full flex flex-col space-y-6">
-            <Tabs defaultValue="overview" className="w-full">
-              {/* Tabs Header */}
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                {course.reviews?.length > 0 && (
-                  <TabsTrigger value="reviews">Reviews</TabsTrigger>
-                )}
-              </TabsList>
-
-              {/* Overview Tab Content */}
-              <TabsContent value="overview">
-                <Course_OverView_Component course={course} />
-              </TabsContent>
-
-              {/* Reviews Tab Content */}
-              <TabsContent value="reviews">
-                {course.reviews?.length > 0 && (
-                  <Course_Review_Component course={course} />
-                )}
-              </TabsContent>
-            </Tabs>
-          </div>
-
-          {/* Right Column: Course Details and Enroll Button */}
-          <div className="lg:col-span-1 w-full h-fit max-w-sm bg-white shadow-xl p-6 rounded-lg">
-            <h1 className="text-lg font-bold mb-4">Course Includes :</h1>
-            <div className="space-y-6">
-              {details.map((detail, index) => (
-                <CourseDetailItem
-                  key={index}
-                  icon={detail.icon}
-                  label={detail.label}
-                  value={detail.value}
-                />
-              ))}
-            </div>
-            <div className="mt-6">
-              <Link href={`/payment?id=${course.id}`} passHref>
-                <Button
-                  asChild
-                  className="w-full bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]"
-                >
-                  <span>Enroll Now</span>
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Course Suggestions Section */}
-        <div className="w-full mt-8">
-          <Course_Suggestions currentCourse_Name={course.name} />
-        </div>
+  // Memoize course details to optimize performance
+  const courseDetails = useMemo(() => formatCourseDetails(course), [course]);
+  
+  // Validate course data
+  if (!course) {
+    return (
+      <div className="w-full flex justify-center items-center h-screen">
+        <p className="text-red-500">No course data available</p>
       </div>
-      <div className="w-full">
-        {course.course_faqs?.length > 0 && (
-          <User_Selected_Course_FAQs
-            items={course.course_faqs}
-            heading={course.name + " FAQs"}
-          />
+    );
+  }
+  // Render method with error handling
+  return (
+    <ErrorBoundary fallback={<div>Error loading course details</div>}>
+      <div className="w-full h-full flex flex-col justify-center items-center space-y-10 py-10">
+        <div className="lg:w-10/12 md:w-11/12 flex flex-col justify-center items-center space-y-10">
+          {/* Main Content Grid */}
+          <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-10">
+            {/* Left Column: Tabs for Overview and Reviews */}
+            <div className="lg:col-span-2 w-full flex flex-col space-y-6">
+              <Tabs
+                defaultValue={COURSE_DETAILS_CONFIG.overviewTab}
+                className="w-full"
+              >
+                {/* Tabs Header */}
+                <TabsList className="grid w-full grid-cols-2">
+                  <TabsTrigger value={COURSE_DETAILS_CONFIG.overviewTab}>
+                    Overview
+                  </TabsTrigger>
+
+                  {course.reviews && course.reviews.length > 0 && (
+                    <TabsTrigger value={COURSE_DETAILS_CONFIG.reviewsTab}>
+                      Reviews
+                    </TabsTrigger>
+                  )}
+                </TabsList>
+
+                {/* Overview Tab Content */}
+                <TabsContent value={COURSE_DETAILS_CONFIG.overviewTab}>
+                  <Course_OverView_Component course={course} />
+                </TabsContent>
+
+                {/* Reviews Tab Content */}
+                {course.reviews && course.reviews.length > 0 && (
+                  <TabsContent value={COURSE_DETAILS_CONFIG.reviewsTab}>
+                    <Course_Review_Component course={course} />
+                  </TabsContent>
+                )}
+              </Tabs>
+            </div>
+
+            {/* Right Column: Course Details and Enroll Button */}
+            <div className="lg:col-span-1 w-full h-fit max-w-sm bg-white shadow-xl p-6 rounded-lg">
+              <h2 className="text-lg font-bold mb-4">
+                {COURSE_DETAILS_CONFIG.courseIncludesTitle}
+              </h2>
+
+              <div className="space-y-6">
+                {courseDetails.map((detail, index) => (
+                  <CourseDetailItem
+                    key={`course-detail-${index}`}
+                    icon={detail.icon}
+                    label={detail.label}
+                    value={String(detail.value)}
+                  />
+                ))}
+              </div>
+
+              <div className="mt-6">
+                <Link href={`/payment?id=${course.id}`} className="block">
+                  <Button
+                    className="w-full bg-[#4F9F76] text-white px-4 py-2 rounded-md 
+                    hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]"
+                  >
+                    {COURSE_DETAILS_CONFIG.enrollButtonText}
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Course Suggestions Section */}
+          <div className="w-full mt-8">
+            <Course_Suggestions currentCourseName={course.name} />
+          </div>
+        </div>
+
+        {/* FAQs Section */}
+        {course.course_faqs && course.course_faqs.length > 0 && (
+          <div className="w-full">
+            <User_Selected_Course_FAQs
+              items={course.course_faqs}
+              heading={`${course.name} FAQs`}
+            />
+          </div>
         )}
       </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 
-export default User_Selected_Course_Component;
+// Performance optimization
+const MemoizedUserSelectedCourseComponent = React.memo(
+  User_Selected_Course_Component,
+  (prevProps, nextProps) => {
+    // Custom comparison to prevent unnecessary re-renders
+    return (
+      prevProps.course?.id === nextProps.course?.id &&
+      prevProps.course?.name === nextProps.course?.name
+    );
+  }
+);
+
+export default MemoizedUserSelectedCourseComponent;

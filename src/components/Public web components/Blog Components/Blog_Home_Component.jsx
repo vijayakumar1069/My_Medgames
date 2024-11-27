@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import BlogCard_For_Blog_Page from "./BlogCard_For_Blog_Page";
 import BlogSidebarComponent from "./BlogSidebarComponent";
 import { useSearchParams } from "next/navigation";
@@ -72,13 +72,18 @@ const Blog_Home_Component = ({ blog, latestBlogs }) => {
 
   if (isLoading) {
     return (
+      <Suspense fallback={<div>Loading...</div>}>
+
       <div className="w-full h-screen flex justify-center items-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
       </div>
+      </Suspense>
     );
   }
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
+
     <div className="w-full min-h-screen bg-[#fff] py-10">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -115,6 +120,7 @@ const Blog_Home_Component = ({ blog, latestBlogs }) => {
         </div>
       </div>
     </div>
+    </Suspense>
   );
 };
 
