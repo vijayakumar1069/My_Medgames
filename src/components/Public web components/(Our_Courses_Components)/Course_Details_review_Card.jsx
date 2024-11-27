@@ -20,7 +20,7 @@ const Course_Details_review_Card = ({review}) => {
          
         </div>
         <h1 className='font-bold text-lg '>{name}</h1>
-        <p className='font-semibold'>{small_description}</p>
+        <p className='font-semibold text-[#4A4A4A]'>{small_description}</p>
         <p>&quot; {review_content} &quot;</p>
         </div>
       </div>

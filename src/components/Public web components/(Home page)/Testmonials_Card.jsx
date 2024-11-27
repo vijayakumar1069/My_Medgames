@@ -23,15 +23,15 @@ const TestimonialsCard = ({ review }) => {
       </div>
 
       {/* Testimonial Text with Quotes */}
-      <div className="relative text-gray-600 text-sm sm:text-base">
+      <div className="relative text-gray-600 ">
     
 
-        <p className="inline text-sm sm:text-base  tracking-normal "> &quot;{review_content} &quot;</p>
+        <p className=""> &quot;{review_content} &quot;</p>
 
     
       </div>
 
-      <div className="h-[0.5px] bg-gray-100"></div>
+      <div className="h-[1px] bg-gray-200"></div>
       <div className="w-full flex justify-between items-center">
         <div className="flex space-x-2 items-center">
      

@@ -28,7 +28,7 @@ const Get_Started = () => {
   
   return (
     <div className="bg-[#F4F6FC] pt-5 pb-14">
-      <div className="sm:w-[90%] w-full mx-auto">
+      <div className="md:w-[75%] w-full mx-auto">
         <div className="bg-[#376F5F] text-white lg:p-10 p-5 rounded-md flex flex-col space-y-3 lg:space-y-0 h-[100vh] md:h-[100vh] lg:h-full lg:flex-row  ">
           <div className="flex-1 justify-center flex  lg:justify-start">
             <div className="flex flex-col justify-center items-center lg:justify-start lg:items-start space-y-5 lg:space-y-4">

@@ -5,8 +5,11 @@ import { footerLinks, navbarvalues, socialMedialinks } from "@/utils/constvalues
 import Link from "next/link";
 import { IconBrandThreads, IconMail, IconPhoneCall } from "@tabler/icons-react";
 import Subscribe_Form from "./Subscribe_Form";
+import { getCurrentYear } from "@/utils/getYear";
 
 const Footer = () => {
+
+  const year = React.useMemo(() => getCurrentYear(), []); // Memoize the current year
   return (
     <div className="w-full h-full flex flex-col bg-[#274E49]  ">
 
@@ -57,7 +60,7 @@ const Footer = () => {
                     <Link
                       key={index}
                       href={item.link}
-                      className="text-white text-sm pb-1"
+                      className="text-white text-sm pb-1 hover:scale-105 hover:text-[#E1EBE2] transition-all duration-300 ease-in-out "
                     >
                       {item.name}
                     </Link>
@@ -72,7 +75,7 @@ const Footer = () => {
                       target="_blank"
                       href={item.link}
                       previewlistener="true"
-                      className="text-white text-sm pb-1"
+                      className="text-white text-sm pb-1 hover:scale-105 hover:text-[#E1EBE2] transition-all duration-300 ease-in-out"
                     >
                       {item.name}
                     </a>
@@ -116,10 +119,11 @@ const Footer = () => {
           <div className=" p-4 py-3 text-sm lg:text-base flex sm:flex-row flex-col space-y-3 sm:space-y-0 justify-between text-white lg:w-10/12 md:w-11/12 w-full items-center">
           <div className="flex justify-center items-center flex-1 ">
 
-            <h1 className="text-center">Copyright &copy; 2024 Med Games</h1>
+            <h1 className="text-center">Copyright &copy; {year} Med Games</h1>
           </div>
             <div className=" flex flex-1 space-x-6 justify-center items-center">
-                <h1>Privacy Policy</h1>
+              <Link href={"/privacy-policy"}>Privacy Policy</Link>
+                
                 <h1>Terms of Service</h1>
             </div>
           </div>

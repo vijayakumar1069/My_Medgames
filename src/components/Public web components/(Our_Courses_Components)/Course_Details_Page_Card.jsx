@@ -131,9 +131,9 @@ const Course_Details_Page_Card = ({ course }) => {
       >
         <div className="flex flex-col space-y-3 p-6 w-full h-full">
           <h1 className="text-xl font-semibold">{name}</h1>
-          <p className="text-[#fff] line-clamp-1">{description}</p>
-          <p> $ {price} </p>
-          <div className="flex items-center space-x-2 my-2">
+          <p className="text-[#fff]">{description}</p>
+          <p className="text-[#fff] font-extrabold"> $ {price} </p>
+          {/* <div className="flex items-center space-x-2 my-2">
             <div className="flex items-center space-x-1 text-yellow-500">
               {[...Array(fullStars)].map((_, i) => (
                 <IconStar
@@ -151,8 +151,8 @@ const Course_Details_Page_Card = ({ course }) => {
             <span>
               ({star}.0/{rating} rating)
             </span>
-          </div>
-          <div className="grid lg:grid-cols-2 grid-cols-1 gap-2 text-sm mt-3">
+          </div> */}
+          {/* <div className="grid lg:grid-cols-2 grid-cols-1 gap-2 text-sm mt-3">
             <div className="flex items-center space-x-1">
               <IconCalendar stroke={2} className="text-[#fff]" />
               <span>
@@ -163,13 +163,13 @@ const Course_Details_Page_Card = ({ course }) => {
               <IconMapPin stroke={2} className="text-[#fff]" />
               <span>{via}</span>
             </div>
-          </div>
-          <div className="flex items-center space-x-1 text-sm mt-2">
+          </div> */}
+          {/* <div className="flex items-center space-x-1 text-sm mt-2">
             <IconClockHour2 stroke={2} className="text-[#fff]" />
             <span>
               {daily_start_time} to {daily_end_time} on {classday}
             </span>
-          </div>
+          </div> */}
           <ul>
             {key_features.map((feature, index) => (
               <li

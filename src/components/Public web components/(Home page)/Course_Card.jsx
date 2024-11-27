@@ -8,7 +8,7 @@ const Course_Card = ({ course }) => {
   const { id, name, description, image, price, start_date, end_date, via, daily_start_time, daily_end_time, classDay } = course;
 
   return (
-    <div className="group max-w-2xl w-full bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+    <div className="group max-w-3xl w-full bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
       <div className="relative w-full aspect-video overflow-hidden">
         <Image src={image} alt={name} fill priority quality={90} className="object-cover object-center transition-transform duration-500 group-hover:scale-110" sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px" />
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300" />

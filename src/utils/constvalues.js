@@ -151,8 +151,8 @@ export const services = [
     id: 1,
     title: "CARS Program",
     description: [
-      "Learn from medical students who have mastered the CARS section and possess the expertise to guide you toward",
-      "Take up of 1 test every weekend to ensure optimal practice",
+      "Learn from medical students who have mastered the CARS section and possess the expertise to guide you toward.",
+      "Take up of 1 test every weekend to ensure optimal practice.",
     ],
     link: "/our-courses/1",
   },
@@ -161,7 +161,7 @@ export const services = [
     title: "CASPerProgram",
     description: [
       "We value personal attention. Small class sizes give you plenty of time with mentors and peers.",
-      "CASPer demands a strategic mindset. Our program guides you in crafting well-structured",
+      "CASPer demands a strategic mindset. Our program guides you in crafting well-structured.",
     ],
     link: "/our-courses/2",
   },
@@ -170,7 +170,7 @@ export const services = [
     title: "Med Applications",
     description: [
       "Elevate your application with insights from current students at your target medical schools.",
-      "Our mentorship goes beyond proofreading, shaping your narrative to address gaps",
+      "Our mentorship goes beyond proofreading, shaping your narrative to address gaps.",
     ],
     link: "/our-courses/6",
   },
@@ -178,8 +178,8 @@ export const services = [
     id: 4,
     title: "Mentorship",
     description: [
-      "MCAT Preparation: Strategies, study plans, and resources",
-      "Extracurricular Activities: Recommendations and planning for impactful involvement     ",
+      "MCAT Preparation: Strategies, study plans, and resources.",
+      "Extracurricular Activities: Recommendations and planning for impactful involvement.",
     ],
     link: "/our-courses/4",
   },
@@ -441,42 +441,42 @@ export const brand_Info = {
 export const reviews = [
   {
     id: 1,
-    name: "Joshua",
+    name: "Samantha K.",
     review_content:
-      "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
+      "Med Games was a game-changer! The mentorship and analytics were invaluable. Thrilled to have received three medical school interview invites!",
     image: "/t1.png",
-    position:"student",
-    rating: 4.5,
+    position: "student",
+    rating: 5,
   },
   {
     id: 2,
-    name: "Sathya",
+    name: "Jordan L.",
     review_content:
-      "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
+      "The tutors truly understand what med schools seek. Their insights and guidance were spot on!",
     image: "/t2.png",
-    position:"student",
-
+    position: "student",
     rating: 4.5,
   },
   {
     id: 3,
-    name: "Sathya",
+    name: "Ananya R.",
     review_content:
-      "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
+      "The personalized approach made all the difference. Tutors tailored the program to my strengths and weaknesses.",
     image: "/t3.png",
-    position:"student",
-    rating: 4.5,
+    position: "student",
+    rating: 5,
   },
   {
     id: 4,
-    name: "Sathya",
+    name: "Isaac M.",
     review_content:
-      "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
+      "Small class sizes and one-on-one mentorship created a supportive, stress-free learning environment.",
     image: "/lakindu.png",
-    position:"student",
+    position: "student",
     rating: 4.5,
   },
 ];
+
 
 export const courses = [
   {
@@ -511,41 +511,52 @@ export const courses = [
     reviews: [
       {
         id: 1,
-        name: "Joshua",
+        name: "Olivia H.",
         review_content:
-          "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
+          "I struggled with CARS for months, but this program completely transformed my approach. Weekly practice tests helped me score 131 on the actual exam!",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "CARS improvement",
       },
       {
         id: 2,
-        name: "Sathya",
+        name: "Aarav M.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "The tutors broke down difficult passages and improved my timing. Their tips helped me complete passages faster without sacrificing accuracy.",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "Improved timing",
       },
       {
         id: 3,
-        name: "Sathya",
+        name: "Jessica L.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "I loved the interactive sessions. The small group setting felt like a personalized class, and tutors ensured we understood strategies before moving on.",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "Interactive sessions",
       },
       {
         id: 4,
-        name: "Sathya",
+        name: "Nikhil R.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "CARS was my weakest section, but Med Games turned it into a strength. They focused on strategies that helped me understand test writer intentions.",
         image: "/lakindu.png",
         rating: 4,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "Test strategies",
+      },
+      {
+        id: 5,
+        name: "Sarah C.",
+        review_content:
+          "Their focus on active reading and time management transformed how I approached passages. Challenging practice tests prepared me perfectly for the real thing.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Active reading",
       },
     ],
+    
+    
     course_faqs: [
       {
         id: 1,
@@ -611,41 +622,51 @@ export const courses = [
     reviews: [
       {
         id: 1,
-        name: "Joshua",
+        name: "Meera G.",
         review_content:
-          "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
+          "CASPer seemed so intimidating at first, but the Med Games program broke it down step by step. The live sessions were invaluable, and the tutors’ feedback on my responses helped me see where I needed improvement. I felt confident on test day and scored in the 4th quartile!",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "CASPer confidence",
       },
       {
         id: 2,
-        name: "Sathya",
+        name: "Omar K.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "I liked how comprehensive this program was. From practice scenarios to ethical reasoning tips, they covered everything I needed. The video recordings were a bonus—I could revisit them anytime for extra practice.",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "Comprehensive approach",
       },
       {
         id: 3,
-        name: "Sathya",
+        name: "Hannah B.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "I’m so glad I joined this program! The mock CASPer scenarios gave me a clear idea of what to expect, and the feedback was incredibly detailed. I knew exactly what to work on to improve my performance.",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "Mock scenarios",
       },
       {
         id: 4,
-        name: "Sathya",
+        name: "Zain A.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "The focus on structure and clarity made a huge difference in my written responses. The tutors also helped me stay professional and empathetic in my answers, which I think really set me apart.",
         image: "/lakindu.png",
-        rating: 4,
-        small_description: "Lorem ipsum dolor ",
+        rating: 5,
+        small_description: "Structure & clarity",
+      },
+      {
+        id: 5,
+        name: "Priya T.",
+        review_content:
+          "Before Med Games, I had no idea how to approach CASPer. The tutors not only taught me strategies but also helped me understand the importance of considering different perspectives. Highly recommend this program!",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Perspective & strategy",
       },
     ],
+    
     course_faqs: [
       {
         id: 1,
@@ -711,41 +732,51 @@ export const courses = [
     reviews: [
       {
         id: 1,
-        name: "Joshua",
+        name: "Daniel K.",
         review_content:
-          "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
+          "Med Games completely changed the way I prepared for the MCAT. The live sessions were detailed, interactive, and made even complex topics easy to grasp. The tutors were so approachable, and the small class sizes ensured that I got the attention I needed. Scored a 518, and I couldn’t be happier!",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "Interactive sessions",
       },
       {
         id: 2,
-        name: "Sathya",
+        name: "Maria P.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "I loved the structure of the program—it kept me consistent. The performance analytics and practice passages were especially useful in identifying where I was struggling. What I appreciated most was the mix of live classes and self-paced resources, which allowed me to study at my own rhythm.",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "Performance analytics",
       },
       {
         id: 3,
-        name: "Sathya",
+        name: "Ethan J.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "This program is worth every penny. The tutors not only taught the material but also helped with test-taking strategies, which made all the difference. My Chem/Phys score improved dramatically after going through their lessons.",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "Test-taking strategies",
       },
       {
         id: 4,
-        name: "Sathya",
+        name: "Ritika S.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "I was initially hesitant about joining a virtual program, but Med Games exceeded my expectations. The mentorship aspect gave me someone to turn to when I felt overwhelmed. By the end, I felt confident and prepared for the MCAT.",
         image: "/lakindu.png",
-        rating: 4,
-        small_description: "Lorem ipsum dolor ",
+        rating: 5,
+        small_description: "Mentorship support",
+      },
+      {
+        id: 5,
+        name: "Liam T.",
+        review_content:
+          "What stood out to me was how experienced and relatable the tutors were. They’ve been through the process and know exactly what’s important. I finally understood challenging topics like electrochemistry, which had always been a weak point for me.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Experienced tutors",
       },
     ],
+    
     course_faqs: [
       {
         id: 1,
@@ -808,6 +839,39 @@ export const courses = [
     enrollerd_student: "120",
     lessons: "15",
     teaching_language: "English",
+    course_faqs: [
+      {
+        id: 1,
+        question: "What is covered in the Monthly Mentorship Program?",
+        answer:
+          "It covers MCAT strategies, CASPer practice, course selection, extracurricular planning, and personalized support.",
+      },
+      {
+        id: 2,
+        question: "How long is each mentorship meeting?",
+        answer:
+          "Each meeting lasts for a minimum of one hour or more, depending on the discussion topics.",
+      },
+      {
+        id: 3,
+        question: "Who are the mentors in this program?",
+        answer:
+          "Mentors are experienced medical students who have successfully navigated the medical school admission process.",
+      },
+      {
+        id: 4,
+        question: "How often will I meet with my mentor?",
+        answer:
+          "You will have monthly one-on-one meetings with your mentor to discuss progress and challenges.",
+      },
+      {
+        id: 5,
+        question: "Can I receive personalized advice on my application?",
+        answer:
+          "Yes, the program offers tailored advice for MCAT prep, CASPer, extracurriculars, course selections, and more.",
+      },
+    ],
+    
   },
   {
     id: 5,
@@ -837,6 +901,54 @@ export const courses = [
     enrollerd_student: "120",
     lessons: "15",
     teaching_language: "English",
+    reviews: [
+      {
+        id: 1,
+        name: "Noah F.",
+        review_content:
+          "The mock interviews were so realistic and helpful. The tutors pointed out things I wouldn’t have noticed, like body language and pacing. I walked into my interviews feeling confident and prepared, and I got offers from two schools!",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Realistic mock interviews",
+      },
+      {
+        id: 2,
+        name: "Ayesha Z.",
+        review_content:
+          "This program was exactly what I needed to refine my interview skills. The tutors provided practical tips and tailored feedback that made a huge difference. Highly recommend it!",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Tailored feedback",
+      },
+      {
+        id: 3,
+        name: "Evelyn P.",
+        review_content:
+          "Med Games’ interview prep program was fantastic. They helped me polish my answers and practice tricky MMI scenarios. I felt so prepared on interview day!",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Polished answers and scenarios",
+      },
+      {
+        id: 4,
+        name: "Ryan C.",
+        review_content:
+          "I was nervous about the MMI format, but this program made it seem so much less daunting. The variety of practice scenarios and detailed feedback really helped me improve.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Variety of practice scenarios",
+      },
+      {
+        id: 5,
+        name: "Nadia H.",
+        review_content:
+          "The personalized feedback was incredible. The tutors were so supportive and made sure I felt ready for any type of question. This program made a huge difference in my confidence!",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Personalized feedback",
+      },
+    ]
+    
   },
   {
     id: 6,
@@ -869,41 +981,51 @@ export const courses = [
     reviews: [
       {
         id: 1,
-        name: "Joshua",
+        name: "Isabella M.",
         review_content:
-          "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
+          "Med Games’ application program was a lifesaver. Their feedback on my essays and ABS entries was detailed and actionable. I especially appreciated the mentorship—it kept me motivated and confident throughout the application process.",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "Application mentorship",
       },
       {
         id: 2,
-        name: "Sathya",
+        name: "Arjun V.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "This program really stood out because of its personalized approach. The one-on-one meetings with tutors made me feel supported, and their advice on how to frame my extracurriculars was invaluable. I got into three schools, and I owe it all to Med Games!",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "Personalized approach",
       },
       {
         id: 3,
-        name: "Sathya",
+        name: "Sophia D.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "I was overwhelmed by the application process, but Med Games broke it down into manageable steps. Their expertise in crafting strong personal statements and essays was evident. I felt so much more confident submitting my applications.",
         image: "/lakindu.png",
         rating: 5,
-        small_description: "Lorem ipsum dolor ",
+        small_description: "Personal statements",
       },
       {
         id: 4,
-        name: "Sathya",
+        name: "Lucas E.",
         review_content:
-          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPER (received 4th quartile). I highly recommend Med Games to any premed student.",
+          "What I loved most was how flexible the program was. I could choose which parts of my application to focus on, and the tutors provided expert guidance every step of the way. This program is a must for anyone applying to med school.",
         image: "/lakindu.png",
-        rating: 4,
-        small_description: "Lorem ipsum dolor ",
+        rating: 5,
+        small_description: "Flexible program",
+      },
+      {
+        id: 5,
+        name: "Tara W.",
+        review_content:
+          "The tutors are incredible! Their insights into what med schools look for made all the difference in my application. I received interview invites from my top-choice schools!",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Med school insights",
       },
     ],
+    
     course_faqs: [
       {
         id: 1,
@@ -934,6 +1056,116 @@ export const courses = [
         question: "How many edits are included for essays?",
         answer:
           "Each essay receives up to three edits by experienced medical students.",
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: "UBC Interview Program",
+    description:
+      "Congratulations on receiving a UBC medical school interview! Our comprehensive UBC Interview Program is specifically tailored for students like you who have been invited to showcase their potential in the competitive Multi-Mini Interview (MMI) format.",
+    image: "/mmi_img.jpg",
+    details_image: "/mmi_img.jpg",
+    link: "/mcat",
+    price: "700",
+    start_date: "Jan 12,2024",
+    end_date: "Apr 12,2025",
+    star: "5",
+    downloadable_pdf:"/ubc_pdf.pdf",
+    rating: "3",
+    key_features: [
+      "Led by UBC Med Students: Insider tips from successful MMI candidates.",
+      "Simulated MMI Practice: Practice stations mimicking UBC's real interview format.",
+      "Personalized Feedback: Constructive, tailored advice to refine interview performance.",
+      "Comprehensive Preparation: Guides, sample questions, and recordings for success.",
+    ],
+    via: "Virtual program, zoom",
+    daily_start_time: "6:00 PM",
+    daily_end_time: "9:00 PM",
+    classDay: "Sunday's",
+    instructor: "Martha Hudson",
+    instructor_image: "/cars_ins.png",
+    enrollerd_student: "120",
+    lessons: "15",
+    teaching_language: "English",
+    reviews: [
+      {
+        id: 1,
+        name: "James L.",
+        review_content:
+          "The UBC Interview Program truly prepared me for the MMI. The mock interviews and feedback were invaluable. I felt more confident and ready for the real thing!",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Mock interviews and feedback",
+      },
+      {
+        id: 2,
+        name: "Chloe R.",
+        review_content:
+          "This program helped me understand the CanMEDS roles and apply them effectively. The personalized feedback from UBC med students made all the difference.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Personalized feedback and CanMEDS focus",
+      },
+      {
+        id: 3,
+        name: "Ethan W.",
+        review_content:
+          "I was struggling with abstract questions in MMIs, but the creativity session gave me strategies that made a huge impact. The real-world practice sessions were fantastic.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Abstract question strategies and practice",
+      },
+      {
+        id: 4,
+        name: "Sarah P.",
+        review_content:
+          "The ethical dilemma training really helped me tackle challenging questions during my interviews. I now approach ethical and policy questions with confidence.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Ethical and policy dilemma training",
+      },
+      {
+        id: 5,
+        name: "Mark T.",
+        review_content:
+          "The UBC Interview Program was an excellent investment. I gained insider tips and learned practical frameworks for responding to ethical dilemmas. I felt more prepared than ever.",
+        image: "/lakindu.png",
+        rating: 5,
+        small_description: "Insider tips and ethical frameworks",
+      },
+    ],
+    
+    course_faqs: [
+      {
+        id: 1,
+        question: "What are the objectives of the CARS program?",
+        answer:
+          "To help students actively read, understand passages, and apply effective strategies to improve accuracy and timing.",
+      },
+      {
+        id: 2,
+        question: "When does the CARS program start?",
+        answer:
+          "The program runs from January 12, 2024, to April 12, 2025, with sessions every Sunday from 6 PM to 9 PM EST.",
+      },
+      {
+        id: 3,
+        question: "What materials are provided for practice?",
+        answer:
+          "Students receive ten CARS tests, customizable study schedules, and participate in interactive sessions.",
+      },
+      {
+        id: 4,
+        question: "Who teaches the CARS program?",
+        answer:
+          "Expert tutors with 130+ scores in the CARS section teach the program.",
+      },
+      {
+        id: 5,
+        question: "What strategies are covered in the program?",
+        answer:
+          "Strategies include active reading, timing techniques, and methods for reviewing strategies and reasoning.",
       },
     ],
   },

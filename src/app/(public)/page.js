@@ -1,38 +1,77 @@
-import Blogs from "@/components/Public web components/(Home page)/Blogs";
-import Consultation from "@/components/Public web components/(Home page)/Consultation";
-import Courses from "@/components/Public web components/(Home page)/Courses";
-import FAQs from "@/components/Public web components/(Home page)/FAQs";
-
-import Get_Started from "@/components/Public web components/(Home page)/Get_Started";
-import Services from "@/components/Public web components/(Home page)/Services";
-import Testimonials from "@/components/Public web components/(Home page)/Testimonials";
-import Tutors from "@/components/Public web components/(Home page)/Tutors";
-import Videos from "@/components/Public web components/(Home page)/Videos";
-import YouTubePlayer from "@/components/Public web components/(Home page)/YouTubePlayer";
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 import { home_FAQs } from "@/utils/constvalues";
-import { Suspense } from "react";
+import Skeleton from '@/components/Public web components/Skeleton';
 
+// Dynamic imports with enhanced loading
+const Videos = dynamic(() => import("@/components/Public web components/(Home page)/Videos"), {
+  loading: () => <Skeleton />,
+  ssr: true
+});
+
+const Services = dynamic(() => import("@/components/Public web components/(Home page)/Services"), {
+  loading: () => <Skeleton />,
+  ssr: true
+});
+
+const Tutors = dynamic(() => import("@/components/Public web components/(Home page)/Tutors"), {
+  loading: () => <Skeleton />,
+  ssr: true
+});
+
+const Testimonials = dynamic(() => import("@/components/Public web components/(Home page)/Testimonials"), {
+  loading: () =><Skeleton />,
+  ssr: true
+});
+
+const Courses = dynamic(() => import("@/components/Public web components/(Home page)/Courses"), {
+  loading: () => <Skeleton />,
+  ssr: true
+});
+
+const Blogs = dynamic(() => import("@/components/Public web components/(Home page)/Blogs"), {
+  loading: () => <Skeleton />,
+  ssr: true
+});
+
+const Consultation = dynamic(() => import("@/components/Public web components/(Home page)/Consultation"), {
+  loading: () => <Skeleton />,
+  ssr: true
+});
+
+const FAQs = dynamic(() => import("@/components/Public web components/(Home page)/FAQs"), {
+  loading: () =><Skeleton />,
+  ssr: true
+});
+
+const Get_Started = dynamic(() => import("@/components/Public web components/(Home page)/Get_Started"), {
+  loading: () => <Skeleton />,
+  ssr: true
+});
+
+
+
+
+
+// Add skeleton components for other sections
 
 export default function Home() {
-
-  const home_page_faqs=home_FAQs;
-  
   return (
-    <>
-    <Suspense fallback={<div>Loading...</div>}>
-    <Videos/>
-    {/* <YouTubePlayer/> */}
-    </Suspense>
-    {/* <Videos/> */}
-      <Services/>
-      <Tutors/>
-      <Testimonials/>
-      <Courses/>
-      <Blogs/>
-      <Consultation/>
-      <FAQs  items={home_page_faqs}/>
-      <Get_Started/>
+    <main>
+      <Suspense fallback={<Skeleton />}>
+        <Videos />
+      </Suspense>
       
-    </>
+      <Services />
+      <Tutors />
+      <Testimonials />
+      <Courses />
+      {/* <Blogs /> */}
+      <Consultation />
+      <FAQs items={home_FAQs} />
+      <Get_Started />
+    </main>
   );
 }
+
+

@@ -17,14 +17,12 @@ const Service_Section_Card = ({ data }) => {
           <h1 className="text-2xl text-[#4F9F76] font-semibold mb-2 group-hover:text-white">
             {data.title}
           </h1>
-          {/* <p className="text-gray-600 mb-2 group-hover:text-white">
-            {data.description}
-          </p> */}
+        
           <ul className="px-5">
             {data.description.map((item, index) => (
               <li
                 key={index}
-                className="text-gray-600 mb-2 list-disc text-lg group-hover:text-white"
+                className="text-[#4A4A4A] mb-2 list-disc text-lg group-hover:text-white"
               >
                 {item}
               </li>
@@ -43,3 +41,5 @@ const Service_Section_Card = ({ data }) => {
 };
 
 export default Service_Section_Card;
+
+

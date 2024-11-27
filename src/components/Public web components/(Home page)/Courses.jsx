@@ -22,7 +22,7 @@ const Courses = () => {
           </Link>
         </div>
       </div>
-      <div className="lg:w-10/12 md:w-11/12 w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 p-5 md:p-0 justify-items-center xl:justify-items-start">
+      <div className="lg:w-10/12 md:w-11/12 w-full grid grid-cols-1 lg:grid-cols-2  gap-6 p-5 md:p-0 justify-items-center xl:justify-items-start">
         {courses.slice(0, 4).map((item) => (
           <Course_Card key={item.id} course={item} />
         ))}
