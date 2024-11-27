@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-import { navbarvalues, socialMedialinks } from "@/utils/constvalues";
+import { footerLinks, navbarvalues, socialMedialinks } from "@/utils/constvalues";
 import Link from "next/link";
 import { IconBrandThreads, IconMail, IconPhoneCall } from "@tabler/icons-react";
 import Subscribe_Form from "./Subscribe_Form";
@@ -53,7 +53,7 @@ const Footer = () => {
               <div className="flex space-x-20 w-full   ">
                 <div className="flex flex-col space-y-3  ">
                   <h1 className="text-white text-2xl font-bold text-nowrap">Quick Links </h1>
-                  {navbarvalues.map((item, index) => (
+                  {footerLinks.map((item, index) => (
                     <Link
                       key={index}
                       href={item.link}

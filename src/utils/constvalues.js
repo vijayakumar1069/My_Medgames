@@ -58,6 +58,64 @@ export const navbarvalues = [
     link: "/schedule-a-call",
   }
 ];
+
+export const footerLinks=[
+  {
+    id:1,
+    name:"Home",
+    link: "/",
+  },
+  {
+    id: 2,
+    name: "About Us",
+    link: "/about-us",
+  },
+  {
+    id: 3,
+    name: "Courses",
+    link: "/our-courses",
+  },
+  {
+    id: 4,
+    name: "Tutors",
+    link: "/meet-our-tutors",
+  },
+  {
+    id: 5,
+    name: "Testimonials",
+    link: "/testimonials",
+  },
+  {
+    id: 6,
+    name: "Blog",
+    link: "/blog",
+  },
+  {
+    id: 7,
+    name: "Upcoming Events",
+    link: "/upcoming-events",
+  },
+  {
+    id: 8,
+    name: "Jobs Opportunities",
+    link: "/jobs-opportunities",
+  },
+  {
+    id: 9,
+    name: "Contact Us",
+    link: "/contact-us",
+  },
+  {
+    id:10,
+    name:"Schedule A Call",
+    link: "/schedule-a-call",
+  },
+  {
+    id: 11,
+    name: "Privacy Policy",
+    link: "/privacy-policy",
+  },
+]
 export const socialMedialinks = [
   {
     id: 1,

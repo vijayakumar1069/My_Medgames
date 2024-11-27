@@ -1,86 +1,40 @@
 import { IconCalendar, IconClockHour2, IconMapPin } from "@tabler/icons-react";
 import Image from "next/image";
 import React from "react";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Course_Card = ({ course }) => {
-  const {
-    id,
-    name,
-    description,
-    image,
-    link,
-    price,
-    start_date,
-    end_date,
-    via,
-    daily_start_time,
-    daily_end_time,
-    classDay,
-    instructor,
-    instructor_image,
-  } = course;
+  const { id, name, description, image, price, start_date, end_date, via, daily_start_time, daily_end_time, classDay } = course;
 
   return (
-    <div className="max-w-5xl bg-[#F4F6FC] rounded-lg p-3 flex flex-col space-y-5 text-[#4A4A4A]">
-      <div className="relative w-full h-72">
-        <Image
-          src={image}
-          alt="course_image"
-          fill
-          className="object-cover object-center rounded-lg"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Customize sizes for breakpoints
-        />
-        {/* <div className="absolute top-3 right-3 bg-[#fff] text-white px-3 py-1 rounded-full">
-          <div className="flex items-center space-x-4">
-            <Avatar className="w-10 h-10">
-              <AvatarImage src={instructor_image} alt={name} />
-              <AvatarFallback>{instructor}</AvatarFallback>
-            </Avatar>
-            <div className="text-lg font-semibold text-gray-700">
-              {instructor}
-            </div>
+    <div className="group max-w-2xl w-full bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+      <div className="relative w-full aspect-video overflow-hidden">
+        <Image src={image} alt={name} fill priority quality={90} className="object-cover object-center transition-transform duration-500 group-hover:scale-110" sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px" />
+        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300" />
+      </div>
+      <div className="p-6 space-y-4">
+        <h2 className="text-2xl font-bold text-gray-800 group-hover:text-[#4F9F76] transition-colors duration-300">{name}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 md:text-base text-sm">
+          <div className="flex items-center space-x-2">
+            <IconCalendar stroke={2} className="text-[#4F9F76] flex-shrink-0" />
+            <span>{start_date} to {end_date}</span>
           </div>
-        </div> */}
-      </div>
-      <h1 className="text-3xl font-semibold text-black"> {name} </h1>
-      <div className="grid xl:grid-cols-3 lg:grid-cols-2  grid-cols-1 gap-y-3 gap-x-2 w-full items-center text-sm">
-        {/* Start Date and End Date */}
-        <div className="flex items-center space-x-1">
-          <IconCalendar stroke={2} className="text-[#4F9F76]" />
-          <span>
-            {start_date} to {end_date}
-          </span>
+          <div className="flex items-center space-x-2">
+            <IconMapPin stroke={2} className="text-[#4F9F76] flex-shrink-0" />
+            <span>{via}</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <IconClockHour2 stroke={2} className="text-[#4F9F76] flex-shrink-0" />
+            <span>{daily_start_time} - {daily_end_time} {classDay}</span>
+          </div>
         </div>
-
-        {/* Location */}
-        <div className="flex items-center space-x-1">
-          <IconMapPin stroke={2} className="text-[#4F9F76]" />
-          <span>{via}</span>
-        </div>
-
-        {/* Time and Class Days */}
-        <div className="flex items-center space-x-1 lg:col-span-2 xl:col-span-1">
-          <IconClockHour2 stroke={2} className="text-[#4F9F76]" />
-          <span>
-            {daily_start_time} to {daily_end_time} on {classDay}
-          </span>
-        </div>
-      </div>
-
-      <div className="">
-        <p className=" text-sm sm:text-base "> {description}. </p>
-      </div>
-      <div className="flex items-center justify-between">
-        <Button className="bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
-          Get Started
-        </Button>
-        <div>
-          <span className="text-2xl font-semibold text-[#4F9F76]">
-            $ {price} USD
-          </span>
+        <p className="text-gray-500 md:text-base text-sm line-clamp-5 group-hover:text-gray-700 transition-colors duration-300">{description}</p>
+        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+          <Link href={`/our-courses/${id}`}>
+          <Button className="bg-[#4F9F76] text-white hover:bg-[#4F9F76]/90 transition-colors duration-300">Get Started</Button>
+          </Link>
+          <span className="text-2xl font-bold text-[#4F9F76] group-hover:text-opacity-80 transition-colors duration-300">${price} USD</span>
         </div>
       </div>
     </div>

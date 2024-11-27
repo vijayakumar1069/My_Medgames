@@ -11,7 +11,7 @@ import React from "react";
 const Tutor_Card = ({ tutor }) => {
   return (
     <div
-      className="max-w-md  text-black rounded-2xl flex flex-col items-center"
+      className="max-w-md  text-black rounded-2xl flex flex-col items-center justify-center"
       key={tutor.id}
     >
       <div className="relative group">
@@ -21,7 +21,9 @@ const Tutor_Card = ({ tutor }) => {
               src={tutor.image}
               className="h-full w-full object-cover  "
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw" // Customize sizes for breakpoints
+              priority
+              quality={100}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw" // Customize sizes for breakpoints
               alt={tutor.name}
             />
             {/* <div className="absolute inset-0 bg-green-300 bg-opacity-30 opacity-0 group-hover:opacity-100 flex justify-center items-center space-x-4">

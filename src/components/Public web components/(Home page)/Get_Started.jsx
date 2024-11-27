@@ -5,6 +5,7 @@ import Avatar_Creation from "./Avatar_Creation";
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Get_Started = () => {
   const imgs = [
@@ -44,9 +45,11 @@ const Get_Started = () => {
                 you’re preparing for medical exams or need...
               </p>
               <div className="flex justify-start  space-x-5">
-                <Button className="bg-[#E1EBE2] text-[#4F9F76] px-4 py-2 rounded-md">
+                <Link href={"/our-courses"}>
+                <Button className="bg-[#E1EBE2] hover:bg-[#4F9F76] hover:text-white text-[#4F9F76] px-4 py-2 rounded-md">
                   Get Started
                 </Button>
+                </Link>
                 {/* <Button className="bg-[#E1EBE2] text-[#4F9F76] px-4 py-2 rounded-md">
                   Try Now
                 </Button> */}
@@ -65,18 +68,20 @@ const Get_Started = () => {
             {/* Container for images with relative positioning */}
             <div className="relative w-full h-full justify-center sm:justify-center flex lg:justify-start">
               {/* Main get_started image */}
-              <div className="relative w-[100%] md:w-[80%] h-full z-10">
+              <div className="relative w-[100%] md:w-[65%] lg:w-[70%] h-full z-10">
                 <Image
                   src="/get_started.png"
                   alt="get_started"
                   fill
+                  priority
+                  quality={100}
                   style={{ objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="rounded-xl"
                 />
               </div>
               {/* Book image positioned below and partially covered by get_started image */}
-              <div className="absolute bottom-2 md:w-[100%] lg:w-[80%] h-full z-0 translate-x-1 translate-y-0">
+              <div className="absolute bottom-2 md:w-[100%] lg:w-[90%] h-full z-0 translate-x-1 translate-y-0">
                 <Image
                   src="/book.png"
                   alt="book"

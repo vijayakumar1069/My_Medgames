@@ -47,21 +47,26 @@ const Subscribe_Form = () => {
           name="email"
           render={({ field }) => (
             <FormItem>
-             
               <FormControl>
-                <Input className="bg-white rounded-md" placeholder="example@example.com" {...field} />
+                <Input
+                  className="bg-white rounded-md"
+                  placeholder="example@example.com"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <Button
-          type="submit"
-          className="bg-[#E1EBE2] w-fit text-[#4F9F76]  px-4 py-2 rounded-md hover:bg-[#4F9F76]/80"
-        >
-          Subscribe
-        </Button>
+<Button
+  type="submit"
+  className="relative overflow-hidden bg-[#E1EBE2] w-fit text-[#4F9F76] hover:text-white px-4 py-2 rounded-md group"
+>
+  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-full bg-[#4F9F76]  rounded-md group-hover:w-full transition-all duration-500 ease-in-out" />
+  <span className="relative z-10">Subscribe</span>
+</Button>
+
       </form>
     </Form>
   );

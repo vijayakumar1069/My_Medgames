@@ -1,41 +1,45 @@
-import { IconCalendar, IconClockHour2 } from "@tabler/icons-react";
+import { IconCalendar, IconClockHour2, IconArrowRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const Blog_Card = ({ blog }) => {
   const { id, title, description, image, date, time } = blog;
+
   return (
-    <div className="max-w-7xl bg-[#fff] rounded-lg font-Manrope shadow-md  flex flex-col space-y-3 hover:scale-105">
-      <div className="relative w-full h-60">
-        <Image
-          src={image}
-          alt="blog"
-          className="object-cover object-center rounded-tr-lg rounded-tl-lg"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Customize sizes for breakpoints
-        />
+    <div className="group max-w-md w-full bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+      {/* Image Container */}
+      <div className="relative w-full aspect-video overflow-hidden">
+        <Image src={image} alt={title} fill priority quality={90} className="object-cover object-center transition-transform duration-500 group-hover:scale-110 brightness-100 group-hover:brightness-75" sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px" />
       </div>
-      <div className="px-3">
-        <h1 className="text-[#000] text-xl font-semibold ">{title}</h1>
-      </div>
-      <div className="flex lg:flex-row flex-wrap flex-col lg:items-center lg:space-x-2 space-y-3 lg:space-y-0 px-3 w-full">
-        <div className="flex items-center space-x-1">
-          <IconCalendar stroke={2} className="text-[#4F9F76]" />
-          <span>{date}</span>
+
+      {/* Blog Content */}
+      <div className="p-6 space-y-4">
+        {/* Blog Title */}
+        <h2 className="text-2xl font-bold text-gray-800 group-hover:text-[#4F9F76] transition-colors duration-300 line-clamp-2">{title}</h2>
+
+        {/* Blog Meta Information */}
+        <div className="flex items-center space-x-4 text-gray-600 text-sm">
+          <div className="flex items-center space-x-2">
+            <IconCalendar stroke={2} className="text-[#4F9F76] flex-shrink-0" />
+            <span>{date}</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <IconClockHour2 stroke={2} className="text-[#4F9F76] flex-shrink-0" />
+            <span>{time}</span>
+          </div>
         </div>
 
-        <div className="flex items-center space-x-1">
-          <IconClockHour2 stroke={2} className="text-[#4F9F76]" />
-          <span> {time}</span>
-        </div>
-      </div>
-      <div className="px-3 pb-2">
-        <p className="text-[#4A4A4A] text-sm sm:text-base ">{description}</p>
-      </div>
-      <div className="pb-6 px-3">
+        {/* Blog Description */}
+        <p className="text-gray-500 text-sm line-clamp-3 group-hover:text-gray-700 transition-colors duration-300">{description}</p>
 
-      <Link href={`/blog/${id}`} className="text-[#fff] bg-[#4F9F76] p-2 rounded-md font-semibold  ">Read More</Link>
+        {/* Read More Button */}
+        <div className="pt-4">
+          <Link href={`/blog/${id}`} className="inline-flex items-center space-x-2 text-[#4F9F76] hover:text-[#4F9F76]/80 transition-colors duration-300 group">
+            <span>Read More</span>
+            <IconArrowRight className="transform transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
       </div>
     </div>
   );

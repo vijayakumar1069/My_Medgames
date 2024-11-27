@@ -4,6 +4,7 @@ import Large_Title from './Large_Title'
 import Testmonials_Card from './Testmonials_Card'
 import { reviews } from '@/utils/constvalues'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 const Testimonials = () => {
   return (
@@ -18,9 +19,11 @@ const Testimonials = () => {
 
         {/* Right Side: Button */}
         <div className="basis-1/4 flex  justify-center md:text-right">
+        <Link href={"/testimonials"}>
           <Button className="bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
             View More
           </Button>
+        </Link>
         </div>
       </div>
       <div className="lg:w-10/12 md:w-11/12 w-full grid grid-cols-1 lg:grid-cols-2   gap-5 p-5 md:p-0 justify-items-center  ">
