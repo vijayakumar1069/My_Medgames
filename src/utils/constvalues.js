@@ -1,3 +1,5 @@
+import { BriefcaseMedical, CalendarClock, HandCoins } from "lucide-react";
+
 export const navbarvalues = [
   // {
   //   id: 1,
@@ -2209,3 +2211,22 @@ export const upcoming_events = [
 
   }
 ];
+
+
+export const why_Us_contents = [
+  {
+    id: "1",
+    title: "Expert Guidance",
+    description: "Our team consists of experienced professionals who are dedicated to helping you achieve your goals in the medical field",
+  },
+  {
+    id: "2",
+    title: "Personalized Approach",
+    description: "Each student receives customized plans tailored to their weaknesses, maximizing their potential and enhancing their chances of success",
+  },
+  {
+    id: "3",
+    title: "Comprehensive Support",
+    description: "Our team consists of experienced professionals who are dedicated to helping you achieve your goals in the medical field",
+  }
+]

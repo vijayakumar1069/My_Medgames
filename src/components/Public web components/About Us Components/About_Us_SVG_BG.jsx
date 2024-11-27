@@ -1,34 +1,16 @@
 import Image from "next/image";
 import React from "react";
 import Small_Title from "../(Home page)/Small_Title";
-import { BriefcaseBusiness, CalendarClock, HandCoins } from "lucide-react";
+import { BriefcaseBusiness, BriefcaseMedical, CalendarClock, HandCoins } from "lucide-react";
+import Why_Us_Card from "./Why_Us_Card";
+
 
 const About_Us_SVG_BG = () => {
-    const why_Us_contents=[
-        {
-            id:"1",
-            title: "Expert Guidance",
-            description: "Our team consists of experienced professionals who are dedicated to helping you achieve your goals in the medical field",
-            icon:<BriefcaseBusiness size={40} color="#4F9F76" /> 
-        },
-        {
-            id:"2",
-            title: "Personalized Approach",
-            description: "Each student receives customized plans tailored to their weaknesses, maximizing their potential and enhancing their chances of success",
-            icon:<HandCoins  size={40} color="#EE4A62" /> 
-        },
-        {
-            id:"3",
-            title: "Expert Guidance",
-            description: "Our team consists of experienced professionals who are dedicated to helping you achieve your goals in the medical field",
-            icon:<CalendarClock  size={40} color="#4664E4" />
-        }
-        
-    ]
   return (
-    <div className="relative bg-[#E9f8F3] py-8">
-      <div className="relative grid grid-cols-1  lg:grid-cols-4 items-center w-full gap-y-5  px-4 lg:px-6 h-[400px] md:h-[500px] lg:h-[400px]  md:space-y-0">
-        {/* Left Image */}
+    <div className="relative bg-black ">
+      {/*images container */}
+      <div className="relative bg-[#E9f8F3] py-8 grid grid-cols-1  lg:grid-cols-4 items-center w-full gap-y-5  px-4 lg:px-6 h-[400px] md:h-[600px] lg:h-[400px]  md:space-y-0">
+        
         <div className="relative flex-shrink-0 w-24 h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 justify-self-center lg:justify-self-start ">
           <Image
             src="/green_circle.png"
@@ -50,7 +32,7 @@ const About_Us_SVG_BG = () => {
           </h1>
         </div>
 
-        {/* Right Image */}
+     
         <div className="relative flex-shrink-0 w-24 h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 lg:col-span-1 justify-self-center lg:justify-self-end">
           <Image
             src="/red_rectangle.png"
@@ -60,7 +42,10 @@ const About_Us_SVG_BG = () => {
             sizes="(max-width: 768px) 80px, (max-width: 1200px) 150px, 200px"
           />
         </div>
+       
       </div>
+      
+       
     </div>
   );
 };
