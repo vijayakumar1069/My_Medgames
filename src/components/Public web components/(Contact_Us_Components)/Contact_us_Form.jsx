@@ -64,7 +64,7 @@ const Contact_us_Form = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+
     setIsDialogOpen(true); // Open the confirmation dialog
   };
 
