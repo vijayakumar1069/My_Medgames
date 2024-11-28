@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource/inter": "^5.1.0",
     "@hookform/resolvers": "^3.9.1",
+
     "@pdf-lib/fontkit": "^1.1.1",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-avatar": "^1.1.1",
@@ -26,6 +27,7 @@
     "@stripe/react-stripe-js": "^3.0.0",
     "@stripe/stripe-js": "^5.2.0",
     "@tabler/icons-react": "^3.21.0",
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
@@ -34,6 +36,7 @@
     "lucide-react": "^0.456.0",
     "mongoose": "^8.8.2",
     "next": "15.0.3",
+    "next-auth": "^5.0.0-beta.25",
     "pdf-lib": "^1.17.1",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-day-picker": "^8.10.1",

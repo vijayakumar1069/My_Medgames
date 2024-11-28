@@ -1,8 +1,7 @@
+import { IconBell, IconBooks, IconHome, IconSchool } from "@tabler/icons-react";
 import { BriefcaseMedical, CalendarClock, HandCoins } from "lucide-react";
 
 export const navbarvalues = [
- 
-
   {
     id: 1,
     name: "Courses",
@@ -22,7 +21,6 @@ export const navbarvalues = [
     id: 4,
     name: "Blogs",
     link: "/blog",
-    
   },
   {
     id: 5,
@@ -40,11 +38,14 @@ export const navbarvalues = [
     name: "Contact Us",
     link: "/contact-us",
   },
-
- 
   {
-    id:8,
-    name:"Schedule A Call",
+    id: 15,
+    name: "Login",
+    link: "/admin-login",
+  },
+  {
+    id: 8,
+    name: "Schedule A Call",
     link: "/schedule-a-call",
   },
   {
@@ -61,10 +62,10 @@ export const navbarvalues = [
   },
 ];
 
-export const footerLinks=[
+export const footerLinks = [
   {
-    id:1,
-    name:"Home",
+    id: 1,
+    name: "Home",
     link: "/",
   },
   {
@@ -108,8 +109,8 @@ export const footerLinks=[
     link: "/contact-us",
   },
   {
-    id:10,
-    name:"Schedule A Call",
+    id: 10,
+    name: "Schedule A Call",
     link: "/schedule-a-call",
   },
   {
@@ -117,7 +118,7 @@ export const footerLinks=[
     name: "Privacy Policy",
     link: "/privacy-policy",
   },
-]
+];
 export const socialMedialinks = [
   {
     id: 1,
@@ -477,7 +478,6 @@ export const reviews = [
   },
 ];
 
-
 export const courses = [
   {
     id: 1,
@@ -491,7 +491,7 @@ export const courses = [
     start_date: "Jan 12,2024",
     end_date: "Apr 12,2025",
     star: "5",
-    downloadable_pdf:"/cars_pdf.pdf",
+    downloadable_pdf: "/cars_pdf.pdf",
     rating: "3",
     key_features: [
       "3 edits by medical students",
@@ -555,8 +555,7 @@ export const courses = [
         small_description: "Active reading",
       },
     ],
-    
-    
+
     course_faqs: [
       {
         id: 1,
@@ -599,7 +598,7 @@ export const courses = [
     details_image: "/casper_img.png",
     link: "/mcat",
     price: "400",
-    downloadable_pdf:"/casper_pdf.pdf",
+    downloadable_pdf: "/casper_pdf.pdf",
     star: "5",
     rating: "3",
     key_features: [
@@ -666,7 +665,7 @@ export const courses = [
         small_description: "Perspective & strategy",
       },
     ],
-    
+
     course_faqs: [
       {
         id: 1,
@@ -709,7 +708,7 @@ export const courses = [
     details_image: "/med_app_img.png",
     link: "/mcat",
     price: "300",
-    downloadable_pdf:"/long_pdf1.pdf",
+    downloadable_pdf: "/long_pdf1.pdf",
     star: "5",
     rating: "3",
     start_date: "Jan 12,2024",
@@ -776,7 +775,7 @@ export const courses = [
         small_description: "Experienced tutors",
       },
     ],
-    
+
     course_faqs: [
       {
         id: 1,
@@ -821,7 +820,7 @@ export const courses = [
     price: "300",
     star: "5",
     rating: "3",
-    downloadable_pdf:"/mentorship_pdf.pdf",
+    downloadable_pdf: "/mentorship_pdf.pdf",
     start_date: "Jan 12,2024",
     key_features: [
       "3 edits by medical students",
@@ -871,7 +870,6 @@ export const courses = [
           "Yes, the program offers tailored advice for MCAT prep, CASPer, extracurriculars, course selections, and more.",
       },
     ],
-    
   },
   {
     id: 5,
@@ -883,7 +881,7 @@ export const courses = [
     price: "300",
     star: "5",
     rating: "3",
-    downloadable_pdf:"/cars_pdf.pdf",
+    downloadable_pdf: "/cars_pdf.pdf",
     start_date: "Jan 12,2024",
     key_features: [
       "3 edits by medical students",
@@ -947,8 +945,7 @@ export const courses = [
         rating: 5,
         small_description: "Personalized feedback",
       },
-    ]
-    
+    ],
   },
   {
     id: 6,
@@ -957,7 +954,7 @@ export const courses = [
       "Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
     details_image: "/med_application_img.png",
     link: "/mcat",
-    downloadable_pdf:"/med_app_pdf.pdf",
+    downloadable_pdf: "/med_app_pdf.pdf",
     price: "300",
     star: "5",
     rating: "3",
@@ -1025,7 +1022,7 @@ export const courses = [
         small_description: "Med school insights",
       },
     ],
-    
+
     course_faqs: [
       {
         id: 1,
@@ -1071,7 +1068,7 @@ export const courses = [
     start_date: "Jan 12,2024",
     end_date: "Apr 12,2025",
     star: "5",
-    downloadable_pdf:"/ubc_pdf.pdf",
+    downloadable_pdf: "/ubc_pdf.pdf",
     rating: "3",
     key_features: [
       "Led by UBC Med Students: Insider tips from successful MMI candidates.",
@@ -1135,7 +1132,7 @@ export const courses = [
         small_description: "Insider tips and ethical frameworks",
       },
     ],
-    
+
     course_faqs: [
       {
         id: 1,
@@ -1175,7 +1172,8 @@ export const blogs = [
   {
     id: 1,
     title: "Mastering the CARS Program: Key Strategies for Success",
-    description: "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
+    description:
+      "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
     date: "Jan 12, 2024",
     time: "6:00 PM",
     image: "/blog1.png",
@@ -1185,8 +1183,9 @@ export const blogs = [
       {
         type: "standard_section",
         heading: "What is the CARS Program?",
-        content: "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
-        icons: ["🧠", "📚"]
+        content:
+          "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
+        icons: ["🧠", "📚"],
       },
       {
         type: "highlight_section",
@@ -1196,16 +1195,16 @@ export const blogs = [
           {
             text: "CARS Preparation Guide",
             url: "https://example.com/cars-guide",
-            icon: "🔗"
-          }
+            icon: "🔗",
+          },
         ],
         embeddedLinks: [
           {
             text: "critical thinking",
             url: "https://example.com/critical-thinking",
-            context: "Develop your {link} skills"
-          }
-        ]
+            context: "Develop your {link} skills",
+          },
+        ],
       },
       {
         type: "numbered_list",
@@ -1213,22 +1212,22 @@ export const blogs = [
         listItems: [
           "3 expert-led editing sessions",
           "Personalized feedback meetings",
-          "Comprehensive study materials"
-        ]
+          "Comprehensive study materials",
+        ],
       },
       {
         type: "quote_section",
         quote: "Success is not just about hard work, but smart preparation.",
         author: "Medical Admissions Expert",
-        icon: "💡"
+        icon: "💡",
       },
       {
         type: "statistic_section",
         heading: "Student Success Rates",
         statistics: [
           { label: "Average Score Improvement", value: "15%" },
-          { label: "Student Satisfaction", value: "95%" }
-        ]
+          { label: "Student Satisfaction", value: "95%" },
+        ],
       },
       {
         type: "testimonial_section",
@@ -1236,9 +1235,9 @@ export const blogs = [
           {
             text: "This program transformed my CARS performance!",
             author: "Jane Doe",
-            role: "Medical School Applicant"
-          }
-        ]
+            role: "Medical School Applicant",
+          },
+        ],
       },
       {
         type: "resource_section",
@@ -1247,15 +1246,15 @@ export const blogs = [
           {
             title: "MCAT Prep Book",
             description: "Comprehensive CARS strategy guide",
-            link: "https://example.com/mcat-book"
-          }
-        ]
+            link: "https://example.com/mcat-book",
+          },
+        ],
       },
       {
         type: "interactive_section",
         heading: "Self-Assessment Quiz",
         quizLink: "https://example.com/cars-quiz",
-        description: "Test your CARS readiness!"
+        description: "Test your CARS readiness!",
       },
       {
         type: "timeline_section",
@@ -1264,22 +1263,24 @@ export const blogs = [
           {
             date: "Month 1",
             title: "Diagnostic Test",
-            description: "Understand your current level and create a personalized study plan",
-            icon: "🏁"
+            description:
+              "Understand your current level and create a personalized study plan",
+            icon: "🏁",
           },
           {
             date: "Month 2-3",
             title: "Intensive Study",
             description: "Deep dive into content review and practice passages",
-            icon: "📚"
+            icon: "📚",
           },
           {
             date: "Month 4",
             title: "Mock Exams",
-            description: "Full-length practice tests and detailed performance analysis",
-            icon: "🎯"
-          }
-        ]
+            description:
+              "Full-length practice tests and detailed performance analysis",
+            icon: "🎯",
+          },
+        ],
       },
       {
         type: "comparison_section",
@@ -1289,19 +1290,19 @@ export const blogs = [
           {
             category: "Study Materials",
             traditional: "Generic textbooks",
-            ourApproach: "Customized, high-yield resources"
+            ourApproach: "Customized, high-yield resources",
           },
           {
             category: "Mentorship",
             traditional: "Limited guidance",
-            ourApproach: "Personalized 1-on-1 mentorship"
+            ourApproach: "Personalized 1-on-1 mentorship",
           },
           {
             category: "Practice Strategy",
             traditional: "Passive reading",
-            ourApproach: "Active learning and strategy development"
-          }
-        ]
+            ourApproach: "Active learning and strategy development",
+          },
+        ],
       },
       {
         type: "multimedia_section",
@@ -1312,30 +1313,31 @@ export const blogs = [
             title: "CARS Strategy Masterclass",
             duration: "45 mins",
             thumbnail: "/video-thumbnail.jpg",
-            url: "https://example.com/cars-masterclass"
+            url: "https://example.com/cars-masterclass",
           },
           {
             type: "podcast",
             title: "Medical School Admissions Insights",
             duration: "30 mins",
             thumbnail: "/podcast-thumbnail.jpg",
-            url: "https://example.com/admissions-podcast"
+            url: "https://example.com/admissions-podcast",
           },
           {
             type: "webinar",
             title: "MCAT Preparation Strategies",
             duration: "60 mins",
             thumbnail: "/webinar-thumbnail.jpg",
-            url: "https://example.com/mcat-webinar"
-          }
-        ]
-      }
-    ]
+            url: "https://example.com/mcat-webinar",
+          },
+        ],
+      },
+    ],
   },
   {
     id: 2,
     title: "Mastering the CARS Program: Key Strategies for Success",
-    description: "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
+    description:
+      "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
     date: "Jan 12, 2024",
     time: "6:00 PM",
     image: "/blog1.png",
@@ -1345,8 +1347,9 @@ export const blogs = [
       {
         type: "standard_section",
         heading: "What is the CARS Program?",
-        content: "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
-        icons: ["🧠", "📚"]
+        content:
+          "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
+        icons: ["🧠", "📚"],
       },
       {
         type: "highlight_section",
@@ -1356,16 +1359,16 @@ export const blogs = [
           {
             text: "CARS Preparation Guide",
             url: "https://example.com/cars-guide",
-            icon: "🔗"
-          }
+            icon: "🔗",
+          },
         ],
         embeddedLinks: [
           {
             text: "critical thinking",
             url: "https://example.com/critical-thinking",
-            context: "Develop your {link} skills"
-          }
-        ]
+            context: "Develop your {link} skills",
+          },
+        ],
       },
       {
         type: "numbered_list",
@@ -1373,22 +1376,22 @@ export const blogs = [
         listItems: [
           "3 expert-led editing sessions",
           "Personalized feedback meetings",
-          "Comprehensive study materials"
-        ]
+          "Comprehensive study materials",
+        ],
       },
       {
         type: "quote_section",
         quote: "Success is not just about hard work, but smart preparation.",
         author: "Medical Admissions Expert",
-        icon: "💡"
+        icon: "💡",
       },
       {
         type: "statistic_section",
         heading: "Student Success Rates",
         statistics: [
           { label: "Average Score Improvement", value: "15%" },
-          { label: "Student Satisfaction", value: "95%" }
-        ]
+          { label: "Student Satisfaction", value: "95%" },
+        ],
       },
       {
         type: "testimonial_section",
@@ -1396,9 +1399,9 @@ export const blogs = [
           {
             text: "This program transformed my CARS performance!",
             author: "Jane Doe",
-            role: "Medical School Applicant"
-          }
-        ]
+            role: "Medical School Applicant",
+          },
+        ],
       },
       {
         type: "resource_section",
@@ -1407,15 +1410,15 @@ export const blogs = [
           {
             title: "MCAT Prep Book",
             description: "Comprehensive CARS strategy guide",
-            link: "https://example.com/mcat-book"
-          }
-        ]
+            link: "https://example.com/mcat-book",
+          },
+        ],
       },
       {
         type: "interactive_section",
         heading: "Self-Assessment Quiz",
         quizLink: "https://example.com/cars-quiz",
-        description: "Test your CARS readiness!"
+        description: "Test your CARS readiness!",
       },
       {
         type: "timeline_section",
@@ -1424,22 +1427,24 @@ export const blogs = [
           {
             date: "Month 1",
             title: "Diagnostic Test",
-            description: "Understand your current level and create a personalized study plan",
-            icon: "🏁"
+            description:
+              "Understand your current level and create a personalized study plan",
+            icon: "🏁",
           },
           {
             date: "Month 2-3",
             title: "Intensive Study",
             description: "Deep dive into content review and practice passages",
-            icon: "📚"
+            icon: "📚",
           },
           {
             date: "Month 4",
             title: "Mock Exams",
-            description: "Full-length practice tests and detailed performance analysis",
-            icon: "🎯"
-          }
-        ]
+            description:
+              "Full-length practice tests and detailed performance analysis",
+            icon: "🎯",
+          },
+        ],
       },
       {
         type: "comparison_section",
@@ -1449,19 +1454,19 @@ export const blogs = [
           {
             category: "Study Materials",
             traditional: "Generic textbooks",
-            ourApproach: "Customized, high-yield resources"
+            ourApproach: "Customized, high-yield resources",
           },
           {
             category: "Mentorship",
             traditional: "Limited guidance",
-            ourApproach: "Personalized 1-on-1 mentorship"
+            ourApproach: "Personalized 1-on-1 mentorship",
           },
           {
             category: "Practice Strategy",
             traditional: "Passive reading",
-            ourApproach: "Active learning and strategy development"
-          }
-        ]
+            ourApproach: "Active learning and strategy development",
+          },
+        ],
       },
       {
         type: "multimedia_section",
@@ -1472,30 +1477,31 @@ export const blogs = [
             title: "CARS Strategy Masterclass",
             duration: "45 mins",
             thumbnail: "/video-thumbnail.jpg",
-            url: "https://example.com/cars-masterclass"
+            url: "https://example.com/cars-masterclass",
           },
           {
             type: "podcast",
             title: "Medical School Admissions Insights",
             duration: "30 mins",
             thumbnail: "/podcast-thumbnail.jpg",
-            url: "https://example.com/admissions-podcast"
+            url: "https://example.com/admissions-podcast",
           },
           {
             type: "webinar",
             title: "MCAT Preparation Strategies",
             duration: "60 mins",
             thumbnail: "/webinar-thumbnail.jpg",
-            url: "https://example.com/mcat-webinar"
-          }
-        ]
-      }
-    ]
+            url: "https://example.com/mcat-webinar",
+          },
+        ],
+      },
+    ],
   },
   {
     id: 3,
     title: "Mastering the CARS Program: Key Strategies for Success",
-    description: "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
+    description:
+      "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
     date: "Jan 12, 2024",
     time: "6:00 PM",
     image: "/blog1.png",
@@ -1505,8 +1511,9 @@ export const blogs = [
       {
         type: "standard_section",
         heading: "What is the CARS Program?",
-        content: "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
-        icons: ["🧠", "📚"]
+        content:
+          "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
+        icons: ["🧠", "📚"],
       },
       {
         type: "highlight_section",
@@ -1516,16 +1523,16 @@ export const blogs = [
           {
             text: "CARS Preparation Guide",
             url: "https://example.com/cars-guide",
-            icon: "🔗"
-          }
+            icon: "🔗",
+          },
         ],
         embeddedLinks: [
           {
             text: "critical thinking",
             url: "https://example.com/critical-thinking",
-            context: "Develop your {link} skills"
-          }
-        ]
+            context: "Develop your {link} skills",
+          },
+        ],
       },
       {
         type: "numbered_list",
@@ -1533,22 +1540,22 @@ export const blogs = [
         listItems: [
           "3 expert-led editing sessions",
           "Personalized feedback meetings",
-          "Comprehensive study materials"
-        ]
+          "Comprehensive study materials",
+        ],
       },
       {
         type: "quote_section",
         quote: "Success is not just about hard work, but smart preparation.",
         author: "Medical Admissions Expert",
-        icon: "💡"
+        icon: "💡",
       },
       {
         type: "statistic_section",
         heading: "Student Success Rates",
         statistics: [
           { label: "Average Score Improvement", value: "15%" },
-          { label: "Student Satisfaction", value: "95%" }
-        ]
+          { label: "Student Satisfaction", value: "95%" },
+        ],
       },
       {
         type: "testimonial_section",
@@ -1556,9 +1563,9 @@ export const blogs = [
           {
             text: "This program transformed my CARS performance!",
             author: "Jane Doe",
-            role: "Medical School Applicant"
-          }
-        ]
+            role: "Medical School Applicant",
+          },
+        ],
       },
       {
         type: "resource_section",
@@ -1567,15 +1574,15 @@ export const blogs = [
           {
             title: "MCAT Prep Book",
             description: "Comprehensive CARS strategy guide",
-            link: "https://example.com/mcat-book"
-          }
-        ]
+            link: "https://example.com/mcat-book",
+          },
+        ],
       },
       {
         type: "interactive_section",
         heading: "Self-Assessment Quiz",
         quizLink: "https://example.com/cars-quiz",
-        description: "Test your CARS readiness!"
+        description: "Test your CARS readiness!",
       },
       {
         type: "timeline_section",
@@ -1584,22 +1591,24 @@ export const blogs = [
           {
             date: "Month 1",
             title: "Diagnostic Test",
-            description: "Understand your current level and create a personalized study plan",
-            icon: "🏁"
+            description:
+              "Understand your current level and create a personalized study plan",
+            icon: "🏁",
           },
           {
             date: "Month 2-3",
             title: "Intensive Study",
             description: "Deep dive into content review and practice passages",
-            icon: "📚"
+            icon: "📚",
           },
           {
             date: "Month 4",
             title: "Mock Exams",
-            description: "Full-length practice tests and detailed performance analysis",
-            icon: "🎯"
-          }
-        ]
+            description:
+              "Full-length practice tests and detailed performance analysis",
+            icon: "🎯",
+          },
+        ],
       },
       {
         type: "comparison_section",
@@ -1609,19 +1618,19 @@ export const blogs = [
           {
             category: "Study Materials",
             traditional: "Generic textbooks",
-            ourApproach: "Customized, high-yield resources"
+            ourApproach: "Customized, high-yield resources",
           },
           {
             category: "Mentorship",
             traditional: "Limited guidance",
-            ourApproach: "Personalized 1-on-1 mentorship"
+            ourApproach: "Personalized 1-on-1 mentorship",
           },
           {
             category: "Practice Strategy",
             traditional: "Passive reading",
-            ourApproach: "Active learning and strategy development"
-          }
-        ]
+            ourApproach: "Active learning and strategy development",
+          },
+        ],
       },
       {
         type: "multimedia_section",
@@ -1632,30 +1641,31 @@ export const blogs = [
             title: "CARS Strategy Masterclass",
             duration: "45 mins",
             thumbnail: "/video-thumbnail.jpg",
-            url: "https://example.com/cars-masterclass"
+            url: "https://example.com/cars-masterclass",
           },
           {
             type: "podcast",
             title: "Medical School Admissions Insights",
             duration: "30 mins",
             thumbnail: "/podcast-thumbnail.jpg",
-            url: "https://example.com/admissions-podcast"
+            url: "https://example.com/admissions-podcast",
           },
           {
             type: "webinar",
             title: "MCAT Preparation Strategies",
             duration: "60 mins",
             thumbnail: "/webinar-thumbnail.jpg",
-            url: "https://example.com/mcat-webinar"
-          }
-        ]
-      }
-    ]
+            url: "https://example.com/mcat-webinar",
+          },
+        ],
+      },
+    ],
   },
   {
     id: 4,
     title: "Mastering the CARS Program: Key Strategies for Success",
-    description: "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
+    description:
+      "Explore how our flexible weekend classes, hands-on MCAT-style CARS passages, and expert mentorship help students build confidence and excel.",
     date: "Jan 12, 2024",
     time: "6:00 PM",
     image: "/blog1.png",
@@ -1665,8 +1675,9 @@ export const blogs = [
       {
         type: "standard_section",
         heading: "What is the CARS Program?",
-        content: "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
-        icons: ["🧠", "📚"]
+        content:
+          "The CARS Program is designed to help students develop critical analysis and reasoning skills needed to ace the MCAT.",
+        icons: ["🧠", "📚"],
       },
       {
         type: "highlight_section",
@@ -1676,16 +1687,16 @@ export const blogs = [
           {
             text: "CARS Preparation Guide",
             url: "https://example.com/cars-guide",
-            icon: "🔗"
-          }
+            icon: "🔗",
+          },
         ],
         embeddedLinks: [
           {
             text: "critical thinking",
             url: "https://example.com/critical-thinking",
-            context: "Develop your {link} skills"
-          }
-        ]
+            context: "Develop your {link} skills",
+          },
+        ],
       },
       {
         type: "numbered_list",
@@ -1693,22 +1704,22 @@ export const blogs = [
         listItems: [
           "3 expert-led editing sessions",
           "Personalized feedback meetings",
-          "Comprehensive study materials"
-        ]
+          "Comprehensive study materials",
+        ],
       },
       {
         type: "quote_section",
         quote: "Success is not just about hard work, but smart preparation.",
         author: "Medical Admissions Expert",
-        icon: "💡"
+        icon: "💡",
       },
       {
         type: "statistic_section",
         heading: "Student Success Rates",
         statistics: [
           { label: "Average Score Improvement", value: "15%" },
-          { label: "Student Satisfaction", value: "95%" }
-        ]
+          { label: "Student Satisfaction", value: "95%" },
+        ],
       },
       {
         type: "testimonial_section",
@@ -1716,9 +1727,9 @@ export const blogs = [
           {
             text: "This program transformed my CARS performance!",
             author: "Jane Doe",
-            role: "Medical School Applicant"
-          }
-        ]
+            role: "Medical School Applicant",
+          },
+        ],
       },
       {
         type: "resource_section",
@@ -1727,15 +1738,15 @@ export const blogs = [
           {
             title: "MCAT Prep Book",
             description: "Comprehensive CARS strategy guide",
-            link: "https://example.com/mcat-book"
-          }
-        ]
+            link: "https://example.com/mcat-book",
+          },
+        ],
       },
       {
         type: "interactive_section",
         heading: "Self-Assessment Quiz",
         quizLink: "https://example.com/cars-quiz",
-        description: "Test your CARS readiness!"
+        description: "Test your CARS readiness!",
       },
       {
         type: "timeline_section",
@@ -1744,22 +1755,24 @@ export const blogs = [
           {
             date: "Month 1",
             title: "Diagnostic Test",
-            description: "Understand your current level and create a personalized study plan",
-            icon: "🏁"
+            description:
+              "Understand your current level and create a personalized study plan",
+            icon: "🏁",
           },
           {
             date: "Month 2-3",
             title: "Intensive Study",
             description: "Deep dive into content review and practice passages",
-            icon: "📚"
+            icon: "📚",
           },
           {
             date: "Month 4",
             title: "Mock Exams",
-            description: "Full-length practice tests and detailed performance analysis",
-            icon: "🎯"
-          }
-        ]
+            description:
+              "Full-length practice tests and detailed performance analysis",
+            icon: "🎯",
+          },
+        ],
       },
       {
         type: "comparison_section",
@@ -1769,19 +1782,19 @@ export const blogs = [
           {
             category: "Study Materials",
             traditional: "Generic textbooks",
-            ourApproach: "Customized, high-yield resources"
+            ourApproach: "Customized, high-yield resources",
           },
           {
             category: "Mentorship",
             traditional: "Limited guidance",
-            ourApproach: "Personalized 1-on-1 mentorship"
+            ourApproach: "Personalized 1-on-1 mentorship",
           },
           {
             category: "Practice Strategy",
             traditional: "Passive reading",
-            ourApproach: "Active learning and strategy development"
-          }
-        ]
+            ourApproach: "Active learning and strategy development",
+          },
+        ],
       },
       {
         type: "multimedia_section",
@@ -1792,31 +1805,27 @@ export const blogs = [
             title: "CARS Strategy Masterclass",
             duration: "45 mins",
             thumbnail: "/video-thumbnail.jpg",
-            url: "https://example.com/cars-masterclass"
+            url: "https://example.com/cars-masterclass",
           },
           {
             type: "podcast",
             title: "Medical School Admissions Insights",
             duration: "30 mins",
             thumbnail: "/podcast-thumbnail.jpg",
-            url: "https://example.com/admissions-podcast"
+            url: "https://example.com/admissions-podcast",
           },
           {
             type: "webinar",
             title: "MCAT Preparation Strategies",
             duration: "60 mins",
             thumbnail: "/webinar-thumbnail.jpg",
-            url: "https://example.com/mcat-webinar"
-          }
-        ]
-      }
-    ]
+            url: "https://example.com/mcat-webinar",
+          },
+        ],
+      },
+    ],
   },
-
-
-]
-
-
+];
 
 export const consultation_details = [
   {
@@ -1871,7 +1880,6 @@ export const home_FAQs = [
     answer:
       "Visit the website or contact Med Games via email or Instagram for enrollment details",
   },
- 
 ];
 
 export const customized_privacy_policy = [
@@ -1977,12 +1985,12 @@ export const upcoming_events = [
     description:
       "Med Games is holding an essay competition. The deadline to submit is April 1st 2024, at midnight EST.",
     via: "Virtual program",
-         event_date: "15",
-     event_month: "Apr",
-     event_year: "2024",
+    event_date: "15",
+    event_month: "Apr",
+    event_year: "2024",
     time: "10:00 AM - 12:00 PM EST",
-    language:"English",
-    imageURL:"/event_1.png",
+    language: "English",
+    imageURL: "/event_1.png",
     price: "600",
     content_of_event: [
       {
@@ -2016,7 +2024,8 @@ export const upcoming_events = [
         list_items: [
           {
             type: "text",
-            content: "Identification of key challenges faced by premed students in preparing for the",
+            content:
+              "Identification of key challenges faced by premed students in preparing for the",
           },
           {
             type: "bold",
@@ -2024,16 +2033,18 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
+            content:
+              "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
           },
           {
             type: "text",
-            content:"Bulk of the essay should focus on:"
+            content: "Bulk of the essay should focus on:",
           },
           {
             type: "list-disc",
-            content: "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
-          }
+            content:
+              "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
+          },
         ],
       },
       {
@@ -2049,7 +2060,8 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "bold",
@@ -2057,7 +2069,8 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "bold",
@@ -2065,17 +2078,16 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "highlight",
             content: " med.games.org@gmail.com.:",
-          }
-          
+          },
+        ],
+      },
     ],
-  },
-],
-
   },
   {
     id: 2,
@@ -2083,13 +2095,13 @@ export const upcoming_events = [
     description:
       "Med Games is holding an essay competition. The deadline to submit is April 1st 2024, at midnight EST.",
     via: "Virtual program",
-       event_date: "15",
-     event_month: "Apr",
-     event_year: "2024",
-    
+    event_date: "15",
+    event_month: "Apr",
+    event_year: "2024",
+
     time: "10:00 AM - 12:00 PM EST",
-    language:"English",
-    imageURL:"/event_2.png",
+    language: "English",
+    imageURL: "/event_2.png",
     price: "600",
     content_of_event: [
       {
@@ -2123,7 +2135,8 @@ export const upcoming_events = [
         list_items: [
           {
             type: "text",
-            content: "Identification of key challenges faced by premed students in preparing for the",
+            content:
+              "Identification of key challenges faced by premed students in preparing for the",
           },
           {
             type: "bold",
@@ -2131,16 +2144,18 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
+            content:
+              "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
           },
           {
             type: "text",
-            content:"Bulk of the essay should focus on:"
+            content: "Bulk of the essay should focus on:",
           },
           {
             type: "list-disc",
-            content: "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
-          }
+            content:
+              "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
+          },
         ],
       },
       {
@@ -2156,7 +2171,8 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "bold",
@@ -2164,7 +2180,8 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "bold",
@@ -2172,17 +2189,16 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "highlight",
             content: " med.games.org@gmail.com.:",
-          }
-          
+          },
+        ],
+      },
     ],
-  },
-],
-
   },
   {
     id: 3,
@@ -2194,8 +2210,8 @@ export const upcoming_events = [
     event_month: "Apr",
     event_year: "2024",
     time: "10:00 AM - 12:00 PM EST",
-    language:"English",
-    imageURL:"/event_3.png",
+    language: "English",
+    imageURL: "/event_3.png",
     price: "600",
     content_of_event: [
       {
@@ -2229,7 +2245,8 @@ export const upcoming_events = [
         list_items: [
           {
             type: "text",
-            content: "Identification of key challenges faced by premed students in preparing for the",
+            content:
+              "Identification of key challenges faced by premed students in preparing for the",
           },
           {
             type: "bold",
@@ -2237,16 +2254,18 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
+            content:
+              "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
           },
           {
             type: "text",
-            content:"Bulk of the essay should focus on:"
+            content: "Bulk of the essay should focus on:",
           },
           {
             type: "list-disc",
-            content: "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
-          }
+            content:
+              "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
+          },
         ],
       },
       {
@@ -2262,7 +2281,8 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "bold",
@@ -2270,7 +2290,8 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "bold",
@@ -2278,17 +2299,16 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "highlight",
             content: " med.games.org@gmail.com.:",
-          }
-          
+          },
+        ],
+      },
     ],
-  },
-],
-
   },
   {
     id: 4,
@@ -2300,8 +2320,8 @@ export const upcoming_events = [
     event_month: "Apr",
     event_year: "2024",
     time: "10:00 AM - 12:00 PM EST",
-    language:"English",
-    imageURL:"/event_4.png",
+    language: "English",
+    imageURL: "/event_4.png",
     price: "600",
     content_of_event: [
       {
@@ -2335,7 +2355,8 @@ export const upcoming_events = [
         list_items: [
           {
             type: "text",
-            content: "Identification of key challenges faced by premed students in preparing for the",
+            content:
+              "Identification of key challenges faced by premed students in preparing for the",
           },
           {
             type: "bold",
@@ -2343,16 +2364,18 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
+            content:
+              "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
           },
           {
             type: "text",
-            content:"Bulk of the essay should focus on:"
+            content: "Bulk of the essay should focus on:",
           },
           {
             type: "list-disc",
-            content: "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
-          }
+            content:
+              "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
+          },
         ],
       },
       {
@@ -2368,7 +2391,8 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "bold",
@@ -2376,7 +2400,8 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "bold",
@@ -2384,17 +2409,16 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "highlight",
             content: " med.games.org@gmail.com.:",
-          }
-          
+          },
+        ],
+      },
     ],
-  },
-],
-
   },
   {
     id: 5,
@@ -2406,8 +2430,8 @@ export const upcoming_events = [
     event_month: "Apr",
     event_year: "2024",
     time: "10:00 AM - 12:00 PM EST",
-    language:"English",
-    imageURL:"/event_4.png",
+    language: "English",
+    imageURL: "/event_4.png",
     price: "600",
     content_of_event: [
       {
@@ -2441,7 +2465,8 @@ export const upcoming_events = [
         list_items: [
           {
             type: "text",
-            content: "Identification of key challenges faced by premed students in preparing for the",
+            content:
+              "Identification of key challenges faced by premed students in preparing for the",
           },
           {
             type: "bold",
@@ -2449,16 +2474,18 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
+            content:
+              "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
           },
           {
             type: "text",
-            content:"Bulk of the essay should focus on:"
+            content: "Bulk of the essay should focus on:",
           },
           {
             type: "list-disc",
-            content: "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
-          }
+            content:
+              "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
+          },
         ],
       },
       {
@@ -2474,7 +2501,8 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "bold",
@@ -2482,7 +2510,8 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "bold",
@@ -2490,35 +2519,65 @@ export const upcoming_events = [
           },
           {
             type: "text",
-            content: "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+            content:
+              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
           },
           {
             type: "highlight",
             content: " med.games.org@gmail.com.:",
-          }
-          
+          },
+        ],
+      },
     ],
   },
-],
-
-  }
 ];
-
 
 export const why_Us_contents = [
   {
     id: "1",
     title: "Expert Guidance",
-    description: "Our team consists of experienced professionals who are dedicated to helping you achieve your goals in the medical field",
+    description:
+      "Our team consists of experienced professionals who are dedicated to helping you achieve your goals in the medical field",
   },
   {
     id: "2",
     title: "Personalized Approach",
-    description: "Each student receives customized plans tailored to their weaknesses, maximizing their potential and enhancing their chances of success",
+    description:
+      "Each student receives customized plans tailored to their weaknesses, maximizing their potential and enhancing their chances of success",
   },
   {
     id: "3",
     title: "Comprehensive Support",
-    description: "Our team consists of experienced professionals who are dedicated to helping you achieve your goals in the medical field",
-  }
+    description:
+      "Our team consists of experienced professionals who are dedicated to helping you achieve your goals in the medical field",
+  },
+];
+
+
+export const admin_sidebar_items=[
+  {
+    id:1,
+    title:"Dashboard",
+    icon:<IconHome/>,
+    link:"/admin-dashboard"
+  },
+  {
+    id:2,
+    title:"Tutors",
+    icon:<IconSchool/>,
+    link:"/admin-tutors"
+  },
+  {
+    id:3,
+    title:"Courses",
+    icon:<IconBooks/>,
+    link:"/admin-courses"
+  },
+  {
+    id:4,
+    title:"Notifications",
+    icon:<IconBell/>,
+    link:"/admin-notifications"
+  },
+ 
 ]
