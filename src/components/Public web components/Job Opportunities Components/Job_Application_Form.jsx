@@ -13,10 +13,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRequest } from "@/components/custom hooks/useRequest";
+import submitJobApplication from "@/app/actions/job_Application_fun";
 
 // Define the schema for the job application form
 const formSchema = z.object({
@@ -57,13 +58,33 @@ const Job_Application_Form = () => {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const{loading,success,error,sendRequest}=useRequest();
 
   const onReset = () => {
+    // Reset all form values using react-hook-form
     form.reset();
+  
+    // Manually reset custom fields (Select and File input)
+    form.setValue("position", ""); // Reset the position field in react-hook-form's state
+    document.querySelector("input[type='file']").value = ""; // Reset File input
   };
+  
+  const onSubmit = async(data) => {
+    console.log(data);
+
+    try {
+      const res=await sendRequest(() => submitJobApplication(data));
+
+    } catch (error) {
+      
+    }
+  
+    // Reset form after submission
+    form.reset();
+    form.setValue("position", ""); // Reset the position field
+    document.querySelector("input[type='file']").value = ""; // Reset File input
+  };
+  
 
   return (
     <div className="w-full h-full flex justify-center items-center bg-white py-10 px-5">
@@ -196,14 +217,14 @@ const Job_Application_Form = () => {
                   <FormItem>
                     <FormLabel className="text-[#1A1A1A]">Position</FormLabel>
                     <FormControl>
-                      <Select onValueChange={field.onChange} defaultValue={field.value} className=" job_application_style ">
+                      <Select onValueChange={field.onChange} value={field.value} className=" job_application_style ">
                         <SelectTrigger>
                           <SelectValue placeholder="Select a position" className=" focus_none " />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="developer">Developer</SelectItem>
-                          <SelectItem value="designer">Designer</SelectItem>
-                          <SelectItem value="manager">Manager</SelectItem>
+                          <SelectItem value="tutor">Tutor</SelectItem>
+                          <SelectItem value="advertisement representative (Volunteer)">Advertisement Representative(Volunteer) </SelectItem>
+                          {/* <SelectItem value="manager">Manager</SelectItem> */}
                         </SelectContent>
                       </Select>
                     </FormControl>
@@ -286,14 +307,15 @@ const Job_Application_Form = () => {
                   </FormItem>
                 )}
               />
-
+              {success && <p className="text-green-500">Application submitted successfully!</p>}
+              {error && <p className="text-red-500">{error}</p>}
               {/* Buttons */}
               <div className="flex space-x-4 justify-between w-96">
-                <button type="reset"  onClick={onReset} className="w-full rounded-md bg-gray-400 text-white">
+                <button type="reset" disabled={loading}  onClick={onReset} className="w-full rounded-md bg-gray-400 text-white">
                   Reset Form
                 </button>
-                <Button type="submit" className="w-full bg-[#4F9F76] text-white">
-                  Submit
+                <Button type="submit" disabled={loading} className="w-full bg-[#4F9F76] text-white">
+                  {loading ? "Submitting..." : "Submit"} 
                 </Button>
               </div>
             </form>

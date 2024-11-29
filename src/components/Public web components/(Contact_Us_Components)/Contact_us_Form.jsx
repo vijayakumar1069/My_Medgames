@@ -35,6 +35,8 @@ import {
 import Image from "next/image";
 import Contact_Us_card from "./Contact_Us_card";
 import { brand_Info } from "@/utils/constvalues";
+import { useRequest } from "@/components/custom hooks/useRequest";
+import { submitContactInquiry } from "@/app/actions/contact_us_schedule_a_call_fun";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -62,10 +64,29 @@ const Contact_us_Form = () => {
       message: "",
     },
   });
+  const{loading,success,error,sendRequest}=useRequest();
 
-  const onSubmit = (data) => {
+  const onSubmit = async(data) => {
+    try {
+     const res=await sendRequest(() => submitContactInquiry({userData: data,inquiryType:"contact"}));
+      // Close the confirmation dialog after 1 second and redirect to the schedule a call page with query parameters
+      if(res.success)
+      {
+        
+        setTimeout(()=>
+        {
+          
+          setIsDialogOpen(true); // Open the confirmation dialog
+        },1000)
+      }
+      
+    } catch (error) {
+      
+      console.log(error);
+      
+    }
 
-    setIsDialogOpen(true); // Open the confirmation dialog
+    // setIsDialogOpen(true); // Open the confirmation dialog
   };
 
   const handleYesClick = () => {
@@ -216,12 +237,15 @@ const Contact_us_Form = () => {
                   </FormItem>
                 )}
               />
+              {error && <p className="text-red-500">{error}</p>}
+              {success && <p className="text-green-500">{success}</p>}
               {/* Submit Button */}
               <Button
+              disabled={loading}
                 className="w-full bg-[#4F9F76] hover:bg-[#4F9F76]/80"
                 type="submit"
               >
-                Submit
+                {loading ? "Sending..." : "Send"}
               </Button>
             </form>
           </Form>
@@ -238,16 +262,16 @@ const Contact_us_Form = () => {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Would you like to schedule a call?</DialogTitle>
-            <DialogDescription>
+            <DialogDescription >
               Click &quot;Yes&quot; to schedule a call with your entered
               details.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button onClick={handleYesClick} className="bg-green-600">
+            <Button onClick={handleYesClick} className="bg-[#4F9F76] text-white hover:bg-[#274E49]">
               Yes
             </Button>
-            <Button onClick={handleNoClick} className="bg-red-600">
+            <Button onClick={handleNoClick} className="bg-red-600 hover:bg-red-700">
               No
             </Button>
           </DialogFooter>

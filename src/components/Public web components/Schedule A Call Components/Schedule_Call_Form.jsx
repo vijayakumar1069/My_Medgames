@@ -31,6 +31,8 @@ import Image from "next/image";
 import { PlusCircle, Trash2 } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
+import { useRequest } from "@/components/custom hooks/useRequest";
+import { submitContactInquiry } from "@/app/actions/contact_us_schedule_a_call_fun";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -61,7 +63,7 @@ const Schedule_Call_Form = () => {
     const [email, setEmail]=useState(searchparams.get("email"));
     const [phone, setPhone]=useState(searchparams.get("phone"));
     const router=useRouter();
-    console.log(name,email,phone)
+    const{loading,success,error,sendRequest}=useRequest();
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -92,14 +94,23 @@ const Schedule_Call_Form = () => {
     }
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // Reset form after successful submission
-    router.push('/schedule-a-call');
-    setName("");
-    setEmail("");
-    setPhone("");
-    form.reset();
+  const onSubmit = async (data) => {
+    try {
+      console.log(data);
+      const res=await sendRequest(() => submitContactInquiry({userData: data,inquiryType:"schedule"}));
+      form.reset({
+        name: "",
+        email: "",
+        phone: "",
+        preferredContact: "",
+        schedules: [{ date: undefined, fromTime: "", toTime: "" }],
+      });
+      setName("");
+      setEmail("");
+      setPhone("");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
@@ -203,15 +214,15 @@ const Schedule_Call_Form = () => {
                     <FormControl>
                       <Select
                         onValueChange={field.onChange}
-                        defaultValue={field.value}
+                        value={field.value}
                       >
                         <SelectTrigger className="focus_none">
                           <SelectValue placeholder="Select contact method" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="phone">Phone Call</SelectItem>
-                          <SelectItem value="video">Video Call</SelectItem>
-                          <SelectItem value="whatsapp">WhatsApp</SelectItem>
+                          <SelectItem value="email">Email</SelectItem>
+                          <SelectItem value="zoom">Zoom Meeting</SelectItem>
                         </SelectContent>
                       </Select>
                     </FormControl>
@@ -335,10 +346,11 @@ const Schedule_Call_Form = () => {
                   </div>
                 ))}
               </div>
-
+              {error && <p className="text-red-500">{error}</p>}
+              {success && <p className="text-green-500">{success}</p>}
               {/* Submit Button */}
-              <Button className="w-full bg-[#4F9F76]/80 hover:bg-[#4F9F76]">
-                Schedule Call
+              <Button  disabled={loading} className="w-full bg-[#4F9F76]/80 hover:bg-[#4F9F76]">
+                {loading ?"Scheduling ":"Schedule a Call"}
               </Button>
             </form>
           </Form>
