@@ -166,10 +166,11 @@ export async function updateTutor(tutorId, { formData }) {
   // Delete function
   export async function deleteTutor(tutorId) {
     try {
+      console.log('Deleting tutor with ID:', tutorId);
       await connectDB();
   
       // Soft delete (recommended)
-      const deletedTutor = await TutorModel.findByIdAndUpdate(
+      const deletedTutor = await TutorModel.findByIdAndDelete(
         tutorId, 
         { 
           isActive: false 

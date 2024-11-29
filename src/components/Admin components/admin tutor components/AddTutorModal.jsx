@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -127,11 +128,16 @@ export function AddTutorModal({
       {/* Always render children trigger if provided */}
       {children && <DialogTrigger asChild>{children}</DialogTrigger>}
       {(triggerMode === "always-open" || isEditMode) && (
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl" >
           <DialogHeader>
             <DialogTitle>
               {isEditMode ? "Edit Tutor" : "Add New Tutor"}
             </DialogTitle>
+            <DialogDescription>
+              {isEditMode
+                ? "Update Tutor Details"
+                : "Enter Tutor Details"}
+            </DialogDescription>
           </DialogHeader>
 
           <Tabs

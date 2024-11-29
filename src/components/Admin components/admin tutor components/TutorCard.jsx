@@ -22,12 +22,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Badge } from "@/components/ui/badge"
-// import { deleteTutor } from "@/actions/tutor-actions"
+import { deleteTutor } from '@/app/actions/(Admin)/tutorActions'
+
 
 export default function TutorCard({ tutor, onEdit, onView }) {
   const handleDelete = async () => {
     if (confirm(`Are you sure you want to delete ${tutor.name}?`)) {
-    //   await deleteTutor(tutor._id)
+      await deleteTutor(tutor._id)
     }
   }
 
@@ -100,7 +101,7 @@ export default function TutorCard({ tutor, onEdit, onView }) {
         </p>
       </CardContent>
       
-      <CardFooter className="p-4 pt-0">
+      {/* <CardFooter className="p-4 pt-0">
         <div className="flex justify-between items-center w-full">
           <Badge variant="secondary">
             {tutor.reviews} Reviews
@@ -113,7 +114,7 @@ export default function TutorCard({ tutor, onEdit, onView }) {
             View Profile
           </Button>
         </div>
-      </CardFooter>
+      </CardFooter> */}
     </Card>
   )
 }

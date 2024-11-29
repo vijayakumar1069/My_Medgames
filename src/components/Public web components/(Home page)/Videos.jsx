@@ -1,12 +1,11 @@
 "use client";
+
 import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { motion, AnimatePresence } from 'framer-motion';  // Import Framer Motion
 
 const Videos = () => {
   const videoUrls = [
-    // "/v6.mp4",
-
     "/v2.mp4",
     "/v1.mp4",
     "/v3.mp4",
@@ -28,15 +27,13 @@ const Videos = () => {
     }
   };
 
-
-
   if (!isClient) {
     return null;  // Avoid rendering during SSR
   }
 
   return (
-    <div className="flex justify-center items-center w-full h-full p-4">
-      <div className="relative w-full max-w-screen-xl aspect-w-16 aspect-h-9">
+    <div className=" w-full h-full flex justify-center items-center  ">
+      <div className="relative w-full max-w-screen-xl ">
         {/* Animate video transitions with Framer Motion */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -53,16 +50,13 @@ const Videos = () => {
               controls
               onEnded={handleVideoEnd}
               width="100%"
-              height="80%"
+              height="100%"  // Keep height adjustable, it will fill the container
               muted  // Set muted based on state
-              className=""
               volume={1}  // Adjust volume based on state
-             
+              className="rounded-lg"  // Optional: rounded corners for aesthetics
             />
           </motion.div>
         </AnimatePresence>
-
-     
       </div>
     </div>
   );

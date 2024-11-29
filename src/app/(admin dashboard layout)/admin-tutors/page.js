@@ -30,19 +30,12 @@ export default async function Admin_Tutors_Page() {
         </AddTutorModal>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
         {tutors.map((tutor) => (
           <TutorCardWrapper
             key={tutor._id}
             tutor={tutor}
-            // onDeleteSuccess={(deletedId) => {
-            //   // Optional: Handle local state update or refresh
-            //   console.log(`Tutor ${deletedId} deleted`)
-            // }}
-            // onUpdateSuccess={(updatedTutor) => {
-            //   // Optional: Handle local state update or refresh
-            //   console.log('Tutor updated:', updatedTutor)
-            // }}
+          
           />
         ))}
       </div>

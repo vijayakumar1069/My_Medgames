@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { home_FAQs } from "@/utils/constvalues";
 import Skeleton from '@/components/Public web components/Skeleton';
+import HeroSection from '@/components/Public web components/(Home page)/HeroSection';
 
 // Dynamic imports with enhanced loading
 const Videos = dynamic(() => import("@/components/Public web components/(Home page)/Videos"), {
@@ -58,9 +59,10 @@ const Get_Started = dynamic(() => import("@/components/Public web components/(Ho
 export default function Home() {
   return (
     <main>
-      <Suspense fallback={<Skeleton />}>
+      {/* <Suspense fallback={<Skeleton />}>
         <Videos />
-      </Suspense>
+      </Suspense> */}
+      <HeroSection/>
       
       <Services />
       <Tutors />
