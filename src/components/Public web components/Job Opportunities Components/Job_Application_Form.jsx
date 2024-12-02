@@ -87,7 +87,7 @@ const Job_Application_Form = () => {
   
 
   return (
-    <div className="w-full h-full flex justify-center items-center bg-white py-10 px-5">
+    <div className="w-full h-full flex justify-center items-center bg-white py-10 px-2">
       <div className="relative w-full flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8 bg-white shadow-lg rounded-lg p-5">
         {/* Image Section */}
         <div className="w-full aspect-square flex-1 bg-white shadow-2xl rounded-2xl overflow-hidden flex">
@@ -310,11 +310,11 @@ const Job_Application_Form = () => {
               {success && <p className="text-green-500">Application submitted successfully!</p>}
               {error && <p className="text-red-500">{error}</p>}
               {/* Buttons */}
-              <div className="flex space-x-4 justify-between w-96">
-                <button type="reset" disabled={loading}  onClick={onReset} className="w-full rounded-md bg-gray-400 text-white">
+              <div className="flex md:space-x-4 md:space-y-0 justify-between md:flex-row flex-col space-y-3 w-full">
+                <Button type="reset" disabled={loading}  onClick={onReset} className="w-full rounded-md bg-gray-400 hover:bg-red-400 px-3 py-3 text-white">
                   Reset Form
-                </button>
-                <Button type="submit" disabled={loading} className="w-full bg-[#4F9F76] text-white">
+                </Button>
+                <Button type="submit" disabled={loading} className="w-full bg-[#4F9F76] text-white hover:bg-[#376F5F]">
                   {loading ? "Submitting..." : "Submit"} 
                 </Button>
               </div>
