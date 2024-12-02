@@ -38,11 +38,11 @@ export const navbarvalues = [
     name: "Contact Us",
     link: "/contact-us",
   },
-  {
-    id: 15,
-    name: "Login",
-    link: "/admin-login",
-  },
+  // {
+  //   id: 15,
+  //   name: "Login",
+  //   link: "/admin-login",
+  // },
   {
     id: 8,
     name: "Schedule A Call",
