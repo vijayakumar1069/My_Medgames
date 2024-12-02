@@ -1,3 +1,35 @@
+# name: medgames vercel production deployment
+
+# env:
+#   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+#   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+    
+#       - name: install vercel CLI
+#         run: npm install --global vercel
+
+#       - name: pull environment information from vercel
+#         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+#       - name: build project artifacts
+#         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+#       - name: deploy project artifacts
+#         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+     
+
+
 name: medgames vercel production deployment
 
 env:
@@ -13,19 +45,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-    
+      - uses: actions/checkout@v3
+
+      - name: install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: install vercel CLI
         run: npm install --global vercel
 
       - name: pull environment information from vercel
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
+      - name: install dependencies
+        run: npm install --legacy-peer-deps
+
       - name: build project artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: deploy project artifacts
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-
-     
-
