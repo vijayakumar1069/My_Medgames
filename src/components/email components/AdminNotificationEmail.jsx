@@ -14,23 +14,12 @@ import {
     Button
   } from "@react-email/components";
   
-  export const AdminNotificationEmail = ( {name="Sarah Johnson",
-        email="sarah.johnson@example.com",
-        inquiryType="schedule",
-        course="USMLE Step 1 Preparation",
-        message="I would like to discuss potential study schedules",
-        schedules=[
-          {
-            date: "2024-07-15",
-            fromTime: "10:00 AM",
-            toTime: "12:00 PM"
-          },
-          {
-            date: "2024-07-22", 
-            fromTime: "2:00 PM",
-            toTime: "4:00 PM"
-          }
-        ]
+  export const AdminNotificationEmail = ( { name,
+    email,
+    inquiryType,
+    course,
+    message,
+    schedules
     }
   ) => {
     const main = {
