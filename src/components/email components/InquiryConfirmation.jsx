@@ -1,3 +1,4 @@
+import { courses } from '@/utils/constvalues';
 import {
     Html,
     Head,
@@ -21,6 +22,8 @@ import {
     message,
     schedules
   }) {
+    const courses_Link=process.env.NEXT_PUBLIC_ENVIRONMENT !== "production"? `http://localhost:3000`:`${process.env.NEXT_VERCEL_URL}`;
+    const testimonials_Link=process.env.NEXT_PUBLIC_ENVIRONMENT !== "production"? `http://localhost:3000`:`${process.env.NEXT_VERCEL_URL}`;
     return (
       <Html>
         <Head />
@@ -41,7 +44,7 @@ import {
   
                   <Text style={paragraph}>
                     Congratulations on taking the first step towards transforming your medical career! 
-                    We&asop;re thrilled that you&apos;ve reached out to MedGames, where we turn medical professionals 
+                    We&apos;re thrilled that you &apos; ve reached out to MedGames, where we turn medical professionals 
                     aspirations into extraordinary achievements.
                   </Text>
   
@@ -80,7 +83,7 @@ import {
   
                   <Section style={ctaSection}>
                     <Button 
-                      href="https://medgames.com/courses" 
+                      href={`${courses_Link}/our-courses`} 
                       style={ctaButton}
                     >
                       Explore Our Courses
@@ -90,7 +93,7 @@ import {
                   <Text style={paragraph}>
                     While you wait, why not check out our{' '}
                     <Link 
-                      href="https://medgames.com/success-stories" 
+                        href={`${testimonials_Link}/testimonials`} 
                       style={linkStyle}
                     >
                       Success Stories
@@ -110,7 +113,7 @@ import {
               </Row>
             </Section>
   
-            <Section style={footer}>
+            {/* <Section style={footer}>
               <Text style={footerText}>
                 © 2024 MedGames. Empowering Medical Professionals Worldwide.
                 <br />
@@ -122,7 +125,7 @@ import {
                   Privacy Policy
                 </Link>
               </Text>
-            </Section>
+            </Section> */}
           </Container>
         </Body>
       </Html>
