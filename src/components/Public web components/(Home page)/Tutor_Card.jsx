@@ -53,7 +53,7 @@ const Tutor_Card = ({ tutor }) => {
             </div> */}
           </div>
           <div className="text-left">
-            <h4 className="font-bold text-xl text-[#1A1A1A]">{tutor.name}</h4>
+            <h4 className="font-bold text-lg text-[#1A1A1A]">{tutor.name}</h4>
             <p className="mt-1 text-[#376F5F] ">{tutor.description}</p>
             <p className="text-[#376F5F] mt-1">{tutor.college}</p>
           </div>

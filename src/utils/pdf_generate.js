@@ -1,140 +1,184 @@
-import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
+import { PDFDocument, rgb, StandardFonts, TextAlignment, PageSizes } from "pdf-lib";
 import { saveAs } from "file-saver";
 
 const generateReceiptPDF = async (paymentData) => {
   try {
-
-
     // Create a new PDF Document
     const pdfDoc = await PDFDocument.create();
-    const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+   
+    // Embed fonts
+    const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+    const helveticaBoldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
+    // Color Palette
+    const colors = {
+      primary: rgb(0.15, 0.45, 0.27),   // Dark Green
+      secondary: rgb(0.29, 0.63, 0.47), // Bright Green
+      background: rgb(0.97, 0.97, 0.97), // Light Gray
+      text: rgb(0.2, 0.2, 0.2),          // Dark Gray
+      white: rgb(1, 1, 1),               // White
+      successGreen: rgb(0.2, 0.7, 0.3),  // Success Green
+      failureRed: rgb(0.9, 0.2, 0.2)     // Failure Red
+    };
 
-    // Add a page to the PDF
-    const page = pdfDoc.addPage([600, 800]);
+    // Add a page with standard A4 size
+    const page = pdfDoc.addPage(PageSizes.A4);
+    const { width, height } = page.getSize();
 
-    // Define styling and margins
-    const margin = 50;
-    const textColor = rgb(0.29, 0.63, 0.47); // MedGames green
-    const headerColor = rgb(0.15, 0.45, 0.27); // Darker green for headers
-    const labelColor = rgb(0.18, 0.18, 0.18); // Dark gray for labels
-    const valueColor = rgb(0, 0, 0); // Black for values
+    // Header Section
+    page.drawRectangle({
+      x: 0,
+      y: height - 100,
+      width: width,
+      height: 100,
+      color: colors.primary
+    });
 
-    // Add a title
-    page.drawText("Payment Receipt", {
-      x: margin,
-      y: 750,
+    // Company Logo / Name
+    page.drawText("MedGames", {
+      x: 50,
+      y: height - 70,
       size: 24,
-      font,
-      color: textColor,
+      font: helveticaBoldFont,
+      color: colors.white
     });
 
-    // Add a line separator
-    page.drawLine({
-      start: { x: margin, y: 740 },
-      end: { x: 550, y: 740 },
-      thickness: 1,
-      color: rgb(0, 0, 0),
+    page.drawText("Payment Receipt", {
+      x: width - 250,
+      y: height - 70,
+      size: 18,
+      font: helveticaFont,
+      color: colors.white
     });
 
-    let yPosition = 700;
+    // Transaction Details Section
+    const detailsStartY = height - 150;
     const details = [
-      { label: "Transaction ID", value: paymentData.id },
-      { label: "Amount Paid", value: `$${(paymentData.amount_received / 100).toFixed(2)}` },
-      { label: "Course Name", value: paymentData.description.split(": ")[1] },
-      { label: "Payment Method", value: paymentData.payment_method_types[0] },
-      { label: "Status", value: paymentData.status === "succeeded" ? "Success" : "Failed" },
-      { label: "Customer Name", value: paymentData.shipping.name },
-      {
-        label: "Address",
-        value: `${paymentData.shipping.address.line1}, ${paymentData.shipping.address.city}, ${paymentData.shipping.address.state} - ${paymentData.shipping.address.postal_code}, ${paymentData.shipping.address.country}`,
+      { 
+        label: "Transaction ID", 
+        value: paymentData.id 
       },
+      { 
+        label: "Amount Paid", 
+        value: `$${(paymentData.amount_received / 100).toFixed(2)}` 
+      },
+      { 
+        label: "Course", 
+        value: paymentData.description.split(": ")[1] 
+      },
+      { 
+        label: "Payment Method", 
+        value: paymentData.payment_method_types[0] 
+      }
     ];
 
-    // Add the transaction details dynamically with proper spacing
-    details.forEach((detail) => {
+    // Detailed Information Box
+    page.drawRectangle({
+      x: 50,
+      y: detailsStartY - 180,
+      width: width - 100,
+      height: 200,
+      color: colors.background,
+      borderColor: colors.secondary,
+      borderWidth: 1
+    });
+
+    // Render Transaction Details
+    details.forEach((detail, index) => {
       page.drawText(`${detail.label}:`, {
-        x: margin,
-        y: yPosition,
-        size: 14,
-        font,
-        color: labelColor,
+        x: 70,
+        y: detailsStartY - 50 - (index * 40),
+        size: 12,
+        font: helveticaBoldFont,
+        color: colors.text
       });
-      page.drawText(`${detail.value}`, {
-        x: margin + 120, // Indentation for the value text
-        y: yPosition,
-        size: 14,
-        font,
-        color: valueColor,
-        maxWidth: 400, // Text wrap, prevent overflow
+
+      page.drawText(detail.value, {
+        x: 250,
+        y: detailsStartY - 50 - (index * 40),
+        size: 12,
+        font: helveticaFont,
+        color: colors.primary
       });
-      yPosition -= 25;
     });
 
-    // Add Shipping Details Section
-    page.drawText("Shipping Details:", {
-      x: margin,
-      y: yPosition,
+    // Customer Information Section
+    page.drawText("Customer Information", {
+      x: 50,
+      y: detailsStartY - 250,
       size: 16,
-      font,
-      color: headerColor,
-    });
-    yPosition -= 25;
-    page.drawText(`Name: ${paymentData.shipping.name}`, {
-      x: margin + 20,
-      y: yPosition,
-      size: 14,
-      font,
-      color: valueColor,
-      maxWidth: 500,
-    });
-    yPosition -= 20;
-    page.drawText(`Address: ${paymentData.shipping.address.line1}`, {
-      x: margin + 20,
-      y: yPosition,
-      size: 14,
-      font,
-      color: valueColor,
-      maxWidth: 500,
-    });
-    yPosition -= 20;
-    page.drawText(`${paymentData.shipping.address.city}, ${paymentData.shipping.address.state} ${paymentData.shipping.address.postal_code}`, {
-      x: margin + 20,
-      y: yPosition,
-      size: 14,
-      font,
-      color: valueColor,
-      maxWidth: 500,
-    });
-    yPosition -= 20;
-    page.drawText(`${paymentData.shipping.address.country}`, {
-      x: margin + 20,
-      y: yPosition,
-      size: 14,
-      font,
-      color: valueColor,
-      maxWidth: 500,
+      font: helveticaBoldFont,
+      color: colors.secondary
     });
 
-    // Adjust positioning for the button section (e.g. Download receipt)
-    yPosition -= 40;
+    const customerDetails = [
+      `Name: ${paymentData.shipping.name}`,
+      `Email: ${paymentData.shipping.email || 'N/A'}`,
+      `Address: ${paymentData.shipping.address.line1}`,
+      `${paymentData.shipping.address.city}, ${paymentData.shipping.address.state}`,
+      `${paymentData.shipping.address.postal_code}, ${paymentData.shipping.address.country}`
+    ];
 
-    // Add final line separator
+    customerDetails.forEach((detail, index) => {
+      page.drawText(detail, {
+        x: 70,
+        y: detailsStartY - 280 - (index * 20),
+        size: 10,
+        font: helveticaFont,
+        color: colors.text
+      });
+    });
+
+    // Payment Status Indicator
+    const statusColor = paymentData.status === "succeeded" 
+      ? colors.successGreen 
+      : colors.failureRed;
+
+    page.drawText("Payment Status:", {
+      x: 50,
+      y: 150,
+      size: 14,
+      font: helveticaBoldFont,
+      color: statusColor
+    });
+
+    page.drawText(
+      paymentData.status === "succeeded" ? "PAID" : "FAILED", 
+      {
+        x: 200,
+        y: 150,
+        size: 16,
+        font: helveticaBoldFont,
+        color: statusColor
+      }
+    );
+
+    // Decorative Line
     page.drawLine({
-      start: { x: margin, y: yPosition },
-      end: { x: 550, y: yPosition },
+      start: { x: 50, y: 130 },
+      end: { x: width - 50, y: 130 },
       thickness: 1,
-      color: rgb(0, 0, 0),
+      color: colors.text
     });
 
-    // Generate the PDF
+    // Footer
+    page.drawText("Thank you for your purchase!", {
+      x: width / 2 - 100,
+      y: 100,
+      size: 10,
+      font: helveticaFont,
+      color: colors.text
+    });
+
+    // Generate PDF
     const pdfBytes = await pdfDoc.save();
     const blob = new Blob([pdfBytes], { type: "application/pdf" });
+    saveAs(blob, `receipt_${paymentData.id}.pdf`);
 
-    saveAs(blob, "payment_receipt.pdf");
-  
   } catch (error) {
     console.error("Error generating PDF:", error);
+    // Optional: Add user-friendly error handling
+    throw new Error("Failed to generate receipt. Please try again.");
   }
 };
 
