@@ -134,19 +134,19 @@ const Testimonials_Component = ({ reviews }) => {
               >
                 <div className="grid md:grid-cols-2 grid-cols-1 gap-2 justify-items-center md:justify-items-start">
                   {/* Image Section */}
-                  <div className="relative aspect-square md:aspect-auto md:h-[500px] h-[300px] md:w-full">
+                  <div className="relative aspect-square md:aspect-auto md:h-[500px] h-[250px] md:w-full">
                     <Image
                       src={currentReview.image}
                       alt={`Testimonial from ${currentReview.name}`}
                       fill
                       priority
-                      className="object-cover object-center"
+                      className="object-contain object-center"
                     />
                   </div>
 
                   {/* Content Section */}
                   <div className="xl:p-6 p-2  flex flex-col justify-center items-center md:items-start space-y-2">
-                    <p className="text-[#1A1A1A] text-base   p-2">
+                    <p className="text-[#1A1A1A] text-sm md:text-base   p-2">
                       {currentReview.review_content}
                     </p>
                     <div className="space-y-1">

@@ -445,7 +445,7 @@ export const reviews = [
     name: "Samantha K.",
     review_content:
       "Med Games was a game-changer! The mentorship and analytics were invaluable. Thrilled to have received three medical school interview invites!",
-    image: "/woman.png",
+    image: "/a1women.png",
     position: "student",
     rating: 5,
   },
@@ -454,7 +454,7 @@ export const reviews = [
     name: "Isaac M.",
     review_content:
       "Small class sizes and one-on-one mentorship created a supportive, stress-free learning environment.",
-    image: "/man.png",
+    image: "/a2men.png",
     position: "student",
     rating: 4.5,
   },
@@ -463,7 +463,7 @@ export const reviews = [
     name: "Ananya R.",
     review_content:
       "The personalized approach made all the difference. Tutors tailored the program to my strengths and weaknesses.",
-    image: "/man.png",
+    image: "/a4women.png",
     position: "student",
     rating: 5,
   },
@@ -472,7 +472,7 @@ export const reviews = [
     name: "Jordan L.",
     review_content:
       "The tutors truly understand what med schools seek. Their insights and guidance were spot on!",
-    image: "/woman.png",
+    image: "/a3men.png",
     position: "student",
     rating: 4.5,
   },
