@@ -34,7 +34,7 @@ import {
 } from "@/components/ui/dialog";
 import Image from "next/image";
 import Contact_Us_card from "./Contact_Us_card";
-import { brand_Info } from "@/utils/constvalues";
+import { brand_Info, courses_titles } from "@/utils/constvalues";
 import { useRequest } from "@/components/custom hooks/useRequest";
 import { submitContactInquiry } from "@/app/actions/contact_us_schedule_a_call_fun";
 
@@ -209,9 +209,14 @@ const Contact_us_Form = () => {
                           />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="medicine">Medicine</SelectItem>
-                          <SelectItem value="pharmacy">Pharmacy</SelectItem>
-                          <SelectItem value="nursing">Nursing</SelectItem>
+                          {
+                            courses_titles.map((course, index) => (
+                              <SelectItem key={index} value={course}>
+                                {course}
+                              </SelectItem>
+                            ))
+                          }
+                       
                         </SelectContent>
                       </Select>
                     </FormControl>

@@ -101,7 +101,7 @@ export async function sendInquiryConfirmationEmail(userData, inquiryType) {
 
     const adminMailOptions = {
       from: `"MedGames" <${process.env.SMTP_USER}>`,
-      to: process.env.ADMIN_EMAIL, // Replace with admin's email
+      to: process.env.SMTP_USER, // Replace with admin's email
       subject: `New MedGames Inquiry from ${userData.name}`,
       html: adminEmailHtml,
     };

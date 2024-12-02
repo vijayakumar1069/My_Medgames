@@ -478,6 +478,18 @@ export const reviews = [
   },
 ];
 
+
+export const courses_titles = [
+  "CARS Program",
+  "CASPer Program",
+  "Longitudinal MCAT",
+  "Mentorship",
+  "Interview Program",
+  "Med Applications",
+  "UBC Interview Program"
+
+
+]
 export const courses = [
   {
     id: 1,
@@ -2580,3 +2592,6 @@ export const admin_sidebar_items = [
     link: "/admin-notifications",
   },
 ];
+
+
+
