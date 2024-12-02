@@ -42,7 +42,7 @@ const Why_Us_Card = ({ content, index }) => {
         className={`
         rounded-full
         ${defaultBg}
-        group-hover:${hoverBg}
+        group-hover:bg-[#4F9F76]
         p-4 w-[80px] h-[80px] 
         flex items-center justify-center
         transition-all duration-300
@@ -55,7 +55,7 @@ const Why_Us_Card = ({ content, index }) => {
             transition-colors
             duration-300
             text-[${defaultColor}]
-            group-hover:!text-white  // Force white on hover
+            group-hover:text-white  // Force white on hover
           `}
         />
       </div>

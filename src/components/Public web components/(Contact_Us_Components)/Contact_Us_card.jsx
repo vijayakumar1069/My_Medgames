@@ -8,12 +8,12 @@ const Contact_Us_card = ({ item }) => {
   const getIcon = (name) => {
     switch (name.toLowerCase()) {
       case "website":
-        return <IconWorld stroke={1} size={30} className="text-[#376F5F]" />;
+        return <IconWorld stroke={1} size={30} className="" />;
       case "email":
-        return <IconMail stroke={1} size={30} className="text-[#376F5F]" />;
+        return <IconMail stroke={1} size={30} className="" />;
       case "instagram":
         return (
-          <IconBrandInstagram stroke={1} size={30} className="text-[#376F5F]" />
+          <IconBrandInstagram stroke={1} size={30} className="" />
         );
       default:
         return null;
@@ -29,14 +29,14 @@ const Contact_Us_card = ({ item }) => {
   };
 
   return (
-    <div className=" rounded-full bg-[#fff] shadow-sm border border-[#376F5F] p-1">
+    <div className=" rounded-full bg-white hover:bg-[#376F5F] group hover:text-white  shadow-sm border border-[#376F5F] p-1">
       {/* <div>{getIcon(name)}</div> */}
      
       <a
         href={generateLink(name, link)}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-center text-[#376F5F] hover:underline text-lg"
+        className="text-center text-[#376F5F] group-hover:text-white text-xl"
       >
        {getIcon(name)}
       </a>

@@ -22,7 +22,7 @@ module.exports = {
         },
       },
       screens: {
-        xs: "375px",
+        xs: "350px",
         slg: "900px",
       },
       dropShadow: {
