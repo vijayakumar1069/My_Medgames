@@ -16,7 +16,7 @@ const Meet_Our_Tutor_Card = ({ tutor }) => {
     socialsLinks,
   } = tutor;
   return (
-    <div className="max-w-2xl h-full p-2 flex flex-col space-y-4 border-2 border-[#F4F6FC] bg-white rounded-xl" key={id}>
+    <div className="max-w-md drop-shadow-xl h-full p-2 flex flex-col space-y-4 bg-white border-2 border-[#F4F6FC] bg-white rounded-xl" key={id}>
       <div className="relative w-full h-[250px] lg:h-[300px] rounded-xl p-6 bg-[#F4F6FC]">
         <Image
           src={image}
@@ -45,7 +45,7 @@ const Meet_Our_Tutor_Card = ({ tutor }) => {
       </div>
       <div className="flex justify-between space-x-3 items-center">
         <h1 className="text-base font-semibold text-wrap text-[#4F9F76]">{specialist}</h1>
-        <div className="bg-[#4F9F76]/30 border-[#4F9F76] border-2 p-1 rounded-md">
+        <div className="bg-[#4F9F76]/30 border-[#4F9F76] border-2 p-1 text-nowrap rounded-md">
           <p className="flex space-x-1 items-center">
             {" "}
             <IconMapPin stroke={2} size={20} className="text-[#4F9F76] " />
