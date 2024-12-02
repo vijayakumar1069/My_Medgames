@@ -1,6 +1,6 @@
 "use server";
 
-import { connectToDB } from "@/lib/dbconnection";
+import { connectDB } from "@/lib/dbconnection";
 import Stripe from "stripe";
 
 export async function paymentclientSecret({ purchaseCourseDetails, shippingDetails }) {
@@ -8,7 +8,7 @@ export async function paymentclientSecret({ purchaseCourseDetails, shippingDetai
     throw new Error("Missing purchase course details or shipping details.");
   }
   
-  await connectToDB();
+  await connectDB();
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: "2022-11-15",

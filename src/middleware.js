@@ -1,7 +1,10 @@
 // middleware.ts
 import { NextResponse } from 'next/server'
 import  { NextRequest } from 'next/server'
-import { auth } from '@/lib/auth'
+import { authConfig } from './lib/auth.config'
+import NextAuth from 'next-auth'
+
+const {auth}=NextAuth(authConfig)
 
 export async function middleware( NextRequest) {
   const session = await auth()
