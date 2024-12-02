@@ -30,39 +30,83 @@
      
 
 
-name: medgames vercel production deployment
+# name: medgames vercel production deployment
 
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+# env:
+#   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+#   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+
+#       - name: install Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: 18
+
+#       - name: install vercel CLI
+#         run: npm install --global vercel
+
+#       - name: pull environment information from vercel
+#         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+#       - name: install dependencies
+#         run: npm install --legacy-peer-deps
+
+#       - name: build project artifacts
+#         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+#       - name: deploy project artifacts
+#         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+
+name: Vercel Production Deployment
+
+# Trigger on main branch push
 on:
   push:
     branches:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      # Checkout repository
+      - uses: actions/checkout@v4
 
-      - name: install Node.js
-        uses: actions/setup-node@v3
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 18 # Stable Node.js version
 
-      - name: install vercel CLI
-        run: npm install --global vercel
+      # Install Vercel CLI globally
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
 
-      - name: pull environment information from vercel
+      # Clear cache and install dependencies
+      - name: Install Dependencies
+        run: |
+          npm cache clean --force
+          npm install --legacy-peer-deps
+
+      # Pull Vercel environment
+      - name: Vercel Environment Pull
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: build project artifacts
+      # Build project
+      - name: Build Project
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: deploy project artifacts
+      # Deploy to Vercel
+      - name: Deploy to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
