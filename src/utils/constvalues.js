@@ -476,8 +476,6 @@ export const reviews = [
     position: "student",
     rating: 4.5,
   },
-  
- 
 ];
 
 export const courses = [
@@ -516,7 +514,7 @@ export const courses = [
         name: "Olivia H.",
         review_content:
           "I struggled with CARS for months, but this program completely transformed my approach. Weekly practice tests helped me score 131 on the actual exam!",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "CARS improvement",
       },
@@ -525,7 +523,7 @@ export const courses = [
         name: "Aarav M.",
         review_content:
           "The tutors broke down difficult passages and improved my timing. Their tips helped me complete passages faster without sacrificing accuracy.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Improved timing",
       },
@@ -534,7 +532,7 @@ export const courses = [
         name: "Jessica L.",
         review_content:
           "I loved the interactive sessions. The small group setting felt like a personalized class, and tutors ensured we understood strategies before moving on.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Interactive sessions",
       },
@@ -543,7 +541,7 @@ export const courses = [
         name: "Nikhil R.",
         review_content:
           "CARS was my weakest section, but Med Games turned it into a strength. They focused on strategies that helped me understand test writer intentions.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 4,
         small_description: "Test strategies",
       },
@@ -552,7 +550,7 @@ export const courses = [
         name: "Sarah C.",
         review_content:
           "Their focus on active reading and time management transformed how I approached passages. Challenging practice tests prepared me perfectly for the real thing.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Active reading",
       },
@@ -626,7 +624,7 @@ export const courses = [
         name: "Meera G.",
         review_content:
           "CASPer seemed so intimidating at first, but the Med Games program broke it down step by step. The live sessions were invaluable, and the tutors’ feedback on my responses helped me see where I needed improvement. I felt confident on test day and scored in the 4th quartile!",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "CASPer confidence",
       },
@@ -635,7 +633,7 @@ export const courses = [
         name: "Omar K.",
         review_content:
           "I liked how comprehensive this program was. From practice scenarios to ethical reasoning tips, they covered everything I needed. The video recordings were a bonus—I could revisit them anytime for extra practice.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Comprehensive approach",
       },
@@ -644,7 +642,7 @@ export const courses = [
         name: "Hannah B.",
         review_content:
           "I’m so glad I joined this program! The mock CASPer scenarios gave me a clear idea of what to expect, and the feedback was incredibly detailed. I knew exactly what to work on to improve my performance.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Mock scenarios",
       },
@@ -653,7 +651,7 @@ export const courses = [
         name: "Zain A.",
         review_content:
           "The focus on structure and clarity made a huge difference in my written responses. The tutors also helped me stay professional and empathetic in my answers, which I think really set me apart.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Structure & clarity",
       },
@@ -662,7 +660,7 @@ export const courses = [
         name: "Priya T.",
         review_content:
           "Before Med Games, I had no idea how to approach CASPer. The tutors not only taught me strategies but also helped me understand the importance of considering different perspectives. Highly recommend this program!",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Perspective & strategy",
       },
@@ -736,7 +734,7 @@ export const courses = [
         name: "Daniel K.",
         review_content:
           "Med Games completely changed the way I prepared for the MCAT. The live sessions were detailed, interactive, and made even complex topics easy to grasp. The tutors were so approachable, and the small class sizes ensured that I got the attention I needed. Scored a 518, and I couldn’t be happier!",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Interactive sessions",
       },
@@ -745,7 +743,7 @@ export const courses = [
         name: "Maria P.",
         review_content:
           "I loved the structure of the program—it kept me consistent. The performance analytics and practice passages were especially useful in identifying where I was struggling. What I appreciated most was the mix of live classes and self-paced resources, which allowed me to study at my own rhythm.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Performance analytics",
       },
@@ -754,7 +752,7 @@ export const courses = [
         name: "Ethan J.",
         review_content:
           "This program is worth every penny. The tutors not only taught the material but also helped with test-taking strategies, which made all the difference. My Chem/Phys score improved dramatically after going through their lessons.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Test-taking strategies",
       },
@@ -763,7 +761,7 @@ export const courses = [
         name: "Ritika S.",
         review_content:
           "I was initially hesitant about joining a virtual program, but Med Games exceeded my expectations. The mentorship aspect gave me someone to turn to when I felt overwhelmed. By the end, I felt confident and prepared for the MCAT.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Mentorship support",
       },
@@ -772,7 +770,7 @@ export const courses = [
         name: "Liam T.",
         review_content:
           "What stood out to me was how experienced and relatable the tutors were. They’ve been through the process and know exactly what’s important. I finally understood challenging topics like electrochemistry, which had always been a weak point for me.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Experienced tutors",
       },
@@ -907,7 +905,7 @@ export const courses = [
         name: "Noah F.",
         review_content:
           "The mock interviews were so realistic and helpful. The tutors pointed out things I wouldn’t have noticed, like body language and pacing. I walked into my interviews feeling confident and prepared, and I got offers from two schools!",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Realistic mock interviews",
       },
@@ -916,7 +914,7 @@ export const courses = [
         name: "Ayesha Z.",
         review_content:
           "This program was exactly what I needed to refine my interview skills. The tutors provided practical tips and tailored feedback that made a huge difference. Highly recommend it!",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Tailored feedback",
       },
@@ -925,7 +923,7 @@ export const courses = [
         name: "Evelyn P.",
         review_content:
           "Med Games’ interview prep program was fantastic. They helped me polish my answers and practice tricky MMI scenarios. I felt so prepared on interview day!",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Polished answers and scenarios",
       },
@@ -934,7 +932,7 @@ export const courses = [
         name: "Ryan C.",
         review_content:
           "I was nervous about the MMI format, but this program made it seem so much less daunting. The variety of practice scenarios and detailed feedback really helped me improve.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Variety of practice scenarios",
       },
@@ -943,7 +941,7 @@ export const courses = [
         name: "Nadia H.",
         review_content:
           "The personalized feedback was incredible. The tutors were so supportive and made sure I felt ready for any type of question. This program made a huge difference in my confidence!",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Personalized feedback",
       },
@@ -983,7 +981,7 @@ export const courses = [
         name: "Isabella M.",
         review_content:
           "Med Games’ application program was a lifesaver. Their feedback on my essays and ABS entries was detailed and actionable. I especially appreciated the mentorship—it kept me motivated and confident throughout the application process.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Application mentorship",
       },
@@ -992,7 +990,7 @@ export const courses = [
         name: "Arjun V.",
         review_content:
           "This program really stood out because of its personalized approach. The one-on-one meetings with tutors made me feel supported, and their advice on how to frame my extracurriculars was invaluable. I got into three schools, and I owe it all to Med Games!",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Personalized approach",
       },
@@ -1001,7 +999,7 @@ export const courses = [
         name: "Sophia D.",
         review_content:
           "I was overwhelmed by the application process, but Med Games broke it down into manageable steps. Their expertise in crafting strong personal statements and essays was evident. I felt so much more confident submitting my applications.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Personal statements",
       },
@@ -1010,7 +1008,7 @@ export const courses = [
         name: "Lucas E.",
         review_content:
           "What I loved most was how flexible the program was. I could choose which parts of my application to focus on, and the tutors provided expert guidance every step of the way. This program is a must for anyone applying to med school.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Flexible program",
       },
@@ -1019,7 +1017,7 @@ export const courses = [
         name: "Tara W.",
         review_content:
           "The tutors are incredible! Their insights into what med schools look for made all the difference in my application. I received interview invites from my top-choice schools!",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Med school insights",
       },
@@ -1073,11 +1071,12 @@ export const courses = [
     downloadable_pdf: "/ubc_pdf.pdf",
     rating: "3",
     key_features: [
-      "Led by UBC Med Students: Insider tips from successful MMI candidates.",
-      "Simulated MMI Practice: Practice stations mimicking UBC's real interview format.",
-      "Personalized Feedback: Constructive, tailored advice to refine interview performance.",
-      "Comprehensive Preparation: Guides, sample questions, and recordings for success.",
+      "Tips from successful UBC Med students.",
+      "Realistic MMI practice stations.",
+      "Tailored feedback to improve.",
+      "Guides, questions, and recordings.",
     ],
+
     via: "Virtual program, zoom",
     daily_start_time: "6:00 PM",
     daily_end_time: "9:00 PM",
@@ -1093,7 +1092,7 @@ export const courses = [
         name: "James L.",
         review_content:
           "The UBC Interview Program truly prepared me for the MMI. The mock interviews and feedback were invaluable. I felt more confident and ready for the real thing!",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Mock interviews and feedback",
       },
@@ -1102,7 +1101,7 @@ export const courses = [
         name: "Chloe R.",
         review_content:
           "This program helped me understand the CanMEDS roles and apply them effectively. The personalized feedback from UBC med students made all the difference.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Personalized feedback and CanMEDS focus",
       },
@@ -1111,7 +1110,7 @@ export const courses = [
         name: "Ethan W.",
         review_content:
           "I was struggling with abstract questions in MMIs, but the creativity session gave me strategies that made a huge impact. The real-world practice sessions were fantastic.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Abstract question strategies and practice",
       },
@@ -1120,7 +1119,7 @@ export const courses = [
         name: "Sarah P.",
         review_content:
           "The ethical dilemma training really helped me tackle challenging questions during my interviews. I now approach ethical and policy questions with confidence.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Ethical and policy dilemma training",
       },
@@ -1129,7 +1128,7 @@ export const courses = [
         name: "Mark T.",
         review_content:
           "The UBC Interview Program was an excellent investment. I gained insider tips and learned practical frameworks for responding to ethical dilemmas. I felt more prepared than ever.",
-        image: "/lakindu.png",
+        image: "/man.png",
         rating: 5,
         small_description: "Insider tips and ethical frameworks",
       },
@@ -2555,31 +2554,29 @@ export const why_Us_contents = [
   },
 ];
 
-
-export const admin_sidebar_items=[
+export const admin_sidebar_items = [
   {
-    id:1,
-    title:"Dashboard",
-    icon:<IconHome/>,
-    link:"/admin-dashboard"
+    id: 1,
+    title: "Dashboard",
+    icon: <IconHome />,
+    link: "/admin-dashboard",
   },
   {
-    id:2,
-    title:"Tutors",
-    icon:<IconSchool/>,
-    link:"/admin-tutors"
+    id: 2,
+    title: "Tutors",
+    icon: <IconSchool />,
+    link: "/admin-tutors",
   },
   {
-    id:3,
-    title:"Courses",
-    icon:<IconBooks/>,
-    link:"/admin-courses"
+    id: 3,
+    title: "Courses",
+    icon: <IconBooks />,
+    link: "/admin-courses",
   },
   {
-    id:4,
-    title:"Notifications",
-    icon:<IconBell/>,
-    link:"/admin-notifications"
+    id: 4,
+    title: "Notifications",
+    icon: <IconBell />,
+    link: "/admin-notifications",
   },
- 
-]
+];

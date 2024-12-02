@@ -57,7 +57,7 @@ const Course_Details_Page_Card = ({ course }) => {
 
   return (
     <div
-      className="relative max-w-xl w-full bg-[#F4F6FC] rounded-lg overflow-hidden group shadow-md hover:shadow-lg transition-shadow duration-300"
+      className="relative max-w-xl w-full bg-[#F4F6FC] rounded-lg overflow-hidden group shadow-lg hover:shadow-lg transition-shadow duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       key={id}
@@ -125,14 +125,14 @@ const Course_Details_Page_Card = ({ course }) => {
 
       {/* Hover Details Section */}
       <div
-        className={`absolute bottom-0 left-0 lg:inline-flex hidden h-full text-white w-full bg-[#274E49] p-5 rounded-lg transform ${
+        className={`absolute bottom-0 left-0 lg:inline-flex hidden h-full text-white w-full bg-[#274E49] p-1 rounded-lg transform ${
           isHovered ? "translate-y-0" : "translate-y-full"
         } transition-transform duration-1500`}
       >
-        <div className="flex flex-col space-y-3 p-6 w-full h-full">
+        <div className="flex flex-col space-y-3 p-5 w-full h-full">
           <h1 className="text-xl font-semibold">{name}</h1>
-          <p className="text-[#fff]">{description}</p>
-          <p className="text-[#fff] font-extrabold"> $ {price} </p>
+          <p className="text-white">{description}</p>
+          <p className="text-white font-extrabold"> $ {price} </p>
           {/* <div className="flex items-center space-x-2 my-2">
             <div className="flex items-center space-x-1 text-yellow-500">
               {[...Array(fullStars)].map((_, i) => (
@@ -178,7 +178,7 @@ const Course_Details_Page_Card = ({ course }) => {
               >
                 <IconCheck
                   stroke={2}
-                  className="text-[#fff] p-1 bg-[#4F9F76] rounded-full"
+                  className="white p-1 bg-[#4F9F76] rounded-full"
                 />
                 <span>{feature}</span>
               </li>
@@ -189,7 +189,7 @@ const Course_Details_Page_Card = ({ course }) => {
            <span> View Details</span>
           </Button>
           </Link> */}
-           <Link href={`/our-courses/${id}`}  className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
+           <Link href={`/our-courses/${id}`}  className=" mt-2 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
            <span> View Details</span>
           </Link>
         </div>

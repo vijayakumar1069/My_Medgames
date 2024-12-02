@@ -5,14 +5,14 @@ import React from 'react'
 const Course_Details_review_Card = ({review}) => {
     const{id,review_content,name,image,small_description,rating}=review
   return (
-    <div>
+    <div className='bg-white'>
        <div className="flex items-center space-x-4">
         <Avatar className="w-20 h-20 md:w-24 md:h-24  bg-slate-400">
           <AvatarImage src={image} />
           <AvatarFallback>{name}</AvatarFallback>
         </Avatar>
 
-        <div className="">
+        <div className="flex flex-col space-y-1">
         <div className="flex items-center space-x-1 text-yellow-500">
           {[...Array(rating)].map((_, i) => (
             <IconStar className="text-yellow-500" fill="currentColor" key={i} />
