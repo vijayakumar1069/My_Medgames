@@ -9,7 +9,7 @@ const Service_Section_Card = ({ data }) => {
       {/* Green bar that covers the entire card on hover with transition from rounded corner */}
       <div
         className="absolute top-0 left-0 w-full h-2 bg-[#4F9F76] 
-        transition-all group-hover:h-full bg-opacity-100 group-hover:rounded-br-[50px] group-hover:-z-10 duration-1500"
+        transition-all group-hover:h-full bg-opacity-100 group-hover:rounded-br-[70px] group-hover:-z-10 duration-1500"
       ></div>
 
       <div className="w-full group ">
