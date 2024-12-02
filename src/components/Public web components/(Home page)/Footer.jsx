@@ -116,7 +116,7 @@ const Footer = () => {
           </div>
         </div>
           <div className="w-full h-[0.5px] opacity-30 bg-[#fff]"></div>
-          <div className=" p-4 py-3 text-sm lg:text-base flex sm:flex-row flex-col space-y-3 sm:space-y-0 justify-between text-white lg:w-10/12 md:w-11/12 w-full items-center">
+          <div className=" p-4 py-3 text-sm lg:text-base flex sm:flex-row flex-col space-y-3 sm:space-y-0 justify-between text-white  w-full items-center">
           <div className="flex justify-center items-center flex-1 ">
 
             <h1 className="text-center">Copyright &copy; {year} Med Games</h1>

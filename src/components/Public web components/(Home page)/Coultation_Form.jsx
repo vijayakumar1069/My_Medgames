@@ -19,12 +19,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 // Define the schema
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  phone: z.string().regex(/^\d{10}$/, {
-    message: "Phone number must be 10 digits.",
-  }),
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  phone: z
+    .string()
+    .min(10, { message: "Phone number must be at least 10 digits." })
+    .max(15, { message: "Phone number cannot exceed 15 digits." }),
+ 
   courseCategory: z.string().min(1, {
     message: "Please select a course category.",
   }),
@@ -62,6 +63,24 @@ const Consultation_Form = () => {
             </FormItem>
           )}
         />
+         <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                       
+                        type="email"
+                        placeholder="Your Email"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
         {/* Phone Number Field */}
         <FormField

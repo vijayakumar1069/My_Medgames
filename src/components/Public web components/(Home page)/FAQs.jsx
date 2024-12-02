@@ -27,7 +27,7 @@ const FAQs = ({ items, heading }) => {
 
       <div className="w-full flex flex-col items-center">
         <div className="w-full max-w-2xl px-6 bg-white rounded-xl">
-          <Accordion type="single" collapsible className="w-full" defaultValue={`item-${items[0]?.id}`}>
+          <Accordion type="single" collapsible className="w-full" >
             {items.map((item) => (
               <AccordionItem
                 key={item.id}

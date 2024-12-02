@@ -5,6 +5,7 @@ import { ChevronRight } from 'lucide-react';
 import ReactPlayer from 'react-player';
 import { Dialog, DialogClose, DialogContent, DialogOverlay, DialogTitle } from '@/components/ui/dialog';
 import Videos from './Videos'; // Assuming Videos is a component that wraps ReactPlayer or similar
+import Link from 'next/link';
 
 const fullStars = Math.floor(4.5);
 const hasHalfStar = 4.5 % 1 !== 0;
@@ -30,15 +31,18 @@ const Rating_And_Video = () => {
               <IconStar key={`empty-${i}`} className="text-gray-300" />
             ))}
           </div>
+          <Link href="/testimonials" >
+          
           <span className="text-white flex items-center space-x-1 text-nowrap font-semibold">
             More details <ChevronRight />
           </span>
+          </Link>
         </div>
       </div>
 
       <div className="flex space-x-2 justify-center items-center">
-        <div className="w-16 h-16 rounded-full flex justify-center items-center border p-5 cursor-pointer" onClick={handleOpen}>
-          <IconPlayerPlay className="text-white" size={50} />
+        <div className="md:w-12 md:h-12 w-10 h-10 rounded-full flex justify-center items-center border p-2 md:p-3 cursor-pointer" onClick={handleOpen}>
+          <IconPlayerPlay className="text-white" size={30} />
         </div>
         <p className="text-white font-bold underline cursor-pointer" onClick={handleOpen}>
           Watch a video about our business
@@ -48,7 +52,7 @@ const Rating_And_Video = () => {
       {/* Video Modal */}
       <Dialog open={isOpen} onOpenChange={handleClose} className="w-full" >
         <DialogOverlay className=" bg-[#274E49]/50 w-full" />
-        <DialogContent className=" w-full max-w-screen-2xl bg-[#fff] border-none p-2  ">
+        <DialogContent className=" w-full max-w-screen-lg bg-[#fff] border-none p-2  ">
           {/* <DialogClose className="absolute top-5 right-5 text-white">X</DialogClose> */}
 
          

@@ -14,7 +14,7 @@ const HeroSection = () => {
           fill
           priority
           quality={100}
-          sizes="(max-width: 768px) 100px, (max-width: 1200px) 200px, 300px"
+         sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px"
         />
       </div>
       <div className="absolute inset-0 lg:hidden">
@@ -25,7 +25,7 @@ const HeroSection = () => {
           fill
           priority
           quality={100}
-          sizes="(max-width: 768px) 100px, (max-width: 1200px) 200px, 300px"
+         sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px"
         />
       </div>
 
@@ -33,7 +33,7 @@ const HeroSection = () => {
         {/* Left Side */}
         <div className="flex-1 flex flex-col justify-center relative items-end lg:justify-end lg:items-end  py-10 px-5 lg:px-0  xl:px-0 ">
           <div className="max-w-lg flex-col space-y-5">
-            <h1 className="text-2xl md:text-4xl tracking-wide leading-[80px] font-bold text-white text-center lg:text-left ">
+            <h1 className="text-2xl md:text-4xl tracking-wide  font-bold text-white text-center lg:text-left ">
               &#34;Shape Your Academic Success with Our Expert Tutors &#34;
             </h1>
             <p className="text-white text-center lg:text-left ">

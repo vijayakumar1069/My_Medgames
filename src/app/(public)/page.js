@@ -68,7 +68,7 @@ export default function Home() {
       <Tutors />
       <Testimonials />
       <Courses />
-      {/* <Blogs /> */}
+      <Blogs />
       <Consultation />
       <FAQs items={home_FAQs} />
       <Get_Started />

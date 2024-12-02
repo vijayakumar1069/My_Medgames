@@ -33,16 +33,16 @@ const TestimonialsCard = ({ review }) => {
 
       <div className="h-[1px] bg-gray-200"></div>
       <div className="w-full flex justify-between items-center">
-        <div className="flex space-x-2 items-center">
+        <div className="flex space-x-1 items-center">
      
           <IconBookmark className="text-[#4F9F76]" size={24} />
           <p className="">Dr. {name}</p>
         </div>
         <div className="flex items-center space-x-1 text-yellow-500">
           {[...Array(fullStars)].map((_, i) => (
-            <IconStar className="text-yellow-500" fill="currentColor" key={i} />
+            <IconStar className="text-yellow-500 " fill="currentColor" key={i} size={16} />
           ))}
-          {hasHalfStar && <IconStarHalfFilled />}
+          {hasHalfStar && <IconStarHalfFilled size={16} />}
           {[...Array(emptyStars)].map((_, i) => (
             <IconStar key={`empty-${i}`} className="text-gray-300" />
           ))}

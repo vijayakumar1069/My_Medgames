@@ -33,7 +33,7 @@ const Videos = () => {
 
   return (
     <div className=" w-full h-full flex justify-center items-center  ">
-      <div className="relative w-full max-w-screen-xl ">
+      <div className="relative w-full max-w-screen-md ">
         {/* Animate video transitions with Framer Motion */}
         <AnimatePresence mode="wait">
           <motion.div

@@ -5,7 +5,7 @@ import React from "react";
 const Tutor_Card = ({ tutor }) => {
   return (
     <div
-      className="max-w-md  text-black rounded-2xl flex flex-col items-center justify-center"
+      className="max-w-md bg-white text-black rounded-2xl flex flex-col items-center justify-center"
       key={tutor.id}
     >
       <div className="relative group">
@@ -54,8 +54,8 @@ const Tutor_Card = ({ tutor }) => {
           </div>
           <div className="text-left">
             <h4 className="font-bold text-xl text-[#1A1A1A]">{tutor.name}</h4>
-            <p className="mt-2 text-[#376F5F] ">{tutor.description}</p>
-            <p className="text-[#376F5F] mt-2">{tutor.college}</p>
+            <p className="mt-1 text-[#376F5F] ">{tutor.description}</p>
+            <p className="text-[#376F5F] mt-1">{tutor.college}</p>
           </div>
         </div>
       </div>

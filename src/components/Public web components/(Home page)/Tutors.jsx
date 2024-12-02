@@ -16,7 +16,7 @@ const Tutors = () => {
         <Large_Title title="Meet the Professional Tutors"/>
       </div>
         {/* Add more tutor components here */}
-        <div className="lg:w-10/12 md:w-11/12 w-full mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4   gap-5 justify-items-center md:justify-items-center  ">
+        <div className="lg:w-10/12 md:w-11/12 w-full mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4   gap-8 justify-items-center md:justify-items-center  ">
           {
             const_tutors.map((item,index) => (
               <Tutor_Card key={`${item.id}-${index}`} tutor={item} />
