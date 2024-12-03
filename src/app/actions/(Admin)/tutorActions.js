@@ -16,8 +16,13 @@ export async function createTutor(formData) {
     
     const newTutor = await Tutor.create(formData);
     
-    revalidatePath("/meet-our-tutors");
-    revalidatePath('/admin-tutors');
+    // Revalidate specific paths
+    revalidatePath('/meet-our-tutors', 'page');
+    revalidatePath('/admin-tutors', 'page');
+
+    // Optional: Revalidate layout if you have a layout that might contain tutor data
+    revalidatePath('/', 'layout');
+
     return { success: true, tutor:deepClone(newTutor) };
   } catch (error) {
     console.error('Create Tutor Error:', error);
@@ -36,8 +41,13 @@ export async function updateTutor(id, formData) {
       runValidators: true 
     });
     
-    revalidatePath('/admin-tutors');
-    revalidatePath("/meet-our-tutors");
+    // Revalidate specific paths
+    revalidatePath('/meet-our-tutors', 'page');
+    revalidatePath('/admin-tutors', 'page');
+
+    // Optional: Revalidate layout if you have a layout that might contain tutor data
+    revalidatePath('/', 'layout');
+
     return { success: true, tutor: deepClone(updatedTutor) };
   } catch (error) {
     console.error('Update Tutor Error:', error);
@@ -51,8 +61,13 @@ export async function deleteTutor(id) {
     
     await Tutor.findByIdAndDelete(id);
     
-    revalidatePath('/admin-tutors');
-    revalidatePath("/meet-our-tutors");
+    // Revalidate specific paths
+    revalidatePath('/meet-our-tutors', 'page');
+    revalidatePath('/admin-tutors', 'page');
+
+    // Optional: Revalidate layout if you have a layout that might contain tutor data
+    revalidatePath('/', 'layout');
+
     return { success: true };
   } catch (error) {
     console.error('Delete Tutor Error:', error);
