@@ -4,13 +4,13 @@ import Tutor_Filter_Component from "./Tutor_Filter_Component";
 import { const_tutors } from "@/utils/constvalues";
 import Meet_Our_Tutor_Card from "./Meet_Our_Tutor_Card";
 
-const Meet_Our_Tutor = () => {
+const Meet_Our_Tutor = ({tutors}) => {
   const [location, setLocation] = useState(""); // State to store the selected location
 
   // Filter tutors based on selected location
   const filteredTutors = location
-    ? const_tutors.filter((tutor) => tutor.location === location)
-    : const_tutors; // If no location is selected, show all tutors
+    ? tutors.filter((tutor) => tutor.location === location)
+    : tutors; // If no location is selected, show all tutors
 
   return (
     <div className="w-full h-full flex justify-center items-center flex-col space-y-8 p-3 py-10 bg-[#fff]">

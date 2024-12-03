@@ -4,7 +4,7 @@ import { connectDB } from "@/lib/dbconnection";
 import Reques_A_Call from "@/modals/request_a_call.modal";
 
 export async function create_req_call(data) {
-    console.log("create_req_call called with data:", data);
+ 
   await connectDB();
   try {
     const existingUser = await Reques_A_Call.findOne({

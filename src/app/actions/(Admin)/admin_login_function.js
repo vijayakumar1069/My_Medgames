@@ -16,13 +16,14 @@ export async function loginAction({ email, password }) {
     const admin = await Admin.findOne({ email });
 
     if (!admin) {
-      return { error: "Invalid credentials" };
+      throw new Error("Your account is not registered");
     }
 
     const isPasswordValid = await bcrypt.compare(password, admin.password);
+  
 
     if (!isPasswordValid) {
-      return { error: "Invalid credentials" };
+     throw new Error("Invalid credentials");
     }
     const signInResult = await signIn("credentials", {
       email,
@@ -37,9 +38,13 @@ export async function loginAction({ email, password }) {
       return;
     }
 
-    return { success: true };
+    return { success: true,
+      message: "Logged in successfully"
+     };
   } catch (error) {
-    return { error: "Thank you " };
+    return { error: true,
+      message: error.message
+     };
   }
 }
 export async function logoutAction() {

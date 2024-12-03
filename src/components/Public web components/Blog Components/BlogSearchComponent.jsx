@@ -34,7 +34,7 @@ const BlogSearchComponent = ({ onSearch }) => {
 
   // Submit handler
   const onSubmit = (data) => {
-    console.log(data);
+
     onSearch(data.searchTerm);
   };
 

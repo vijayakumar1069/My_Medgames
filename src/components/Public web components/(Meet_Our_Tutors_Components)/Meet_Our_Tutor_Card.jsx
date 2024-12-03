@@ -6,14 +6,13 @@ const Meet_Our_Tutor_Card = ({ tutor }) => {
   const {
     id,
     name,
-    description,
+    graduation,
     location,
-    rating,
-    reviews,
+   
     specialist,
     image,
     college,
-    socialsLinks,
+  
   } = tutor;
   return (
     <div className="max-w-md drop-shadow-xl h-full p-2 flex flex-col space-y-4 bg-white border-2 border-[#F4F6FC] bg-white rounded-xl" key={id}>
@@ -29,7 +28,7 @@ const Meet_Our_Tutor_Card = ({ tutor }) => {
       </div>
       <div className="flex flex-col space-y-2">
         <h1 className="text-2xl font-semibold ">{name}</h1>
-        <p className="text-[#4F9F76] font-medium">{description}</p>
+        <p className="text-[#4F9F76] font-medium">{graduation}</p>
       </div>
       <div className="flex justify-between space-x-2">
         <div className="flex items-center space-x-2">

@@ -30,7 +30,7 @@ export const metadata = {
 
 export default async function Admin_Dashboard_layout({ children }) {
   const session = await requireAuth();
-  console.log(session);
+
 
   try {
     return (

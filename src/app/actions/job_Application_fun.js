@@ -9,8 +9,7 @@ export default async function submitJobApplication(applicationData) {
     // Connect to the database
     await connectDB();
 
-    // Log the received data for debugging
-    console.log("Received Application Data:", applicationData);
+
 
     // Handle file upload
     const resumeFile = applicationData.resume;

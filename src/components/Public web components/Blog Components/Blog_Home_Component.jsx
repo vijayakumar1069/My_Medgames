@@ -19,7 +19,7 @@ const Blog_Home_Component = ({ blog, latestBlogs }) => {
     setIsLoading(true);
     try {
       let filtered = [...blog];
-      console.log(categoryParam)
+      
 
       // Apply category filter if present
       if (categoryParam) {

@@ -8,7 +8,7 @@ const BlogCategoriesComponent = ({ currentCategory }) => {
   const categories = useMemo(() => {
     try {
       const cat = blogService.getBlogCategories();
-      console.log(cat);
+    
       return cat;
     } catch (error) {
       console.error('Error fetching categories:', error);

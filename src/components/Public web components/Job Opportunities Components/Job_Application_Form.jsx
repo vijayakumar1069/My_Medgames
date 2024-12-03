@@ -70,7 +70,7 @@ const Job_Application_Form = () => {
   };
   
   const onSubmit = async(data) => {
-    console.log(data);
+   
 
     try {
       const res=await sendRequest(() => submitJobApplication(data));

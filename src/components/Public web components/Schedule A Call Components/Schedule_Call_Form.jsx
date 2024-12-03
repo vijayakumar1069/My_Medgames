@@ -96,7 +96,7 @@ const Schedule_Call_Form = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
+    
       const res=await sendRequest(() => submitContactInquiry({userData: data,inquiryType:"schedule"}));
       form.reset({
         name: "",

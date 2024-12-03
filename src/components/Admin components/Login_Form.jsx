@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 
-import { useRouter } from "next/navigation"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -15,10 +15,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { loginAction } from "@/app/actions/(Admin)/admin_login_function"
-import { signIn } from "@/lib/auth"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { loginAction } from "@/app/actions/(Admin)/admin_login_function";
+import { signIn } from "@/lib/auth";
+import { useRequest } from "../custom hooks/useRequest";
 
 // Define the validation schema
 const formSchema = z.object({
@@ -29,12 +30,11 @@ const formSchema = z.object({
   password: z
     .string()
     .min(1, { message: "Password must be at least 6 characters" }),
-})
+});
 
 export default function Login_Form() {
-  const router = useRouter()
-  const [error, setError] = useState("")
-  
+  const router = useRouter();
+
   // Initialize form with zodResolver
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -42,26 +42,20 @@ export default function Login_Form() {
       email: "",
       password: "",
     },
-  })
+  });
+
+  const { loading, success, error, sendRequest } = useRequest();
 
   async function onSubmit(values) {
-    try {
-      const result = await loginAction(values)
+    // Send the login request via the custom hook
+    const result = await sendRequest(() => loginAction(values));
   
-      
-      if (result.error) {
-        setError(result.error)
-        return
-      }
-
-      
-      
-
-      router.push("/admin-dashboard")
-    } catch (error) {
-      setError("Something")
+    if (result?.success) {
+      // If login is successful, navigate to the dashboard
+      router.push("/admin-dashboard");
     }
   }
+  
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -89,11 +83,16 @@ export default function Login_Form() {
                 <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
                   Admin Login
                 </h2>
-                <p className="mt-2 text-sm text-gray-500">Please sign in to continue</p>
+                <p className="mt-2 text-sm text-gray-500">
+                  Please sign in to continue
+                </p>
               </div>
 
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-4"
+                >
                   <FormField
                     control={form.control}
                     name="email"
@@ -101,8 +100,8 @@ export default function Login_Form() {
                       <FormItem>
                         <FormLabel className="text-gray-700">Email</FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="admin@example.com" 
+                          <Input
+                            placeholder="admin@example.com"
                             type="email"
                             {...field}
                             className="rounded-lg border-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
@@ -118,10 +117,12 @@ export default function Login_Form() {
                     name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-gray-700">Password</FormLabel>
+                        <FormLabel className="text-gray-700">
+                          Password
+                        </FormLabel>
                         <FormControl>
-                          <Input 
-                            type="password" 
+                          <Input
+                            type="password"
                             autoComplete="off"
                             {...field}
                             className="rounded-lg border-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
@@ -137,12 +138,18 @@ export default function Login_Form() {
                       {error}
                     </div>
                   )}
+                  {success && (
+                    <div className="text-sm text-green-500 bg-green-50 p-3 rounded-lg">
+                      {success}
+                    </div>
+                  )}
 
-                  <Button 
-                    type="submit" 
+                  <Button
+                    disabled={loading}
+                    type="submit"
                     className="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-semibold py-2.5 rounded-lg transition-all duration-200 transform hover:scale-[1.02]"
                   >
-                    Sign in
+                    {loading ? "Signing in..." : "Sign in"}
                   </Button>
                 </form>
               </Form>
@@ -151,5 +158,5 @@ export default function Login_Form() {
         </div>
       </div>
     </div>
-  )
+  );
 }
