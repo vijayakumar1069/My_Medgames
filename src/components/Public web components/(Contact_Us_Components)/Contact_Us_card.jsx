@@ -1,4 +1,4 @@
-import { IconBrandInstagram, IconMail, IconWorld } from "@tabler/icons-react";
+import { IconBrandInstagram, IconBrandWhatsapp, IconMail, IconWorld } from "@tabler/icons-react";
 import React from "react";
 
 const Contact_Us_card = ({ item }) => {
@@ -7,8 +7,8 @@ const Contact_Us_card = ({ item }) => {
   // Map names to icons
   const getIcon = (name) => {
     switch (name.toLowerCase()) {
-      case "website":
-        return <IconWorld stroke={1} size={30} className="" />;
+      case "whatsapp":
+        return <IconBrandWhatsapp stroke={1} size={30} className="" />;
       case "email":
         return <IconMail stroke={1} size={30} className="" />;
       case "instagram":

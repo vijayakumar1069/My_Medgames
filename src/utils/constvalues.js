@@ -49,17 +49,18 @@ export const navbarvalues = [
     link: "/schedule-a-call",
   },
   {
-    id: 9,
-    name: "Privacy Policy",
-    link: "/privacy-policy",
-    group: true,
-  },
-  {
     id: 10,
     name: "About Us",
     link: "/about-us",
     group: true,
   },
+  {
+    id: 9,
+    name: "Privacy Policy",
+    link: "/privacy-policy",
+    group: true,
+  },
+  
 ];
 
 export const footerLinks = [
@@ -123,27 +124,27 @@ export const socialMedialinks = [
   {
     id: 1,
     name: "Facebook",
-    link: "https://www.facebook.com/medgames.ai",
+    link: "https://www.facebook.com/med.games.org",
   },
   {
     id: 2,
     name: "Instagram",
-    link: "https://www.instagram.com/medgames.ai/",
+    link: "https://www.instagram.com/medgamesorg/?hl=en",
   },
   {
     id: 3,
-    name: "Twitter",
-    link: "https://twitter.com/medgames_ai",
+    name: "Whatsapp",
+    link: "https://chat.whatsapp.com/DQzgKDzNJOlCN9z1A80mYw",
   },
-  {
-    id: 4,
-    name: "LinkedIn",
-    link: "https://www.linkedin.com/medgames_ai",
-  },
+  // {
+  //   id: 4,
+  //   name: "LinkedIn",
+  //   link: "https://www.linkedin.com/medgames_ai",
+  // },
   {
     id: 5,
     name: "YouTube",
-    link: "https://www.youtube.com/channel/UC8-s0a5Aon8y3g-2u6-4-0w",
+    link: "https://www.youtube.com/@medgames943",
   },
 ];
 
@@ -184,13 +185,23 @@ export const services = [
     ],
     link: "/our-courses/4",
   },
+  {
+    id: 5,
+    title: "UBC Interview Program",
+    description: [
+      "Learn from UBC med students with insider knowledge.",
+     "Interactive sessions with small class sizes and mock MMI practice.",
+
+    ],
+    link: "/our-courses/7",
+  },
 ];
 
 export const const_tutors = [
   {
     id: 1,
     name: "Depen Sharma",
-    description: "Medical Student",
+    description: "MD Candidate",
     rating: 4.8,
     reviews: 120,
     college: "University of Ottawa",
@@ -246,7 +257,7 @@ export const const_tutors = [
   {
     id: 3,
     name: "Dr. Lakindu Somaweera",
-    description: "Internation Medicine Resident",
+    description: "Internal Medicine Resident",
     rating: 4.8,
     reviews: 120,
     college: "Queens University",
@@ -420,9 +431,9 @@ export const brand_Info = {
   social_links: [
     {
       id: 1,
-      name: "Website",
-      link: "https://medgamesorg.com/",
-      display_content: "www.medgamesorg.com",
+      name: "WhatsApp",
+      link: "https://chat.whatsapp.com/DQzgKDzNJOlCN9z1A80mYw",
+      display_content: "WhatsApp",
     },
     {
       id: 2,
@@ -436,6 +447,7 @@ export const brand_Info = {
       link: "https://www.instagram.com/medgamesorg/",
       display_content: "@medgamesorg",
     },
+    
   ],
 };
 
@@ -476,8 +488,16 @@ export const reviews = [
     position: "student",
     rating: 4.5,
   },
+  {
+    id: 5,
+    name: "Priya S.",
+    review_content:
+      "From the MCAT to CASPer and applications, Med Games had it all covered. Their comprehensive approach made me feel confident and prepared for everything the admissions process threw at me.",
+    image: "/a5women.png",
+    position: "student",
+    rating: 5,
+  },
 ];
-
 
 export const courses_titles = [
   "CARS Program",
@@ -486,10 +506,8 @@ export const courses_titles = [
   "Mentorship",
   "Interview Program",
   "Med Applications",
-  "UBC Interview Program"
-
-
-]
+  "UBC Interview Program",
+];
 export const courses = [
   {
     id: 1,
@@ -499,17 +517,34 @@ export const courses = [
     image: "/cars.png",
     details_image: "/cars_img.png",
     link: "/mcat",
+
     price: "600",
     start_date: "Jan 12,2024",
     end_date: "Apr 12,2025",
     star: "5",
     downloadable_pdf: "/cars_pdf.pdf",
     rating: "3",
+    objective:
+      "Gain confidence in actively reading and analyzing passages, learn effective strategies for answering questions, and improve timing and accuracy in the CARS section.",
+
     key_features: [
-      "3 edits by medical students",
-      "Post-edit meetings",
-      "Mentorship-based approach",
-      "Region-specific application support",
+      "Customizable study schedule.",
+      "Small class sizes for personalized attention.",
+      "Interactive sessions to discuss reasoning and strategies.",
+    ],
+    topic_covered: [
+      "Comprehensive review of CARS strategies.",
+      "High-yield resources for practice.",
+      "Test-taking strategies, including timing and active reading techniques.",
+    ],
+    benefits: [
+      "Weekly practice tests to improve performance.",
+      "In-depth review of strategies and reasoning.",
+      "Safe, interactive learning environment.",
+    ],
+    additional_resources: [
+      "Study notes and cheat sheets.",
+      "Weekly performance analytics.",
     ],
     via: "Virtual program, zoom",
     daily_start_time: "6:00 PM",
@@ -613,11 +648,27 @@ export const courses = [
     downloadable_pdf: "/casper_pdf.pdf",
     star: "5",
     rating: "3",
+    objective:
+      "Master CASPer test strategies to excel in both written and oral components.",
+
     key_features: [
-      "3 edits by medical students",
-      "Post-edit meetings",
-      "Mentorship-based approach",
-      "Region-specific application support",
+      "Six pre-recorded video lessons covering common CASPer scenarios.",
+      "Two live sessions for real-time practice and feedback.",
+      "Four PDF tests with suggested answers.",
+    ],
+    topic_covered: [
+      "General strategies for ethical scenarios, policy scenarios, and personal questions.",
+      "Practice with timed responses and clear, structured answers.",
+      "High ethical standards and professional conduct.",
+    ],
+    benefits: [
+      "Hands-on practice for real CASPer scenarios.",
+      "Feedback on responses to improve clarity and coherence.",
+      "Comprehensive guidance from experienced mentors.",
+    ],
+    additional_resources: [
+      "Video recordings of live sessions.",
+      "Practice tests with detailed solutions.",
     ],
     start_date: "Jan 12,2024",
     end_date: "Apr 12,2025",
@@ -724,11 +775,27 @@ export const courses = [
     star: "5",
     rating: "3",
     start_date: "Jan 12,2024",
+    objective:
+      "Comprehensive preparation for the MCAT, focusing on high-yield concepts and practice.",
+
     key_features: [
-      "3 edits by medical students",
-      "Post-edit meetings",
-      "Mentorship-based approach",
-      "Region-specific application support",
+      "200+ hours of virtual lessons.",
+      "Self-paced videos and an organic chemistry crash course.",
+      "Recordings of live lectures for future reference.",
+    ],
+    topic_covered: [
+      "Comprehensive content review aligned with the AAMC syllabus.",
+      "High-yield topics in biology, chemistry, physics, and organic chemistry.",
+      "Practice with 5000+ passages and 4+ mock tests.",
+    ],
+    benefits: [
+      "Personalized learning experience with small class sizes.",
+      "Mentorship for guidance and feedback.",
+      "Performance analytics to track progress.",
+    ],
+    additional_resources: [
+      "Study notes, cheat sheets, and high-yield resources.",
+      "Self-paced crash course videos.",
     ],
     end_date: "Apr 12,2025",
     via: "Virtual program, zoom",
@@ -834,11 +901,27 @@ export const courses = [
     rating: "3",
     downloadable_pdf: "/mentorship_pdf.pdf",
     start_date: "Jan 12,2024",
+    objective:
+      "Provide ongoing support and guidance for the medical school journey, covering MCAT, CASPer, applications, and more.",
+
     key_features: [
-      "3 edits by medical students",
-      "Post-edit meetings",
-      "Mentorship-based approach",
-      "Region-specific application support",
+      "Monthly one-on-one meetings with expert mentors.",
+      "Personalized support tailored to individual goals.",
+      "Access to experienced medical student mentors.",
+    ],
+    topic_covered: [
+      "MCAT preparation strategies and resources.",
+      "CASPer practice scenarios and feedback.",
+      "Extracurricular activity planning and course selection advice.",
+    ],
+    benefits: [
+      "Comprehensive, ongoing support for all aspects of the medical journey.",
+      "Guidance for impactful extracurricular activities.",
+      "Feedback on letters of recommendation and personal statements.",
+    ],
+    additional_resources: [
+      "Tailored study plans.",
+      "Personalized extracurricular recommendations.",
     ],
     end_date: "Apr 12,2025",
     via: "Virtual program, zoom",
@@ -895,11 +978,28 @@ export const courses = [
     rating: "3",
     downloadable_pdf: "/cars_pdf.pdf",
     start_date: "Jan 12,2024",
+    objective:
+      "Equip students with strategies and confidence to excel in medical school interviews, focusing on both oral and written components.",
+
     key_features: [
-      "3 edits by medical students",
-      "Post-edit meetings",
-      "Mentorship-based approach",
-      "Region-specific application support",
+      "Six pre-recorded videos covering General strategies, Ethical scenarios,Policy scenarios,Personal questions,Oral responses,Final tips",
+      "Two live sessions for real-time practice and feedback.",
+      "Four PDF tests with suggested answers.",
+    ],
+    topic_covered: [
+      "The course includes preparation for both written and oral components.",
+      "The written component focuses on structuring responses with clear introductions, main points, and conclusions, practicing timed responses to sample scenarios, and ensuring responses are ethical, professional, and concise.",
+
+      "The oral component emphasizes speaking clearly and confidently in front of a camera, incorporating relevant personal or professional experiences into responses, and considering multiple perspectives and potential consequences.",
+    ],
+    benefits: [
+      "Hands-on practice for both written and oral interview scenarios.",
+      "Personalized feedback to refine responses.",
+      "Preparation for ethical, policy, and personal questions.",
+    ],
+    additional_resources: [
+      "Video recordings of live sessions for future reference.",
+      "Sample answers and strategies in PDF format.",
     ],
     end_date: "Apr 12,2025",
     via: "Virtual program, zoom",
@@ -970,11 +1070,26 @@ export const courses = [
     price: "300",
     star: "5",
     rating: "3",
+    objective:
+      "Develop strong applications tailored to specific medical schools in Canada.",
     key_features: [
-      "3 edits by medical students",
-      "Post-edit meetings",
-      "Mentorship-based approach",
-      "Region-specific application support",
+      "Three edits by medical students.",
+      "One-on-one mentorship meetings for personalized support.",
+      "Customizable packages to suit individual needs.",
+    ],
+    topic_covered: [
+      "Essay writing for various universities, such as UofT, Western, Dalhousie, and more.",
+      "OMSAS ABS (150-character entries for activities).",
+      "Personalized feedback and editing.",
+    ],
+    benefits: [
+      "Tailored support for each school’s unique requirements.",
+      "Detailed, iterative feedback on essays and applications.",
+      "Mentorship for all aspects of the application process.",
+    ],
+    additional_resources: [
+      "Templates for essay structures.",
+      "Guidelines for activity descriptions.",
     ],
     start_date: "Jan 12,2024",
     end_date: "Apr 12,2025",
@@ -1082,11 +1197,25 @@ export const courses = [
     star: "5",
     downloadable_pdf: "/ubc_pdf.pdf",
     rating: "3",
+    objective:
+      " Prepare students for the UBC medical school interview, specifically the Multi-Mini Interview (MMI) format, with expert guidance and insider tips from current UBC medical students.",
     key_features: [
-      "Tips from successful UBC Med students.",
-      "Realistic MMI practice stations.",
-      "Tailored feedback to improve.",
-      "Guides, questions, and recordings.",
+      "Learn from UBC med students with insider knowledge.",
+      "Interactive sessions with small class sizes and mock MMI practice.",
+      "Expert feedback to improve performance, plus access to guides and resources.",
+    ],
+    topic_covered: [
+      "CanMEDS Competencies: Master the CanMEDS roles, practice situational questions, and receive personalized feedback from UBC med students.",
+      "Creativity and Communication: Learn creative approaches for abstract questions, practice mock interviews, and receive instant feedback.",
+      "Ethics and Policy: Build confidence in addressing ethical dilemmas and policy questions with insights into healthcare principles and frameworks.",
+    ],
+    benefits: [
+      "Personalized, real-world practice in the MMI format.",
+      "Clear, structured guidance on key themes like CanMEDS roles, creativity, ethics, and policy.",
+      "Expert feedback to build confidence and improve interview performance.",
+    ],
+    additional_resources: [
+      "Access to guides, sample questions, and recordings of sessions."
     ],
 
     via: "Virtual program, zoom",
@@ -1942,15 +2071,16 @@ export const customized_privacy_policy = [
     type: "link with content",
     title: "Payments",
     content: [
-      "We accept payments through PayPal. When processing payments, some of your data will be passed to PayPal, including information required to process or support the payment, such as the purchase total and billing information.",
+      "We accept payments through Stripe. When processing payments, some of your data will be passed to Stripe, including information required to process or support the payment, such as the purchase total and billing information.",
       {
         content: "For more details, please visit the ",
-        link: "PayPal Privacy Policy",
-        url: "https://www.paypal.com/privacy",
+        link: "Stripe Privacy Policy",
+        url: "https://stripe.com/privacy",
       },
       ".",
     ],
   },
+  
 
   {
     type: "heading with content",
@@ -2004,7 +2134,7 @@ export const upcoming_events = [
     time: "10:00 AM - 12:00 PM EST",
     language: "English",
     imageURL: "/event_1.png",
-    price: "600",
+    price: "free",
     content_of_event: [
       {
         type: "heading",
@@ -2115,7 +2245,7 @@ export const upcoming_events = [
     time: "10:00 AM - 12:00 PM EST",
     language: "English",
     imageURL: "/event_2.png",
-    price: "600",
+    price: "free",
     content_of_event: [
       {
         type: "heading",
@@ -2225,7 +2355,7 @@ export const upcoming_events = [
     time: "10:00 AM - 12:00 PM EST",
     language: "English",
     imageURL: "/event_3.png",
-    price: "600",
+    price: "free",
     content_of_event: [
       {
         type: "heading",
@@ -2335,7 +2465,7 @@ export const upcoming_events = [
     time: "10:00 AM - 12:00 PM EST",
     language: "English",
     imageURL: "/event_4.png",
-    price: "600",
+    price: "free",
     content_of_event: [
       {
         type: "heading",
@@ -2445,7 +2575,7 @@ export const upcoming_events = [
     time: "10:00 AM - 12:00 PM EST",
     language: "English",
     imageURL: "/event_4.png",
-    price: "600",
+    price: "free",
     content_of_event: [
       {
         type: "heading",
@@ -2592,6 +2722,3 @@ export const admin_sidebar_items = [
     link: "/admin-notifications",
   },
 ];
-
-
-

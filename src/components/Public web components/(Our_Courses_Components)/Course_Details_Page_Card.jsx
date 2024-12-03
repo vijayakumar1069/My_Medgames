@@ -174,7 +174,7 @@ const Course_Details_Page_Card = ({ course }) => {
             {key_features.map((feature, index) => (
               <li
                 key={index}
-                className="flex items-center space-x-1 text-sm mt-2"
+                className="flex items-center space-x-1  mt-2"
               >
                 <IconCheck
                   stroke={2}

@@ -25,7 +25,7 @@ const Get_Started = () => {
       alt: "s3",
     },
   ];
-  
+
   return (
     <div className="bg-[#F4F6FC] pt-5 pb-14">
       <div className="md:w-[75%] w-full mx-auto">
@@ -34,21 +34,23 @@ const Get_Started = () => {
             <div className="flex flex-col justify-center items-center lg:justify-start lg:items-start space-y-5 lg:space-y-4">
               <Small_Title title="Get Started" color={"white"} />
               <Large_Title
-                title="Start Your Courses Today!"
+                title="Embark on Your Path to Medical Excellence!"
                 color={"white"}
                 text={true}
                 left={true}
               />
               <p className="text-white text-center lg:text-left max-w-xl">
-                Unlock your potential and excel in your medical studies with
-                expert guidance from professional medical tutors. Whether
-                you’re preparing for medical exams or need...
+                Unlock your potential and excel in your studies with expert
+                guidance. Whether preparing for exams or enhancing your skills,
+                our programs are designed to help you succeed with confidence.
+                Start now and take the first step towards mastering your medical
+                career!.
               </p>
               <div className="flex justify-start  space-x-5">
                 <Link href={"/our-courses"}>
-                <Button className="bg-[#E1EBE2] hover:bg-[#4F9F76] hover:text-white text-[#4F9F76] px-4 py-2 rounded-md">
-                  Get Started
-                </Button>
+                  <Button className="bg-[#E1EBE2] hover:bg-[#4F9F76] hover:text-white text-[#4F9F76] px-4 py-2 rounded-md">
+                    Get Started
+                  </Button>
                 </Link>
                 {/* <Button className="bg-[#E1EBE2] text-[#4F9F76] px-4 py-2 rounded-md">
                   Try Now

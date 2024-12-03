@@ -19,7 +19,7 @@ const Rating_And_Video = () => {
 
   return (
     <div className="flex flex-col w-full space-y-10 lg:justify-start justify-center 2xl:mt-20 items-center lg:items-start">
-      <div className="flex flex-col space-y-5 items-start justify-start">
+      {/* <div className="flex flex-col space-y-5 items-start justify-start">
         <p className="text-white">(4.5/5) Rating Star by Students</p>
         <div className="flex items-center space-x-5 text-yellow-500">
           <div className="flex items-center space-x-1">
@@ -38,7 +38,7 @@ const Rating_And_Video = () => {
           </span>
           </Link>
         </div>
-      </div>
+      </div> */}
 
       <div className="flex space-x-2 justify-center items-center">
         <div className="md:w-12 md:h-12 w-10 h-10 rounded-full flex justify-center items-center border p-2 md:p-3 cursor-pointer" onClick={handleOpen}>

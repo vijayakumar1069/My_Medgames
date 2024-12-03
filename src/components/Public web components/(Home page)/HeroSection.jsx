@@ -48,7 +48,7 @@ const HeroSection = () => {
         </div>
 
         {/* Arrow */}
-        <div className="relative w-40 aspect-square h-28 hidden 2xl:block transform lg:translate-y-0">
+        <div className="relative w-40 aspect-square h-28 hidden 2xl:block transform lg:translate-y-20">
           <Image
             src={"/hero_arrow.png"}
             alt={"Arrow pointing down"}
@@ -60,7 +60,7 @@ const HeroSection = () => {
 
         {/* Right Side */}
         <div className="lg:flex-1 w-full  ">
-          <div className="flex lg:flex-row flex-col space-y-3 space-x-0 lg:space-x-6 lg:space-y-0 justify-center items-center lg:justify-start lg:items-start 2xl:justify-end 2xl:items-start ">
+          <div className="flex lg:flex-row flex-col space-y-3 space-x-0 lg:space-x-6 lg:space-y-0 justify-center items-center lg:justify-start lg:items-start 2xl:justify-center 2xl:items-center ">
             <div className="hidden 2xl:block ">
               <Rating_And_Video />
             </div>

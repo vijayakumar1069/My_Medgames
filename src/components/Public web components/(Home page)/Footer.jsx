@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 
-import { footerLinks, navbarvalues, socialMedialinks } from "@/utils/constvalues";
+import { brand_Info, footerLinks, navbarvalues, socialMedialinks } from "@/utils/constvalues";
 import Link from "next/link";
-import { IconBrandThreads, IconMail, IconPhoneCall } from "@tabler/icons-react";
+import { IconBrandInstagram, IconBrandThreads, IconMail, IconPhoneCall } from "@tabler/icons-react";
 import Subscribe_Form from "./Subscribe_Form";
 import { getCurrentYear } from "@/utils/getYear";
 
@@ -100,11 +100,11 @@ const Footer = () => {
                 <div className="flex flex-col space-y-3 text-sm">
                   <div className="flex space-x-2 items-center flex-wrap">
                     <IconMail stroke={2} />
-                    <span>medgames.info@mail.com</span>
+                    <span>{brand_Info.social_links[1].link}</span>
                   </div>
                   <div className="flex space-x-2 items-center flex-wrap">
-                    <IconBrandThreads stroke={2} />
-                    <span>@medugamesinfo</span>
+                    <IconBrandInstagram stroke={2} />
+                    <span>{brand_Info.social_links[2].display_content}</span>
                   </div>
                   <div className="flex space-x-2 items-center flex-wrap">
                     <IconPhoneCall stroke={2} />

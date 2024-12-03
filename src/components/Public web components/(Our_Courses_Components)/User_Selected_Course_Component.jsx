@@ -79,11 +79,9 @@ const ErrorBoundary = ({ children, fallback }) => {
 
 // Main Component
 const User_Selected_Course_Component = ({ course }) => {
-  
-
   // Memoize course details to optimize performance
   const courseDetails = useMemo(() => formatCourseDetails(course), [course]);
-  
+
   // Validate course data
   if (!course) {
     return (
@@ -120,7 +118,13 @@ const User_Selected_Course_Component = ({ course }) => {
 
                 {/* Overview Tab Content */}
                 <TabsContent value={COURSE_DETAILS_CONFIG.overviewTab}>
-                  <Course_OverView_Component course={course} />
+                <Course_OverView_Component
+                      objective={course.objective}
+                      topic_covered={course.topic_covered}
+                      key_features={course.key_features}
+                      additional_resources={course.additional_resources}
+                      benefits={course.benefits}
+                    />
                 </TabsContent>
 
                 {/* Reviews Tab Content */}

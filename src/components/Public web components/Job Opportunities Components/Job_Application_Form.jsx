@@ -87,8 +87,8 @@ const Job_Application_Form = () => {
   
 
   return (
-    <div className="w-full h-full flex justify-center items-center bg-white py-10 px-2">
-      <div className="relative w-full flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8 bg-white shadow-lg rounded-lg p-5">
+    <div className="flex justify-center items-center w-full h-full bg-white py-5">
+      <div className="relative w-full flex flex-col max-w-7xl md:flex-row space-y-8 md:space-y-0 md:space-x-8 bg-white shadow-lg rounded-xl p-2">
         {/* Image Section */}
         <div className="w-full aspect-square flex-1 bg-white shadow-2xl rounded-2xl overflow-hidden flex">
         {/* Image Section with Enhanced Quality and Animations */}
@@ -145,7 +145,7 @@ const Job_Application_Form = () => {
           </h1>
 
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 px-3 md:px-0">
                 <div className="flex sm:flex-row sm:justify-between sm:space-x-3 sm:space-y-0 lg:flex-row flex-col  lg:justify-between lg:space-x-5 space-y-3 lg:space-y-0 lg:items-center w-full">
 
               {/* First Name Field */}
