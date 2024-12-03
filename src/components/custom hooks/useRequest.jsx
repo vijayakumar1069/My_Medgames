@@ -15,12 +15,18 @@ export function useRequest() {
       const result = await callback(); // Call the provided async function
       if (result.success) {
         setSuccess(result.message || "Operation successful.");
+        setTimeout(() => {
+          setSuccess(null);
+        }, 5000);
         return result;
       } else {
         throw new Error(result.message || "An unexpected error occurred.");
       }
     } catch (err) {
       setError(err.message || "An unexpected error occurred.");
+      setTimeout(() => {
+        setError(null);
+      }, 5000);
       return { success: false, message: err.message };
     } finally {
       setLoading(false);

@@ -23,6 +23,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { courses_titles } from "@/utils/constvalues";
+import { submitContactInquiry } from "@/app/actions/contact_us_schedule_a_call_fun";
+import { useRequest } from "@/components/custom hooks/useRequest";
 
 // Define the schema
 const formSchema = z.object({
@@ -46,11 +48,24 @@ const Consultation_Form = () => {
       phone: "",
       courseCategory: "", // default value
     },
-    mode: "onChange" // Validate on change
+    mode: "onChange", // Validate on change
   });
+  const { loading, success, error, sendRequest } = useRequest();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const res = await sendRequest(() =>
+        submitContactInquiry({ userData: data, inquiryType: "contact" })
+      );
+      // Close the confirmation dialog after 1 second and redirect to the schedule a call page with query parameters
+      if (res.success) {
+       form.reset();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+    // setIsDialogOpen(true); // Open the confirmation dialog
   };
 
   return (
@@ -67,10 +82,10 @@ const Consultation_Form = () => {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input 
-                  placeholder="Your name" 
+                <Input
+                  placeholder="Your name"
                   {...field}
-                  value={field.value || ''} // Ensure controlled input
+                  value={field.value || ""} // Ensure controlled input
                 />
               </FormControl>
               <FormMessage />
@@ -84,11 +99,11 @@ const Consultation_Form = () => {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input 
-                  type="email" 
-                  placeholder="Your Email" 
+                <Input
+                  type="email"
+                  placeholder="Your Email"
                   {...field}
-                  value={field.value || ''} // Ensure controlled input
+                  value={field.value || ""} // Ensure controlled input
                 />
               </FormControl>
               <FormMessage />
@@ -96,17 +111,17 @@ const Consultation_Form = () => {
           )}
         />
 
-<FormField
+        <FormField
           control={form.control}
           name="phone"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Phone Number</FormLabel>
               <FormControl>
-                <Input 
-                  placeholder="1234567890" 
+                <Input
+                  placeholder="1234567890"
                   {...field}
-                  value={field.value || ''} // Ensure controlled input
+                  value={field.value || ""} // Ensure controlled input
                 />
               </FormControl>
               <FormMessage />
@@ -124,7 +139,7 @@ const Consultation_Form = () => {
               <FormControl>
                 <Select
                   onValueChange={field.onChange}
-                  value={field.value || ''} // Ensure controlled select
+                  value={field.value || ""} // Ensure controlled select
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select a course category" />
@@ -142,9 +157,19 @@ const Consultation_Form = () => {
             </FormItem>
           )}
         />
+        {error && <p className="text-red-500">{error}</p>}
+        {success && (
+          <p className="text-green-500">
+            Your inquiry has been submitted successfully. We will get back to
+            you soon.
+          </p>
+        )}
 
-        <Button className="bg-white w-fit text-[#4F9F76] hover:text-white border-[#4F9F76] border-2 px-4 py-2 rounded-md hover:bg-[#4F9F76]/80">
-          Submit
+        <Button
+          disabled={loading}
+          className="bg-white w-fit text-[#4F9F76] hover:text-white border-[#4F9F76] border-2 px-4 py-2 rounded-md hover:bg-[#4F9F76]/80"
+        >
+          {loading ? "Submitting..." : "Submit"}
         </Button>
       </form>
     </Form>
