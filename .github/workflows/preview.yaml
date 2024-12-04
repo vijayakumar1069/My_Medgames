@@ -1,31 +1,90 @@
-name: medgames vercel preview deployment
+# name: medgames vercel preview deployment
 
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+# env:
+#   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+#   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
+# on:
+#   push:
+#     branches-ignore:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+    
+#       - name: install vercel CLI
+#         run: npm install --global vercel
+
+#       - name: pull environment information from vercel
+#         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+#       - name: build project artifacts
+#         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+#       - name: deploy project artifacts
+#         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+     
+
+name: Vercel Preview Deployment
+
+# Trigger on dev and feature branches
 on:
   push:
     branches-ignore:
       - main
+   
 
 jobs:
-  build:
+  deploy-preview:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-    
-      - name: install vercel CLI
-        run: npm install --global vercel
 
-      - name: pull environment information from vercel
+    steps:
+      # Checkout repository
+      - uses: actions/checkout@v4
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.12.0 # Stable Node.js version
+
+      # Install Vercel CLI globally
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      # Clear cache and install dependencies
+      - name: Install Dependencies
+        run: |
+          npm cache clean --force
+          npm install --legacy-peer-deps
+
+      # Pull Vercel environment for preview
+      - name: Vercel Environment Pull
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: build project artifacts
+      # Build project for preview
+      - name: Build Project
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: deploy project artifacts
-        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
-
-     
-
+      # Deploy to Vercel Preview
+      - name: Deploy to Vercel Preview
+        run: |
+          vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+        
+      # # Optional: Add a comment to the PR with the preview URL
+      # - name: Add PR Comment with Preview URL
+      #   if: github.event_name == 'pull_request'
+      #   uses: actions/github-script@v6
+      #   with:
+      #     github-token: ${{secrets.GITHUB_TOKEN}}
+      #     script: |
+      #       github.rest.issues.createComment({
+      #         issue_number: context.issue.number,
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         body: '🚀 Vercel Preview Deployment: ${{ steps.deploy.outputs.preview-url }}'
+      #       })
