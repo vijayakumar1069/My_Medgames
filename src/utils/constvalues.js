@@ -2722,3 +2722,38 @@ export const admin_sidebar_items = [
     link: "/admin-notifications",
   },
 ];
+
+
+export   const sections = [
+  {
+    key: "objective",
+    label: "Course Objective",
+    type: "textarea",
+    icon: "🎯",
+  },
+  {
+    key: "key_features",
+    label: "Key Features",
+    type: "list",
+    icon: "⭐",
+  },
+  {
+    key: "topic_covered",
+    label: "Topics Covered",
+    type: "list",
+    icon: "📚",
+  },
+  {
+    key: "benefits",
+    label: "Course Benefits",
+    type: "list",
+    icon: "🏆",
+  },
+  {
+    key: "additional_resources",
+    label: "Additional Resources",
+    type: "list",
+    icon: "📦",
+    optional: true,
+  },
+];

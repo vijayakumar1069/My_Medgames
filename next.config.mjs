@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental:
+  {
+    serverActions:
+    {
+      bodySizeLimit:"5mb"
+    }
+  },
   webpack: (config, { isServer }) => {
     // Handle File and filesystem references
     config.resolve.fallback = { 
