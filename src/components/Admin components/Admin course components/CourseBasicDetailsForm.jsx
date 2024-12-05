@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import { Trash2, Plus } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const courseDetailsSchema = z.object({
   name: z.string().min(3, "Course name must be at least 3 characters"),
@@ -24,6 +25,7 @@ const courseDetailsSchema = z.object({
   lessons: z.string().optional(),
   instructorName: z.string().optional(),
   teachingLanguage: z.string().optional(),
+
 });
 
 export function CourseBasicDetailsForm({
@@ -36,15 +38,16 @@ export function CourseBasicDetailsForm({
   const form = useForm({
     resolver: zodResolver(courseDetailsSchema),
     defaultValues: {
-      name: currentData.name || "dvvvvvvvvvvvvvvvcasasasvvvvvv",
-      description: currentData.description || "dvsssscsaaacsaaassssssss",
+      name: currentData.name || "",
+      description: currentData.description || "",
       img_for_home: currentData.img_for_home || "", // Use empty string instead of undefined
       img_for_course_details_page:
         currentData.img_for_course_details_page || "", // Use empty string instead of undefined
-      price: currentData.price || "230",
-      lessons: currentData.lessons || "10", // Use empty string instead of undefined
-      instructorName: currentData.instructorName || "iuoooooooo",
-      teachingLanguage: currentData.teachingLanguage || "oiiiiiiiiiiiii",
+      price: currentData.price || "",
+      lessons: currentData.lessons || "", // Use empty string instead of undefined
+      instructorName: currentData.instructorName || "",
+      teachingLanguage: currentData.teachingLanguage || "",
+   
     },
   });
 
@@ -283,6 +286,26 @@ export function CourseBasicDetailsForm({
             </FormItem>
           )}
         />
+        {/* <FormField
+          control={form.control}
+          name="shown_on_home_screen"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-center space-x-3 space-y-0 rounded-md border p-4">
+              <FormControl>
+                <Checkbox
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <div className="space-y-1 leading-none">
+                <FormLabel>
+                  Show on Home Screen
+                </FormLabel>
+             
+              </div>
+            </FormItem>
+          )}
+        /> */}
 
         <Button type="submit">Save Course Details</Button>
       </form>

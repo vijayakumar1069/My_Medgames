@@ -4,6 +4,7 @@ const courseSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
+    unique: true, // Unique value for the name field
    
   },
   description: {
@@ -12,10 +13,14 @@ const courseSchema = new mongoose.Schema({
   },
   img_for_course_details_page: {
     type: String,
+    required: true, // Image URL for the course details page
+    default: null,
    
   },
   img_for_home: {
     type: String,
+    required: true,
+    default: null, // Image URL for the home screen
    
   },
   price: {
@@ -30,6 +35,10 @@ const courseSchema = new mongoose.Schema({
   },
   teachingLanguage: {
     type: String,
+  },
+  shown_on_home_screen: {
+    type: Boolean,
+    default: false, // Default value
   },
   objective: {
     type: String,
@@ -53,15 +62,15 @@ const courseSchema = new mongoose.Schema({
   },
   startDate: {
     type: Date,
-    required: true,
+    
   },
   endDate: {
     type: Date,
-    required: true,
+    
   },
   dailyStartTime: {
     type: String, // Store time as string in HH:mm format
-    required: true,
+    
     validate: {
       validator: function (value) {
         return /^\d{2}:\d{2}$/.test(value); // Validates HH:mm format
@@ -71,7 +80,7 @@ const courseSchema = new mongoose.Schema({
   },
   dailyEndTime: {
     type: String, // Store time as string in HH:mm format
-    required: true,
+    
     validate: {
       validator: function (value) {
         return /^\d{2}:\d{2}$/.test(value); // Validates HH:mm format
@@ -81,8 +90,12 @@ const courseSchema = new mongoose.Schema({
   },
   classDays: {
     type: [String], // Array of strings for class days
-    required: true,
+    
     enum: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], // Restrict values to valid days
+  },
+  via: {
+    type: String,
+    enum:["Zoom", "Microsoft Teams", "Google Meet", "Offline Classes"]
   },
   questions: [
     {
@@ -117,7 +130,76 @@ const courseSchema = new mongoose.Schema({
             type: String,
         }
     }
-  ]
+  ],
+  downloadable_pdf:[
+    {
+      
+      cloudinaryPublicId: {
+        type: String,
+       
+      },
+      secureUrl: {
+        type: String,
+      
+      },
+      originalFilename: {
+        type: String,
+      
+      },
+      bytes: {
+        type: Number,
+       
+      },
+      format:
+      {
+        type: String,
+      
+      },
+      resourceType:
+      {
+        type: String,
+      
+      }
+    }
+  ],
+video_section:[
+  {
+      
+    cloudinaryPublicId: {
+      type: String,
+     
+    },
+    secureUrl: {
+      type: String,
+    
+    },
+    originalFilename: {
+      type: String,
+    
+    },
+    bytes: {
+      type: Number,
+     
+    },
+    format:
+    {
+      type: String,
+    
+    },
+    resourceType:
+    {
+      type: String,
+    }
+    
+  }
+],
+redirect_link:
+{
+  type: String
+}
+},
+{
+  timestamps: true,
 });
 
 

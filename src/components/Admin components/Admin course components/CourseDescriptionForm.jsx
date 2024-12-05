@@ -20,40 +20,74 @@ import { Trash2, Plus } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { sections } from "@/utils/constvalues";
+import { Checkbox } from "@/components/ui/checkbox";
+import Service_Section_Card from "@/components/Public web components/(Home page)/Service_Section_Card";
 
 // Comprehensive Course Description Schema
 const courseDescriptionSchema = z.object({
   objective: z.string().min(10, "Objective must be detailed"),
   key_features: z
     .array(z.string())
-    .min(1, "At least one key feature is required"),
+    .min(1, "At least one key feature is required")
+    .refine(
+      (features) =>
+        features
+          .join(" ") // Combine all features into a single string
+          .split(/\s+/).length <= 40, // Count total words
+      {
+        message: "Total words in key features must be less than 40",
+      }
+    ),
   topic_covered: z
     .array(z.string())
     .min(1, "At least one topic must be covered"),
   benefits: z.array(z.string()).min(1, "At least one benefit must be listed"),
   additional_resources: z.array(z.string()).optional(),
+  shown_on_home_screen: z.boolean().default(false),
 });
 
-const CourseCourseBuilderForm = ({ onDataUpdate, currentData, setActiveTab }) => {
+
+const CourseCourseBuilderForm = ({
+  onDataUpdate,
+  currentData,
+  setActiveTab,
+}) => {
   console.log("currentData", currentData);
   const form = useForm({
     resolver: zodResolver(courseDescriptionSchema),
     defaultValues: {
-      objective: currentData.objective || "wqddddddddddddddscddd",
-      key_features: currentData.key_features || ["dwqqqqqqqscccqqqqqqqqqqqq"],
-      topic_covered: currentData.topic_covered || ["dwqqqqqqqqcssssssssqqqqqqq"],
-      benefits: currentData.benefits || ["dwqqqqqqqcsssssssqqqqqq"],
-      additional_resources: currentData.additional_resources || ["dwqqqqqqqqqqSSSSSSSSqqqqqqq"],
+      objective: currentData.objective || "",
+      key_features: currentData.key_features || [""],
+      topic_covered: currentData.topic_covered || [
+        "",
+      ],
+      benefits: currentData.benefits || [""],
+      additional_resources: currentData.additional_resources || [
+        "",
+      ],
+      shown_on_home_screen: currentData.shown_on_home_screen || false,
     },
   });
 
   const [descriptionMode, setDescriptionMode] = useState("builder");
 
   // Initialize useFieldArray for all list-type fields
-  const keyFeaturesArray = useFieldArray({ control: form.control, name: "key_features" });
-  const topicsCoveredArray = useFieldArray({ control: form.control, name: "topic_covered" });
-  const benefitsArray = useFieldArray({ control: form.control, name: "benefits" });
-  const additionalResourcesArray = useFieldArray({ control: form.control, name: "additional_resources" });
+  const keyFeaturesArray = useFieldArray({
+    control: form.control,
+    name: "key_features",
+  });
+  const topicsCoveredArray = useFieldArray({
+    control: form.control,
+    name: "topic_covered",
+  });
+  const benefitsArray = useFieldArray({
+    control: form.control,
+    name: "benefits",
+  });
+  const additionalResourcesArray = useFieldArray({
+    control: form.control,
+    name: "additional_resources",
+  });
 
   const arraysByKey = {
     key_features: keyFeaturesArray,
@@ -102,7 +136,9 @@ const CourseCourseBuilderForm = ({ onDataUpdate, currentData, setActiveTab }) =>
             <div key={field.id} className="flex items-center space-x-2 mb-2">
               <FormControl>
                 <Input
-                  placeholder={`Enter ${section.label.toLowerCase().slice(0, -1)}`}
+                  placeholder={`Enter ${section.label
+                    .toLowerCase()
+                    .slice(0, -1)}`}
                   {...form.register(`${section.key}.${index}`)}
                 />
               </FormControl>
@@ -134,12 +170,17 @@ const CourseCourseBuilderForm = ({ onDataUpdate, currentData, setActiveTab }) =>
       <CardContent>
         <Tabs value={descriptionMode} onValueChange={setDescriptionMode}>
           <TabsList>
-            <TabsTrigger value="builder">Course Description Builder</TabsTrigger>
+            <TabsTrigger value="builder">
+              Course Description Builder
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="builder">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <ScrollArea className="h-[600px] w-full rounded-md border p-4">
                   {sections.map((section) => (
                     <Card key={section.key} className="mb-4">
@@ -160,7 +201,34 @@ const CourseCourseBuilderForm = ({ onDataUpdate, currentData, setActiveTab }) =>
                     </Card>
                   ))}
                 </ScrollArea>
-
+                <FormField
+                  control={form.control}
+                  name="shown_on_home_screen"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-row items-center space-x-3 space-y-0 rounded-md border p-4">
+                      <FormControl>
+                        <Checkbox
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
+                      </FormControl>
+                      <div className="space-y-1 leading-none">
+                        <FormLabel>Show on Home Screen</FormLabel>
+                      </div>
+                    </FormItem>
+                  )}
+                />
+                <div className="preview-section  relative">
+                  {form.watch("shown_on_home_screen") && (
+                    <Service_Section_Card
+                      data={{
+                        title: currentData.name,
+                        description: form.watch("key_features"),
+                        link: "https://www.google.com",
+                      }}
+                    />
+                  )}
+                </div>
                 <Button type="submit" className="w-full">
                   Save Course Description
                 </Button>

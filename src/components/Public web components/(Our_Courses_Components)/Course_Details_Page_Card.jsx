@@ -12,21 +12,25 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
+function formatDate(date) {
+  const options = { day: '2-digit', month: 'short', year: 'numeric' };
+  return new Date(date).toLocaleDateString('en-US', options).replace(',', '');
+}
 const Course_Details_Page_Card = ({ course }) => {
   const {
-    id,
+    _id,
     name,
     description,
     price,
-    start_date,
-    end_date,
+    startDate,
+    endDate,
     via,
     rating,
     star,
-    daily_start_time,
-    details_image,
-    daily_end_time,
-    classday,
+    dailyStartTime,
+    img_for_course_details_page,
+    dailyEndTime,
+    classDays,
     key_features,
   } = course;
 
@@ -60,15 +64,15 @@ const Course_Details_Page_Card = ({ course }) => {
       className="relative max-w-xl w-full bg-[#F4F6FC] rounded-lg overflow-hidden group shadow-lg hover:shadow-lg transition-shadow duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      key={id}
+      key={_id}
     >
       {/* Top Image/Preview Section */}
       <div className="relative w-full h-72">
         <Image
-          src={details_image}
+          src={img_for_course_details_page ==" "?null : img_for_course_details_page}
           alt="course_image"
           fill
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "contain" }}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
@@ -76,7 +80,7 @@ const Course_Details_Page_Card = ({ course }) => {
       {/* Card Details */}
       <div className="p-4 flex flex-col space-y-4">
         <h1 className="text-xl font-semibold text-black">{name}</h1>
-        <div className="flex items-center space-x-2 my-2">
+        {/* <div className="flex items-center space-x-2 my-2">
           <div className="flex items-center space-x-1 text-yellow-500">
             {[...Array(fullStars)].map((_, i) => (
               <IconStar
@@ -94,13 +98,13 @@ const Course_Details_Page_Card = ({ course }) => {
           <span>
             ({star}.0/{rating} rating)
           </span>
-        </div>
+        </div> */}
         <p className="text-[#F61212] font-bold">$ {price}</p>
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-1 w-full items-center text-sm">
           <div className="flex items-center space-x-1">
             <IconCalendar stroke={2} className="text-[#4F9F76]" />
             <span>
-              {start_date} to {end_date}
+            {formatDate(startDate)} to {formatDate(endDate)}
             </span>
           </div>
           <div className="flex items-center space-x-1">
@@ -111,12 +115,12 @@ const Course_Details_Page_Card = ({ course }) => {
         <div className="flex items-center space-x-1 w-full text-sm">
           <IconClockHour2 stroke={2} className="text-[#4F9F76]" />
           <span>
-            {daily_start_time} to {daily_end_time} on {classday}
+            {dailyStartTime} to {dailyEndTime} on {classDays[0]}
           </span>
         </div>
         <div className="block lg:hidden">
       
-          <Link href={`/our-courses/${id}`}  className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
+          <Link href={`/our-courses/${_id}`}  className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
            <span> View Details</span>
           </Link>
         
@@ -156,7 +160,7 @@ const Course_Details_Page_Card = ({ course }) => {
             <div className="flex items-center space-x-1">
               <IconCalendar stroke={2} className="text-[#fff]" />
               <span>
-                {start_date} to {end_date}
+                {startDate} to {endDate}
               </span>
             </div>
             <div className="flex items-center space-x-1">
@@ -167,7 +171,7 @@ const Course_Details_Page_Card = ({ course }) => {
           {/* <div className="flex items-center space-x-1 text-sm mt-2">
             <IconClockHour2 stroke={2} className="text-[#fff]" />
             <span>
-              {daily_start_time} to {daily_end_time} on {classday}
+              {dailyStartTime} to {dailyEndTime} on {classday}
             </span>
           </div> */}
           <ul>
@@ -189,7 +193,7 @@ const Course_Details_Page_Card = ({ course }) => {
            <span> View Details</span>
           </Button>
           </Link> */}
-           <Link href={`/our-courses/${id}`}  className=" mt-2 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
+           <Link href={`/our-courses/${_id}`}  className=" mt-2 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
            <span> View Details</span>
           </Link>
         </div>

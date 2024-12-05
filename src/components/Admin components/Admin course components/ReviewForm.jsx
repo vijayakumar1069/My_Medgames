@@ -42,13 +42,13 @@ export function ReviewForm({
   const form = useForm({
     resolver: zodResolver(reviewSchema),
     defaultValues: {
-      reviews: [
+      reviews:currentData.reviews || [
         {
-          name: "aAAAAAAAAAAACSAAAAAAAAAA",
-          review_content: "XXXXXXXXXXXXXXXXXXXCSAXXXXXXXXWDQQQQQQQQQQQQQQQQQQQQQ",
+          name: "",
+          review_content: "",
           image: "",
           rating: 5,
-          small_description: "dvssssssssssssssASCCCCCCCCsssssssssss",
+          small_description: "",
         },
       ],
     },
@@ -94,7 +94,7 @@ export function ReviewForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 h-fit">
         {fields.map((field, index) => (
           <div className="flex flex-col mb-4" key={field.id}>
             <FormField

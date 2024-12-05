@@ -20,12 +20,14 @@ import { CourseFAQsForm } from './CourseFAQsForm'
 import { CourseReviewsForm } from './CourseReviewsForm'
 import { ReviewForm } from './ReviewForm'
 import CourseBasicDetailsForm from './CourseBasicDetailsForm'
-import { createCourse } from '@/app/actions/(Admin)/courseActions'
+import { createCourse, updateCourse } from '@/app/actions/(Admin)/courseActions'
 import { useRequest } from '@/components/custom hooks/useRequest'
+import Courses_Table from './Courses_Table'
+import { CourseVideoForm } from './CourseVideoForm'
 
-export function CourseCreationDialog() {
+export function CourseCreationDialog({type,initialData}) {
   const [activeTab, setActiveTab] = useState("basic")
-  const [courseData, setCourseData] = useState({})
+  const [courseData, setCourseData] = useState(type==="edit"?initialData:{})
 
   const{loading,success,error,sendRequest}=useRequest()
 
@@ -42,7 +44,7 @@ export function CourseCreationDialog() {
 
   const handleSubmit = async () => {
 
-    const res=await sendRequest(()=>createCourse(courseData))
+    const res= initialData?._id ? await sendRequest(()=>updateCourse(initialData?._id,courseData)) : await sendRequest(()=>createCourse(courseData))
     if(res.success){
       setCourseData({})
       setActiveTab("basic")
@@ -56,22 +58,25 @@ export function CourseCreationDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Add New Course</Button>
+        <Button variant="outline">{type=="edit"?"Edit Course":"Create New Course"}</Button>
       </DialogTrigger>
-      <DialogContent className="max-w-6xl h-[90vh] overflow-y-auto">
+   
+
+      <DialogContent className="max-w-7xl h-[90vh] overflow-y-auto " onInteractOutside={(event) => event.preventDefault()}>
         <DialogHeader>
-          <DialogTitle>Create New Course</DialogTitle>
+          <DialogTitle>{type=="edit"?"Edit Course":"Create New Course"}</DialogTitle>
           <DialogDescription>
-            Fill out the course details step by step
+            {type=="edit"?"Edit the course details step by step":"Fill out the course details step by step"}
           </DialogDescription>
         </DialogHeader>
 
-        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
-          <TabsList className="grid w-full grid-cols-6 mb-4">
-            <TabsTrigger value="basic">Basic Details</TabsTrigger>
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full ">
+          <TabsList className="grid w-full grid-cols-7 gap-3 mb-4 ">
+            <TabsTrigger value="basic">Basic</TabsTrigger>
             <TabsTrigger value="description">Description</TabsTrigger>
             <TabsTrigger value="schedule">Schedule</TabsTrigger>
             <TabsTrigger value="resources">Resources</TabsTrigger>
+            <TabsTrigger value="video">Video</TabsTrigger>
             <TabsTrigger value="review">Reviews</TabsTrigger>
             <TabsTrigger value="faqs">FAQ&apos;s</TabsTrigger>
           </TabsList>
@@ -104,6 +109,14 @@ export function CourseCreationDialog() {
             <CourseResourcesForm 
               onDataUpdate={handleDataUpdate}
               currentData={courseData}
+              setActiveTab={setActiveTab}
+            />
+          </TabsContent>
+          <TabsContent value="video">
+            <CourseVideoForm 
+              onDataUpdate={handleDataUpdate}
+              currentData={courseData}
+              setActiveTab={setActiveTab}
             />
           </TabsContent>
 
@@ -123,23 +136,16 @@ export function CourseCreationDialog() {
           </TabsContent>
 
           <div className="flex justify-between mt-4">
-            {activeTab !== "basic" && (
-              <Button 
-                variant="outline" 
-                onClick={() => {
-                  const tabOrder = ["basic", "description", "schedule", "resources", "review","faqs"]
-                  const currentIndex = tabOrder.indexOf(activeTab)
-                  setActiveTab(tabOrder[currentIndex - 1])
-                }}
-              >
-                Previous
+            {activeTab == "faqs" && (
+                <Button onClick={handleSubmit} variant="success">
+               {loading ? "Creating..." : "Create Course"}
               </Button>
             )}
 
-            {activeTab !== "faqs" ? (
+            {/* {activeTab !== "faqs" ? (
               <Button 
                 onClick={() => {
-                  const tabOrder = ["basic", "description", "schedule", "resources", "faqs"]
+                  const tabOrder = ["basic", "description", "schedule", "resources","video", "review","faqs"]
                   const currentIndex = tabOrder.indexOf(activeTab)
                   setActiveTab(tabOrder[currentIndex + 1])
                 }}
@@ -147,10 +153,8 @@ export function CourseCreationDialog() {
                 Next
               </Button>
             ) : (
-              <Button onClick={handleSubmit} variant="destructive">
-                Create Course
-              </Button>
-            )}
+            
+            )} */}
           </div>
         </Tabs>
       </DialogContent>

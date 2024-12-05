@@ -41,7 +41,7 @@ const Course_OverView_Component = ({
               //   {feature}
               // </li>
                <li key={index} className="flex items-center text-gray-700">
-               <div className="">
+               <div className="" key={index}>
 
                <Lightbulb className="mr-2 text-green-500 flex-nowrap" size={24} />
                </div>

@@ -33,7 +33,7 @@ export function CourseFAQsForm ({
   const form = useForm({
     resolver: zodResolver(qaSchema),
     defaultValues: {
-      questions: [{ question: 'fwqqqqqqqqqqqqqqqqqqDVSAqqqqqqqq', answer: 'wfqqqqqqqDSAVVVqqqqqqqqqqqqqqqqq' }]
+      questions:currentData.questions|| [{ question: '', answer: '' }]
     }
   })
 
@@ -51,7 +51,7 @@ export function CourseFAQsForm ({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 h-fit">
         {fields.map((field, index) => (
           <div key={field.id} className="flex flex-col mb-4">
             <FormField

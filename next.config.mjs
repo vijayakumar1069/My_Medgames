@@ -5,7 +5,7 @@ const nextConfig = {
   {
     serverActions:
     {
-      bodySizeLimit:"5mb"
+      bodySizeLimit:"100mb"
     }
   },
   webpack: (config, { isServer }) => {

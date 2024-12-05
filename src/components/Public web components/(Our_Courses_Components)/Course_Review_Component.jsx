@@ -37,8 +37,8 @@ const Course_Review_Component = ({ course }) => {
             <p>{starCounts[0].count} rating</p>
           </div>
           <div className="w-full px-5">
-            {starCounts?.map(({ star, count, percentage }) => (
-              <div key={star} className="flex items-center space-x-4">
+            {starCounts?.map(({ star, count, percentage,index }) => (
+              <div key={index} className="flex items-center space-x-4">
                 {/* Star label */}
                 <div className="flex items-center space-x-3">
                   <p className="font-medium">{star}</p>

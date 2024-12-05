@@ -27,8 +27,10 @@ const scheduleSchema = z.object({
   endDate: z.date(),
   dailyStartTime: z.string(),
   dailyEndTime: z.string(),
-  classDays: z.array(z.string()).min(1, "Select at least one class day")
-})
+  classDays: z.array(z.string()).min(1, "Select at least one class day"),
+  via: z.enum(["Zoom", "Microsoft Teams", "Google Meet", "Offline Classes"]),
+});
+
 
 export function CourseScheduleForm({
   onDataUpdate,
@@ -38,13 +40,15 @@ export function CourseScheduleForm({
   const form = useForm({
     resolver: zodResolver(scheduleSchema),
     defaultValues: {
-      startDate: new Date(),
-      endDate: new Date(),
-      dailyStartTime: '',
-      dailyEndTime: '',
-      classDays: []
-    }
-  })
+      startDate: currentData.startDate || new Date(),
+      endDate:currentData.endDate || new Date(),
+      dailyStartTime: currentData.dailyStartTime || '',
+      dailyEndTime: currentData.dailyEndTime || '',
+      classDays: currentData.classDays || [],
+      via:currentData.via || "", // Default empty
+    },
+  });
+  
 
   const onSubmit = (data) => {
     onDataUpdate(data);
@@ -154,8 +158,39 @@ export function CourseScheduleForm({
               </FormControl>
               <FormMessage />
             </FormItem>
+
+
           )}
         />
+
+<FormField
+  control={form.control}
+  name="via"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Conducted Via</FormLabel>
+      <FormControl>
+        <Select
+          onValueChange={field.onChange}
+          value={field.value}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Select Method" />
+          </SelectTrigger>
+          <SelectContent>
+            {["Zoom", "Microsoft Teams", "Google Meet", "Offline Classes"].map((method) => (
+              <SelectItem key={method} value={method}>
+                {method}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
+
 
         <Button type="submit">Save Schedule</Button>
       </form>

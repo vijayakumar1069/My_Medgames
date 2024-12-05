@@ -1,3 +1,4 @@
+import { getCourseById } from "@/app/actions/(Admin)/courseActions";
 import User_Selected_Course_Component from "@/components/Public web components/(Our_Courses_Components)/User_Selected_Course_Component";
 import Svg_Bg from "@/components/Public web components/Svg_Bg";
 import { Button } from "@/components/ui/button";
@@ -16,13 +17,14 @@ const fetchCourseById = {
     // Simulated database fetch
     try {
       // Replace with actual database query in future
-      const response = await fetch(`/api/courses/${courseId}`);
+      const response = await getCourseById(courseId);
       
-      if (!response.ok) {
+      if (!response.success) {
         throw new Error('Course not found');
       }
+      return response.course;
       
-      return response.json();
+  
     } catch (error) {
       console.error('Error fetching course:', error);
       return null;
@@ -50,7 +52,7 @@ export default async function Particular_Course_Page({ params }) {
 
   // Configuration object for easy future modifications
   const COURSE_FETCH_CONFIG = {
-    useStaticData: true, // Toggle between static and database fetch
+    useStaticData: false, // Toggle between static and database fetch
     fallbackMessage: "Course not found"
   };
 
@@ -59,7 +61,7 @@ export default async function Particular_Course_Page({ params }) {
     const user_selected_course = COURSE_FETCH_CONFIG.useStaticData
       ? fetchCourseById.fromStaticData(id)
       : await fetchCourseById.fromDatabase(id);
-
+  
     // Additional validation
     if (!user_selected_course) {
       return <ErrorFallback message={COURSE_FETCH_CONFIG.fallbackMessage} />;
