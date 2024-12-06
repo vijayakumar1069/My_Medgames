@@ -43,7 +43,7 @@ export function CourseFAQsForm ({
   })
 
   const onSubmit = (data) => {
-    console.log(data)
+
     onDataUpdate(data)
     
     // Handle save logic here

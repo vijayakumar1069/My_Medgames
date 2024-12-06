@@ -25,7 +25,7 @@ export function DeleteCourse({ courseId }) {
     setIsDeleting(true);
     try {
       const result = await deleteCourse(courseId);
-      console.log(result);
+     
       
       if (result.success) {
         

@@ -77,14 +77,15 @@ export async function deleteTutor(id) {
 
 export async function getTutors() {
   try {
-    await connectDB();
+    const mongo=await connectDB();
+    
   
     const tutors = await Tutor.find().sort({ createdAt: -1 });
    
     return deepClone(tutors);
   } catch (error) {
     return { success: false, error: error.message || 'An error occurred' };
-    return [];
+ 
   }
 }
 
@@ -99,4 +100,32 @@ export async function getTutorById(id) {
     return { success: false, error: error.message || 'An error occurred' };
     return null;
   }
+}
+
+
+export async function getHomepageTutors()
+{
+  try {
+    await connectDB();
+    
+    const tutors = await Tutor.find().sort({ createdAt: -1 });
+    if(!tutors)
+    {
+      throw new Error("Failed to fetch tutors");
+    }
+    return {
+      success: true,
+      message: 'Tutors fetched successfully',
+      homeTutors: deepClone(tutors),
+    }
+
+  } catch (error) {
+    
+    return {
+      success: false,
+      message: 'Failed to fetch tutors',
+      error: error.message,
+    };
+  }
+
 }

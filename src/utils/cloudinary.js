@@ -1,3 +1,4 @@
+
 import { v2 as cloudinary } from 'cloudinary';
 
 cloudinary.config({ 
@@ -29,3 +30,30 @@ export const uploadToCloudinary = async (file, folder) => {
 export const generateDownloadLink = (publicUrl, originalFileName) => {
   return `${publicUrl}?download=true&filename=${encodeURIComponent(originalFileName)}`;
 };
+
+export function generateVideoThumbnail(publicId, options = {}) {
+  const defaultOptions = {
+    width: 480,
+    height: 270,
+    crop: 'fill',
+    gravity: 'center',
+    format: 'jpg',
+    time: 3 // seconds into the video
+  }
+
+  const mergedOptions = { ...defaultOptions, ...options }
+
+  return cloudinary.url(publicId, {
+    resource_type: 'video',
+    transformation: [
+      { 
+        width: mergedOptions.width, 
+        height: mergedOptions.height, 
+        crop: mergedOptions.crop, 
+        gravity: mergedOptions.gravity,
+        format: mergedOptions.format,
+        start_offset: mergedOptions.time
+      }
+    ]
+  })
+}

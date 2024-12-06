@@ -4,6 +4,9 @@ import Large_Title from "../(Home page)/Large_Title";
 // import { courses } from "@/utils/constvalues";
 import CourseCardWrapper from "./CourseCardWrapper";
 import { getCourses } from "@/app/actions/(Admin)/courseActions";
+import Skeleton from "../Skeleton";
+
+
 
 const Our_Course_Main = async () => {
   let courses;
@@ -19,6 +22,10 @@ try {
 } catch (error) {
   return <div className="w-full h-full flex justify-center items-center  flex-col space-y-8 p-3 py-10 ">{error.message}</div>
   
+}
+if(!courses)
+{
+  return <Skeleton/>
 }
   return (
     <div className="w-full h-full flex justify-center items-center  flex-col space-y-8 p-3 py-10 ">

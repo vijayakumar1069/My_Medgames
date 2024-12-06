@@ -33,7 +33,7 @@ export function CourseBasicDetailsForm({
   currentData,
   setActiveTab,
 }) {
-  console.log(currentData.name);
+
   const [initialData, setInitialData] = useState(currentData);
   const form = useForm({
     resolver: zodResolver(courseDetailsSchema),
@@ -87,7 +87,6 @@ export function CourseBasicDetailsForm({
       submissionData.img_for_course_details_page = ""; // Leave as empty string if no image
     }
 
-    console.log(submissionData);
     onDataUpdate(submissionData);
     setActiveTab("description"); // Navigate to the next tab (Course Content)
 

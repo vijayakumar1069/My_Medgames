@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { Suspense, useMemo } from "react";
 import Link from "next/link";
 import {
   IconBook,
@@ -19,6 +19,7 @@ import Course_OverView_Component from "./Course_OverView_Component";
 import Course_Review_Component from "./Course_Review_Component";
 import Course_Suggestions from "./Course_Suggestions";
 import User_Selected_Course_FAQs from "./User_Selected_Course_FAQs";
+import Video_Player_Course from "./Video_Player_Course";
 
 // Constants for repeated values or configuration
 const COURSE_DETAILS_CONFIG = {
@@ -78,7 +79,7 @@ const ErrorBoundary = ({ children, fallback }) => {
 };
 
 // Main Component
-const User_Selected_Course_Component = ({ course }) => {
+const User_Selected_Course_Component = ({ course,suggestionsCourses }) => {
   // Memoize course details to optimize performance
   const courseDetails = useMemo(() => formatCourseDetails(course), [course]);
 
@@ -124,6 +125,7 @@ const User_Selected_Course_Component = ({ course }) => {
                       key_features={course.key_features}
                       additional_resources={course.additional_resources}
                       benefits={course.benefits}
+                      downalodPdf={course.downloadable_pdf[0].secureUrl}
                     />
                 </TabsContent>
 
@@ -138,6 +140,9 @@ const User_Selected_Course_Component = ({ course }) => {
 
             {/* Right Column: Course Details and Enroll Button */}
             <div className="lg:col-span-1 w-full h-fit max-w-sm bg-white shadow-xl p-6 rounded-lg">
+              <Suspense fallback={<div>Loading video...</div>}>
+              {course.video_section && <Video_Player_Course videoUrl={course.video_section} />}
+              </Suspense>
               <h2 className="text-lg font-bold mb-4">
                 {COURSE_DETAILS_CONFIG.courseIncludesTitle}
               </h2>
@@ -167,20 +172,20 @@ const User_Selected_Course_Component = ({ course }) => {
           </div>
 
           {/* Course Suggestions Section */}
-          {/* <div className="w-full mt-8">
-            <Course_Suggestions currentCourseName={course.name} />
-          </div> */}
+          <div className="w-full mt-8">
+            <Course_Suggestions suggestionsCourses={suggestionsCourses} />
+          </div>
         </div>
 
         {/* FAQs Section */}
-        {/* {course.course_faqs && course.course_faqs.length > 0 && (
+        {course.questions && course.questions.length > 0 && (
           <div className="w-full">
             <User_Selected_Course_FAQs
-              items={course.course_faqs}
+              items={course.questions}
               heading={`${course.name} FAQs`}
             />
           </div>
-        )} */}
+        )}
       </div>
     </ErrorBoundary>
   );
@@ -192,7 +197,7 @@ const MemoizedUserSelectedCourseComponent = React.memo(
   (prevProps, nextProps) => {
     // Custom comparison to prevent unnecessary re-renders
     return (
-      prevProps.course?.id === nextProps.course?.id &&
+      prevProps.course?._id === nextProps.course?._id &&
       prevProps.course?.name === nextProps.course?.name
     );
   }

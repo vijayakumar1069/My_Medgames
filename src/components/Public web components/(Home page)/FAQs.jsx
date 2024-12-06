@@ -28,9 +28,9 @@ const FAQs = ({ items, heading }) => {
       <div className="w-full flex flex-col items-center">
         <div className="w-full max-w-2xl px-6 bg-white rounded-xl">
           <Accordion type="single" collapsible className="w-full" >
-            {items.map((item) => (
+            {items.map((item,index) => (
               <AccordionItem
-                key={item.id}
+                key={index}
                 value={`item-${item.id}`} // Use static keys
                 className={`w-full ${
                   item.id !== items[items.length - 1].id ? "border-b-2 border-gray-200" : ""

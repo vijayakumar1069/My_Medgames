@@ -52,7 +52,9 @@ const CourseCourseBuilderForm = ({
   currentData,
   setActiveTab,
 }) => {
-  console.log("currentData", currentData);
+
+
+
   const form = useForm({
     resolver: zodResolver(courseDescriptionSchema),
     defaultValues: {
@@ -99,7 +101,7 @@ const CourseCourseBuilderForm = ({
   const onSubmit = (data) => {
     onDataUpdate(data);
     setActiveTab("schedule");
-    console.log(data);
+ 
     // Implement save logic
   };
 
@@ -222,9 +224,9 @@ const CourseCourseBuilderForm = ({
                   {form.watch("shown_on_home_screen") && (
                     <Service_Section_Card
                       data={{
-                        title: currentData.name,
-                        description: form.watch("key_features"),
-                        link: "https://www.google.com",
+                        name: currentData.name,
+                        key_features: form.watch("key_features"),
+                        redirect_link: "https://www.google.com",
                       }}
                     />
                   )}

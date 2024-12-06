@@ -1,10 +1,27 @@
-import { getCourseById } from "@/app/actions/(Admin)/courseActions";
+import { getCourseById, getCourses } from "@/app/actions/(Admin)/courseActions";
 import User_Selected_Course_Component from "@/components/Public web components/(Our_Courses_Components)/User_Selected_Course_Component";
 import Svg_Bg from "@/components/Public web components/Svg_Bg";
 import { Button } from "@/components/ui/button";
 import { courses } from "@/utils/constvalues";
 import Link from "next/link";
 
+
+// export async function generateStaticParams() {
+//   try {
+//     const coursesResponse = await getCourses();
+    
+//     if (coursesResponse.success) {
+//       return coursesResponse.courses.map((course) => ({
+//         id: course._id.toString()
+//       }));
+//     }
+    
+//     return []; // Fallback if no courses
+//   } catch (error) {
+//     console.error('Static Params Generation Error:', error);
+//     return [];
+//   }
+// }
 // Separate utility function for course fetching
 const fetchCourseById = {
   // Local static data method
@@ -22,7 +39,10 @@ const fetchCourseById = {
       if (!response.success) {
         throw new Error('Course not found');
       }
-      return response.course;
+      return {
+        currentCourse: response.course,
+        suggestionsCourses: response.suggestions
+      };
       
   
     } catch (error) {
@@ -70,7 +90,7 @@ export default async function Particular_Course_Page({ params }) {
     return (
       <div className="min-h-screen">
         <Svg_Bg />
-        <User_Selected_Course_Component course={user_selected_course} />
+        <User_Selected_Course_Component course={user_selected_course.currentCourse} suggestionsCourses={user_selected_course.suggestionsCourses}/>
       </div>
     );
   } catch (error) {
@@ -79,26 +99,4 @@ export default async function Particular_Course_Page({ params }) {
   }
 }
 
-// // Performance and SEO metadata
-// export async function generateMetadata({ params }) {
-//   try {
-//     const course = fetchCourseById.fromStaticData(params.id);
-    
-//     return {
-//       title: course ? `${course.name} | Course Details` : 'Course Not Found',
-//       description: course ? course.description : 'Course details are not available'
-//     };
-//   } catch (error) {
-//     return {
-//       title: 'Course Error',
-//       description: 'Unable to load course details'
-//     };
-//   }
-// }
 
-// Optional: Prerender common courses
-export async function generateStaticParams() {
-  return courses.map(course => ({
-    id: course.id.toString()
-  }));
-}

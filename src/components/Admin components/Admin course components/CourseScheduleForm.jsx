@@ -40,15 +40,15 @@ export function CourseScheduleForm({
   const form = useForm({
     resolver: zodResolver(scheduleSchema),
     defaultValues: {
-      startDate: currentData.startDate || new Date(),
-      endDate:currentData.endDate || new Date(),
+      startDate: new Date(currentData.startDate) || new Date(),
+      endDate:new Date(currentData.endDate) || new Date(),
       dailyStartTime: currentData.dailyStartTime || '',
       dailyEndTime: currentData.dailyEndTime || '',
       classDays: currentData.classDays || [],
       via:currentData.via || "", // Default empty
     },
   });
-  
+
 
   const onSubmit = (data) => {
     onDataUpdate(data);

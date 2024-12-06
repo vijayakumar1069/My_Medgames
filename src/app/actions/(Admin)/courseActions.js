@@ -3,10 +3,11 @@
 import { deepClone } from "@/lib/convert_to_JSON";
 import { connectDB } from "@/lib/dbconnection";
 import coursesSchema from "@/modals/courses.schema";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
+import { cache } from "react";
 
 export async function createCourse(data) {
-  console.log(data);
+
 
   try {
     await connectDB();
@@ -40,6 +41,7 @@ export async function createCourse(data) {
     }
 
     revalidatePath("/admin-courses", "page");
+    revalidatePath(`/our-courses`, "page");
 
     return {
       success: true,
@@ -96,6 +98,7 @@ export async function deleteCourse(id) {
     }
 
     revalidatePath("/admin-courses", "page");
+    revalidatePath(`/our-courses/${id}`, "page");
 
     return {
       success: true,
@@ -125,6 +128,10 @@ export async function updateCourse(id, data) {
       throw new Error("Failed to update course");
     }
     revalidatePath("/admin-courses", "page");
+    revalidatePath(`/our-courses/${id}`, "page");
+    
+    revalidateTag('homepage-services');
+
 
     return {
       success: true,
@@ -145,18 +152,47 @@ export async function updateCourse(id, data) {
 export async function getCourseById(id) {
   try {
     await connectDB();
-    // Fetch course from the database
+
+    // Fetch the current course
     const course = await coursesSchema.findById(id);
+
     if (!course) {
       throw new Error("Failed to fetch course");
     }
+
+    // Fetch all courses
+    const allCourses = await coursesSchema.find({});
+
+    // Function to get random suggestions
+    const getSuggestions = (currentCourse, courses) => {
+      // Remove current course from suggestions
+      const filteredCourses = courses.filter(
+        c => c._id.toString() !== currentCourse._id.toString()
+      );
+
+      // If total courses are less than 4, return all available
+      if (filteredCourses.length <= 3) {
+        return filteredCourses;
+      }
+
+      // Randomly shuffle and take first 3
+      return filteredCourses
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 3);
+    };
+
+    // Get course suggestions
+    const suggestions = getSuggestions(course, allCourses);
+
     return {
       success: true,
       message: "Course fetched successfully",
       course: deepClone(course),
+      suggestions: deepClone(suggestions)
     };
   } catch (error) {
     console.error("Error fetching course:", error);
+
     return {
       success: false,
       message: "Failed to fetch course",
@@ -164,3 +200,41 @@ export async function getCourseById(id) {
     };
   }
 }
+
+export const getHomePageServices = cache(async () => {
+  try {
+    await connectDB();
+
+    const services = await coursesSchema.find({
+      shown_on_home_screen: true
+    })
+    .select('_id name key_features redirect_link')
+    .limit(8)
+    .lean()
+    .exec();
+
+    return {
+      success: true,
+      message: 'Services fetched successfully',
+      servicesCourses: deepClone(services),
+      fetchedAt: new Date().toISOString()
+    };
+  } catch (error) {
+    console.error('Services Fetch Error:', error);
+    return {
+      success: false,
+      message: error.message || 'Failed to fetch services',
+      servicesCourses: []
+    };
+  }
+}, { 
+  // Revalidation strategy
+  revalidate: 3600, // 1 hour
+  tags: ['homepage-services']
+});
+
+// Manual Revalidation Utility
+export const revalidateServices = async () => {
+  // Explicitly revalidate the 'homepage-services' tag
+  revalidateTag('homepage-services');
+};

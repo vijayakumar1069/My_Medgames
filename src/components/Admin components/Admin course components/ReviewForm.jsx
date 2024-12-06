@@ -86,7 +86,7 @@ export function ReviewForm({
   };
 
   const onSubmit = (data) => {
-    console.log("Submitted Data:", data);
+
     onDataUpdate(data);
     setActiveTab("faqs"); // Navigate back to home tab after form submission
     // Handle save logic here

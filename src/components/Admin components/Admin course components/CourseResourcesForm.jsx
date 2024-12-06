@@ -21,10 +21,9 @@ export function CourseResourcesForm({ onDataUpdate, currentData ,setActiveTab}) 
           // Explicitly specify 'pdf' for PDF files
           return await uploadToCloudinary(file, 'pdf')
         })
-        console.log('Uploading files:', uploadPromises)
+
         const newFiles = await Promise.all(uploadPromises)
-        
-        console.log('Uploaded files:', newFiles)
+  
   
         const updatedFiles = [...uploadedFiles, ...newFiles]
         
@@ -114,7 +113,7 @@ export function CourseResourcesForm({ onDataUpdate, currentData ,setActiveTab}) 
         <Button
           type="button"
           onClick={() => {
-            console.log('Saving files:', uploadedFiles)
+       
             onDataUpdate && onDataUpdate({
               resources: uploadedFiles
             })

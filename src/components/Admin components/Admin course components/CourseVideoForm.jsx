@@ -112,7 +112,7 @@ export function CourseVideoForm({ onDataUpdate, currentData, setActiveTab }) {
         <Button
           type="button"
           onClick={() => {
-            console.log('Saving videos:', uploadedVideos)
+      
             onDataUpdate && onDataUpdate({
               video_section: uploadedVideos
             })

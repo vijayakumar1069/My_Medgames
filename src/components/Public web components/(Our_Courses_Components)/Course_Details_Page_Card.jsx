@@ -17,6 +17,7 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString('en-US', options).replace(',', '');
 }
 const Course_Details_Page_Card = ({ course }) => {
+
   const {
     _id,
     name,

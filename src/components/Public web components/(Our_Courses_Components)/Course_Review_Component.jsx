@@ -15,6 +15,7 @@ const Course_Review_Component = ({ course }) => {
           totalReviews) *
         100
       : 0,
+    index:star
   }));
 
 
@@ -65,8 +66,8 @@ const Course_Review_Component = ({ course }) => {
         <div className="w-full grid grid-cols-1 items-center gap-10">
 
         {
-          reviews?.map((review) => (
-           <Course_Details_review_Card key={review.id} review={review} />
+          reviews?.map((review,index) => (
+           <Course_Details_review_Card key={index} review={review} />
           ))
         }
         </div>

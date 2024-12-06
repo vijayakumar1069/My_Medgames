@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -9,68 +9,96 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import CourseDescriptionForm from './CourseDescriptionForm'
+} from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import CourseDescriptionForm from "./CourseDescriptionForm";
 
-import { CourseScheduleForm } from './CourseScheduleForm'
-import { CourseResourcesForm } from './CourseResourcesForm'
-import { CourseInstructorForm } from './CourseInstructorForm'
-import { CourseFAQsForm } from './CourseFAQsForm'
-import { CourseReviewsForm } from './CourseReviewsForm'
-import { ReviewForm } from './ReviewForm'
-import CourseBasicDetailsForm from './CourseBasicDetailsForm'
-import { createCourse, updateCourse } from '@/app/actions/(Admin)/courseActions'
-import { useRequest } from '@/components/custom hooks/useRequest'
-import Courses_Table from './Courses_Table'
-import { CourseVideoForm } from './CourseVideoForm'
+import { CourseScheduleForm } from "./CourseScheduleForm";
+import { CourseResourcesForm } from "./CourseResourcesForm";
+import { CourseFAQsForm } from "./CourseFAQsForm";
+import { ReviewForm } from "./ReviewForm";
+import CourseBasicDetailsForm from "./CourseBasicDetailsForm";
+import {
+  createCourse,
+  updateCourse,
+} from "@/app/actions/(Admin)/courseActions";
+import { useRequest } from "@/components/custom hooks/useRequest";
+import { CourseVideoForm } from "./CourseVideoForm";
+import { EditIcon, PlusIcon } from "lucide-react";
 
-export function CourseCreationDialog({type,initialData}) {
-  const [activeTab, setActiveTab] = useState("basic")
-  const [courseData, setCourseData] = useState(type==="edit"?initialData:{})
+export function CourseCreationDialog({ type = "add", initialData }) {
+  const [activeTab, setActiveTab] = useState("basic");
+  const [courseData, setCourseData] = useState(
+    type == "edit" ? initialData : {}
+  );
+  const [isOpen, setIsOpen] = useState(false);
 
-  const{loading,success,error,sendRequest}=useRequest()
+  const { loading, success, error, sendRequest } = useRequest();
 
   const handleTabChange = (tabName) => {
-    setActiveTab(tabName)
-  }
+    setActiveTab(tabName);
+  };
 
   const handleDataUpdate = (newData) => {
-    setCourseData(prev => ({
+    setCourseData((prev) => ({
       ...prev,
-      ...newData
-    }))
-  }
+      ...newData,
+    }));
+  };
 
   const handleSubmit = async () => {
-
-    const res= initialData?._id ? await sendRequest(()=>updateCourse(initialData?._id,courseData)) : await sendRequest(()=>createCourse(courseData))
-    if(res.success){
-      setCourseData({})
-      setActiveTab("basic")
+    const res = initialData?._id
+      ? await sendRequest(() => updateCourse(initialData?._id, courseData))
+      : await sendRequest(() => createCourse(courseData));
+    if (res.success) {
+      console.log(res.message)
     }
-    // Submit course data to server
-    console.log("Final Course Data:", courseData)
-    // const res=await createCourse(courseData)
-    console.log(res)
-  }
+
+    setIsOpen(false);
+  };
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">{type=="edit"?"Edit Course":"Create New Course"}</Button>
+        {type === "add" ? (
+          <Button
+            variant="outline"
+            className="bg-blue-400 hover:bg-blue-500 text-black"
+            size="sm"
+          >
+            <PlusIcon className="mr-2 h-4 w-4" /> Add Tutor
+          </Button>
+        ) : (
+          <Button
+            variant="outline"
+            size="sm"
+            className="bg-green-400 xp-2 py-4 h-9 hover:bg-green-500 text-black"
+          >
+            <EditIcon className="mr-2 h-4 w-4" /> Edit
+          </Button>
+        )}
       </DialogTrigger>
-   
 
-      <DialogContent className="max-w-7xl h-[90vh] overflow-y-auto " onInteractOutside={(event) => event.preventDefault()}>
+      <DialogContent
+        className="max-w-7xl h-[90vh] overflow-y-auto "
+        onInteractOutside={(event) => event.preventDefault()}
+      >
         <DialogHeader>
-          <DialogTitle>{type=="edit"?"Edit Course":"Create New Course"}</DialogTitle>
+          <DialogTitle>
+            {type == "edit" ? "Edit Course" : "Create New Course"}
+          </DialogTitle>
           <DialogDescription>
-            {type=="edit"?"Edit the course details step by step":"Fill out the course details step by step"}
+            {type == "edit"
+              ? "Edit the course details step by step"
+              : "Fill out the course details step by step"}
           </DialogDescription>
         </DialogHeader>
 
-        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full ">
+        <Tabs
+          value={activeTab}
+          onValueChange={handleTabChange}
+          className="w-full "
+        >
           <TabsList className="grid w-full grid-cols-7 gap-3 mb-4 ">
             <TabsTrigger value="basic">Basic</TabsTrigger>
             <TabsTrigger value="description">Description</TabsTrigger>
@@ -82,7 +110,7 @@ export function CourseCreationDialog({type,initialData}) {
           </TabsList>
 
           <TabsContent value="basic">
-            <CourseBasicDetailsForm 
+            <CourseBasicDetailsForm
               onDataUpdate={handleDataUpdate}
               currentData={courseData}
               setActiveTab={setActiveTab}
@@ -90,7 +118,7 @@ export function CourseCreationDialog({type,initialData}) {
           </TabsContent>
 
           <TabsContent value="description">
-            <CourseDescriptionForm 
+            <CourseDescriptionForm
               onDataUpdate={handleDataUpdate}
               currentData={courseData}
               setActiveTab={setActiveTab}
@@ -98,7 +126,7 @@ export function CourseCreationDialog({type,initialData}) {
           </TabsContent>
 
           <TabsContent value="schedule">
-            <CourseScheduleForm 
+            <CourseScheduleForm
               onDataUpdate={handleDataUpdate}
               currentData={courseData}
               setActiveTab={setActiveTab}
@@ -106,14 +134,14 @@ export function CourseCreationDialog({type,initialData}) {
           </TabsContent>
 
           <TabsContent value="resources">
-            <CourseResourcesForm 
+            <CourseResourcesForm
               onDataUpdate={handleDataUpdate}
               currentData={courseData}
               setActiveTab={setActiveTab}
             />
           </TabsContent>
           <TabsContent value="video">
-            <CourseVideoForm 
+            <CourseVideoForm
               onDataUpdate={handleDataUpdate}
               currentData={courseData}
               setActiveTab={setActiveTab}
@@ -121,14 +149,14 @@ export function CourseCreationDialog({type,initialData}) {
           </TabsContent>
 
           <TabsContent value="review">
-            <ReviewForm 
+            <ReviewForm
               onDataUpdate={handleDataUpdate}
               currentData={courseData}
               setActiveTab={setActiveTab}
             />
           </TabsContent>
           <TabsContent value="faqs">
-            <CourseFAQsForm 
+            <CourseFAQsForm
               onDataUpdate={handleDataUpdate}
               currentData={courseData}
               setActiveTab={setActiveTab}
@@ -137,8 +165,8 @@ export function CourseCreationDialog({type,initialData}) {
 
           <div className="flex justify-between mt-4">
             {activeTab == "faqs" && (
-                <Button onClick={handleSubmit} variant="success">
-               {loading ? "Creating..." : "Create Course"}
+              <Button onClick={handleSubmit} variant="default">
+                {loading ? "Creating..." : "Create Course"}
               </Button>
             )}
 
@@ -159,5 +187,5 @@ export function CourseCreationDialog({type,initialData}) {
         </Tabs>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
