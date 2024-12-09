@@ -4,7 +4,7 @@ import { IconChevronRight } from "@tabler/icons-react";
 import Link from "next/link";
 
 const Service_Section_Card = ({ data }) => {
-  console.log(data);
+ 
   return (
     <div className="group bg-transparent font-Manrope  cursor-pointer text-black rounded-lg rounded-br-[70px] relative shadow-lg p-4 w-full max-w-md  mx-auto mb-4">
       {/* Green bar that covers the entire card on hover with transition from rounded corner */}

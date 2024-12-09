@@ -14,6 +14,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useRequest } from "@/components/custom hooks/useRequest";
+import { subscribeAction } from "@/app/actions/subscribe_fun";
 
 // Define the schema
 const subscribeSchema = z.object({
@@ -30,9 +32,13 @@ const Subscribe_Form = () => {
       email: "",
     },
   });
+  const { loading, success, error, sendRequest } = useRequest();
+  const onSubmit = async (data) => {
+    const res = await sendRequest(() => subscribeAction(data.email));
 
-  const onSubmit = (data) => {
-    console.log(data); // You can replace this with your subscription logic
+    if (res.success) {
+      form.reset();
+    }
   };
 
   return (
@@ -58,16 +64,18 @@ const Subscribe_Form = () => {
             </FormItem>
           )}
         />
+   
 
-<Button
-  type="submit"
-  className="relative overflow-hidden bg-[#E1EBE2] w-fit text-[#4F9F76] hover:text-white px-4 py-2 rounded-md group"
->
-  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-full bg-[#4F9F76]  rounded-md group-hover:w-full transition-all duration-500 ease-in-out" />
-  <span className="relative z-10">Subscribe</span>
-</Button>
-
+        <Button
+          type="submit"
+          className="relative overflow-hidden bg-[#E1EBE2] w-fit text-[#4F9F76] hover:text-white px-4 py-2 rounded-md group"
+        >
+          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-full bg-[#4F9F76]  rounded-md group-hover:w-full transition-all duration-500 ease-in-out" />
+          <span className="relative z-10">{loading ? "Loading..." : "Subscribe"}</span>
+        </Button>
       </form>
+      {success && <p className="text-green-500 mt-1">{success}</p>}
+      {error && <p className="text-red-500 mt-1">{error}</p>}
     </Form>
   );
 };

@@ -2717,9 +2717,9 @@ export const admin_sidebar_items = [
   },
   {
     id: 4,
-    title: "Notifications",
+    title: "Contact Details",
     icon: <IconBell />,
-    link: "/admin-notifications",
+    link: "/admin-contact-details",
   },
 ];
 

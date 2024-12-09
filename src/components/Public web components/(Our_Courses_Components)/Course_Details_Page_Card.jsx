@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { formatDate } from "@/utils/formatDateFunction";
 import {
   IconCalendar,
   IconCheck,
@@ -12,10 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-function formatDate(date) {
-  const options = { day: '2-digit', month: 'short', year: 'numeric' };
-  return new Date(date).toLocaleDateString('en-US', options).replace(',', '');
-}
+
 const Course_Details_Page_Card = ({ course }) => {
 
   const {
