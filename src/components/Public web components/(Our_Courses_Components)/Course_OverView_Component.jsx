@@ -28,7 +28,7 @@ const Course_OverView_Component = ({
             <IconTargetArrow className="mr-3 text-blue-600" size={40} />
             Program Objective
           </h2>
-          <p className="text-gray-700 text-lg max-w-full text-wrap break-words">{objective}</p>
+          <p className="text-gray-700 text-base max-w-full text-wrap break-words">{objective}</p>
         </div>
 
         {/* Key Features Section */}

@@ -31,6 +31,7 @@ export function CourseCreationDialog({ type = "add", initialData }) {
   const [courseData, setCourseData] = useState(
     type == "edit" ? initialData : {}
   );
+  console.log(type)
   const [isOpen, setIsOpen] = useState(false);
 
   const { loading, success, error, sendRequest } = useRequest();
@@ -50,8 +51,16 @@ export function CourseCreationDialog({ type = "add", initialData }) {
     const res = initialData?._id
       ? await sendRequest(() => updateCourse(initialData?._id, courseData))
       : await sendRequest(() => createCourse(courseData));
+    if (type == "edit") {
+      setIsOpen(false);
+      setCourseData(res.course);
+      setActiveTab("basic");
+      return;
+    
+    }
     if (res.success) {
-      console.log(res.message);
+      setIsOpen(false);
+      setCourseData({});
     }
 
     setIsOpen(false);
@@ -67,9 +76,7 @@ export function CourseCreationDialog({ type = "add", initialData }) {
             size="sm"
           >
             <PlusIcon className="mr-2 h-4 w-4 " />{" "}
-            <span className="font-bold">
-              Add Course
-            </span>
+            <span className="font-bold">Add Course</span>
           </Button>
         ) : (
           <Button
