@@ -41,6 +41,7 @@ export async function createCourse(data) {
 
     revalidatePath("/admin-courses", "page");
     revalidatePath(`/our-courses`, "page");
+    revalidatePath('/', 'layout');
 
     return {
       success: true,
@@ -96,8 +97,10 @@ export async function deleteCourse(id) {
       throw new Error("Failed to delete course");
     }
 
-    revalidatePath("/admin-courses", "page");
+    revalidatePath(`/our-courses`, "page");
     revalidatePath(`/our-courses/${id}`, "page");
+    revalidatePath('/', 'layout');
+    revalidatePath("/admin-courses", "page");
 
     return {
       success: true,
@@ -126,9 +129,10 @@ export async function updateCourse(id, data) {
     if (!updatedCourse) {
       throw new Error("Failed to update course");
     }
-    revalidatePath("/admin-courses", "page");
-    revalidatePath(`/our-courses/${id}`, "page");
     revalidatePath("/","page");
+    revalidatePath(`/our-courses/${id}`, "page");
+    revalidatePath('/', 'layout');
+    revalidatePath("/admin-courses", "page");
 
 
 

@@ -77,7 +77,7 @@ export async function deleteTutor(id) {
 
 export async function getTutors() {
   try {
-    const mongo=await connectDB();
+   await connectDB();
     
   
     const tutors = await Tutor.find().sort({ createdAt: -1 });
