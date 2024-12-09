@@ -16,6 +16,16 @@ export async function submitContactInquiry({ userData, inquiryType }) {
   try {
     // Connect to the database
     await connectDB();
+    let scheduleDates = [];
+    if (inquiryType == "schedule") {
+      scheduleDates = userData.schedules.map((schedule) => {
+        return {
+          date: schedule.date,
+          fromTime: schedule.fromTime,
+          toTime: schedule.toTime,
+        };
+      });
+    }
 
     // Prepare contact inquiry data
     const inquiryDetails = {
@@ -25,13 +35,7 @@ export async function submitContactInquiry({ userData, inquiryType }) {
       preferredContact: inquiryType === "schedule" ? "zoom" : null,
       schedules:
         inquiryType === "schedule"
-          ? [
-              {
-                date: new Date(),
-                fromTime: "10:00",
-                toTime: "11:00",
-              },
-            ]
+          ? scheduleDates
           : [],
     };
 
@@ -46,7 +50,7 @@ export async function submitContactInquiry({ userData, inquiryType }) {
     try {
       const { userEmailInfo, adminEmailInfo } =
         await sendInquiryConfirmationEmail(userData, inquiryType);
-        revalidatePath("/admin-contact-details")
+      revalidatePath("/admin-contact-details");
       return {
         success: true,
         message: "Contact inquiry submitted successfully",
@@ -120,18 +124,12 @@ export async function sendInquiryConfirmationEmail(userData, inquiryType) {
   }
 }
 
-
-export async function contact_number_inquery(mobileNumber)
-{
+export async function contact_number_inquery(mobileNumber) {
   try {
     // Render the user email template
     const userEmailHtml = await render(
-      <UserContactNotificationEmail
-       mobileNumber={mobileNumber}
-      />
+      <UserContactNotificationEmail mobileNumber={mobileNumber} />
     );
-
-   
 
     // Prepare email options
     const userMailOptions = {
@@ -141,17 +139,13 @@ export async function contact_number_inquery(mobileNumber)
       html: userEmailHtml,
     };
 
-   
-
     // Send emails concurrently
     const userEmailInfo = await Promise.all([
       transporter.sendMail(userMailOptions),
-     
     ]);
 
-    return userEmailInfo ;
+    return userEmailInfo;
   } catch (error) {
     throw new Error(`Failed to send emails: ${error.message}`);
   }
-
 }
