@@ -3,8 +3,7 @@
 import { deepClone } from "@/lib/convert_to_JSON";
 import { connectDB } from "@/lib/dbconnection";
 import coursesSchema from "@/modals/courses.schema";
-import { revalidatePath, revalidateTag } from "next/cache";
-import { cache } from "react";
+import { revalidatePath } from "next/cache";
 
 export async function createCourse(data) {
 
@@ -129,8 +128,8 @@ export async function updateCourse(id, data) {
     }
     revalidatePath("/admin-courses", "page");
     revalidatePath(`/our-courses/${id}`, "page");
-    
-    revalidateTag('homepage-services');
+    revalidatePath("/","page");
+
 
 
     return {
@@ -201,7 +200,7 @@ export async function getCourseById(id) {
   }
 }
 
-export const getHomePageServices = cache(async () => {
+export const getHomePageServices = async () => {
   try {
     await connectDB();
 
@@ -227,11 +226,7 @@ export const getHomePageServices = cache(async () => {
       servicesCourses: []
     };
   }
-}, { 
-  // Revalidation strategy
-  revalidate: 3600, // 1 hour
-  tags: ['homepage-services']
-});
+}
 
 
 export async function gethomeScreenCourses() {
@@ -263,8 +258,3 @@ export async function gethomeScreenCourses() {
 
 }
 
-// Manual Revalidation Utility
-export const revalidateServices = async () => {
-  // Explicitly revalidate the 'homepage-services' tag
-  revalidateTag('homepage-services');
-};
