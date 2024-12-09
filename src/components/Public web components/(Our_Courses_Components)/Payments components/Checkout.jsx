@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { paymentclientSecret } from "@/app/actions/payment_functions";
+import { add_payment, paymentclientSecret } from "@/app/actions/payment_functions";
 import PaymentStatusDialog from "./PaymentStatusDialog";
 
 const formSchema = z.object({
@@ -125,8 +125,20 @@ const Checkout = ({ purchaseCourseDetails }) => {
         throw new Error(stripeError.message);
       }
       setPayment_Id(paymentIntent.id);
+      const response=await add_payment({
+        email: form.getValues().email,
+        amount: purchaseCourseDetails.price * 100,
+        paymentIntentId: paymentIntent.id,
+        status: paymentIntent.status,
+        courseTitle: purchaseCourseDetails.name,
+      })
+      console.log(response)
+      if(!response.success)
+      {
+        setError(response.message);
+        return;
+      }
       
-  
   
       if (paymentIntent.status === "succeeded") {
         setPaymentStatus("success");

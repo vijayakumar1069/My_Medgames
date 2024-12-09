@@ -8,7 +8,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import Image from "next/image";
 import { DeleteCourse } from "./DeleteCourse";
 import { CourseCreationDialog } from "./CourseCreationDialog";
 
