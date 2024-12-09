@@ -1,11 +1,10 @@
 "use client";
 import React, { useState } from 'react';
-import { IconPlayerPlay, IconStar, IconStarHalfFilled } from '@tabler/icons-react';
-import { ChevronRight } from 'lucide-react';
-import ReactPlayer from 'react-player';
-import { Dialog, DialogClose, DialogContent, DialogOverlay, DialogTitle } from '@/components/ui/dialog';
+import { IconPlayerPlay } from '@tabler/icons-react';
+
+import { Dialog, DialogContent, DialogOverlay, DialogTitle } from '@/components/ui/dialog';
 import Videos from './Videos'; // Assuming Videos is a component that wraps ReactPlayer or similar
-import Link from 'next/link';
+
 
 const fullStars = Math.floor(4.5);
 const hasHalfStar = 4.5 % 1 !== 0;

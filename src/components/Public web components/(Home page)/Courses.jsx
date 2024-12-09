@@ -1,7 +1,6 @@
 import React from "react";
 import Small_Title from "./Small_Title";
 import Large_Title from "./Large_Title";
-import { courses } from "@/utils/constvalues";
 import Course_Card from "./Course_Card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 
-import { brand_Info, footerLinks, navbarvalues, socialMedialinks } from "@/utils/constvalues";
+import { brand_Info, footerLinks, socialMedialinks } from "@/utils/constvalues";
 import Link from "next/link";
-import { IconBrandInstagram, IconBrandThreads, IconMail, IconPhoneCall } from "@tabler/icons-react";
+import { IconBrandInstagram, IconMail, IconPhoneCall } from "@tabler/icons-react";
 import Subscribe_Form from "./Subscribe_Form";
 import { getCurrentYear } from "@/utils/getYear";
 

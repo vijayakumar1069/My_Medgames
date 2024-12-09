@@ -7,8 +7,7 @@ import Service_Section_Card from "./Service_Section_Card";
 import { getHomePageServices } from "@/app/actions/(Admin)/courseActions";
 import ErrorBoundary from "@/app/(public)/error";
 
-// Implement static generation with revalidation
-export const revalidate = 3600; // 1 hour
+
 
 const Services = async () => {
   try {

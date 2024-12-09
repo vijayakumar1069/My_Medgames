@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import Small_Title from "./Small_Title";
 import Large_Title from "./Large_Title";
 import Tutor_Card from "./Tutor_Card";
-import { const_tutors } from "@/utils/constvalues";
 import { getHomepageTutors } from "@/app/actions/(Admin)/tutorActions";
 import Loading from "@/components/Admin components/Loading";
 
