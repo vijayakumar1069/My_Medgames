@@ -70,9 +70,10 @@ const HeroCallbackForm = () => {
         {/* Request Call Button */}
         <button 
           type="submit" 
+          disabled={loading}
           className="px-3 py-3 bg-none font-bold sm:text-base text-sm text-[#29282B] transition-colors"
         >
-          Request Call
+          {loading ? "Requesting..." : "Request Call"}
         </button>
         </div>
         <div className="">

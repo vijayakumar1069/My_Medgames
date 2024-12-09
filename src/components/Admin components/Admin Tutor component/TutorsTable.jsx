@@ -13,6 +13,15 @@ import Image from "next/image";
   
   export async function TutorsTable() {
     const tutors = await getTutors();
+    
+    if (tutors.error) {
+   
+      return (
+        <div>
+          <p>{tutors.error.message}</p>
+        </div>
+      );
+    }
   
     return (
       <div className="overflow-x-auto">

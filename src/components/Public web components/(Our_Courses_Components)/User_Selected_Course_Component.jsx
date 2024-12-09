@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { Suspense, useMemo } from "react";
 import Link from "next/link";
 import {
   IconBook,
@@ -19,6 +19,7 @@ import Course_OverView_Component from "./Course_OverView_Component";
 import Course_Review_Component from "./Course_Review_Component";
 import Course_Suggestions from "./Course_Suggestions";
 import User_Selected_Course_FAQs from "./User_Selected_Course_FAQs";
+import Video_Player_Course from "./Video_Player_Course";
 
 // Constants for repeated values or configuration
 const COURSE_DETAILS_CONFIG = {
@@ -38,17 +39,17 @@ const formatCourseDetails = (course) => [
   {
     icon: IconChalkboard,
     label: "Tutor",
-    value: course.instructor,
+    value: course.instructorName || "N/A",
   },
   {
     icon: IconClockHour2,
     label: "Time",
-    value: `${course.daily_start_time} to ${course.daily_end_time} on ${course.classDay}`,
+    value: `${course.dailyStartTime} to ${course.dailyEndTime} on ${course.classDays[0]}`,
   },
   {
     icon: IconBook,
     label: "Lessons",
-    value: course.lessons,
+    value: course.lessons != "" ? course.lessons : "N/A",
   },
   {
     icon: IconMapPin,
@@ -58,13 +59,13 @@ const formatCourseDetails = (course) => [
   {
     icon: IconWorld,
     label: "Language",
-    value: course.teaching_language,
+    value: course.teachingLanguage || "English",
   },
-  {
-    icon: IconUsers,
-    label: "Students",
-    value: course.enrollerd_student,
-  },
+  // {
+  //   icon: IconUsers,
+  //   label: "Students",
+  //   value: course.enrollerd_student,
+  // },
 ];
 
 // Error Boundary Component
@@ -78,7 +79,7 @@ const ErrorBoundary = ({ children, fallback }) => {
 };
 
 // Main Component
-const User_Selected_Course_Component = ({ course }) => {
+const User_Selected_Course_Component = ({ course,suggestionsCourses }) => {
   // Memoize course details to optimize performance
   const courseDetails = useMemo(() => formatCourseDetails(course), [course]);
 
@@ -103,7 +104,7 @@ const User_Selected_Course_Component = ({ course }) => {
                 defaultValue={COURSE_DETAILS_CONFIG.overviewTab}
                 className="w-full"
               >
-                {/* Tabs Header */}
+              
                 <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value={COURSE_DETAILS_CONFIG.overviewTab}>
                     Overview
@@ -116,7 +117,7 @@ const User_Selected_Course_Component = ({ course }) => {
                   )}
                 </TabsList>
 
-                {/* Overview Tab Content */}
+        
                 <TabsContent value={COURSE_DETAILS_CONFIG.overviewTab}>
                 <Course_OverView_Component
                       objective={course.objective}
@@ -124,10 +125,11 @@ const User_Selected_Course_Component = ({ course }) => {
                       key_features={course.key_features}
                       additional_resources={course.additional_resources}
                       benefits={course.benefits}
+                      downalodPdf={course.downloadable_pdf[0].secureUrl}
                     />
                 </TabsContent>
 
-                {/* Reviews Tab Content */}
+           
                 {course.reviews && course.reviews.length > 0 && (
                   <TabsContent value={COURSE_DETAILS_CONFIG.reviewsTab}>
                     <Course_Review_Component course={course} />
@@ -138,6 +140,9 @@ const User_Selected_Course_Component = ({ course }) => {
 
             {/* Right Column: Course Details and Enroll Button */}
             <div className="lg:col-span-1 w-full h-fit max-w-sm bg-white shadow-xl p-6 rounded-lg">
+              <Suspense fallback={<div>Loading video...</div>}>
+              {course.video_section && <Video_Player_Course videoUrl={course.video_section} />}
+              </Suspense>
               <h2 className="text-lg font-bold mb-4">
                 {COURSE_DETAILS_CONFIG.courseIncludesTitle}
               </h2>
@@ -145,7 +150,7 @@ const User_Selected_Course_Component = ({ course }) => {
               <div className="space-y-6">
                 {courseDetails.map((detail, index) => (
                   <CourseDetailItem
-                    key={`course-detail-${index}`}
+                    key={detail.label + index}
                     icon={detail.icon}
                     label={detail.label}
                     value={String(detail.value)}
@@ -154,7 +159,7 @@ const User_Selected_Course_Component = ({ course }) => {
               </div>
 
               <div className="mt-6">
-                <Link href={`/payment?id=${course.id}`} className="block">
+                <Link href={`/payment?id=${course._id}`} className="block">
                   <Button
                     className="w-full bg-[#4F9F76] text-white px-4 py-2 rounded-md 
                     hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]"
@@ -168,15 +173,15 @@ const User_Selected_Course_Component = ({ course }) => {
 
           {/* Course Suggestions Section */}
           <div className="w-full mt-8">
-            <Course_Suggestions currentCourseName={course.name} />
+            <Course_Suggestions suggestionsCourses={suggestionsCourses} />
           </div>
         </div>
 
         {/* FAQs Section */}
-        {course.course_faqs && course.course_faqs.length > 0 && (
+        {course.questions && course.questions.length > 0 && (
           <div className="w-full">
             <User_Selected_Course_FAQs
-              items={course.course_faqs}
+              items={course.questions}
               heading={`${course.name} FAQs`}
             />
           </div>
@@ -192,7 +197,7 @@ const MemoizedUserSelectedCourseComponent = React.memo(
   (prevProps, nextProps) => {
     // Custom comparison to prevent unnecessary re-renders
     return (
-      prevProps.course?.id === nextProps.course?.id &&
+      prevProps.course?._id === nextProps.course?._id &&
       prevProps.course?.name === nextProps.course?.name
     );
   }

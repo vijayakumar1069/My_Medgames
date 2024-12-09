@@ -5,8 +5,7 @@ import Meet_Our_Tutor from "@/components/Public web components/(Meet_Our_Tutors_
 import Image_Bg from "@/components/Public web components/Image_Bg";
 import Loading from '@/components/Admin components/Loading';
 
-export const revalidate = 0; // Disable static generation
-export const dynamic = 'force-dynamic'; // Ensure dynamic rendering
+
 
 function TutorsContent({ tutors }) {
   if (tutors.length === 0) {

@@ -15,6 +15,7 @@ const Course_Review_Component = ({ course }) => {
           totalReviews) *
         100
       : 0,
+    index:star
   }));
 
 
@@ -37,8 +38,8 @@ const Course_Review_Component = ({ course }) => {
             <p>{starCounts[0].count} rating</p>
           </div>
           <div className="w-full px-5">
-            {starCounts?.map(({ star, count, percentage }) => (
-              <div key={star} className="flex items-center space-x-4">
+            {starCounts?.map(({ star, count, percentage,index }) => (
+              <div key={index} className="flex items-center space-x-4">
                 {/* Star label */}
                 <div className="flex items-center space-x-3">
                   <p className="font-medium">{star}</p>
@@ -65,8 +66,8 @@ const Course_Review_Component = ({ course }) => {
         <div className="w-full grid grid-cols-1 items-center gap-10">
 
         {
-          reviews?.map((review) => (
-           <Course_Details_review_Card key={review.id} review={review} />
+          reviews?.map((review,index) => (
+           <Course_Details_review_Card key={index} review={review} />
           ))
         }
         </div>

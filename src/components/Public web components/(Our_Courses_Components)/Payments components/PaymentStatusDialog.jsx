@@ -2,7 +2,7 @@
 
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -24,6 +24,23 @@ const PaymentStatusDialog = ({
   onClose,
   payment_Id
 }) => {
+  const [countdown, setCountdown] = useState(10);
+  useEffect(() => {
+    if (!open) return; // Only start timer if the dialog is open
+
+    const timer = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer); // Clear the interval when countdown reaches 0
+          window.location.href = `/view-receipt?id=${payment_Id}`; // Redirect
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer); // Cleanup interval on unmount
+  }, [open, payment_Id]);
   return (
     <Dialog open={open} className="bg-white">
       <DialogContent className="sm:max-w-[425px] flex flex-col justify-center items-center space-y-5">
@@ -43,6 +60,9 @@ const PaymentStatusDialog = ({
             </div>
           </DialogTitle>
           <DialogDescription className="text-center text-black">{paymentMessage}</DialogDescription>
+          <p className="text-center text-sm text-gray-600">
+            Redirecting in {countdown} seconds...
+          </p>
         </DialogHeader>
         <DialogFooter className={`flex sm:justify-center space-x-2 w-full sm:items-center`}>
             {

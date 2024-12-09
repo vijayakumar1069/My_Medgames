@@ -6,6 +6,7 @@ import { courses } from '@/utils/constvalues';
 
 // Function to get 3 random courses excluding the current course
 const getRandomCourses = (courses, currentCourse_Name) => {
+
   // Exclude the current course
   const filteredCourses = courses.filter(course => course.name !== currentCourse_Name);
 
@@ -25,17 +26,16 @@ const getRandomCourses = (courses, currentCourse_Name) => {
   return shuffledCourses.slice(0, 3);
 };
 
-const Course_Suggestions = ({ currentCourse_Name }) => {
-  const randomCourses = getRandomCourses(courses, currentCourse_Name); // Get 3 random courses excluding the current course
-
+const Course_Suggestions = ({ suggestionsCourses }) => {
+ 
   return (
     <div className="w-full h-full flex justify-center items-center flex-col space-y-8 p-3 py-10">
       <div className="w-full flex flex-col space-y-5">
         <Large_Title title="Courses You May Like" left={true} text={true} />
 
         <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 p-3 md:p-0 justify-items-center xl:justify-items-start">
-          {randomCourses.map((item) => (
-            <Course_Details_Page_Card key={item.id} course={item} />
+          {suggestionsCourses.map((item,index) => (
+            <Course_Details_Page_Card key={index} course={item} />
           ))}
         </div>
       </div>

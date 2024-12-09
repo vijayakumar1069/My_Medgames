@@ -3,11 +3,13 @@
 
 import AdminNotificationEmail from "@/components/email components/AdminNotificationEmail";
 import InquiryConfirmation from "@/components/email components/InquiryConfirmation";
+import UserContactNotificationEmail from "@/components/email components/UserContactNotificationEmail";
 import { deepClone } from "@/lib/convert_to_JSON";
 import { connectDB } from "@/lib/dbconnection";
 import transporter from "@/lib/email_transporter";
 import Inquiry from "@/modals/contact_us_schedule_a_call_schema";
 import { render } from "@react-email/components";
+import { revalidatePath } from "next/cache";
 
 // Contact Us Submission
 export async function submitContactInquiry({ userData, inquiryType }) {
@@ -44,7 +46,7 @@ export async function submitContactInquiry({ userData, inquiryType }) {
     try {
       const { userEmailInfo, adminEmailInfo } =
         await sendInquiryConfirmationEmail(userData, inquiryType);
-
+        revalidatePath("/admin-contact-details")
       return {
         success: true,
         message: "Contact inquiry submitted successfully",
@@ -116,4 +118,40 @@ export async function sendInquiryConfirmationEmail(userData, inquiryType) {
   } catch (error) {
     throw new Error(`Failed to send emails: ${error.message}`);
   }
+}
+
+
+export async function contact_number_inquery(mobileNumber)
+{
+  try {
+    // Render the user email template
+    const userEmailHtml = await render(
+      <UserContactNotificationEmail
+       mobileNumber={mobileNumber}
+      />
+    );
+
+   
+
+    // Prepare email options
+    const userMailOptions = {
+      from: `"MedGames" <${process.env.SMTP_USER}>`,
+      to: process.env.SMTP_USER,
+      subject: `New Contact Attempt`,
+      html: userEmailHtml,
+    };
+
+   
+
+    // Send emails concurrently
+    const userEmailInfo = await Promise.all([
+      transporter.sendMail(userMailOptions),
+     
+    ]);
+
+    return userEmailInfo ;
+  } catch (error) {
+    throw new Error(`Failed to send emails: ${error.message}`);
+  }
+
 }

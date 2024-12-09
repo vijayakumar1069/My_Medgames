@@ -20,7 +20,7 @@ const locationFormSchema = z.object({
   location: z.string().min(1, "Please select a location."),
 });
 
-const Tutor_Filter_Component = ({ setLocation }) => {
+const Tutor_Filter_Component = ({ setLocation,locationOfTutors }) => {
   const form = useForm({
     resolver: zodResolver(locationFormSchema),
     defaultValues: {
@@ -68,7 +68,7 @@ const Tutor_Filter_Component = ({ setLocation }) => {
                 <SelectContent className="bg-white border border-gray-300 rounded-md shadow-lg">
                   {
                     // Map over unique locations
-                    uniqueLocations.map((location, index) => (
+                    locationOfTutors.length>0 && locationOfTutors.map((location, index) => (
                       <SelectItem key={index} value={location} className="text-black hover:bg-gray-100">
                         {location}
                       </SelectItem>
