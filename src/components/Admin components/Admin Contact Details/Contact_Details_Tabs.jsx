@@ -8,8 +8,8 @@ import Skeleton from "@/components/Public web components/Skeleton";
 
 const Contact_Details_Tabs = () => {
   return (
-    <Tabs defaultValue="schedule" className="max-w-3xl">
-      <TabsList className="w-full flex justify-between items-center mb-5">
+    <Tabs defaultValue="schedule" className="w-full">
+      <TabsList className="w-full mx-auto flex justify-between items-center mb-5">
         <TabsTrigger value="schedule">Schedule</TabsTrigger>
         <TabsTrigger value="contact">Contact</TabsTrigger>
         <TabsTrigger value="request a call">Request A Call</TabsTrigger>

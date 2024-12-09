@@ -20,7 +20,6 @@ export async function Courses_Table() {
     Courses = await res.courses;
 
     if (Courses.error) {
- 
       return (
         <div>
           <p>{Courses.error.message}</p>
@@ -28,7 +27,6 @@ export async function Courses_Table() {
       );
     }
   } catch (error) {
-
     return (
       <div>
         <p>{error.message}</p>
@@ -53,38 +51,12 @@ export async function Courses_Table() {
         <TableBody>
           {Courses.length > 0 ? (
             Courses.map((course) => (
-              <TableRow key={course._id}>
-                {/* <TableCell className=" ">
-                    <div className="relative w-10 h-10 flex justify-center items-center">
-
-                    <Image
-                      src={course.img_for_course_details_page !=" " ? course.img_for_course_details_page : null}
-                      alt={course.name}
-                      fill
-                      className="rounded-full object-center"
-                      
-                    />
-                    </div>
-                  </TableCell> */}
+              <TableRow key={course._id} className="w-full">
+               
                 <TableCell>{course.name}</TableCell>
                 <TableCell>{course.price}</TableCell>
-                {/* <TableCell>{course.college}</TableCell>
-                  <TableCell>{course.specialist}</TableCell>
-                  <TableCell>{course.location}</TableCell> */}
-                <TableCell className="flex gap-2">
-                  {/* <TutorDialog 
-                      type="edit" 
-                      initialData={{
-                        _id: tutor._id,
-                        name: tutor.name,
-                        graduation: tutor.graduation,
-                        college: tutor.college,
-                        specialist: tutor.specialist,
-                        location: tutor.location,
-                        image: tutor.image
-                      }} 
-                    />
-                    <DeleteTutorButton tutorId={tutor._id} /> */}
+              
+                <TableCell className="flex text-center gap-2 justify-center items-center w-full mx-auto">
                   <CourseCreationDialog type="edit" initialData={course} />
                   <DeleteCourse courseId={course._id} />
                 </TableCell>
