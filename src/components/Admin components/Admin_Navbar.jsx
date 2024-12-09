@@ -18,7 +18,7 @@ const Admin_Navbar = ({ user }) => {
       <div className="flex items-center space-x-4">
        
         <h1 className="text-xl font-semibold text-brand-500">
-          Dashboard
+         Admin Dashboard
         </h1>
       </div>
       
