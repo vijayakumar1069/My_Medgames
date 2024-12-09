@@ -196,318 +196,6 @@ export const services = [
     link: "/our-courses/7",
   },
 ];
-
-export const const_tutors = [
-  {
-    id: 1,
-    name: "Depen Sharma",
-    description: "MD Candidate",
-    rating: 4.8,
-    reviews: 120,
-    college: "University of Ottawa",
-    specialist: "Customized Medical Training",
-    image: "/depen.png",
-    location: "Alberta", // Location randomly assigned from 3 options
-    socialsLinks: [
-      {
-        id: 1,
-        name: "whatsapp",
-        link: "https://www.whatsapp.com/depen.sharma",
-      },
-      {
-        id: 2,
-        name: "Instagram",
-        link: "https://www.instagram.com/depen.sharma/",
-      },
-      {
-        id: 3,
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/depen-sharma-b63030222/",
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Adina Borenstein",
-    description: "MD/PhD Candidate",
-    rating: 4.8,
-    reviews: 120,
-    college: "University of Toronto",
-    specialist: "Specialized Medical Expertise",
-    image: "/adina.png",
-    location: "British Columbia", // Random location
-    socialsLinks: [
-      {
-        id: 1,
-        name: "whatsapp",
-        link: "https://www.whatsapp.com/adina.borenstein",
-      },
-      {
-        id: 2,
-        name: "Instagram",
-        link: "https://www.instagram.com/adina.borenstein/",
-      },
-      {
-        id: 3,
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/adina-borenstein-md-phd-candidate-7007001b0/",
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Dr. Lakindu Somaweera",
-    description: "Internal Medicine Resident",
-    rating: 4.8,
-    reviews: 120,
-    college: "Queens University",
-    specialist: "Tailored Expert Guidance",
-    image: "/lakindu.png",
-    location: "Ontario", // Random location
-    socialsLinks: [
-      {
-        id: 1,
-        name: "whatsapp",
-        link: "https://www.whatsapp.com/lakindu.somaweera",
-      },
-      {
-        id: 2,
-        name: "Instagram",
-        link: "https://www.instagram.com/lakindu.somaweera/",
-      },
-      {
-        id: 3,
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/lakindu-somaweera-8a9a14230/",
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "Fiona Huang",
-    description: "MD Candidate",
-    rating: 4.8,
-    reviews: 120,
-    college: "University of British Columbia",
-    specialist: "Focused Medical Mentorship",
-    image: "/fiona.png",
-    location: "Alberta", // Random location
-    socialsLinks: [
-      {
-        id: 1,
-        name: "whatsapp",
-        link: "https://www.whatsapp.com/fiona.huang",
-      },
-      {
-        id: 2,
-        name: "Instagram",
-        link: "https://www.instagram.com/fiona.huang/",
-      },
-      {
-        id: 3,
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
-      },
-    ],
-  },
-  {
-    id: 5,
-    name: "William Ding",
-    description: "MD Candidate",
-    rating: 4.8,
-    reviews: 120,
-    college: "University of Toronto",
-    specialist: "Individualized Clinical Insight",
-    image: "/william.png",
-    location: "British Columbia", // Random location
-    socialsLinks: [
-      {
-        id: 1,
-        name: "whatsapp",
-        link: "https://www.whatsapp.com/fiona.huang",
-      },
-      {
-        id: 2,
-        name: "Instagram",
-        link: "https://www.instagram.com/fiona.huang/",
-      },
-      {
-        id: 3,
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
-      },
-    ],
-  },
-  {
-    id: 6,
-    name: "Buvani Sivagnanasunderam",
-    description: "MD Candidate",
-    rating: 4.8,
-    reviews: 120,
-    college: "McMaster University",
-    specialist: "Dedicated Clinical Support",
-    image: "/buvani.png",
-    location: "Ontario", // Random location
-    socialsLinks: [
-      {
-        id: 1,
-        name: "whatsapp",
-        link: "https://www.whatsapp.com/fiona.huang",
-      },
-      {
-        id: 2,
-        name: "Instagram",
-        link: "https://www.instagram.com/fiona.huang/",
-      },
-      {
-        id: 3,
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
-      },
-    ],
-  },
-  {
-    id: 7,
-    name: "Rida Sheikh",
-    description: "MD Candidate",
-    rating: 4.8,
-    reviews: 120,
-    college: "University of Western Ontario",
-    specialist: "Advanced Medical Coaching",
-    image: "/rida.png",
-    location: "Ontario", // Random location
-    socialsLinks: [
-      {
-        id: 1,
-        name: "whatsapp",
-        link: "https://www.whatsapp.com/fiona.huang",
-      },
-      {
-        id: 2,
-        name: "Instagram",
-        link: "https://www.instagram.com/fiona.huang/",
-      },
-      {
-        id: 3,
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
-      },
-    ],
-  },
-  {
-    id: 8,
-    name: "Patricia Machekera",
-    description: "MD Candidate",
-    rating: 4.8,
-    reviews: 120,
-    college: "University of Manitoba",
-    specialist: "Tailored Expert Guidance",
-    image: "/patricia.png",
-    location: "British Columbia", // Random location
-    socialsLinks: [
-      {
-        id: 1,
-        name: "whatsapp",
-        link: "https://www.whatsapp.com/fiona.huang",
-      },
-      {
-        id: 2,
-        name: "Instagram",
-        link: "https://www.instagram.com/fiona.huang/",
-      },
-      {
-        id: 3,
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
-      },
-    ],
-  },
-];
-
-export const brand_Info = {
-  name: "Med Games",
-  description: "The best platform to study medicine in the world",
-  image: "/logo.png",
-  social_links: [
-    {
-      id: 1,
-      name: "WhatsApp",
-      link: "https://chat.whatsapp.com/DQzgKDzNJOlCN9z1A80mYw",
-      display_content: "WhatsApp",
-    },
-    {
-      id: 2,
-      name: "Email",
-      link: "med.games.org@gmail.com",
-      display_content: "med.games.org@gmail.com",
-    },
-    {
-      id: 3,
-      name: "Instagram",
-      link: "https://www.instagram.com/medgamesorg/",
-      display_content: "@medgamesorg",
-    },
-    
-  ],
-};
-
-export const reviews = [
-  {
-    id: 1,
-    name: "Samantha K.",
-    review_content:
-      "Med Games was a game-changer! The mentorship and analytics were invaluable. Thrilled to have received three medical school interview invites!",
-    image: "/a1women.png",
-    position: "student",
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: "Isaac M.",
-    review_content:
-      "Small class sizes and one-on-one mentorship created a supportive, stress-free learning environment.",
-    image: "/a2men.png",
-    position: "student",
-    rating: 4.5,
-  },
-  {
-    id: 3,
-    name: "Ananya R.",
-    review_content:
-      "The personalized approach made all the difference. Tutors tailored the program to my strengths and weaknesses.",
-    image: "/a4women.png",
-    position: "student",
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: "Jordan L.",
-    review_content:
-      "The tutors truly understand what med schools seek. Their insights and guidance were spot on!",
-    image: "/a3men.png",
-    position: "student",
-    rating: 4.5,
-  },
-  {
-    id: 5,
-    name: "Priya S.",
-    review_content:
-      "From the MCAT to CASPer and applications, Med Games had it all covered. Their comprehensive approach made me feel confident and prepared for everything the admissions process threw at me.",
-    image: "/a5women.png",
-    position: "student",
-    rating: 5,
-  },
-];
-
-export const courses_titles = [
-  "CARS Program",
-  "CASPer Program",
-  "Longitudinal MCAT",
-  "Mentorship",
-  "Interview Program",
-  "Med Applications",
-  "UBC Interview Program",
-];
 export const courses = [
   {
     id: 1,
@@ -1309,6 +997,318 @@ export const courses = [
     ],
   },
 ];
+export const const_tutors = [
+  {
+    id: 1,
+    name: "Depen Sharma",
+    description: "MD Candidate",
+    rating: 4.8,
+    reviews: 120,
+    college: "University of Ottawa",
+    specialist: "Customized Medical Training",
+    image: "/depen.png",
+    location: "Alberta", // Location randomly assigned from 3 options
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/depen.sharma",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/depen.sharma/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/depen-sharma-b63030222/",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Adina Borenstein",
+    description: "MD/PhD Candidate",
+    rating: 4.8,
+    reviews: 120,
+    college: "University of Toronto",
+    specialist: "Specialized Medical Expertise",
+    image: "/adina.png",
+    location: "British Columbia", // Random location
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/adina.borenstein",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/adina.borenstein/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/adina-borenstein-md-phd-candidate-7007001b0/",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Dr. Lakindu Somaweera",
+    description: "Internal Medicine Resident",
+    rating: 4.8,
+    reviews: 120,
+    college: "Queens University",
+    specialist: "Tailored Expert Guidance",
+    image: "/lakindu.png",
+    location: "Ontario", // Random location
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/lakindu.somaweera",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/lakindu.somaweera/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/lakindu-somaweera-8a9a14230/",
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "Fiona Huang",
+    description: "MD Candidate",
+    rating: 4.8,
+    reviews: 120,
+    college: "University of British Columbia",
+    specialist: "Focused Medical Mentorship",
+    image: "/fiona.png",
+    location: "Alberta", // Random location
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/fiona.huang",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/fiona.huang/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: "William Ding",
+    description: "MD Candidate",
+    rating: 4.8,
+    reviews: 120,
+    college: "University of Toronto",
+    specialist: "Individualized Clinical Insight",
+    image: "/william.png",
+    location: "British Columbia", // Random location
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/fiona.huang",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/fiona.huang/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: "Buvani Sivagnanasunderam",
+    description: "MD Candidate",
+    rating: 4.8,
+    reviews: 120,
+    college: "McMaster University",
+    specialist: "Dedicated Clinical Support",
+    image: "/buvani.png",
+    location: "Ontario", // Random location
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/fiona.huang",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/fiona.huang/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: "Rida Sheikh",
+    description: "MD Candidate",
+    rating: 4.8,
+    reviews: 120,
+    college: "University of Western Ontario",
+    specialist: "Advanced Medical Coaching",
+    image: "/rida.png",
+    location: "Ontario", // Random location
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/fiona.huang",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/fiona.huang/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: "Patricia Machekera",
+    description: "MD Candidate",
+    rating: 4.8,
+    reviews: 120,
+    college: "University of Manitoba",
+    specialist: "Tailored Expert Guidance",
+    image: "/patricia.png",
+    location: "British Columbia", // Random location
+    socialsLinks: [
+      {
+        id: 1,
+        name: "whatsapp",
+        link: "https://www.whatsapp.com/fiona.huang",
+      },
+      {
+        id: 2,
+        name: "Instagram",
+        link: "https://www.instagram.com/fiona.huang/",
+      },
+      {
+        id: 3,
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/fiona-huang-0b8b5b1b0/",
+      },
+    ],
+  },
+];
+
+export const brand_Info = {
+  name: "Med Games",
+  description: "The best platform to study medicine in the world",
+  image: "/logo.png",
+  social_links: [
+    {
+      id: 1,
+      name: "WhatsApp",
+      link: "https://chat.whatsapp.com/DQzgKDzNJOlCN9z1A80mYw",
+      display_content: "WhatsApp",
+    },
+    {
+      id: 2,
+      name: "Email",
+      link: "med.games.org@gmail.com",
+      display_content: "med.games.org@gmail.com",
+    },
+    {
+      id: 3,
+      name: "Instagram",
+      link: "https://www.instagram.com/medgamesorg/",
+      display_content: "@medgamesorg",
+    },
+    
+  ],
+};
+
+export const reviews = [
+  {
+    id: 1,
+    name: "Samantha K.",
+    review_content:
+      "Med Games was a game-changer! The mentorship and analytics were invaluable. Thrilled to have received three medical school interview invites!",
+    image: "/a1women.png",
+    position: "student",
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: "Isaac M.",
+    review_content:
+      "Small class sizes and one-on-one mentorship created a supportive, stress-free learning environment.",
+    image: "/a2men.png",
+    position: "student",
+    rating: 4.5,
+  },
+  {
+    id: 3,
+    name: "Ananya R.",
+    review_content:
+      "The personalized approach made all the difference. Tutors tailored the program to my strengths and weaknesses.",
+    image: "/a4women.png",
+    position: "student",
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: "Jordan L.",
+    review_content:
+      "The tutors truly understand what med schools seek. Their insights and guidance were spot on!",
+    image: "/a3men.png",
+    position: "student",
+    rating: 4.5,
+  },
+  {
+    id: 5,
+    name: "Priya S.",
+    review_content:
+      "From the MCAT to CASPer and applications, Med Games had it all covered. Their comprehensive approach made me feel confident and prepared for everything the admissions process threw at me.",
+    image: "/a5women.png",
+    position: "student",
+    rating: 5,
+  },
+];
+
+export const courses_titles = [
+  "CARS Program",
+  "CASPer Program",
+  "Longitudinal MCAT",
+  "Mentorship",
+  "Interview Program",
+  "Med Applications",
+  "UBC Interview Program",
+];
+
 
 export const blogs = [
   {
