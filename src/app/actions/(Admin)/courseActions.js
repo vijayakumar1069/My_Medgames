@@ -233,6 +233,36 @@ export const getHomePageServices = cache(async () => {
   tags: ['homepage-services']
 });
 
+
+export async function gethomeScreenCourses() {
+  try {
+    await connectDB();
+
+    const services = await coursesSchema.find({
+      shown_on_home_screen_courses_section: true
+    })
+    .select('_id name description img_for_home price startDate endDate via dailyStartTime dailyEndTime classDays')
+    .limit(8)
+    .lean()
+    .exec();
+
+    return {
+      success: true,
+      message: 'Services fetched successfully',
+      HomeScreenCourses: deepClone(services),
+      fetchedAt: new Date().toISOString()
+    };
+  } catch (error) {
+    console.error('Services Fetch Error:', error);
+    return {
+      success: false,
+      message: error.message || 'Failed to fetch Courses',
+      servicesCourses: []
+    };
+  }
+
+}
+
 // Manual Revalidation Utility
 export const revalidateServices = async () => {
   // Explicitly revalidate the 'homepage-services' tag

@@ -88,7 +88,7 @@ export function CourseBasicDetailsForm({
     }
 
     onDataUpdate(submissionData);
-    setActiveTab("description"); // Navigate to the next tab (Course Content)
+    setActiveTab("schedule"); // Navigate to the next tab (Course Content)
 
     // Proceed with saving data
   };

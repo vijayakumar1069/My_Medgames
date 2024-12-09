@@ -196,6 +196,11 @@ video_section:[
 redirect_link:
 {
   type: String
+},
+shown_on_home_screen_courses_section:
+{
+  type: Boolean,
+  default: false
 }
 },
 {

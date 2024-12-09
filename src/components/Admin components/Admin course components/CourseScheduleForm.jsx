@@ -52,7 +52,7 @@ export function CourseScheduleForm({
 
   const onSubmit = (data) => {
     onDataUpdate(data);
-    setActiveTab("resources");
+    setActiveTab("description");
    
   }
 

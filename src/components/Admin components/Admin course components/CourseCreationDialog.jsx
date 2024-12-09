@@ -51,7 +51,7 @@ export function CourseCreationDialog({ type = "add", initialData }) {
       ? await sendRequest(() => updateCourse(initialData?._id, courseData))
       : await sendRequest(() => createCourse(courseData));
     if (res.success) {
-      console.log(res.message)
+      console.log(res.message);
     }
 
     setIsOpen(false);
@@ -66,7 +66,10 @@ export function CourseCreationDialog({ type = "add", initialData }) {
             className="bg-blue-400 hover:bg-blue-500 text-black"
             size="sm"
           >
-            <PlusIcon className="mr-2 h-4 w-4" /> Add Tutor
+            <PlusIcon className="mr-2 h-4 w-4 " />{" "}
+            <span className="font-bold">
+              Add Course
+            </span>
           </Button>
         ) : (
           <Button
@@ -101,8 +104,8 @@ export function CourseCreationDialog({ type = "add", initialData }) {
         >
           <TabsList className="grid w-full grid-cols-7 gap-3 mb-4 ">
             <TabsTrigger value="basic">Basic</TabsTrigger>
-            <TabsTrigger value="description">Description</TabsTrigger>
             <TabsTrigger value="schedule">Schedule</TabsTrigger>
+            <TabsTrigger value="description">Description</TabsTrigger>
             <TabsTrigger value="resources">Resources</TabsTrigger>
             <TabsTrigger value="video">Video</TabsTrigger>
             <TabsTrigger value="review">Reviews</TabsTrigger>
@@ -117,14 +120,6 @@ export function CourseCreationDialog({ type = "add", initialData }) {
             />
           </TabsContent>
 
-          <TabsContent value="description">
-            <CourseDescriptionForm
-              onDataUpdate={handleDataUpdate}
-              currentData={courseData}
-              setActiveTab={setActiveTab}
-            />
-          </TabsContent>
-
           <TabsContent value="schedule">
             <CourseScheduleForm
               onDataUpdate={handleDataUpdate}
@@ -132,7 +127,13 @@ export function CourseCreationDialog({ type = "add", initialData }) {
               setActiveTab={setActiveTab}
             />
           </TabsContent>
-
+          <TabsContent value="description">
+            <CourseDescriptionForm
+              onDataUpdate={handleDataUpdate}
+              currentData={courseData}
+              setActiveTab={setActiveTab}
+            />
+          </TabsContent>
           <TabsContent value="resources">
             <CourseResourcesForm
               onDataUpdate={handleDataUpdate}
@@ -169,20 +170,6 @@ export function CourseCreationDialog({ type = "add", initialData }) {
                 {loading ? "Creating..." : "Create Course"}
               </Button>
             )}
-
-            {/* {activeTab !== "faqs" ? (
-              <Button 
-                onClick={() => {
-                  const tabOrder = ["basic", "description", "schedule", "resources","video", "review","faqs"]
-                  const currentIndex = tabOrder.indexOf(activeTab)
-                  setActiveTab(tabOrder[currentIndex + 1])
-                }}
-              >
-                Next
-              </Button>
-            ) : (
-            
-            )} */}
           </div>
         </Tabs>
       </DialogContent>

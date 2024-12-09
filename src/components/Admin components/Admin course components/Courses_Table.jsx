@@ -93,7 +93,7 @@ export async function Courses_Table() {
           ) : (
             <TableRow>
               <TableCell colSpan={6} className="text-center text-gray-500 py-4">
-                No tutors available. Add a new tutor to get started.
+                No Courses available. Add a new Courses to get started.
                 {/* <TutorDialog type="add" /> */}
               </TableCell>
             </TableRow>
