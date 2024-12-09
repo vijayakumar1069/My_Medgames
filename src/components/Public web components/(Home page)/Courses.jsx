@@ -7,6 +7,7 @@ import Link from "next/link";
 import { gethomeScreenCourses } from "@/app/actions/(Admin)/courseActions";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
+export const revalidate = 0;
 const Courses = async () => {
   let courses;
   try {

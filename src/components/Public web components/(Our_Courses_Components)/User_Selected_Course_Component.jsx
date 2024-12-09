@@ -21,6 +21,7 @@ import Course_Suggestions from "./Course_Suggestions";
 import User_Selected_Course_FAQs from "./User_Selected_Course_FAQs";
 import Video_Player_Course from "./Video_Player_Course";
 
+export const revalidate = 0;
 // Constants for repeated values or configuration
 const COURSE_DETAILS_CONFIG = {
   overviewTab: "overview",

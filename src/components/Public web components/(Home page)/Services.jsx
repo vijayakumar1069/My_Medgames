@@ -7,7 +7,7 @@ import Service_Section_Card from "./Service_Section_Card";
 import { getHomePageServices } from "@/app/actions/(Admin)/courseActions";
 import ErrorBoundary from "@/app/(public)/error";
 
-
+export const revalidate = 0;
 
 const Services = async () => {
   try {

@@ -7,6 +7,7 @@ import { getCourses } from "@/app/actions/(Admin)/courseActions";
 import Skeleton from "../Skeleton";
 
 
+export const revalidate = 0;
 
 const Our_Course_Main = async () => {
   let courses;
