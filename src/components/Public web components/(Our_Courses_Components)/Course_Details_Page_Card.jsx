@@ -99,7 +99,7 @@ const Course_Details_Page_Card = ({ course }) => {
           </span>
         </div> */}
         <p className="text-[#F61212] font-bold">$ {price}</p>
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-1 w-full items-center text-sm">
+        <div className="grid  grid-cols-1 gap-3 w-full items-center text-sm">
           <div className="flex items-center space-x-1">
             <IconCalendar stroke={2} className="text-[#4F9F76]" />
             <span>
@@ -110,12 +110,12 @@ const Course_Details_Page_Card = ({ course }) => {
             <IconMapPin stroke={2} className="text-[#4F9F76]" />
             <span>{via}</span>
           </div>
-        </div>
         <div className="flex items-center space-x-1 w-full text-sm">
           <IconClockHour2 stroke={2} className="text-[#4F9F76]" />
           <span>
             {dailyStartTime} to {dailyEndTime} on {classDays[0]}
           </span>
+        </div>
         </div>
         <div className="block lg:hidden">
       
