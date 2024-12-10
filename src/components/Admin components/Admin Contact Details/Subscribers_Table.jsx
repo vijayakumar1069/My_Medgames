@@ -9,6 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { getContactDetails } from "@/app/actions/details";
+import DeleteDetailsButton from "./DeleteDetailsButton";
 const Subscribers_Table = async () => {
   try {
     const res = await getContactDetails("subscribe");
@@ -24,6 +25,7 @@ const Subscribers_Table = async () => {
             <TableHeader>
               <TableRow>
                 <TableHead className="text-center">Email</TableHead>
+                <TableHead>Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -31,6 +33,9 @@ const Subscribers_Table = async () => {
                 res.data.map((item) => (
                   <TableRow key={item._id}>
                     <TableCell>{item.email}</TableCell>
+                    <TableCell>
+                      <DeleteDetailsButton type="subscribe" id={item._id} />
+                    </TableCell>
                   </TableRow>
                 ))
               ) : (

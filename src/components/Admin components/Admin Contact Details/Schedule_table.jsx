@@ -10,6 +10,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { formatDate } from "@/utils/formatDateFunction";
+import { Button } from "@/components/ui/button";
+import DeleteDetailsButton from "./DeleteDetailsButton";
 
 const Schedule_table = async () => {
   try {
@@ -31,6 +33,7 @@ const Schedule_table = async () => {
                 <TableHead>Phone</TableHead>
                 <TableHead>Preferred Contact</TableHead>
                 <TableHead>Inquiry</TableHead>
+                <TableHead>Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -55,6 +58,10 @@ const Schedule_table = async () => {
                         </div>
                       ))}
                     </TableCell>
+                    <TableCell>
+                      <DeleteDetailsButton type="schedule" id={item._id} />
+                    </TableCell>
+                 
                   </TableRow>
                 ))
               ) : (

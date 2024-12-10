@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import DeleteDetailsButton from "./DeleteDetailsButton";
 
 const Contact_Us_Table = async () => {
   try {
@@ -37,6 +38,7 @@ const Contact_Us_Table = async () => {
               <TableHead>Phone</TableHead>
               <TableHead>Course</TableHead>
               <TableHead>Message</TableHead>
+              <TableHead>Action</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -50,6 +52,7 @@ const Contact_Us_Table = async () => {
                   <TableCell className="max-w-sm break-words">
                     {item.inquiries[0]?.message || "No message provided"}
                   </TableCell>
+                  <TableCell><DeleteDetailsButton type="contact" id={item._id} /></TableCell>
                 </TableRow>
               ))
             ) : (

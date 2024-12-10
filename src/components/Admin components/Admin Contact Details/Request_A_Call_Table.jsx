@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import DeleteDetailsButton from "./DeleteDetailsButton";
 const Request_A_Call_Table = async () => {
   try {
     const res = await getContactDetails("request_a_call");
@@ -24,6 +25,7 @@ const Request_A_Call_Table = async () => {
             <TableHeader>
               <TableRow>
                 <TableHead className="text-center">Phone</TableHead>
+                <TableHead>Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -31,6 +33,9 @@ const Request_A_Call_Table = async () => {
                 res.data.map((item) => (
                   <TableRow key={item._id}>
                     <TableCell>{item.mobile_number}</TableCell>
+                    <TableCell>
+                      <DeleteDetailsButton type="request_a_call" id={item._id} />
+                    </TableCell>
                   </TableRow>
                 ))
               ) : (
