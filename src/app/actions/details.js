@@ -5,9 +5,9 @@ import { connectDB } from "@/lib/dbconnection";
 import Inquiry from "@/modals/contact_us_schedule_a_call_schema";
 import Reques_A_Call from "@/modals/request_a_call.modal";
 import Subscriber from "@/modals/subscribers";
+import { revalidatePath } from "next/cache";
 
 export async function getContactDetails(type) {
- 
   try {
     await connectDB();
     if (type == "request_a_call") {
@@ -19,8 +19,7 @@ export async function getContactDetails(type) {
         message: "Details fetched successfully",
         data: deepClone(requests),
       };
-    }
-    if (type == "subscribe") {
+    } else if (type == "subscribe") {
       const subscribers = await Subscriber.find()
         .sort({ createdAt: -1 })
         .lean();
@@ -58,4 +57,50 @@ export async function getContactDetails(type) {
       data: deepClone(result),
     };
   } catch (error) {}
+}
+
+export async function deleteContactDetails(type, id) {
+  try {
+    await connectDB();
+    if (type == "schedule" || type == "contact") {
+      const schedule = await Inquiry.findByIdAndDelete(id);
+      if (!schedule) return { success: false, message: "Schedule not found" };
+      revalidatePath("/admin-contact-details");
+      return {
+        success: true,
+        message: "Details deleted successfully",
+        data: deepClone(schedule),
+      };
+    }
+    // else if (type ==) {
+    //   const contact = await Contact.findByIdAndDelete(id);
+    //   return {
+    //     success: true,
+    //     message: "Details deleted successfully",
+    //     data: deepClone(contact),
+    //   };
+    // }
+    else if (type == "request_a_call") {
+      const request = await Reques_A_Call.findByIdAndDelete(id);
+      if (!request) return { success: false, message: "Request not found" };
+      revalidatePath("/admin-contact-details");
+      return {
+        success: true,
+        message: "Details deleted successfully",
+        data: deepClone(request),
+      };
+    } else if (type == "subscribe") {
+      const subscriber = await Subscriber.findByIdAndDelete(id);
+      if (!subscriber)
+        return { success: false, message: "Subscriber not found" };
+      revalidatePath("/admin-contact-details");
+      return {
+        success: true,
+        message: "Details deleted successfully",
+        data: deepClone(subscriber),
+      };
+    }
+  } catch (error) {
+    return { success: false, message: "Error deleting details" };
+  }
 }
