@@ -58,7 +58,7 @@ const Get_Started = dynamic(() => import("@/components/Public web components/(Ho
 
 export default function Home() {
   return (
-    <main>
+    <main className='flex flex-col lg:space-y-20 space-y-10'>
       {/* <Suspense fallback={<Skeleton />}>
         <Videos />
       </Suspense> */}
@@ -70,8 +70,12 @@ export default function Home() {
       <Courses />
       <Blogs />
       <Consultation />
+      <div className=''>
+
       <FAQs items={home_FAQs} />
       <Get_Started />
+      </div>
+      
     </main>
   );
 }

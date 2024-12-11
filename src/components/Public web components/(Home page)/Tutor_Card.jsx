@@ -10,7 +10,7 @@ const Tutor_Card = ({ tutor }) => {
     >
       <div className="relative group">
         <div className="h-full flex flex-col ">
-          <div className="h-72 w-60 relative overflow-hidden rounded-3xl bg-gray-300">
+          <div className="h-[350px] w-72 relative overflow-hidden rounded-3xl bg-gray-300">
             <Image
               src={tutor.image}
               className="h-full w-full object-cover  "

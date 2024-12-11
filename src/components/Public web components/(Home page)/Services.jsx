@@ -24,7 +24,7 @@ const Services = async () => {
         <Small_Title title="Services" />
         <Large_Title title="We provide All-in-one Solution for every Students" />
 
-        <div className="lg:w-10/12 md:w-11/12 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className={`lg:w-9/12 md:w-11/12 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ${services.length > 3 ? "xl:grid-cols-4" : ""}  gap-5`}>
           {services && services.length > 0 ? (
             services.map((item) => (
               <Service_Section_Card key={item._id} data={item} />

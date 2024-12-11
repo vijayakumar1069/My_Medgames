@@ -21,7 +21,7 @@ const About_us = () => {
 
   return (
     <div className="w-full min-h-screen flex justify-center font-Manrope text-[#4A4A4A] items-center flex-col space-y-8 p-3 py-10 bg-[#fff]">
-      <div className="lg:w-10/12 md:w-11/12 w-full px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+      <div className="lg:w-9/12 md:w-11/12 w-full px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 ">
         {/* Left Side */}
         <div className="flex flex-col space-y-6 w-full order-2 lg:order-1">
           <div>

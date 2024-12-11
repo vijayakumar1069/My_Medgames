@@ -32,7 +32,7 @@ const Tutors = async() => {
       {/* Add more tutor components here */}
       <Suspense fallback={<Loading/>}>
 
-      <div className="lg:w-10/12 md:w-11/12 w-full mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4   gap-8 justify-items-center md:justify-items-center  ">
+      <div className="xl:w-9/12 md:w-11/12 w-full mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4   gap-8 lg:gap-3 justify-items-center   ">
         {homepageTutors && homepageTutors.map((item, index) => (
           <Tutor_Card key={`${item._id}-${index}`} tutor={item} />
         ))}

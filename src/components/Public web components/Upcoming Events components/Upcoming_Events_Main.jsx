@@ -7,7 +7,7 @@ import { upcoming_events } from '@/utils/constvalues'
 const Upcoming_Events_Main = () => {
   return (
     <div className="w-full h-full flex justify-center items-center  flex-col space-y-8 p-3 py-10 ">
-    <div className="lg:w-10/12 md:w-11/12 w-full flex flex-col  space-y-5 ">
+    <div className="lg:w-9/12 md:w-11/12 w-full flex flex-col  space-y-5 ">
       <div className="flex flex-col space-y-4 justify-center items-center w-full">
         <Small_Title title="Events" color={"[#4A4A4A]"} />
         <Large_Title title="Upcoming Events" />

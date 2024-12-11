@@ -29,7 +29,7 @@ const User_Selected_Event_Component = ({ selected_Event }) => {
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center space-y-10  py-10">
-      <div className="lg:w-10/12 md:w-11/12 flex flex-col justify-center items-center space-y-10 p-5">
+      <div className="lg:w-9/12 md:w-11/12 flex flex-col justify-center items-center space-y-10 p-5">
       <div className="relative w-full h-[400px] p-10">
         <Image
           src={"/event_details_img.png"}

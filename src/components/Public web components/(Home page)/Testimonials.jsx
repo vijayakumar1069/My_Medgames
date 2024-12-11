@@ -10,7 +10,7 @@ import { reviews } from '@/utils/constvalues'
 const Testimonials = () => {
   return (
     <div className="w-full h-full flex justify-center items-center  flex-col space-y-8  py-10 bg-[#F4F6FC]">
-      <div className="lg:w-10/12 md:w-11/12 w-full space-y-4 md:space-y-0 flex flex-col md:flex-row md:justify-between justify-center items-center">
+      <div className="lg:w-9/12 md:w-11/12 w-full space-y-4 md:space-y-0 flex flex-col md:flex-row md:justify-between justify-center items-center">
         
         {/* Left Side: Text Content */}
         <div className="flex-1 mb-4 md:mb-0 md:text-left text-center  space-y-4 md:pr-5">
@@ -27,7 +27,7 @@ const Testimonials = () => {
         </Link>
         </div>
       </div>
-      <div className="lg:w-10/12 md:w-11/12 w-full grid grid-cols-1 lg:grid-cols-2   gap-5 p-5 md:p-0 justify-items-center  ">
+      <div className="lg:w-9/12 md:w-11/12 w-full grid grid-cols-1 lg:grid-cols-2   gap-5 p-5 md:p-0 justify-items-center  ">
           {
             reviews.map((item) => (
               <Testmonials_Card key={item.id} review={item} />

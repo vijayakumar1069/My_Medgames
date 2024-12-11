@@ -96,7 +96,7 @@ const User_Selected_Course_Component = ({ course,suggestionsCourses }) => {
   return (
     <ErrorBoundary fallback={<div>Error loading course details</div>}>
       <div className="w-full h-full flex flex-col justify-center items-center space-y-10 py-10">
-        <div className="lg:w-10/12 md:w-11/12 flex flex-col justify-center items-center space-y-10">
+        <div className="lg:w-9/12 md:w-11/12 flex flex-col justify-center items-center space-y-10">
           {/* Main Content Grid */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-10">
             {/* Left Column: Tabs for Overview and Reviews */}

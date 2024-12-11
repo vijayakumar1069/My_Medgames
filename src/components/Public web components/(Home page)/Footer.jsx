@@ -14,7 +14,7 @@ const Footer = () => {
     <div className="w-full h-full flex flex-col bg-[#274E49]  ">
 
         <div className="w-full flex justify-center items-center flex-col space-y-8 p-4 py-10 ">
-          <div className="lg:w-10/12 md:w-11/12 w-full grid grid-cols-1 sm:grid-cols-2 justify-items-center xl:grid-cols-3 gap-8 p-5">
+          <div className="lg:w-9/12 md:w-11/12 w-full grid grid-cols-1 sm:grid-cols-2 justify-items-center xl:grid-cols-3 gap-8 p-5">
             {/* Logo and Subscription Section */}
             <div className="flex flex-col space-y-4 items-center sm:justify-start  sm:items-start justify-center md:items-start   md:text-left">
               <div className="flex items-center space-x-4">
