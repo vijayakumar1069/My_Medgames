@@ -88,7 +88,7 @@ const Job_Application_Form = () => {
 
   return (
     <div className="flex justify-center items-center w-full h-full bg-white py-5">
-      <div className="relative w-full flex flex-col max-w-7xl md:flex-row space-y-8 md:space-y-0 md:space-x-8 bg-white shadow-lg rounded-xl p-2">
+      <div className="relative w-full flex flex-col max-w-5xl md:flex-row space-y-8 md:space-y-0 md:space-x-8 bg-white shadow-lg rounded-xl p-2">
         {/* Image Section */}
         <div className="w-full aspect-square flex-1 bg-white shadow-2xl rounded-2xl overflow-hidden flex">
         {/* Image Section with Enhanced Quality and Animations */}

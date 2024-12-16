@@ -34,11 +34,10 @@ const HeroSection = () => {
         <div className="flex-1 flex flex-col justify-center relative items-end lg:justify-end lg:items-end  py-10 px-5 lg:px-0  xl:px-0 ">
           <div className="max-w-lg flex-col space-y-5">
             <h1 className="text-2xl md:text-4xl tracking-wide  font-bold text-white text-center lg:text-left ">
-              &#34;Shape Your Academic Success with Our Expert Tutors &#34;
+              &#34;Your Path From Premed to MD &#34;
             </h1>
             <p className="text-white text-center lg:text-left ">
-              Achieve your goals with personalized one-on-one tutoring from
-              expert professionals.
+            Achieve your goals with personalized one-on-one and small group sessions with expert medical students.
             </p>
             <HeroCallbackForm />
             <div className="block 2xl:hidden">

@@ -80,7 +80,7 @@ export async function getTutors() {
    await connectDB();
     
   
-    const tutors = await Tutor.find().sort({ createdAt: -1 });
+    const tutors = await Tutor.find().sort({ createdAt: 1 });
    
     return deepClone(tutors);
   } catch (error) {
@@ -108,7 +108,7 @@ export async function getHomepageTutors()
   try {
     await connectDB();
     
-    const tutors = await Tutor.find().sort({ createdAt: -1 });
+    const tutors = await Tutor.find().sort({ createdAt: 1 });
     if(!tutors)
     {
       throw new Error("Failed to fetch tutors");
