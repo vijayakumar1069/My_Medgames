@@ -14,16 +14,17 @@ export default function AdminTutorsPage() {
         <TutorDialog type="add" />
       </div>
       
-      <Card>
+      <h1 className="text-xl font-semibold">Tutors List</h1>
+          <Suspense fallback={<Skeleton />}>
+            <TutorsTable />
+          </Suspense>
+      {/* <Card>
         <CardHeader>
           <CardTitle>Tutors List</CardTitle>
         </CardHeader>
         <CardContent>
-          <Suspense fallback={<Skeleton />}>
-            <TutorsTable />
-          </Suspense>
         </CardContent>
-      </Card>
+      </Card> */}
     </div>
   </div>
   );

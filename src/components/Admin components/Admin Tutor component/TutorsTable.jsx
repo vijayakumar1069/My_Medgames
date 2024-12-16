@@ -18,13 +18,13 @@ import Image from "next/image";
    
       return (
         <div>
-          <p>{tutors.error.message}</p>
+          <p>{tutors.message}</p>
         </div>
       );
     }
   
     return (
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto bg-white p-3 rounded-md">
         <Table>
           <TableHeader>
             <TableRow>
