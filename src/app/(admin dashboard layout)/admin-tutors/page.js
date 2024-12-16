@@ -2,7 +2,6 @@
 import { TutorDialog } from "@/components/Admin components/Admin Tutor component/TutorDialog";
 import { TutorsTable } from "@/components/Admin components/Admin Tutor component/TutorsTable";
 import Skeleton from "@/components/Public web components/Skeleton";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Suspense } from "react";
 
 export default function AdminTutorsPage() {
@@ -18,13 +17,7 @@ export default function AdminTutorsPage() {
           <Suspense fallback={<Skeleton />}>
             <TutorsTable />
           </Suspense>
-      {/* <Card>
-        <CardHeader>
-          <CardTitle>Tutors List</CardTitle>
-        </CardHeader>
-        <CardContent>
-        </CardContent>
-      </Card> */}
+    
     </div>
   </div>
   );
