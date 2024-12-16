@@ -49,6 +49,13 @@ const Courses = async () => {
             </div>
           )}
         </div>
+        <div className="">
+          <Link href="/our-courses" className="text-[#4F9F76]">
+            <Button className="bg-[#4F9F76] text-white px-6 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
+              All Courses
+            </Button>
+          </Link>
+        </div>
       </div>
     );
   } catch (error) {

@@ -32,7 +32,7 @@ import Image from "next/image";
               <TableHead>Name</TableHead>
               <TableHead>Graduation</TableHead>
               <TableHead>College</TableHead>
-              <TableHead>Specialist</TableHead>
+              {/* <TableHead>Specialist</TableHead> */}
               <TableHead>Location</TableHead>
               <TableHead className="text-center">Actions</TableHead>
             </TableRow>
@@ -56,7 +56,7 @@ import Image from "next/image";
                   <TableCell>{tutor.name}</TableCell>
                   <TableCell>{tutor.graduation}</TableCell>
                   <TableCell>{tutor.college}</TableCell>
-                  <TableCell>{tutor.specialist}</TableCell>
+                  {/* <TableCell>{tutor.specialist}</TableCell> */}
                   <TableCell>{tutor.location}</TableCell>
                   <TableCell className="flex gap-2">
                     <TutorDialog 

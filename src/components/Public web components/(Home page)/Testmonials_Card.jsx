@@ -14,12 +14,33 @@ const TestimonialsCard = ({ review }) => {
   return (
     <div className="max-w-3xl bg-white font-Manrope rounded-2xl shadow-md flex flex-col space-y-5 p-10">
       {/* User Info */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center justify-between space-x-4">
+        <div className="">
+
         <Avatar className="w-16 h-16">
           <AvatarImage src={image} />
           <AvatarFallback>{name[0]}</AvatarFallback>
         </Avatar>
         <div className="text-lg font-semibold text-gray-700">{name}</div>
+        </div>
+        <div className="">
+        <div className="w-full flex justify-between items-center">
+        {/* <div className="flex space-x-1 items-center">
+     
+          <IconBookmark className="text-[#4F9F76]" size={24} />
+          <p className="">Dr. {name}</p>
+        </div> */}
+        <div className="flex items-center space-x-1 text-yellow-500">
+          {[...Array(fullStars)].map((_, i) => (
+            <IconStar className="text-yellow-500 " fill="currentColor" key={i} size={16} />
+          ))}
+          {hasHalfStar && <IconStarHalfFilled size={16} />}
+          {[...Array(emptyStars)].map((_, i) => (
+            <IconStar key={`empty-${i}`} className="text-gray-300" />
+          ))}
+        </div>
+      </div>
+        </div>
       </div>
 
       {/* Testimonial Text with Quotes */}
@@ -31,23 +52,8 @@ const TestimonialsCard = ({ review }) => {
     
       </div>
 
-      <div className="h-[1px] bg-gray-200"></div>
-      <div className="w-full flex justify-between items-center">
-        <div className="flex space-x-1 items-center">
-     
-          <IconBookmark className="text-[#4F9F76]" size={24} />
-          <p className="">Dr. {name}</p>
-        </div>
-        <div className="flex items-center space-x-1 text-yellow-500">
-          {[...Array(fullStars)].map((_, i) => (
-            <IconStar className="text-yellow-500 " fill="currentColor" key={i} size={16} />
-          ))}
-          {hasHalfStar && <IconStarHalfFilled size={16} />}
-          {[...Array(emptyStars)].map((_, i) => (
-            <IconStar key={`empty-${i}`} className="text-gray-300" />
-          ))}
-        </div>
-      </div>
+      {/* <div className="h-[1px] bg-gray-200"></div> */}
+   
     </div>
   );
 };

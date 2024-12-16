@@ -23,7 +23,7 @@ const Meet_Our_Tutor = ({ tutors }) => {
 
   return (
     <div className="w-full h-full flex justify-center items-center flex-col space-y-8 p-3 py-10 bg-[#fff]">
-      <div className="md:w-11/12 w-full grid grid-cols-2 md:grid-cols-4 justify-center gap-8">
+      <div className="md:w-9/12 w-full grid grid-cols-2 md:grid-cols-4 justify-center gap-8">
         <div className="md:col-span-2 lg:col-span-1 col-span-2 flex flex-col w-full h-fit space-y-4 shadow-md p-8 rounded-md">
           <div className="mb-1">
             <h1 className="text-black text-2xl font-medium">Filter Tutors</h1>

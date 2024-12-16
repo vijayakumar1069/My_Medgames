@@ -22,7 +22,7 @@ const TutorSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   graduation: z.string().min(3, "Graduation details required"),
   college: z.string().min(3, "college details required"),
-  specialist: z.string().min(2, "Specialization required"),
+  specialist: z.string().optional(),
   location: z.string().min(2, "Location required"),
   image: z.string().optional(), // Base64 string or URL
 });
@@ -89,6 +89,7 @@ export function TutorForm({ initialData, onSubmitSuccess }) {
 
       if (result.success) {
         form.reset();
+        setIsSubmitting(false);
         onSubmitSuccess?.();
       } else {
         // Handle error (could use toast or form-level error)
@@ -143,7 +144,7 @@ export function TutorForm({ initialData, onSubmitSuccess }) {
             </FormItem>
           )}
         />
-        <FormField
+        {/* <FormField
           control={form.control}
           name="specialist"
           render={({ field }) => (
@@ -155,7 +156,7 @@ export function TutorForm({ initialData, onSubmitSuccess }) {
               <FormMessage />
             </FormItem>
           )}
-        />
+        /> */}
         <FormField
           control={form.control}
           name="location"
@@ -217,9 +218,15 @@ export function TutorForm({ initialData, onSubmitSuccess }) {
           </FormControl>
           <FormMessage />
         </FormItem>
-        {/* Similar fields for graduation, specialist, location */}
+
         <Button type="submit" disabled={isSubmitting}>
-          {initialData ? "Update Tutor" : "Create Tutor"}
+          {isSubmitting
+            ? initialData
+              ? "Updating Tutor..."
+              : "Creating Tutor..."
+            : initialData
+            ? "Update Tutor"
+            : "Create Tutor"}
         </Button>
       </form>
     </Form>

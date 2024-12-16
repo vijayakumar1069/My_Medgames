@@ -20,7 +20,7 @@ const TutorSchema = new mongoose.Schema({
   },
   specialist: {
     type: String,
-    required: [true, 'Specialization is required'],
+  
     trim: true,
     index: true
   },
