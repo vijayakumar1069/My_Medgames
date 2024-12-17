@@ -1,4 +1,4 @@
-import { IconBell, IconBooks, IconBuildingBank, IconHome, IconSchool } from "@tabler/icons-react";
+import { IconBell, IconBooks, IconBrandBlogger, IconBuildingBank, IconHome, IconSchool } from "@tabler/icons-react";
 import { BriefcaseMedical, CalendarClock, HandCoins } from "lucide-react";
 
 export const navbarvalues = [
@@ -2728,6 +2728,12 @@ export const admin_sidebar_items = [
     link: "/admin-payments",
   
   },
+  {
+    id: 6,
+    title: "Blog",
+    icon: <IconBrandBlogger />,
+    link: "/admin-blog",
+  }
 ];
 
 

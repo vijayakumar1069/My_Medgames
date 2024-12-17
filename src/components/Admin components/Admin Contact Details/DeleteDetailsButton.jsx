@@ -8,7 +8,7 @@ const DeleteDetailsButton = ({type,id}) => {
     const{loading,sendRequest}=useRequest()
     const handleDelete = async() => {
         // Implement the delete logic here
-        console.log(`Deleting ${type} with id: ${id}`);
+    
         await sendRequest(()=>deleteContactDetails(type,id))
         // if(type=="schedule" || type=="contact"){
             

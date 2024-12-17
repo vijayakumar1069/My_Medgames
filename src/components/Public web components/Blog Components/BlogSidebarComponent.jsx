@@ -6,14 +6,16 @@ import BlogCategoriesComponent from "./BlogCategoriesComponent"
 
 const BlogSidebarComponent = ({
   onSearch,
-  latestBlogs,
-  currentCategory
+  Allcourses,
+  showSearchComponent=false
+  // currentCategory
 }) => {
   return (
     <div className="lg:col-span-1 order-2 lg:order-2 space-y-4">
-      <BlogSearchComponent onSearch={onSearch} />
-      <LatestBlogsComponent latestBlogs={latestBlogs} />
-      <BlogCategoriesComponent currentCategory={currentCategory} />
+      {showSearchComponent && <BlogSearchComponent onSearch={onSearch} />}
+      {/* <BlogSearchComponent onSearch={onSearch} /> */}
+      <LatestBlogsComponent Allcourses={Allcourses} />
+      {/* <BlogCategoriesComponent currentCategory={currentCategory} /> */}
     </div>
   )
 }

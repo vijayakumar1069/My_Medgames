@@ -31,7 +31,7 @@ export function CourseCreationDialog({ type = "add", initialData }) {
   const [courseData, setCourseData] = useState(
     type == "edit" ? initialData : {}
   );
-  console.log(type)
+ 
   const [isOpen, setIsOpen] = useState(false);
 
   const { loading, success, error, sendRequest } = useRequest();

@@ -95,7 +95,7 @@ const CourseCourseBuilderForm = ({
   };
 
   const onSubmit = (data) => {
-    console.log("onSubmit");
+
 
     onDataUpdate(data);
     setActiveTab("resources");

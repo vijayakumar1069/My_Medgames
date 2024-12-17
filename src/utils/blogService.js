@@ -2,7 +2,7 @@
 import { blogs } from "@/utils/constvalues";
 
 export const blogService = {
-  getAllBlogs: () => blogs,
+
   
   getBlogById: (id) => {
     return blogs.find(blog => blog.id == id);

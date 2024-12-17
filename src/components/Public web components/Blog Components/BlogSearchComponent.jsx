@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 // Validation Schema
 const searchSchema = z.object({
@@ -31,12 +32,17 @@ const BlogSearchComponent = ({ onSearch }) => {
       searchTerm: "",
     },
   });
+  const router = useRouter();
 
   // Submit handler
   const onSubmit = (data) => {
 
     onSearch(data.searchTerm);
   };
+const handleReset=()=>{
+  form.reset();
+  router.push("/blog")
+}
 
   return (
     <div className="bg-white shadow-md rounded-lg p-6 space-y-4">
@@ -68,6 +74,13 @@ const BlogSearchComponent = ({ onSearch }) => {
             className="w-full bg-green-600 hover:bg-green-700"
           >
             Search Blogs
+          </Button>
+          <Button 
+            type="button" 
+            onClick={handleReset} 
+            className="w-full bg-red-600 hover:bg-red-700"
+          >
+            Reset
           </Button>
         </form>
       </Form>

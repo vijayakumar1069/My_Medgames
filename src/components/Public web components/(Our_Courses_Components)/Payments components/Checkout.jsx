@@ -132,7 +132,7 @@ const Checkout = ({ purchaseCourseDetails }) => {
         status: paymentIntent.status,
         courseTitle: purchaseCourseDetails.name,
       })
-      console.log(response)
+    
       if(!response.success)
       {
         setError(response.message);
