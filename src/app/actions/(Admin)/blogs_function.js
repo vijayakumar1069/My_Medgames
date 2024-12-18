@@ -11,7 +11,6 @@ import { revalidatePath } from "next/cache";
 export async function createBlogPost(values) {
   const { title, description, tags, photo, documentFile } = values;
 
-  
   try {
     // Ensure database connection
     await connectDB();
@@ -44,14 +43,14 @@ export async function createBlogPost(values) {
     // Create blog post
     const newBlog = new Blog(blogData);
     await newBlog.save();
-      // Revalidate paths
-      revalidatePath("/", "page");
-      revalidatePath(`/blog/${id}`, "page");
-      revalidatePath('/', 'layout');
-      revalidatePath("/admin-blog", "page");
+    // Revalidate paths
+    revalidatePath("/", "page");
+    revalidatePath(`/blog/${id}`, "page");
+    revalidatePath("/", "layout");
+    revalidatePath("/admin-blog", "page");
 
     return {
-        success: true,
+      success: true,
       message: "Blog post created successfully",
       blog: deepClone(newBlog),
     };
@@ -99,7 +98,7 @@ export async function updateBlog(id, values) {
     if (values.photo) {
       // Convert photo to base64
       const photoBase64 = await convertFileToBase64(values.photo);
-      
+
       updateData.photo = {
         filename: values.photo.name,
         mimetype: values.photo.type,
@@ -111,7 +110,7 @@ export async function updateBlog(id, values) {
     if (values.documentFile) {
       // Convert document to base64
       const documentBase64 = await convertFileToBase64(values.documentFile);
-      
+
       updateData.documentFile = {
         filename: values.documentFile.name,
         mimetype: values.documentFile.type,
@@ -123,9 +122,9 @@ export async function updateBlog(id, values) {
     const updatedBlog = await Blog.findByIdAndUpdate(
       id,
       { $set: updateData },
-      { 
-        new: true,  // Return the modified document
-        runValidators: true  // Run model validations
+      {
+        new: true, // Return the modified document
+        runValidators: true, // Run model validations
       }
     );
 
@@ -136,7 +135,7 @@ export async function updateBlog(id, values) {
     // Revalidate paths
     revalidatePath("/", "page");
     revalidatePath(`/blog/${id}`, "page");
-    revalidatePath('/', 'layout');
+    revalidatePath("/", "layout");
     revalidatePath("/admin-blog", "page");
 
     return {
@@ -144,7 +143,6 @@ export async function updateBlog(id, values) {
       message: "Blog updated successfully",
       blog: deepClone(updatedBlog),
     };
-
   } catch (error) {
     console.error("Error updating blog:", error);
     return {
@@ -205,6 +203,36 @@ export async function getAllBlogs() {
   }
 }
 
+export async function getBlogsForHome() {
+  try {
+    // Ensure database connection
+    await connectDB();
+
+    // Fetch all blog posts
+    const blogs = await Blog.find()
+      .select("_id title description tags photo")
+      .lean() // Use lean() for better performanceF
+      .exec();
+    if (blogs.length == 0) {
+      return {
+        success: false,
+        message: "No blog posts found",
+      };
+    }
+
+    return {
+      success: true,
+      message: "Blog posts fetched successfully",
+      blogs: deepClone(blogs),
+    };
+  } catch (error) {
+    console.error("Blog fetching error:", error);
+    return {
+      success: false,
+      message: error.message || "Internal Server Error",
+    };
+  }
+}
 
 export async function getBlogById(id) {
   try {
@@ -222,7 +250,7 @@ export async function getBlogById(id) {
     }
 
     // Convert base64 to buffer for document content
-    const documentBuffer = Buffer.from(blog.documentFile.data, 'base64');
+    const documentBuffer = Buffer.from(blog.documentFile.data, "base64");
 
     // Parse Word document to HTML
     const result = await mammoth.convertToHtml({ buffer: documentBuffer });
@@ -235,12 +263,13 @@ export async function getBlogById(id) {
 
     // Fetch related courses if tags exist
     if (tags && tags.length > 0) {
-      relatedCourses = await coursesSchema.find({
-        $or: [
-          { name: { $in: tags } }, // Match tag in course name
-          { description: { $regex: tags.join("|"), $options: "i" } }, // Match tag in course description (case-insensitive)
-        ],
-      })
+      relatedCourses = await coursesSchema
+        .find({
+          $or: [
+            { name: { $in: tags } }, // Match tag in course name
+            { description: { $regex: tags.join("|"), $options: "i" } }, // Match tag in course description (case-insensitive)
+          ],
+        })
         .limit(3) // Limit results to 3 courses
         .lean(); // Convert documents to plain objects for better performance
 
@@ -249,14 +278,16 @@ export async function getBlogById(id) {
         const additionalCoursesRequired = 3 - relatedCourses.length;
 
         // Fetch random courses excluding the ones already in relatedCourses
-        const randomCourses = await coursesSchema.aggregate([
-          { 
-            $match: { 
-              _id: { $nin: relatedCourses.map(course => course._id) } 
-            } 
-          }, // Exclude already selected courses
-          { $sample: { size: additionalCoursesRequired } } // Fetch random courses
-        ]).exec();
+        const randomCourses = await coursesSchema
+          .aggregate([
+            {
+              $match: {
+                _id: { $nin: relatedCourses.map((course) => course._id) },
+              },
+            }, // Exclude already selected courses
+            { $sample: { size: additionalCoursesRequired } }, // Fetch random courses
+          ])
+          .exec();
 
         // Merge the related courses with the random courses
         relatedCourses = [...relatedCourses, ...randomCourses];
@@ -265,9 +296,9 @@ export async function getBlogById(id) {
 
     // If no related courses found, fetch 3 random courses
     if (relatedCourses.length === 0) {
-      relatedCourses = await coursesSchema.aggregate([
-        { $sample: { size: 3 } }
-      ]).exec();
+      relatedCourses = await coursesSchema
+        .aggregate([{ $sample: { size: 3 } }])
+        .exec();
     }
 
     return {
@@ -277,11 +308,10 @@ export async function getBlogById(id) {
       content: {
         html: result.value,
         filename: blog.documentFile.filename,
-        mimetype: blog.documentFile.mimetype
+        mimetype: blog.documentFile.mimetype,
       },
       relatedCourses: deepClone(relatedCourses),
     };
-
   } catch (error) {
     console.error("Blog and related courses fetching error:", error);
 
@@ -299,13 +329,13 @@ export async function searchBlogs(searchParams) {
     await connectDB();
 
     // Destructure search parameters with default values
-    const { 
-      search = '', 
-      tags = [], 
-      sortBy = 'postedDate', 
-      sortOrder = 'desc', 
-      page = 1, 
-      limit = 10 
+    const {
+      search = "",
+      tags = [],
+      sortBy = "postedDate",
+      sortOrder = "desc",
+      page = 1,
+      limit = 10,
     } = searchParams;
 
     // Prepare search conditions
@@ -316,40 +346,34 @@ export async function searchBlogs(searchParams) {
       const escapedSearch = escapeRegExp(search);
       searchConditions.push({
         $or: [
-          { title: { $regex: escapedSearch, $options: 'i' } },
-          { description: { $regex: escapedSearch, $options: 'i' } },
-          { tags: { $regex: escapedSearch, $options: 'i' } }
-        ]
+          { title: { $regex: escapedSearch, $options: "i" } },
+          { description: { $regex: escapedSearch, $options: "i" } },
+          { tags: { $regex: escapedSearch, $options: "i" } },
+        ],
       });
     }
 
     // If specific tags are provided
     if (tags && tags.length > 0) {
-      searchConditions.push({ 
-        tags: { $in: Array.isArray(tags) ? tags : [tags] } 
+      searchConditions.push({
+        tags: { $in: Array.isArray(tags) ? tags : [tags] },
       });
     }
 
     // Construct the final query
-    const query = searchConditions.length > 0 
-      ? { $and: searchConditions } 
-      : {};
+    const query = searchConditions.length > 0 ? { $and: searchConditions } : {};
 
     // Prepare sort options
     const sortOptions = {};
-    sortOptions[sortBy] = sortOrder === 'desc' ? -1 : 1;
+    sortOptions[sortBy] = sortOrder === "desc" ? -1 : 1;
 
     // Calculate pagination
     const skip = (page - 1) * limit;
 
     // Perform search with pagination and sorting
     const [blogs, totalBlogs] = await Promise.all([
-      Blog.find(query)
-        .sort(sortOptions)
-        .skip(skip)
-        .limit(limit)
-        .lean(),
-      Blog.countDocuments(query)
+      Blog.find(query).sort(sortOptions).skip(skip).limit(limit).lean(),
+      Blog.countDocuments(query),
     ]);
 
     // Calculate total pages
@@ -357,22 +381,21 @@ export async function searchBlogs(searchParams) {
 
     return {
       success: true,
-      message: 'Blogs retrieved successfully',
+      message: "Blogs retrieved successfully",
       blogs: deepClone(blogs),
       pagination: {
         currentPage: page,
         totalPages,
         totalBlogs,
-        limit
-      }
+        limit,
+      },
     };
-
   } catch (error) {
-    console.error('Blog search error:', error);
+    console.error("Blog search error:", error);
     return {
       success: false,
-      message: 'Error searching blogs',
-      error: error.message
+      message: "Error searching blogs",
+      error: error.message,
     };
   }
 }
@@ -383,14 +406,14 @@ export async function deleteBlog(id) {
     await connectDB();
 
     // Delete blog from the database
-    const blog = await Blog.findByIdAndDelete({_id: id});
+    const blog = await Blog.findByIdAndDelete({ _id: id });
     if (!blog) {
       throw new Error("Failed to delete blog");
     }
 
     revalidatePath(`/blog`, "page");
     revalidatePath(`/blog/${id}`, "page");
-    revalidatePath('/', 'layout');
+    revalidatePath("/", "layout");
     revalidatePath("/admin-blog", "page");
 
     return {
@@ -403,7 +426,7 @@ export async function deleteBlog(id) {
     return {
       success: false,
       message: "Failed to delete blog",
-      error: error.message, 
+      error: error.message,
     };
   }
 }

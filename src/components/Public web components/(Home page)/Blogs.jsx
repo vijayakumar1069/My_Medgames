@@ -2,12 +2,13 @@ import React from 'react'
 import Small_Title from './Small_Title'
 import Large_Title from './Large_Title'
 import Blog_Card from './Blog_Card'
-import { getAllBlogs } from '@/app/actions/(Admin)/blogs_function'
+import { getAllBlogs, getBlogsForHome } from '@/app/actions/(Admin)/blogs_function'
 import Loading from '@/components/Admin components/Loading'
 import { notFound } from 'next/navigation'
 
 const Blogs = async() => {
-  const res=await getAllBlogs();
+  const res=await getBlogsForHome();
+
   if(res.success==false)
   {
     notFound()
