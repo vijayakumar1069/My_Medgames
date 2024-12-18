@@ -78,7 +78,7 @@ const Blog_Home_Component = ({ blog, Allcourses }) => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="w-full min-h-screen bg-[#fff] py-10">
-        <div className="container mx-auto px-4">
+        <div className="lg:w-10/12 md:w-11/12 w-full mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             {/* Blog Cards Section */}
             <div className="lg:col-span-3">

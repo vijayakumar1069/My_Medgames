@@ -72,14 +72,7 @@ const User_Selected_Blog_Component = ({
 
               {/* <BlogDetailsRenderer blogDetails={user_selected_blog.blog_details} /> */}
             </div>
-            <div className=" mt-2 flex justify-center items-center">
-              <Link href={"/blog"}>
-              <Button variant="outline" className="w-fit bg-[#4F9F76] hover:bg-[#3F7F5B] hover:text-white text-white">
-                View More Blogs
-              </Button>
-              
-              </Link>
-            </div>
+            
           </div>
 
           <BlogSidebarComponent

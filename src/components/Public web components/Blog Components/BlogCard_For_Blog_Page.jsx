@@ -10,7 +10,7 @@ const BlogCard_For_Blog_Page = ({ blog_data }) => {
   return (
     <div
      
-      className="bg-white rounded-xl shadow-md max-w-md overflow-hidden hover:scale-105"
+      className="bg-white rounded-xl shadow-md max-w-xl overflow-hidden hover:scale-105"
       key={blog_data.id}
     >
       <div className="relative aspect-video w-full ">

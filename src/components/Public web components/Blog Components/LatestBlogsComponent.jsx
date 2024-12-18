@@ -4,11 +4,12 @@ import Link from "next/link";
 import { Clock, Calendar } from "lucide-react";
 import { formatDate } from "@/utils/formatDateFunction";
 import { IconCoins, IconMoneybag } from "@tabler/icons-react";
+import { Button } from "@/components/ui/button";
 
 const LatestBlogsComponent = ({ Allcourses }) => {
   console.log("Allcourses", Allcourses);
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 sm:p-6">
+    <div className="bg-white shadow-md rounded-lg p-4 sm:p-6 ">
       <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4">
         Our Courses
       </h2>
@@ -69,6 +70,11 @@ const LatestBlogsComponent = ({ Allcourses }) => {
             </div>
           </Link>
         ))}
+        <Link href={"/our-courses"} className="block hover:bg-gray-50 transition duration-300  hover:scale-105 rounded-lg p-2 sm:p-3">
+          <Button className="w-full bg-[#4F9F76] text-white py-2 px-4 rounded hover:bg-[#274E49]">
+            View All Courses
+          </Button>
+        </Link>
       </div>
     </div>
   );

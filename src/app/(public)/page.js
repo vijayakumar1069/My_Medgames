@@ -68,7 +68,7 @@ export default function Home() {
       <Courses />
       <Tutors />
       <Testimonials />
-      {/* <Blogs /> */}
+      <Blogs />
       <Consultation />
       <div className=''>
 

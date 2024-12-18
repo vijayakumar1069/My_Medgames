@@ -10,7 +10,7 @@ import Link from "next/link";
 import React from "react";
 
 const Blog_Card = ({ blog }) => {
-  const { _id, title, description, postedDate, postedTime, slug } = blog;
+  const { _id, title, description, postedDate, postedTime } = blog;
 
   return (
     <div className="group max-w-md w-full bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
