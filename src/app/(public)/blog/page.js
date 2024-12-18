@@ -22,6 +22,7 @@ export default async function Blogs_Home_Page({ searchParams }) {
 
   // Fetch courses
   const allCourses = await getCourses();
+  console.log(allCourses)
 
   if (!allCourses || !blogsResult) {
     return <Loading />;

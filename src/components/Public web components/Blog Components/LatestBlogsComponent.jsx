@@ -23,7 +23,7 @@ const LatestBlogsComponent = ({ Allcourses }) => {
               {/* Image Container */}
               <div className="relative w-20 h-20 md:w-28 md:h-28 xl:w-32 xl:h-32 flex-shrink-0">
                 <Image
-                  src={course.img_for_course_details_page}
+                  src={course?.img_for_course_details_page}
                   alt={course.name}
                   fill
                   className="object-cover rounded-md"
