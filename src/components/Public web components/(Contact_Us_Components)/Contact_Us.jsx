@@ -1,6 +1,4 @@
-import { brand_Info } from "@/utils/constvalues";
 import React from "react";
-import Contact_Us_card from "./Contact_Us_card";
 import Contact_us_Form from "./Contact_us_Form";
 
 const Contact_Us = () => {

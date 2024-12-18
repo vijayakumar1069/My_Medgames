@@ -2770,3 +2770,9 @@ export   const sections = [
     optional: true,
   },
 ];
+
+export const subscribe_const=[
+  "Monthly Medical Career Insights",
+  "Exclusive Interview Preparation Guides",
+  "Early Access to Specialized Courses",
+]

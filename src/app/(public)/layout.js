@@ -3,6 +3,8 @@ import { Manrope, Poppins } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/Public web components/(Home page)/Navbar";
 import Footer from "@/components/Public web components/(Home page)/Footer";
+import { PopupProvider } from "@/components/Public web components/context/PopupProvider";
+import GlobalNewsletterPopup from "@/components/Public web components/context/GlobalNewsletterPopup";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,17 +31,22 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.variable} ${manrope.variable} font-poppins antialiased`}
       >
+        <PopupProvider>
+
+
         {/* Navbar */}
         <div className="fixed top-0 left-0 right-0 z-50 overflow-hidden">
 
         <Navbar />
         </div>
-
+    
         {/* Main content with padding to account for the fixed navbar */}
         <main className="pt-20"> 
           {children}
         </main>
+        <GlobalNewsletterPopup />
         <Footer/>
+        </PopupProvider>
       </body>
     </html>
   );

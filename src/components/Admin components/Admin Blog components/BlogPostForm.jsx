@@ -37,8 +37,7 @@ export function BlogPostForm({ initialData, onSubmitSuccess }) {
   const [tags, setTags] = useState(initialData?.tags || []);
   const [currentTag, setCurrentTag] = useState("");
   const { loading, success, error, sendRequest } = useRequest();
-  console.log(initialData);
-  const form = useForm({
+    const form = useForm({
     resolver: zodResolver(blogSchema),
     defaultValues: {
       title: initialData?.title || "",

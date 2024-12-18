@@ -48,7 +48,7 @@ export function CourseReviewsForm() {
   })
 
   const onSubmit = (data) => {
-    console.log(data)
+   
   }
 
   return (
