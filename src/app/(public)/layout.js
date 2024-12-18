@@ -23,29 +23,22 @@ export const metadata = {
   description: "Medgames - Your favorite e-learning platform.",
 };
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      
       <body
         className={`${poppins.variable} ${manrope.variable} font-poppins antialiased`}
       >
         <PopupProvider>
+          {/* Navbar */}
+          <div className="fixed top-0 left-0 right-0 z-50 overflow-hidden">
+            <Navbar />
+          </div>
 
-
-        {/* Navbar */}
-        <div className="fixed top-0 left-0 right-0 z-50 overflow-hidden">
-
-        <Navbar />
-        </div>
-    
-        {/* Main content with padding to account for the fixed navbar */}
-        <main className="pt-20"> 
-          {children}
-        </main>
-        <GlobalNewsletterPopup />
-        <Footer/>
+          {/* Main content with padding to account for the fixed navbar */}
+          <main className="pt-20">{children}</main>
+          <GlobalNewsletterPopup />
+          <Footer />
         </PopupProvider>
       </body>
     </html>

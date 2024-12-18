@@ -7,6 +7,7 @@ import coursesSchema from "@/modals/courses.schema";
 import { escapeRegExp } from "@/utils/regularExpression";
 import mammoth from "mammoth";
 import { revalidatePath } from "next/cache";
+import { cache } from "react";
 
 export async function createBlogPost(values) {
   const { title, description, tags, photo, documentFile } = values;
@@ -203,36 +204,49 @@ export async function getAllBlogs() {
   }
 }
 
-export async function getBlogsForHome() {
+export const getBlogsForHome = cache(async () => {
   try {
-    // Ensure database connection
     await connectDB();
 
-    // Fetch all blog posts
     const blogs = await Blog.find()
-      .select("_id title description tags photo")
-      .lean() // Use lean() for better performanceF
+      .select("_id title description tags photo postedDate postedTime")
+      .sort({ postedDate: -1 })
+     
+      .lean()
       .exec();
-    if (blogs.length == 0) {
+
+    if (!blogs?.length) {
       return {
         success: false,
         message: "No blog posts found",
+        blogs: []
       };
     }
+
+    // Optimize images before sending
+    const optimizedBlogs = blogs.map(blog => ({
+      ...blog,
+      photo: blog.photo ? {
+        ...blog.photo,
+        data: blog.photo.data // Consider implementing image optimization here
+      } : null
+    }));
 
     return {
       success: true,
       message: "Blog posts fetched successfully",
-      blogs: deepClone(blogs),
+      blogs: deepClone(optimizedBlogs),
     };
+
   } catch (error) {
     console.error("Blog fetching error:", error);
     return {
       success: false,
-      message: error.message || "Internal Server Error",
+      message: "Failed to fetch blog posts",
+      blogs: []
     };
   }
-}
+});
 
 export async function getBlogById(id) {
   try {

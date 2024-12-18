@@ -5,21 +5,21 @@ import Skeleton from "@/components/Public web components/Skeleton";
 import HeroSection from "@/components/Public web components/(Home page)/HeroSection";
 
 // Dynamic imports with enhanced loading
-const Videos = dynamic(
-  () => import("@/components/Public web components/(Home page)/Videos"),
-  {
-    loading: () => <Skeleton />,
-    ssr: true,
-  }
-);
+// const Videos = dynamic(
+//   () => import("@/components/Public web components/(Home page)/Videos"),
+//   {
+//     loading: () => <Skeleton />,
+//     ssr: true,
+//   }
+// );
 
-const Services = dynamic(
-  () => import("@/components/Public web components/(Home page)/Services"),
-  {
-    loading: () => <Skeleton />,
-    ssr: true,
-  }
-);
+// const Services = dynamic(
+//   () => import("@/components/Public web components/(Home page)/Services"),
+//   {
+//     loading: () => <Skeleton />,
+//     ssr: true,
+//   }
+// );
 
 const Tutors = dynamic(
   () => import("@/components/Public web components/(Home page)/Tutors"),
@@ -88,10 +88,16 @@ export default function Home() {
       <HeroSection />
 
       {/* <Services /> */}
-      <Courses />
-      <Tutors />
+    
+        <Courses />
+   
+      <Suspense fallback={<Skeleton />}>
+        <Tutors />
+      </Suspense>
       <Testimonials />
-      <Blogs />
+      <Suspense fallback={<Skeleton />}>
+        <Blogs />
+      </Suspense>
       <Consultation />
       <div className="">
         <FAQs items={home_FAQs} />

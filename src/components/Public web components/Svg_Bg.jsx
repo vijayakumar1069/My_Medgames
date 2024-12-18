@@ -1,8 +1,9 @@
+// components/Public web components/Svg_Bg.jsx
 import Image from "next/image";
 import React from "react";
 import Breadcrumb_Wrapper from "./Breadcrumb_Wrapper";
 
-const Svg_Bg = () => {
+const Svg_Bg = ({ pageTitle }) => {
   return (
     <div className="relative bg-[#E9f8F3] py-8">
       <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto px-4 lg:px-16 h-[400px] md:h-[400px] space-y-10 md:space-y-0">
@@ -20,7 +21,10 @@ const Svg_Bg = () => {
 
         {/* Breadcrumb Center Content */}
         <div className="flex-grow text-center">
-          <Breadcrumb_Wrapper headingTextColor="text-black" />
+          <Breadcrumb_Wrapper 
+            headingTextColor="text-black" 
+            pageTitle={pageTitle}
+          />
         </div>
 
         {/* Right Image */}
@@ -35,7 +39,7 @@ const Svg_Bg = () => {
         </div>
       </div>
 
-      {/* Extra Design Element (Red Rectangle) */}
+      {/* Extra Design Element */}
       <div className="absolute -top-5 right-0">
         <div className="relative w-20 h-36 md:w-20 md:h-36 lg:w-28 lg:h-44">
           <Image

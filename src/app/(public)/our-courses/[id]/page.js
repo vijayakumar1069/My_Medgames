@@ -1,101 +1,64 @@
-import { getCourseById, getCourses } from "@/app/actions/(Admin)/courseActions";
+// app/courses/[id]/page.jsx
+import { getCourseById } from "@/app/actions/(Admin)/courseActions";
 import User_Selected_Course_Component from "@/components/Public web components/(Our_Courses_Components)/User_Selected_Course_Component";
 import Svg_Bg from "@/components/Public web components/Svg_Bg";
 import { Button } from "@/components/ui/button";
-import { courses } from "@/utils/constvalues";
 import Link from "next/link";
+import { Suspense } from 'react';
 
-
-// export async function generateStaticParams() {
-//   try {
-//     const coursesResponse = await getCourses();
-    
-//     if (coursesResponse.success) {
-//       return coursesResponse.courses.map((course) => ({
-//         id: course._id.toString()
-//       }));
-//     }
-    
-//     return []; // Fallback if no courses
-//   } catch (error) {
-//     console.error('Static Params Generation Error:', error);
-//     return [];
-//   }
-// }
-// Separate utility function for course fetching
-const fetchCourseById = {
-  // Local static data method
-  fromStaticData: (courseId) => {
-    return courses.find(course => course.id == courseId);
-  },
-
-  // Placeholder for future database method
-  fromDatabase: async (courseId) => {
-    // Simulated database fetch
-    try {
-      // Replace with actual database query in future
-      const response = await getCourseById(courseId);
-      
-      if (!response.success) {
-        throw new Error('Course not found');
-      }
-      return {
-        currentCourse: response.course,
-        suggestionsCourses: response.suggestions
-      };
-      
-  
-    } catch (error) {
-      console.error('Error fetching course:', error);
-      return null;
-    }
-  }
-};
-
-// Error handling component
-const ErrorFallback = ({ message }) => (
-  <div className="flex justify-center flex-col items-center h-screen text-red-500">
-    <p>{message}</p>
-    <Link href={"/"}>
-    <Button className="mt-4">Go Back</Button>
+// Error Component (Server Component)
+const ErrorDisplay = ({ message }) => (
+  <div className="flex justify-center flex-col items-center h-screen">
+    <p className="text-red-500">{message}</p>
+    <Link href="/our-courses">
+      <Button className="mt-4">Back to Courses</Button>
     </Link>
   </div>
 );
 
-export default async function Particular_Course_Page({ params }) {
+// Loading Component (Server Component)
+const LoadingState = () => (
+  <div className="animate-pulse min-h-screen">
+    <div className="h-64 bg-gray-200" />
+    <div className="max-w-7xl mx-auto p-4 space-y-4">
+      <div className="h-8 bg-gray-200 rounded w-1/3" />
+      <div className="h-4 bg-gray-200 rounded w-2/3" />
+    </div>
+  </div>
+);
 
-    const { id } = await params || {};
-  // Defensive programming: Ensure params exists
+// Main Page Component (Server Component)
+export default async function Particular_Course_Page({ params }) {
+  // Validate params
+  const{id}= await params||{};
   if (!params || !id) {
-    return <ErrorFallback message="Invalid course parameters" />;
+    return <ErrorDisplay message="Invalid course ID" />;
   }
 
-  // Configuration object for easy future modifications
-  const COURSE_FETCH_CONFIG = {
-    useStaticData: false, // Toggle between static and database fetch
-    fallbackMessage: "Course not found"
-  };
-
   try {
-    // Flexible course fetching strategy
-    const user_selected_course = COURSE_FETCH_CONFIG.useStaticData
-      ? fetchCourseById.fromStaticData(id)
-      : await fetchCourseById.fromDatabase(id);
-  
-    // Additional validation
-    if (!user_selected_course) {
-      return <ErrorFallback message={COURSE_FETCH_CONFIG.fallbackMessage} />;
+    // Fetch course data
+    const response = await getCourseById(id);
+
+    if (!response?.success) {
+      return <ErrorDisplay message="Course not found" />;
     }
+
+    const { course, suggestions } = response;
 
     return (
       <div className="min-h-screen">
-        <Svg_Bg />
-        <User_Selected_Course_Component course={user_selected_course.currentCourse} suggestionsCourses={user_selected_course.suggestionsCourses}/>
+        <Svg_Bg pageTitle={course.name}/>
+        <Suspense fallback={<LoadingState />}>
+          <User_Selected_Course_Component 
+            course={course} 
+            suggestionsCourses={suggestions}
+          />
+        </Suspense>
       </div>
     );
   } catch (error) {
-    console.error('Course page rendering error:', error);
-    return <ErrorFallback message="An unexpected error occurred" />;
+    console.error('Course fetch error:', error);
+    return <ErrorDisplay message="Failed to load course" />;
   }
 }
 

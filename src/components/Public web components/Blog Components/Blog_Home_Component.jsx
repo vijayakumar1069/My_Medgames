@@ -3,51 +3,12 @@
 import React, { useState, useEffect, Suspense } from "react";
 import BlogCard_For_Blog_Page from "./BlogCard_For_Blog_Page";
 import BlogSidebarComponent from "./BlogSidebarComponent";
-import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
 const Blog_Home_Component = ({ blog, Allcourses }) => {
-  // const [filteredBlogs, setFilteredBlogs] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const searchParams = useSearchParams();
+ 
   const router = useRouter();
-  // const categoryParam = searchParams.get("category");
-  // const searchQuery = searchParams.get("search");
 
-  // Filter blogs based on category and search parameters
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   try {
-  //     let filtered = [...blog];
-
-  //     // Apply category filter if present
-  //     if (categoryParam) {
-  //       filtered = filtered.filter(
-  //         (item) =>
-  //           item.category.toLowerCase() ===
-  //           categoryParam.toLowerCase().split("-").join(" ")
-  //       );
-  //     }
-
-  //     // Apply search filter if present
-  //     if (searchQuery) {
-  //       filtered = filtered.filter(
-  //         (item) =>
-  //           item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  //           item.description.toLowerCase().includes(searchQuery.toLowerCase())
-  //       );
-  //     }
-
-  //     setFilteredBlogs(filtered);
-  //   } catch (error) {
-  //     console.error("Error filtering blogs:", error);
-  //     setFilteredBlogs([]);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // }, [blog, categoryParam, searchQuery]);
-
-  // // Handle search functionality
   const handleSearch = (searchTerm) => {
     if (searchTerm) {
       router.push(
@@ -56,24 +17,7 @@ const Blog_Home_Component = ({ blog, Allcourses }) => {
     } 
   };
 
-  // Handle category selection
-  // const handleCategoryChange = (category) => {
-  //   router.push(
-  //     `/blogs?category=${encodeURIComponent(category)}${
-  //       searchQuery ? `&search=${searchQuery}` : ""
-  //     }`
-  //   );
-  // };
 
-  // if (isLoading) {
-  //   return (
-  //     <Suspense fallback={<div>Loading...</div>}>
-  //       <div className="w-full h-screen flex justify-center items-center">
-  //         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
-  //       </div>
-  //     </Suspense>
-  //   );
-  // }
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

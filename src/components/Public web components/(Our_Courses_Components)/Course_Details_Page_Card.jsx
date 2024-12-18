@@ -24,8 +24,7 @@ const Course_Details_Page_Card = ({ course }) => {
     startDate,
     endDate,
     via,
-    rating,
-    star,
+ 
     dailyStartTime,
     img_for_course_details_page,
     dailyEndTime,

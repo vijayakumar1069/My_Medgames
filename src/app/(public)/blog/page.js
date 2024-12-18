@@ -29,7 +29,7 @@ export default async function Blogs_Home_Page({ searchParams }) {
 
   return (
     <div>
-      <Svg_Bg />
+      <Svg_Bg  />
       <Suspense fallback={<div><Loading /></div>}>
         <Blog_Home_Component
           blog={blogsResult.blogs}

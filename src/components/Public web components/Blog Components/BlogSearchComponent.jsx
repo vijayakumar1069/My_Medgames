@@ -60,7 +60,7 @@ const handleReset=()=>{
                 <FormLabel className="text-gray-700">Search Keyword</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Enter search term..."
+                    placeholder="Enter search Term/Tags"
                     {...field}
                     className="w-full"
                   />

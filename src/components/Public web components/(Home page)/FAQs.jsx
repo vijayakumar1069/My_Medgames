@@ -31,7 +31,7 @@ const FAQs = ({ items, heading }) => {
             {items.map((item,index) => (
               <AccordionItem
                 key={index}
-                value={`item-${item.id}`} // Use static keys
+                value={`item-${item.id||item._id}`} // Use static keys
                 className={`w-full ${
                   item.id !== items[items.length - 1].id ? "border-b-2 border-gray-200" : ""
                 }`}

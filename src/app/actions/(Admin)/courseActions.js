@@ -4,6 +4,7 @@ import { deepClone } from "@/lib/convert_to_JSON";
 import { connectDB } from "@/lib/dbconnection";
 import coursesSchema from "@/modals/courses.schema";
 import { revalidatePath } from "next/cache";
+import { cache } from "react";
 
 export async function createCourse(data) {
 
@@ -62,19 +63,30 @@ export async function createCourse(data) {
 
 
 
-export async function getCourses()
-{
+export const getCourses = cache(async () => {
   try {
     await connectDB();
-    // Fetch all courses from the database
-    const courses = await coursesSchema.find();
+
+    const courses = await coursesSchema
+      .find()
+      .select('_id name description price startDate endDate via dailyStartTime dailyEndTime classDays key_features img_for_course_details_page')
+      .lean()
+      .exec();
+
     if (!courses) {
       throw new Error("Failed to fetch courses");
     }
+
+    // Process and optimize course data
+    const processedCourses = courses.map(course => ({
+      ...course,
+      img_for_course_details_page: course.img_for_course_details_page || '/fallback-course-image.jpg'
+    }));
+
     return {
       success: true,
       message: "Courses fetched successfully",
-      courses: deepClone(courses),
+      courses: deepClone(processedCourses),
     };
   } catch (error) {
     console.error("Error fetching courses:", error);
@@ -83,9 +95,8 @@ export async function getCourses()
       message: "Failed to fetch courses",
       error: error.message,
     };
-    
   }
-}
+});
 
 
 export async function deleteCourse(id) {
@@ -233,7 +244,7 @@ export const getHomePageServices = async () => {
 }
 
 
-export async function gethomeScreenCourses() {
+export const gethomeScreenCourses = cache(async () => {
   try {
     await connectDB();
 
@@ -241,7 +252,7 @@ export async function gethomeScreenCourses() {
       shown_on_home_screen_courses_section: true
     })
     .select('_id name description img_for_home price startDate endDate via dailyStartTime dailyEndTime classDays')
-    .limit(8)
+   
     .lean()
     .exec();
 
@@ -256,9 +267,8 @@ export async function gethomeScreenCourses() {
     return {
       success: false,
       message: error.message || 'Failed to fetch Courses',
-      servicesCourses: []
+      HomeScreenCourses: []
     };
   }
-
-}
+});
 
