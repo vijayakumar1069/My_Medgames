@@ -9,7 +9,7 @@ import News_Letter_Subscribe from '../News_Letter_Subscribe'
 
 
 const GlobalNewsletterPopup = () => {
-  const { showPopup, handleClosePopup, handleSubscribe } = usePopup()
+  const { showPopup, handleClosePopup, handleSubscribe,subscribeFail } = usePopup()
 
   if (!showPopup) return null
 
@@ -30,6 +30,7 @@ const GlobalNewsletterPopup = () => {
           <News_Letter_Subscribe 
             onClose={handleClosePopup} 
             onSubscribe={handleSubscribe}
+            subscribeFail={subscribeFail}
           />
         </motion.div>
       </motion.div>

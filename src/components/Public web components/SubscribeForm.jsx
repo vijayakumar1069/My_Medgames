@@ -24,7 +24,7 @@ const subscribeSchema = z.object({
     .email({ message: "Invalid email address" })
 })
 
-const SubscribeForm = ({ onSubmit }) => {
+const SubscribeForm = ({ onSubmit,subscribeFail }) => {
   // Initialize the form with zod resolver
   const form = useForm({
     resolver: zodResolver(subscribeSchema),
@@ -93,7 +93,7 @@ const SubscribeForm = ({ onSubmit }) => {
               </FormItem>
             )}
           />
-
+          {subscribeFail !== "" && <p className="text-red-500 text-xs mt-1">{subscribeFail}</p>}
           <Button 
             type="submit" 
             className="w-full bg-[#4F9F76] hover:bg-[#3D8A5F] transition-colors duration-300 py-6 text-base"

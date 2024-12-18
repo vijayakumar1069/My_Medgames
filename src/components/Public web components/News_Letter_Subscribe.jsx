@@ -5,11 +5,11 @@ import SubscribeForm from "./SubscribeForm";
 import { BookOpenCheck, Check, Stethoscope, Trophy, X } from "lucide-react";
 import { subscribe_const } from "@/utils/constvalues";
 
-const News_Letter_Subscribe = ({ onClose, onSubscribe }) => {
+const News_Letter_Subscribe = ({ onClose, onSubscribe,subscribeFail }) => {
   return (
     <div className=" relative p-4 rounded-xl ">
-      <div className=" max-w-4xl mx-auto p-2 bg-white shadow-2xl relative  overflow-hidden">
-        <div className=" absolute top-4 right-4 z-10">
+      <div className=" max-w-4xl mx-auto p-2 bg-white shadow-2xl relative rounded-xl  overflow-hidden">
+        <div className=" absolute top-3 right-3 z-10">
           <X className="w-8 h-8 mr-1 p-1 font-bold text-white bg-[#4F9F76] rounded-full" onClick={onClose}  />
         </div>
         <div className="flex mx-auto md:flex-row flex-col rounded-xl">
@@ -73,7 +73,7 @@ const News_Letter_Subscribe = ({ onClose, onSubscribe }) => {
                 </div>
               </div>
 
-              <SubscribeForm onSubmit={onSubscribe} />
+              <SubscribeForm onSubmit={onSubscribe} subscribeFail={subscribeFail} />
 
               <div className="text-left text-sm text-gray-500 mt-4">
                 <p className="text-left">By subscribing gain access to:</p>
