@@ -40,7 +40,7 @@ const LatestBlogsComponent = ({ Allcourses }) => {
                 <h3 className="text-sm sm:text-base font-medium text-gray-800 line-clamp-2 mb-1 sm:mb-2">
                   {course.name}
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-500 line-clamp-3 mb-1 sm:mb-2">
+                <p className=" text-[14px]  text-gray-500 line-clamp-3 mb-1 sm:mb-2">
                   {course.description}
                 </p>
               </div>
