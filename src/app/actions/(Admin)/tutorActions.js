@@ -81,7 +81,7 @@ export const getTutors = cache(async () => {
     await connectDB();
 
     const tutors = await Tutor.find()
-      .select('_id name graduation location image college')
+      .select('_id name graduation location image college description')
       .sort({ createdAt: 1 })
       .lean()
       .exec();
