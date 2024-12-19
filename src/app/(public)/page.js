@@ -11,12 +11,12 @@ import Get_Started from "@/components/Public web components/(Home page)/Get_Star
 const DynamicContent = async () => {
   const [
     CoursesComponent,
-    // TutorsComponent,
-    // BlogsComponent
+    TutorsComponent,
+    BlogsComponent
   ] = await Promise.all([
     import("@/components/Public web components/(Home page)/Courses"),
-    // import("@/components/Public web components/(Home page)/Tutors"),
-    // import("@/components/Public web components/(Home page)/Blogs")
+    import("@/components/Public web components/(Home page)/Tutors"),
+    import("@/components/Public web components/(Home page)/Blogs")
   ]);
 
   return (
@@ -24,12 +24,12 @@ const DynamicContent = async () => {
       <Suspense fallback={<Skeleton />}>
         <CoursesComponent.default />
       </Suspense>
-      {/* <Suspense fallback={<Skeleton />}>
+      <Suspense fallback={<Skeleton />}>
         <TutorsComponent.default />
-      </Suspense> */}
-      {/* <Suspense fallback={<Skeleton />}>
+      </Suspense>
+      <Suspense fallback={<Skeleton />}>
         <BlogsComponent.default />
-      </Suspense> */}
+      </Suspense>
     </>
   );
 };
