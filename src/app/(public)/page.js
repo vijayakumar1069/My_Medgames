@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { home_FAQs } from "@/utils/constvalues";
 import Skeleton from "@/components/Public web components/Skeleton";
 import HeroSection from "@/components/Public web components/(Home page)/HeroSection";
+import BlogsWithErrorBoundary from "@/components/Public web components/(Home page)/Blogs";
 
 // Dynamic imports with enhanced loading
 // const Videos = dynamic(
@@ -45,14 +46,6 @@ const Courses = dynamic(
   }
 );
 
-const Blogs = dynamic(
-  () => import("@/components/Public web components/(Home page)/Blogs"),
-  {
-    loading: () => <Skeleton />,
-    ssr: true,
-  }
-);
-
 const Consultation = dynamic(
   () => import("@/components/Public web components/(Home page)/Consultation"),
   {
@@ -88,15 +81,15 @@ export default function Home() {
       <HeroSection />
 
       {/* <Services /> */}
-    
-        <Courses />
-   
+
+      <Courses />
+
       <Suspense fallback={<Skeleton />}>
         <Tutors />
       </Suspense>
       <Testimonials />
       <Suspense fallback={<Skeleton />}>
-        <Blogs />
+        <BlogsWithErrorBoundary />
       </Suspense>
       <Consultation />
       <div className="">
