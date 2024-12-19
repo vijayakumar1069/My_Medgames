@@ -6,7 +6,7 @@ const Tutor_Card = ({ tutor }) => {
   return (
     <div
       className="max-w-md bg-white text-black rounded-2xl flex flex-col items-center justify-center"
-      key={tutor.id}
+      key={tutor._id}
     >
       <div className="relative group">
         <div className="h-full flex flex-col ">
