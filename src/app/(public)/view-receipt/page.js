@@ -95,7 +95,7 @@ export default async function View_Receipt_Page({ searchParams }) {
       </div>
     );
   } catch (error) {
-    console.error("Receipt page error:", error);
+  
     return (
       <div className="container mx-auto px-4 py-8">
         <ErrorDisplay message="An unexpected error occurred while loading the receipt" />

@@ -25,7 +25,7 @@ export async function createCourse(data) {
     const baseURL =
       process.env.NEXT_PUBLIC_ENVIRONMENT === "development"
         ? "http://localhost:3000"
-        : process.env.NEXT_VERCEL_URL; // Ensure your production domain is in env
+        : process.env.NEXT_PUBLIC_VERCEL_URL; // Ensure your production domain is in env
 
     const redirectUrl = `${baseURL}/our-courses/${courseId}`;
 

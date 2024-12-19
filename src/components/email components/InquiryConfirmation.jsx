@@ -22,8 +22,8 @@ import {
     message,
     schedules
   }) {
-    const courses_Link=process.env.NEXT_PUBLIC_ENVIRONMENT !== "development"? `http://localhost:3000`:`${process.env.NEXT_VERCEL_URL}`;
-    const testimonials_Link=process.env.NEXT_PUBLIC_ENVIRONMENT !== "development"? `http://localhost:3000`:`${process.env.NEXT_VERCEL_URL}`;
+    const courses_Link=process.env.NEXT_PUBLIC_ENVIRONMENT !== "development"? `http://localhost:3000`:`${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+    const testimonials_Link=process.env.NEXT_PUBLIC_ENVIRONMENT !== "development"? `http://localhost:3000`:`${process.env.NEXT_PUBLIC_VERCEL_URL}`;
     return (
       <Html>
         <Head />

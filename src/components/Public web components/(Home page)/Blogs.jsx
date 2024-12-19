@@ -5,7 +5,7 @@ import Small_Title from "./Small_Title";
 import Large_Title from "./Large_Title";
 import Blog_Card from "./Blog_Card";
 import { getBlogsForHome } from "@/app/actions/(Admin)/blogs_function";
-import ErrorBoundary from "@/app/(public)/error";
+
 
 // Loading Skeleton Component
 const BlogLoadingSkeleton = () => (
