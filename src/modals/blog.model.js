@@ -65,7 +65,7 @@ const BlogSchema = new mongoose.Schema(
   }
 );
 
-BlogSchema.index({ slug: 1 }, { unique: true });
+BlogSchema.index({ ObjectId: 1 }, { unique: true });
 
 const Blog = mongoose.models?.Blog || mongoose.model("Blog", BlogSchema);
 

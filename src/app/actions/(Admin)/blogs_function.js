@@ -182,7 +182,7 @@ export async function getAllBlogs() {
     await connectDB();
 
     // Fetch all blog posts
-    const blogs = await Blog.find();
+    const blogs = await Blog.find().select("_id title description tags postedDate postedTime").lean().exec();
     if (blogs.length == 0) {
       return {
         success: false,
@@ -336,6 +336,36 @@ export async function getBlogById(id) {
     };
   }
 }
+export async function getBlogByIdForEdit(id) {
+  console.log('id',id);
+  try {
+    // Ensure database connection
+    await connectDB();
+    // Fetch blog post by ID
+    const blog = await Blog.findById(id);
+
+    if (!blog) {
+      return {
+        success: false,
+        message: "No blog post found",
+      };
+    }
+   return {
+     success: true,
+     message: "Blog post fetched successfully",
+     blog: deepClone(blog),
+   };
+  } catch (error) {
+    console.error("Blog and related courses fetching error:", error);
+
+    return {
+      success: false,
+      message: "Error fetching blog post and related courses",
+      error: error.message,
+    };
+   }
+  }
+
 
 export async function searchBlogs(searchParams) {
 

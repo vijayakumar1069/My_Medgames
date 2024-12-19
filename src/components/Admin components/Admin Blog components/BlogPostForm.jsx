@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -181,6 +182,9 @@ export function BlogPostForm({ initialData, onSubmitSuccess }) {
               </FormItem>
             )}
           />
+          {
+            
+          }
 
           <FormField
             control={form.control}

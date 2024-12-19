@@ -7,7 +7,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-
 // import { DeleteTutorButton } from "./DeleteTutorButton";
 import Image from "next/image";
 import { getAllBlogs } from "@/app/actions/(Admin)/blogs_function";
@@ -31,7 +30,7 @@ export async function BlogTable() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center">Image</TableHead>
+            {/* <TableHead className="text-center">Image</TableHead> */}
             <TableHead>title</TableHead>
             <TableHead>Description</TableHead>
             <TableHead>postedDate</TableHead>
@@ -44,7 +43,7 @@ export async function BlogTable() {
           {res.blogs.length > 0 ? (
             res.blogs.map((blog) => (
               <TableRow key={blog._id}>
-                <TableCell className=" ">
+                {/* <TableCell className=" ">
                   <div className="relative w-10 h-10">
                     <Image
                       src={`data:${blog.photo.mimetype};base64,${blog.photo.data}`}
@@ -53,7 +52,7 @@ export async function BlogTable() {
                       className="rounded-full"
                     />
                   </div>
-                </TableCell>
+                </TableCell> */}
                 <TableCell>{blog.title}</TableCell>
                 <TableCell>
                   <div className="line-clamp-3">{blog.description}</div>
@@ -62,10 +61,7 @@ export async function BlogTable() {
                 {/* <TableCell>{blog.specialist}</TableCell> */}
                 {/* <TableCell>{blog.location}</TableCell> */}
                 <TableCell className="flex gap-2">
-                  <BlogDialog
-                    type="edit"
-                      initialData={blog}
-                  />
+                  <BlogDialog type="edit" editID={blog._id} />
                   <DeleteBlog blogId={blog._id} />
                 </TableCell>
               </TableRow>
