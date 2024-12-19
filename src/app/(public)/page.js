@@ -83,7 +83,7 @@ export default function Home() {
       {/* <Services /> */}
 
       <Courses />
-
+{/* 
       <Suspense fallback={<Skeleton />}>
         <Tutors />
       </Suspense>
@@ -95,7 +95,7 @@ export default function Home() {
       <div className="">
         <FAQs items={home_FAQs} />
         <Get_Started />
-      </div>
+      </div> */}
     </main>
   );
 }

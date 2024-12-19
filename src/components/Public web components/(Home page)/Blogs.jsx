@@ -84,7 +84,7 @@ const Blogs = () => {
         
         const response = await getBlogsForHome();
 
-        if (!response || response.success === false) {
+        if (!response || response.success == false) {
           throw new Error(response?.message || 'Failed to load blogs');
         }
 
