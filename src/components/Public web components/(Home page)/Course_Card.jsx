@@ -11,6 +11,7 @@ const Course_Card = ({ course }) => {
     name, 
     description, 
     img_for_home, 
+    img_for_course_details_page,
     price, 
     startDate, 
     endDate, 
@@ -20,11 +21,12 @@ const Course_Card = ({ course }) => {
     classDays 
   } = course;
 
+
   return (
     <article className="group max-w-2xl w-full bg-[#F4F6FC] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
       <div className="relative w-full aspect-video overflow-hidden">
         <Image
-          src={img_for_home}
+          src={img_for_home == undefined || img_for_home == null || img_for_home == "" ? img_for_course_details_page : img_for_home}
           alt={name}
           fill
           priority={false}

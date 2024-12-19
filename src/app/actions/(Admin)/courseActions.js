@@ -251,7 +251,7 @@ export const gethomeScreenCourses = cache(async () => {
     const services = await coursesSchema.find({
       shown_on_home_screen_courses_section: true
     })
-    .select('_id name description img_for_home price startDate endDate via dailyStartTime dailyEndTime classDays')
+    .select('_id name description img_for_home price img_for_course_details_page startDate endDate via dailyStartTime dailyEndTime classDays')
    
     .lean()
     .exec();

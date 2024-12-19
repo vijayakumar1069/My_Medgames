@@ -4,6 +4,8 @@ import { home_FAQs } from "@/utils/constvalues";
 import Skeleton from "@/components/Public web components/Skeleton";
 import HeroSection from "@/components/Public web components/(Home page)/HeroSection";
 import BlogsWithErrorBoundary from "@/components/Public web components/(Home page)/Blogs";
+import Courses from "@/components/Public web components/(Home page)/Courses";
+import Tutors from "@/components/Public web components/(Home page)/Tutors";
 
 // Dynamic imports with enhanced loading
 // const Videos = dynamic(
@@ -22,13 +24,7 @@ import BlogsWithErrorBoundary from "@/components/Public web components/(Home pag
 //   }
 // );
 
-const Tutors = dynamic(
-  () => import("@/components/Public web components/(Home page)/Tutors"),
-  {
-    loading: () => <Skeleton />,
-    ssr: true,
-  }
-);
+
 
 const Testimonials = dynamic(
   () => import("@/components/Public web components/(Home page)/Testimonials"),
@@ -38,13 +34,7 @@ const Testimonials = dynamic(
   }
 );
 
-const Courses = dynamic(
-  () => import("@/components/Public web components/(Home page)/Courses"),
-  {
-    loading: () => <Skeleton />,
-    ssr: true,
-  }
-);
+
 
 const Consultation = dynamic(
   () => import("@/components/Public web components/(Home page)/Consultation"),
@@ -81,12 +71,18 @@ export default function Home() {
       <HeroSection />
 
       {/* <Services /> */}
+        <Suspense fallback={<Skeleton />}>
+
 
       <Courses />
 
-      <Suspense fallback={<Skeleton />}>
+        </Suspense>
+        <Suspense fallback={<Skeleton />}>
+        
         <Tutors />
-      </Suspense>
+        </Suspense>
+    
+   
       <Testimonials />
       <Suspense fallback={<Skeleton />}>
         <BlogsWithErrorBoundary />
