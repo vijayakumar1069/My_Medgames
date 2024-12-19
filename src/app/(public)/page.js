@@ -7,6 +7,9 @@ import Testimonials from "@/components/Public web components/(Home page)/Testimo
 import Consultation from "@/components/Public web components/(Home page)/Consultation";
 import FAQs from "@/components/Public web components/(Home page)/FAQs";
 import Get_Started from "@/components/Public web components/(Home page)/Get_Started";
+import Courses from "@/components/Public web components/(Home page)/Courses";
+import Tutors from "@/components/Public web components/(Home page)/Tutors";
+import BlogsWithErrorBoundary from "@/components/Public web components/(Home page)/Blogs";
 
 // Dynamic imports with enhanced loading
 // const Videos = dynamic(
@@ -25,13 +28,13 @@ import Get_Started from "@/components/Public web components/(Home page)/Get_Star
 //   }
 // );
 
-const Tutors = dynamic(
-  () => import("@/components/Public web components/(Home page)/Tutors"),
-  {
-    loading: () => <Skeleton />,
-    ssr: true,
-  }
-);
+// const Tutors = dynamic(
+//   () => import("@/components/Public web components/(Home page)/Tutors"),
+//   {
+//     loading: () => <Skeleton />,
+//     ssr: true,
+//   }
+// );
 
 // const Testimonials = dynamic(
 //   () => import("@/components/Public web components/(Home page)/Testimonials"),
@@ -41,21 +44,21 @@ const Tutors = dynamic(
 //   }
 // );
 
-const Courses = dynamic(
-  () => import("@/components/Public web components/(Home page)/Courses"),
-  {
-    loading: () => <Skeleton />,
-    ssr: true,
-  }
-);
+// const Courses = dynamic(
+//   () => import("@/components/Public web components/(Home page)/Courses"),
+//   {
+//     loading: () => <Skeleton />,
+//     ssr: true,
+//   }
+// );
 
-const Blogs = dynamic(
-  () => import("@/components/Public web components/(Home page)/Blogs"),
-  {
-    loading: () => <Skeleton />,
-    ssr: true,
-  }
-);
+// const Blogs = dynamic(
+//   () => import("@/components/Public web components/(Home page)/Blogs"),
+//   {
+//     loading: () => <Skeleton />,
+//     ssr: true,
+//   }
+// );
 
 // const Consultation = dynamic(
 //   () => import("@/components/Public web components/(Home page)/Consultation"),
@@ -92,15 +95,15 @@ export default function Home() {
       <HeroSection />
 
       {/* <Services /> */}
-    
+      <Suspense fallback={<Skeleton />}>
         <Courses />
-   
+      </Suspense>
       <Suspense fallback={<Skeleton />}>
         <Tutors />
       </Suspense>
       <Testimonials />
       <Suspense fallback={<Skeleton />}>
-        <Blogs />
+        <BlogsWithErrorBoundary />
       </Suspense>
       <Consultation />
       <div className="">
