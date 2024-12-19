@@ -9,6 +9,7 @@ const Tutors = async() => {
   let homepageTutors;
   try {
     const res = await getHomepageTutors();
+
  
     if (res.success) {
       homepageTutors = res.homeTutors;
