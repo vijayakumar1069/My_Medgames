@@ -46,7 +46,7 @@ export async function createBlogPost(values) {
     await newBlog.save();
     // Revalidate paths
     revalidatePath("/", "page");
-    revalidatePath(`/blog/${id}`, "page");
+    revalidatePath(`/blog/${newBlog._id}`, "page");
     revalidatePath("/", "layout");
     revalidatePath("/admin-blog", "page");
 
@@ -338,6 +338,7 @@ export async function getBlogById(id) {
 }
 
 export async function searchBlogs(searchParams) {
+
   try {
     // Ensure database connection
     await connectDB();
@@ -349,16 +350,18 @@ export async function searchBlogs(searchParams) {
       sortBy = "postedDate",
       sortOrder = "desc",
       page = 1,
-      limit = 10,
+      limit = 3,
     } = searchParams;
 
-    // Prepare search conditions
-    const searchConditions = [];
+    // Prepare search conditions for blogs
+    const blogSearchConditions = [];
 
-    // If search term is provided, create regex search across multiple fields
+    // Escape special characters for regex
+    const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
     if (search) {
       const escapedSearch = escapeRegExp(search);
-      searchConditions.push({
+      blogSearchConditions.push({
         $or: [
           { title: { $regex: escapedSearch, $options: "i" } },
           { description: { $regex: escapedSearch, $options: "i" } },
@@ -367,15 +370,15 @@ export async function searchBlogs(searchParams) {
       });
     }
 
-    // If specific tags are provided
     if (tags && tags.length > 0) {
-      searchConditions.push({
+      blogSearchConditions.push({
         tags: { $in: Array.isArray(tags) ? tags : [tags] },
       });
     }
 
-    // Construct the final query
-    const query = searchConditions.length > 0 ? { $and: searchConditions } : {};
+    // Construct the final query for blogs
+    const blogQuery =
+      blogSearchConditions.length > 0 ? { $and: blogSearchConditions } : {};
 
     // Prepare sort options
     const sortOptions = {};
@@ -384,19 +387,46 @@ export async function searchBlogs(searchParams) {
     // Calculate pagination
     const skip = (page - 1) * limit;
 
-    // Perform search with pagination and sorting
+    // Perform search with pagination and sorting for blogs
     const [blogs, totalBlogs] = await Promise.all([
-      Blog.find(query).sort(sortOptions).skip(skip).limit(limit).lean(),
-      Blog.countDocuments(query),
+      Blog.find(blogQuery).sort(sortOptions).skip(skip).limit(limit).lean(),
+      Blog.countDocuments(blogQuery),
     ]);
 
-    // Calculate total pages
+    // Prepare search conditions for courses
+    const courseSearchConditions = [];
+
+    if (search) {
+      const escapedSearch = escapeRegExp(search);
+      courseSearchConditions.push({
+        $or: [
+          { name: { $regex: escapedSearch, $options: "i" } },
+          { description: { $regex: escapedSearch, $options: "i" } },
+        ],
+      });
+    }
+
+    if (tags && tags.length > 0) {
+      courseSearchConditions.push({
+        tags: { $in: Array.isArray(tags) ? tags : [tags] },
+      });
+    }
+
+    // Construct the final query for courses
+    const courseQuery =
+      courseSearchConditions.length > 0 ? { $and: courseSearchConditions } : {};
+
+    // Perform search for related courses
+    const courses = await coursesSchema.find(courseQuery).lean();
+
+    // Calculate total pages for blogs
     const totalPages = Math.ceil(totalBlogs / limit);
 
     return {
       success: true,
-      message: "Blogs retrieved successfully",
+      message: "Blogs and related courses retrieved successfully",
       blogs: deepClone(blogs),
+      courses: deepClone(courses),
       pagination: {
         currentPage: page,
         totalPages,
@@ -405,14 +435,15 @@ export async function searchBlogs(searchParams) {
       },
     };
   } catch (error) {
-    console.error("Blog search error:", error);
+    console.error("Blog and course search error:", error);
     return {
       success: false,
-      message: "Error searching blogs",
+      message: "Error searching blogs and courses",
       error: error.message,
     };
   }
 }
+
 
 export async function deleteBlog(id) {
   try {

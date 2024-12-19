@@ -14,15 +14,17 @@ export default async function Blogs_Home_Page({ searchParams }) {
     search: search || "",
     tags: tags ? (Array.isArray(tags) ? tags : [tags]) : [],
     page: page ? parseInt(page) : 1,
-    limit: limit ? parseInt(limit) : 10,
+    limit: limit ? parseInt(limit) : 3,
   };
 
   // Fetch blogs based on search criteria
   const blogsResult = await searchBlogs(searchCriteria);
 
+
   // Fetch courses
   const allCourses = await getCourses();
-  console.log(allCourses)
+  const courseTitle=allCourses.courses.map(item=>item.name)
+ 
 
   if (!allCourses || !blogsResult) {
     return <Loading />;
@@ -36,6 +38,7 @@ export default async function Blogs_Home_Page({ searchParams }) {
           blog={blogsResult.blogs}
           Allcourses={allCourses.courses.slice(0, 3)}
           pagination={blogsResult.pagination}
+          courseTitle={courseTitle}
         />
       </Suspense>
     </div>

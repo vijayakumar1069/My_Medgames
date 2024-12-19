@@ -9,10 +9,10 @@ const LatestBlogsComponent = dynamic(() => import('./LatestBlogsComponent'), {
   loading: () => <div className="animate-pulse h-64 bg-gray-100 rounded-lg" />
 });
 
-const BlogSidebarComponent = ({ Allcourses, showSearchComponent = false,onSearch }) => {
+const BlogSidebarComponent = ({ Allcourses, showSearchComponent = false,onSearch ,courseTitle}) => {
   return (
     <aside className="lg:col-span-1 order-2 lg:order-2 space-y-4">
-      {showSearchComponent && <BlogSearchComponent onSearch={onSearch} />}
+      {showSearchComponent && <BlogSearchComponent onSearch={onSearch} courseTitle={courseTitle} />}
       <LatestBlogsComponent Allcourses={Allcourses} />
     </aside>
   );

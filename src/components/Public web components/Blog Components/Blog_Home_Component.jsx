@@ -1,23 +1,43 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
+import React, { Suspense } from "react";
 import BlogCard_For_Blog_Page from "./BlogCard_For_Blog_Page";
 import BlogSidebarComponent from "./BlogSidebarComponent";
 import { useRouter } from "next/navigation";
+import Pagination from "../Pagination";
 
-const Blog_Home_Component = ({ blog, Allcourses }) => {
- 
+const Blog_Home_Component = ({ blog, Allcourses, courseTitle, pagination }) => {
   const router = useRouter();
 
-  const handleSearch = (searchTerm) => {
+  const handleSearch = (searchTerm, selectedFilters) => {
+    const params = new URLSearchParams();
+
+    // Add query parameters only if they exist
     if (searchTerm) {
-      router.push(
-        `/blog?search=${encodeURIComponent(searchTerm)}`
-      );
-    } 
+      params.append("search", searchTerm);
+    }
+    if (selectedFilters && selectedFilters.length > 0) {
+      params.append("tags", selectedFilters.join(","));
+    }
+
+    // Navigate to the updated URL
+    router.push(`/blog?${params.toString()}`);
   };
+  const handlePageChange = (page) => {
+    const params = new URLSearchParams();
 
+    // Add query parameters only if they exist
+    if (pagination.search) {
+      params.append("search", pagination.search);
+    }
+    if (pagination.tags && pagination.tags.length > 0) {
+      params.append("tags", pagination.tags.join(","));
+    }
 
+    // Update page query parameter and navigate
+    params.set("page", page);
+    router.push(`/blog?${params.toString()}`);
+  };
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -44,8 +64,13 @@ const Blog_Home_Component = ({ blog, Allcourses }) => {
                       blog_data={item}
                     />
                   ))}
+                 
                 </div>
               )}
+               <Pagination
+                    pagination={pagination}
+                    onPageChange={handlePageChange}
+                  />
             </div>
 
             {/* Sidebar Section */}
@@ -53,7 +78,7 @@ const Blog_Home_Component = ({ blog, Allcourses }) => {
               showSearchComponent={true}
               onSearch={handleSearch}
               Allcourses={Allcourses}
-              // currentCategory={categoryParam}
+              courseTitle={courseTitle}
             />
           </div>
         </div>
