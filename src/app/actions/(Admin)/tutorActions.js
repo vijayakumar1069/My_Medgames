@@ -87,15 +87,16 @@ export const getTutors = cache(async () => {
       .exec();
 
     if (!tutors?.length) {
-      return [];
+      return []; // Explicitly return an empty array
     }
 
     return deepClone(tutors);
   } catch (error) {
     console.error('Error fetching tutors:', error);
-    return [];
+    return []; // Ensure you always return something
   }
 });
+
 
 export async function getTutorById(id) {
   try {

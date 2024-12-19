@@ -84,9 +84,9 @@ export default function Home() {
 
       <Courses />
 
-      {/* <Suspense fallback={<Skeleton />}>
+      <Suspense fallback={<Skeleton />}>
         <Tutors />
-      </Suspense> */}
+      </Suspense>
       <Testimonials />
       <Suspense fallback={<Skeleton />}>
         <BlogsWithErrorBoundary />
