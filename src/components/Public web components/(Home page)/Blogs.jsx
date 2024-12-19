@@ -1,11 +1,8 @@
-"use client";
-
-import React, { Suspense, useState, useEffect } from "react";
+import React from "react";
 import Small_Title from "./Small_Title";
 import Large_Title from "./Large_Title";
 import Blog_Card from "./Blog_Card";
 import { getBlogsForHome } from "@/app/actions/(Admin)/blogs_function";
-
 
 // Loading Skeleton Component
 const BlogLoadingSkeleton = () => (
@@ -22,27 +19,6 @@ const BlogLoadingSkeleton = () => (
     ))}
   </div>
 );
-
-// Blog Grid Component with Error Boundary
-const BlogGrid = React.memo(({ blogs }) => {
-  if (!blogs?.length) {
-    return (
-      <div className="text-center text-gray-600">
-        No blogs available at the moment.
-      </div>
-    );
-  }
-
-  return (
-    <div className="lg:w-9/12 md:w-11/12 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-6 p-5 md:p-0">
-      {blogs.map((item) => (
-        <Blog_Card key={item._id} blog={item} />
-      ))}
-    </div>
-  );
-});
-
-BlogGrid.displayName = 'BlogGrid';
 
 // Error Component
 const ErrorDisplay = ({ message }) => (
@@ -62,49 +38,51 @@ const ErrorDisplay = ({ message }) => (
     </svg>
     <h3 className="mt-2 text-sm font-medium text-red-800">Error Loading Blogs</h3>
     <p className="mt-1 text-sm text-red-600">{message}</p>
-    <button
-      onClick={() => window.location.reload()}
-      className="mt-4 text-sm text-[#4F9F76] hover:text-[#4F9F76]/80"
-    >
-      Try Again
-    </button>
   </div>
 );
 
-const Blogs = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+// Blog Grid Component
+const BlogGrid = ({ blogs }) => {
+  if (!blogs?.length) {
+    return (
+      <div className="text-center text-gray-600">
+        No blogs available at the moment.
+      </div>
+    );
+  }
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        
-        const response = await getBlogsForHome();
+  return (
+    <div className="lg:w-9/12 md:w-11/12 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-6 p-5 md:p-0">
+      {blogs.map((item) => (
+        <Blog_Card key={item._id} blog={item} />
+      ))}
+    </div>
+  );
+};
 
-        if (!response || response.success == false) {
-          throw new Error(response?.message || 'Failed to load blogs');
-        }
+// Main Blogs Component (Server Component)
+const Blogs = async () => {
+  let blogs = [];
+  let error = null;
 
-        setBlogs(response.blogs);
-      } catch (err) {
-        console.error('Error fetching blogs:', err);
-        setError(err.message || 'An unexpected error occurred');
-      } finally {
-        setLoading(false);
-      }
-    };
+  try {
+    const response = await getBlogsForHome();
 
-    fetchBlogs();
-  }, []);
+    if (!response || response.success === false) {
+      throw new Error(response?.message || 'Failed to load blogs');
+    }
+
+    blogs = response.blogs || [];
+  } catch (err) {
+    console.error('Error fetching blogs:', err);
+    error = err.message || 'An unexpected error occurred';
+  }
 
   return (
     <section className="w-full h-full bg-[#F4F6FC] flex justify-center items-center flex-col space-y-8 py-10">
       <Small_Title title="Blogs & News" />
       <Large_Title title="Welcome to Our Blogs" />
-      
+     
       <div className="max-w-4xl mx-auto">
         <p className="text-[#4A4A4A] text-center px-3">
           Explore our latest articles, insights, and tips. Whether you&apos;re looking
@@ -115,27 +93,23 @@ const Blogs = () => {
       </div>
 
       <div className="w-full flex justify-center">
-        {loading ? (
-          <BlogLoadingSkeleton />
-        ) : error ? (
+        {error ? (
           <ErrorDisplay message={error} />
         ) : (
-          <Suspense fallback={<BlogLoadingSkeleton />}>
-            <BlogGrid blogs={blogs} />
-          </Suspense>
+          <BlogGrid blogs={blogs} />
         )}
       </div>
     </section>
   );
 };
 
-// Add error boundary wrapper
-const BlogsWithErrorBoundary = () => (
-<Suspense fallback={<BlogLoadingSkeleton />}>
-
-<Blogs />
-</Suspense>
-
-);
+// Wrapper with Suspense for potential further optimization
+const BlogsWithErrorBoundary = async () => {
+  return (
+    <React.Suspense fallback={<BlogLoadingSkeleton />}>
+      <Blogs />
+    </React.Suspense>
+  );
+};
 
 export default BlogsWithErrorBoundary;

@@ -211,7 +211,7 @@ export const getBlogsForHome = cache(async () => {
     const blogs = await Blog.find()
       .select("_id title description tags photo postedDate postedTime")
       .sort({ postedDate: -1 })
-     
+      .limit(4)
       .lean()
       .exec();
 
