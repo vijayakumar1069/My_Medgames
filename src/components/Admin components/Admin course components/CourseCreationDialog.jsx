@@ -48,7 +48,7 @@ export function CourseCreationDialog({ type = "add", initialData }) {
   };
 
   const handleSubmit = async () => {
-    console.log(courseData);
+    
     const res = initialData?._id
       ? await sendRequest(() => updateCourse(initialData?._id, courseData))
       : await sendRequest(() => createCourse(courseData));

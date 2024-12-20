@@ -14,15 +14,32 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { Trash2, Plus } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
+
 import { uploadToCloudinary } from "@/app/actions/(Admin)/cloudinaryActions";
 
 const courseDetailsSchema = z.object({
   name: z.string().min(3, "Course name must be at least 3 characters"),
   description: z.string().min(10, "Description must be at least 10 characters"),
-  img_for_home: z.instanceof(File).optional(),
-  img_for_course_details_page: z.instanceof(File).optional(),
+  img_for_home: z
+    .instanceof(File)
+    .optional()
+    .or(
+      z.object({
+        url: z.string(),
+        cloudinary_id: z.string(),
+        fileName: z.string(),
+      })
+    ),
+  img_for_course_details_page: z
+    .instanceof(File)
+    .optional()
+    .or(
+      z.object({
+        url: z.string(),
+        cloudinary_id: z.string(),
+        fileName: z.string(),
+      })
+    ),
   price: z.string().min(1, "Price is required"),
   lessons: z.string().optional(),
   instructorName: z.string().optional(),
@@ -34,10 +51,9 @@ export function CourseBasicDetailsForm({
   currentData,
   setActiveTab,
 }) {
-  // const [initialData, setInitialData] = useState(currentData);
-  console.log(currentData);
+ 
   const [loading, setLoading] = useState(false);
-
+console.log(currentData);
   const form = useForm({
     resolver: zodResolver(courseDetailsSchema),
     defaultValues: {
@@ -56,51 +72,81 @@ export function CourseBasicDetailsForm({
   const onSubmit = async (data) => {
     setLoading(true);
     const submissionData = { ...data };
-
-    // Convert home image to base64
-    if (submissionData.img_for_home instanceof File) {
-      const res = await uploadToCloudinary(
-        submissionData.img_for_home,
-        "courses resources"
-      );
-      console.log(res);
-      submissionData.img_for_home = {
-        url: res.secureUrl,
-        cloudinary_id: res.cloudinaryPublicId,
-        fileName: res.originalFilename,
-      };
-      if (res.error) {
-        console.error(res.error);
-        return;
+  
+    // Check if image fields are valid
+    if (
+      submissionData.img_for_home instanceof File ||
+      (submissionData.img_for_home &&
+        submissionData.img_for_home.url &&
+        submissionData.img_for_home.cloudinary_id &&
+        submissionData.img_for_home.fileName)
+    ) {
+      // Convert home image to base64
+      if (submissionData.img_for_home instanceof File) {
+        // Check if the home image has been updated
+        if (
+          !submissionData.img_for_home.url ||
+          submissionData.img_for_home.url !== data.img_for_home.url
+        ) {
+          const res = await uploadToCloudinary(
+            submissionData.img_for_home,
+            "courses resources"
+          );
+          submissionData.img_for_home = {
+            url: res.secureUrl,
+            cloudinary_id: res.cloudinaryPublicId,
+            fileName: res.originalFilename,
+          };
+          if (res.error) {
+            console.error(res.error);
+            return;
+          }
+        }
       }
+    } else {
+      // Handle the case where the image is empty
+      console.error("Image for home page is required");
+      return;
     }
-
-    if (submissionData.img_for_course_details_page instanceof File) {
-      const res1 = await uploadToCloudinary(
-        submissionData.img_for_course_details_page,
-        "courses resources"
-      );
-      console.log(res1);
-      submissionData.img_for_course_details_page = {
-        url: res1.secureUrl,
-        cloudinary_id: res1.cloudinaryPublicId,
-        fileName: res1.originalFilename,
-      };
-      if (res1.error) {
-        console.error(res1.error);
-        return;
+  
+    if (
+      submissionData.img_for_course_details_page instanceof File ||
+      (submissionData.img_for_course_details_page &&
+        submissionData.img_for_course_details_page.url &&
+        submissionData.img_for_course_details_page.cloudinary_id &&
+        submissionData.img_for_course_details_page.fileName)
+    ) {
+      // Check if the course details image has been updated
+      if (
+        !submissionData.img_for_course_details_page.url ||
+        submissionData.img_for_course_details_page.url !==
+          data.img_for_course_details_page.url
+      ) {
+        const res1 = await uploadToCloudinary(
+          submissionData.img_for_course_details_page,
+          "courses resources"
+        );
+        submissionData.img_for_course_details_page = {
+          url: res1.secureUrl,
+          cloudinary_id: res1.cloudinaryPublicId,
+          fileName: res1.originalFilename,
+        };
+        if (res1.error) {
+          console.error(res1.error);
+          return;
+        }
       }
+    } else {
+      // Handle the case where the image is empty
+      console.error("Image for course details page is required");
+      return;
     }
-    // else if (!submissionData.img_for_course_details_page) {
-    //   submissionData.img_for_course_details_page = ""; // Leave as empty string if no image
-    // }
-
+  
     onDataUpdate(submissionData);
     setLoading(false);
     setActiveTab("schedule"); // Navigate to the next tab (Course Content)
-
-    // Proceed with saving data
   };
+  
 
   const handleImageChange = async (event, name) => {
     const file = event.target.files?.[0];
@@ -108,14 +154,10 @@ export function CourseBasicDetailsForm({
     if (file) {
       // const base = await convertFileToBase64(file);
       if (name === "img_for_home") {
-        form.setValue(name, file, {
-          shouldValidate: true,
-        });
+        form.setValue(name, file);
       } else {
         // setImgPreviewCourseDetails(base);
-        form.setValue(name, file, {
-          shouldValidate: true,
-        });
+        form.setValue(name, file);
       }
     }
   };
@@ -168,8 +210,8 @@ export function CourseBasicDetailsForm({
             </FormItem>
           )}
         />
-       {currentData && currentData.img_for_home && (
-          <p className="text-slate-500">
+        {currentData && currentData.img_for_home && (
+          <p className="text-red-800 font-bold">
             <strong className="text-black">Current Image : </strong>
             {currentData.img_for_home.fileName !== null
               ? currentData.img_for_home.fileName
@@ -197,8 +239,10 @@ export function CourseBasicDetailsForm({
           )}
         />
         {currentData && currentData.img_for_course_details_page && (
-          <p className="text-slate-500">
-            <strong className="text-black">Current Course Details Image : </strong>
+          <p className="text-red-800 font-bold">
+            <strong className="text-black">
+              Current Course Details Image :{" "}
+            </strong>
             {currentData.img_for_course_details_page.fileName !== null
               ? currentData.img_for_course_details_page.fileName
               : "sample.jpg"}

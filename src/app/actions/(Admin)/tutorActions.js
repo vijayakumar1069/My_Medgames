@@ -12,7 +12,6 @@ import { deleteFromCloudinary, uploadToCloudinary } from './cloudinaryActions';
 
 export async function createTutor(formData) {
 
-  console.log("formData",formData);
   try {
     await connectDB();
     

@@ -5,6 +5,7 @@ import { connectDB } from "@/lib/dbconnection";
 import coursesSchema from "@/modals/courses.schema";
 import { revalidatePath } from "next/cache";
 import { cache } from "react";
+import { deleteFromCloudinary } from "./cloudinaryActions";
 
 export async function createCourse(data) {
 
@@ -69,7 +70,7 @@ export const getCourses = cache(async () => {
 
     const courses = await coursesSchema
       .find()
-      .select('_id name description price startDate endDate via dailyStartTime dailyEndTime classDays key_features img_for_course_details_page')
+      .select('_id name description price startDate endDate via dailyStartTime dailyEndTime classDays key_features img_for_home img_for_course_details_page')
       .lean()
       .exec();
 
@@ -103,13 +104,21 @@ export async function deleteCourse(id) {
   try {
     await connectDB();
     // Delete course from the database
-    const course = await coursesSchema.findByIdAndDelete({_id: id});
+    const course = await coursesSchema.findById(id);
     if (!course) {
+      throw new Error("Failed to delete course");
+    }
+    await deleteFromCloudinary(course.img_for_home.cloudinary_id);
+    await deleteFromCloudinary(course.img_for_course_details_page.cloudinary_id);
+    // Delete course from the database
+    const deletedCourse = await coursesSchema.findByIdAndDelete({_id: id});
+
+    if (!deletedCourse) {
       throw new Error("Failed to delete course");
     }
 
     revalidatePath(`/our-courses`, "page");
-    revalidatePath(`/our-courses/${id}`, "page");
+    // revalidatePath(`/our-courses/${id}`, "page");
     revalidatePath('/', 'layout');
     revalidatePath("/admin-courses", "page");
 

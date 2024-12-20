@@ -53,6 +53,7 @@ const CourseCourseBuilderForm = ({
   currentData,
   setActiveTab,
 }) => {
+  console.log(`CourseCourseBuilderForm currentData`, currentData);
   const form = useForm({
     resolver: zodResolver(courseDescriptionSchema),
     defaultValues: {
@@ -95,8 +96,6 @@ const CourseCourseBuilderForm = ({
   };
 
   const onSubmit = (data) => {
-
-    console.log(data);
     onDataUpdate(data);
     setActiveTab("resources");
 

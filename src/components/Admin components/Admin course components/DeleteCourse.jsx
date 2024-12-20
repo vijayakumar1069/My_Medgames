@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 //   AlertDialogTrigger,
 // } from "@/components/ui/alert";
 import { Trash2 } from 'lucide-react';
-import { deleteTutor } from '@/app/actions/(Admin)/tutorActions';
+
 import { deleteCourse } from '@/app/actions/(Admin)/courseActions';
 
 export function DeleteCourse({ courseId }) {

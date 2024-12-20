@@ -67,7 +67,7 @@ const Course_Details_Page_Card = ({ course }) => {
       {/* Top Image/Preview Section */}
       <div className="relative w-full h-72">
         <Image
-          src={img_for_course_details_page ==" "?null : img_for_course_details_page}
+          src={img_for_course_details_page.url ==" "?undefined : img_for_course_details_page.url}
           alt="course_image"
           fill
           style={{ objectFit: "contain" }}

@@ -1,5 +1,5 @@
 import { searchBlogs } from "@/app/actions/(Admin)/blogs_function";
-import { getCourses, getCoursesTitle } from "@/app/actions/(Admin)/courseActions";
+import {  getCoursesTitle } from "@/app/actions/(Admin)/courseActions";
 import Loading from "@/components/Admin components/Loading";
 import Blog_Home_Component from "@/components/Public web components/Blog Components/Blog_Home_Component";
 import Svg_Bg from "@/components/Public web components/Svg_Bg";

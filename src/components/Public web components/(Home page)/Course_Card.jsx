@@ -20,21 +20,35 @@ const Course_Card = ({ course }) => {
     dailyEndTime, 
     classDays 
   } = course;
-
+  const hasHomeImage = img_for_home && img_for_home.url;
+  const hasCourseDetailsImage = img_for_course_details_page && img_for_course_details_page.url;
 
   return (
     <article className="group max-w-2xl w-full bg-[#F4F6FC] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
       <div className="relative w-full aspect-video overflow-hidden">
-        <Image
-          src={img_for_home == undefined || img_for_home == null || img_for_home == "" ? img_for_course_details_page : img_for_home}
-          alt={name}
-          fill
-          priority={false}
-          quality={75}
-          className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px"
-          loading="lazy"
-        />
+      {hasHomeImage ? (
+          <Image
+            src={img_for_home.url}
+            alt={name}
+            fill
+            priority
+            quality={75}
+            className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px"
+            loading="lazy"
+          />
+        ) : hasCourseDetailsImage ? (
+          <Image
+            src={img_for_course_details_page.url}
+            alt={name}
+            fill
+            priority
+            quality={75}
+            className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px"
+            loading="lazy"
+          />
+        ) : null}
       </div>
 
       <div className="p-6 space-y-4">
