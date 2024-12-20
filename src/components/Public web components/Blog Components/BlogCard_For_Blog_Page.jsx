@@ -15,9 +15,11 @@ const BlogCard_For_Blog_Page = ({ blog_data }) => {
     >
       <div className="relative aspect-video w-full ">
         <Image
-          src={`data:${blog_data.photo.mimetype};base64,${blog_data.photo.data}`} 
+          src={blog_data.photo.url} 
           alt={blog_data.title}
           fill
+          priority={false}
+          quality={80}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
           className="object-contain "
         />

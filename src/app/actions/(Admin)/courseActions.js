@@ -272,3 +272,26 @@ export const gethomeScreenCourses = cache(async () => {
   }
 });
 
+
+
+export async function getCoursesTitle()
+{
+  try {
+    await connectDB();
+    const courses = await coursesSchema.find().select('name').lean();
+    return {
+      success: true,
+      message: 'Courses fetched successfully',
+      coursesTitle: deepClone(courses),
+      
+    }
+  }
+  catch (error) {
+    console.error('Services Fetch Error:', error);
+    return {
+      success: false,
+      message: error.message || 'Failed to fetch Courses',
+      HomeScreenCourses: []
+    };
+  }
+}

@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,17 +16,17 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Trash2, Plus } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
+import { uploadToCloudinary } from "@/app/actions/(Admin)/cloudinaryActions";
 
 const courseDetailsSchema = z.object({
   name: z.string().min(3, "Course name must be at least 3 characters"),
   description: z.string().min(10, "Description must be at least 10 characters"),
-  img_for_home: z.string().optional(), // Change to optional string
-  img_for_course_details_page: z.string().optional(), // Change to optional string
+  img_for_home: z.instanceof(File).optional(),
+  img_for_course_details_page: z.instanceof(File).optional(),
   price: z.string().min(1, "Price is required"),
   lessons: z.string().optional(),
   instructorName: z.string().optional(),
   teachingLanguage: z.string().optional(),
-
 });
 
 export function CourseBasicDetailsForm({
@@ -33,8 +34,10 @@ export function CourseBasicDetailsForm({
   currentData,
   setActiveTab,
 }) {
+  // const [initialData, setInitialData] = useState(currentData);
+  console.log(currentData);
+  const [loading, setLoading] = useState(false);
 
-  const [initialData, setInitialData] = useState(currentData);
   const form = useForm({
     resolver: zodResolver(courseDetailsSchema),
     defaultValues: {
@@ -47,47 +50,53 @@ export function CourseBasicDetailsForm({
       lessons: currentData.lessons || "", // Use empty string instead of undefined
       instructorName: currentData.instructorName || "",
       teachingLanguage: currentData.teachingLanguage || "",
-   
     },
   });
 
-  const [imgPreviewHome, setImgPreviewHome] = useState(
-    currentData.img_for_home || null
-  );
-  const [imgPreviewCourseDetails, setImgPreviewCourseDetails] = useState(
-    currentData.img_for_course_details_page || null
-  );
-
-  const convertFileToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result);
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
-  };
   const onSubmit = async (data) => {
+    setLoading(true);
     const submissionData = { ...data };
 
     // Convert home image to base64
     if (submissionData.img_for_home instanceof File) {
-      submissionData.img_for_home = await convertFileToBase64(
-        submissionData.img_for_home
+      const res = await uploadToCloudinary(
+        submissionData.img_for_home,
+        "courses resources"
       );
-    } else if (!submissionData.img_for_home) {
-      submissionData.img_for_home = ""; // Leave as empty string if no image
+      console.log(res);
+      submissionData.img_for_home = {
+        url: res.secureUrl,
+        cloudinary_id: res.cloudinaryPublicId,
+        fileName: res.originalFilename,
+      };
+      if (res.error) {
+        console.error(res.error);
+        return;
+      }
     }
 
-    // Convert course details image to base64
     if (submissionData.img_for_course_details_page instanceof File) {
-      submissionData.img_for_course_details_page = await convertFileToBase64(
-        submissionData.img_for_course_details_page
+      const res1 = await uploadToCloudinary(
+        submissionData.img_for_course_details_page,
+        "courses resources"
       );
-    } else if (!submissionData.img_for_course_details_page) {
-      submissionData.img_for_course_details_page = ""; // Leave as empty string if no image
+      console.log(res1);
+      submissionData.img_for_course_details_page = {
+        url: res1.secureUrl,
+        cloudinary_id: res1.cloudinaryPublicId,
+        fileName: res1.originalFilename,
+      };
+      if (res1.error) {
+        console.error(res1.error);
+        return;
+      }
     }
+    // else if (!submissionData.img_for_course_details_page) {
+    //   submissionData.img_for_course_details_page = ""; // Leave as empty string if no image
+    // }
 
     onDataUpdate(submissionData);
+    setLoading(false);
     setActiveTab("schedule"); // Navigate to the next tab (Course Content)
 
     // Proceed with saving data
@@ -97,33 +106,18 @@ export function CourseBasicDetailsForm({
     const file = event.target.files?.[0];
 
     if (file) {
-      const base = await convertFileToBase64(file);
+      // const base = await convertFileToBase64(file);
       if (name === "img_for_home") {
-        setImgPreviewHome(base);
+        form.setValue(name, file, {
+          shouldValidate: true,
+        });
       } else {
-        setImgPreviewCourseDetails(base);
+        // setImgPreviewCourseDetails(base);
+        form.setValue(name, file, {
+          shouldValidate: true,
+        });
       }
-      form.setValue(name, base, {
-        shouldValidate: true,
-      });
-    } else {
-      form.setValue(name, null, {
-        shouldValidate: true,
-      });
     }
-  };
-  const handleImageRemove = (fieldName) => {
-    // Reset the preview
-    if (fieldName === "img_for_home") {
-      setImgPreviewHome(null);
-    } else {
-      setImgPreviewCourseDetails(null);
-    }
-
-    // Clear the form value
-    form.setValue(fieldName, "", {
-      shouldValidate: true,
-    });
   };
 
   return (
@@ -171,26 +165,17 @@ export function CourseBasicDetailsForm({
                 />
               </FormControl>
               <FormMessage />
-              {imgPreviewHome && (
-                <div className="mt-2 flex items-center space-x-2">
-                  <img
-                    src={imgPreviewHome}
-                    alt="Preview"
-                    className="h-24 w-24 object-cover"
-                  />
-                  <Button
-                    type="button"
-                    variant="destructive"
-                    size="sm"
-                    onClick={() => handleImageRemove("img_for_home")}
-                  >
-                    Remove Image
-                  </Button>
-                </div>
-              )}
             </FormItem>
           )}
         />
+       {currentData && currentData.img_for_home && (
+          <p className="text-slate-500">
+            <strong className="text-black">Current Image : </strong>
+            {currentData.img_for_home.fileName !== null
+              ? currentData.img_for_home.fileName
+              : "sample.jpg"}
+          </p>
+        )}
 
         <FormField
           control={form.control}
@@ -208,28 +193,17 @@ export function CourseBasicDetailsForm({
                 />
               </FormControl>
               <FormMessage />
-              {imgPreviewCourseDetails && (
-                <div className="mt-2 flex items-center space-x-2">
-                  <img
-                    src={imgPreviewCourseDetails}
-                    alt="Preview"
-                    className="h-24 w-24 object-cover"
-                  />
-                  <Button
-                    type="button"
-                    variant="destructive"
-                    size="sm"
-                    onClick={() =>
-                      handleImageRemove("img_for_course_details_page")
-                    }
-                  >
-                    Remove Image
-                  </Button>
-                </div>
-              )}
             </FormItem>
           )}
         />
+        {currentData && currentData.img_for_course_details_page && (
+          <p className="text-slate-500">
+            <strong className="text-black">Current Course Details Image : </strong>
+            {currentData.img_for_course_details_page.fileName !== null
+              ? currentData.img_for_course_details_page.fileName
+              : "sample.jpg"}
+          </p>
+        )}
 
         <FormField
           control={form.control}
@@ -285,28 +259,10 @@ export function CourseBasicDetailsForm({
             </FormItem>
           )}
         />
-        {/* <FormField
-          control={form.control}
-          name="shown_on_home_screen"
-          render={({ field }) => (
-            <FormItem className="flex flex-row items-center space-x-3 space-y-0 rounded-md border p-4">
-              <FormControl>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
-              </FormControl>
-              <div className="space-y-1 leading-none">
-                <FormLabel>
-                  Show on Home Screen
-                </FormLabel>
-             
-              </div>
-            </FormItem>
-          )}
-        /> */}
 
-        <Button type="submit">Save Course Details</Button>
+        <Button disabled={loading} type="submit">
+          {loading ? <span>Saving...</span> : <span>Save Course Details</span>}
+        </Button>
       </form>
     </Form>
   );

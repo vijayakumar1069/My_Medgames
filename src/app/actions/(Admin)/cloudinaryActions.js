@@ -1,62 +1,105 @@
-// app/actions/cloudinaryActions.ts
-'use server'
+// app/actions/cloudinaryActions.js
 
-import { v2 as cloudinary } from 'cloudinary'
+"use server";
+
+import { v2 as cloudinary } from "cloudinary";
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
   api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
-})
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
-export async function uploadToCloudinary(file, fileType) {
-  // Determine resource type and folder based on file type
-  const determineResourceType = () => {
-    if (fileType) return fileType
-    
-    const fileName = file.name.toLowerCase()
-    if (fileName.endsWith('.pdf')) return 'pdf'
-    if (['mp4', 'mpeg', 'mov', 'avi'].some(ext => fileName.endsWith(ext))) return 'video'
-    return 'image'
-  }
-
-  const resourceType = determineResourceType()
-
+export async function uploadToCloudinary(
+  file,
+  folder = "default",
+  customOptions = {}
+) {
+ 
   // Convert File to Buffer
-  const bytes = await file.arrayBuffer()
-  const buffer = Buffer.from(bytes)
+  const bytes = await file.arrayBuffer();
+  const buffer = Buffer.from(bytes);
+
+  // Default upload options
+  const defaultOptions = {
+    folder: folder,
+    resource_type: "auto", // Automatically detect resource type
+    upload_preset: process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
+
+    // Optional transformations for images
+    ...(file.type.startsWith("image/") && {
+      transformation: [
+        {
+          width: "auto",
+          crop: "limit",
+          quality: "auto",
+        },
+      ],
+    }),
+  };
+
+  // Merge default and custom options
+  const uploadOptions = {
+    ...defaultOptions,
+    ...customOptions,
+  };
 
   return new Promise((resolve, reject) => {
-    cloudinary.uploader.upload_stream(
-      {
-        folder: 'course-resources', // Single folder
-        resource_type: resourceType === 'pdf' ? 'raw' : resourceType,
-        upload_preset: process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
-      },
-      (error, result) => {
+    cloudinary.uploader
+      .upload_stream(uploadOptions, (error, result) => {
         if (error) {
-          reject(error)
+          console.error("Cloudinary Upload Error:", error);
+          reject(error);
         } else {
           resolve({
             cloudinaryPublicId: result.public_id,
             secureUrl: result.secure_url,
-            originalFilename: result.original_filename || file.name,
-            bytes: result.bytes,
+            originalFilename: file.name || result.original_filename, // Ensures correct file name            bytes: result.bytes,
             format: result.format,
-            resourceType: result.resource_type
-          })
+            resourceType: result.resource_type,
+            mimeType: file.type,
+          });
         }
-      }
-    ).end(buffer)
-  })
+      })
+      .end(buffer);
+  });
 }
 
+// Delete file from Cloudinary
 export async function deleteFromCloudinary(publicId) {
   try {
-    const result = await cloudinary.uploader.destroy(publicId)
-    return result
+    const result = await cloudinary.uploader.destroy(publicId);
+    return result;
   } catch (error) {
-    console.error('Cloudinary deletion error:', error)
-    throw error
+    console.error("Cloudinary deletion error:", error);
+    throw error;
+  }
+}
+
+// Bulk delete files from Cloudinary
+export async function bulkDeleteFromCloudinary(publicIds) {
+  try {
+    const deletionPromises = publicIds.map((publicId) =>
+      deleteFromCloudinary(publicId)
+    );
+    return await Promise.all(deletionPromises);
+  } catch (error) {
+    console.error("Bulk Cloudinary deletion error:", error);
+    throw error;
+  }
+}
+// Multi-file upload function
+export async function uploadMultipleFiles(files, folder = "default") {
+  try {
+    // Upload files in parallel
+    const uploadPromises = files.map((file) =>
+      uploadToCloudinary(file, folder)
+    );
+
+    // Wait for all uploads to complete
+    return await Promise.all(uploadPromises);
+  } catch (error) {
+    console.error("Multiple File Upload Error:", error);
+    throw error;
   }
 }

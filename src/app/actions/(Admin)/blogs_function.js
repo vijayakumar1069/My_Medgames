@@ -8,6 +8,8 @@ import { escapeRegExp } from "@/utils/regularExpression";
 import mammoth from "mammoth";
 import { revalidatePath } from "next/cache";
 import { cache } from "react";
+import { deleteFromCloudinary, uploadToCloudinary } from "./cloudinaryActions";
+import axios from "axios";
 
 export async function createBlogPost(values) {
   const { title, description, tags, photo, documentFile } = values;
@@ -17,10 +19,13 @@ export async function createBlogPost(values) {
     await connectDB();
 
     // Convert photo to base64
-    const photoBase64 = await convertFileToBase64(photo);
+    const photoUploadResult = await uploadToCloudinary(photo,"blogs resources")
+
+ 
 
     // Convert document to base64
-    const documentBase64 = await convertFileToBase64(documentFile);
+    const documentUploadResult = await uploadToCloudinary(documentFile,"blogs resources")
+    
     const slug = title.toLowerCase().split(" ").join("-");
 
     // Prepare blog data
@@ -30,14 +35,15 @@ export async function createBlogPost(values) {
       slug,
       tags,
       photo: {
-        filename: photo.name,
-        mimetype: photo.type,
-        data: photoBase64,
+        url:photoUploadResult.secureUrl,
+        cloudinary_id: photoUploadResult.cloudinaryPublicId,
+        fileName:photoUploadResult.originalFilename
+       
       },
       documentFile: {
-        filename: documentFile.name,
-        mimetype: documentFile.type,
-        data: documentBase64,
+        url:documentUploadResult.secureUrl,
+        cloudinary_id: documentUploadResult.cloudinaryPublicId,
+        fileName:documentUploadResult.originalFilename
       },
     };
 
@@ -98,24 +104,22 @@ export async function updateBlog(id, values) {
     // Handle photo update
     if (values.photo) {
       // Convert photo to base64
-      const photoBase64 = await convertFileToBase64(values.photo);
+      const photoUploadResult = await uploadToCloudinary(values.photo,"blogs resources")
 
       updateData.photo = {
-        filename: values.photo.name,
-        mimetype: values.photo.type,
-        data: photoBase64,
+        url:photoUploadResult.secureUrl,
+        cloudinary_id: photoUploadResult.cloudinaryPublicId
       };
     }
 
     // Handle document file update
     if (values.documentFile) {
       // Convert document to base64
-      const documentBase64 = await convertFileToBase64(values.documentFile);
+      const documentUploadResult = await uploadToCloudinary(values.documentFile,"blogs resources")
 
       updateData.documentFile = {
-        filename: values.documentFile.name,
-        mimetype: values.documentFile.type,
-        data: documentBase64,
+        url:documentUploadResult.secureUrl,
+        cloudinary_id: documentUploadResult.cloudinaryPublicId
       };
     }
 
@@ -154,27 +158,6 @@ export async function updateBlog(id, values) {
   }
 }
 
-// Utility function to convert file to base64
-async function convertFileToBase64(file) {
-  // If file is a File object from the client
-  if (file instanceof File) {
-    // Convert File to buffer
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    // Convert buffer to base64
-    return buffer.toString("base64");
-  }
-
-  // If file is already a path or buffer
-  if (typeof file === "string") {
-    // Read file from filesystem
-    const buffer = await fs.readFile(file);
-    return buffer.toString("base64");
-  }
-
-  throw new Error("Invalid file type");
-}
 
 export async function getAllBlogs() {
   try {
@@ -262,12 +245,14 @@ export async function getBlogById(id) {
         message: "No blog post found",
       };
     }
+    const response = await axios.get(blog.documentFile.url, {
+      responseType: 'arraybuffer'
+    });
 
-    // Convert base64 to buffer for document content
-    const documentBuffer = Buffer.from(blog.documentFile.data, "base64");
+
 
     // Parse Word document to HTML
-    const result = await mammoth.convertToHtml({ buffer: documentBuffer });
+    const result = await mammoth.convertToHtml({ buffer: response.data });
 
     // Extract tags from the blog
     const tags = blog.tags;
@@ -337,7 +322,7 @@ export async function getBlogById(id) {
   }
 }
 export async function getBlogByIdForEdit(id) {
-  console.log('id',id);
+
   try {
     // Ensure database connection
     await connectDB();
@@ -419,7 +404,7 @@ export async function searchBlogs(searchParams) {
 
     // Perform search with pagination and sorting for blogs
     const [blogs, totalBlogs] = await Promise.all([
-      Blog.find(blogQuery).sort(sortOptions).skip(skip).limit(limit).lean(),
+      Blog.find(blogQuery).sort(sortOptions).select("_id title description photo postedDate").skip(skip).limit(limit).lean(),
       Blog.countDocuments(blogQuery),
     ]);
 
@@ -447,7 +432,7 @@ export async function searchBlogs(searchParams) {
       courseSearchConditions.length > 0 ? { $and: courseSearchConditions } : {};
 
     // Perform search for related courses
-    const courses = await coursesSchema.find(courseQuery).lean();
+    const courses = await coursesSchema.find(courseQuery).select('_id name description img_for_course_details_page ').lean();
 
     // Calculate total pages for blogs
     const totalPages = Math.ceil(totalBlogs / limit);
@@ -481,8 +466,17 @@ export async function deleteBlog(id) {
     await connectDB();
 
     // Delete blog from the database
-    const blog = await Blog.findByIdAndDelete({ _id: id });
+    const blog = await Blog.findById(id);
     if (!blog) {
+      throw new Error("Failed to delete blog");
+    }
+    // Delete Cloudinary files
+    await deleteFromCloudinary(blog.photo.cloudinary_id);
+    await deleteFromCloudinary(blog.documentFile.cloudinary_id);
+    // await cloudinary.uploader.destroy(blog.photo.cloudinary_id);
+    // await cloudinary.uploader.destroy(blog.documentFile.cloudinary_id);
+    const deletedBlog = await Blog.findByIdAndDelete(id);
+    if (!deletedBlog) {
       throw new Error("Failed to delete blog");
     }
 

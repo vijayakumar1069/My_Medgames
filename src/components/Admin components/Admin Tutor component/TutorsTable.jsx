@@ -45,7 +45,7 @@ import Image from "next/image";
                     <div className="relative w-10 h-10">
 
                     <Image
-                      src={tutor.image}
+                      src={tutor.image?.url}
                       alt={tutor.name}
                       fill
                       className="rounded-full"

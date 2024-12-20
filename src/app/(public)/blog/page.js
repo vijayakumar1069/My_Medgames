@@ -1,5 +1,5 @@
 import { searchBlogs } from "@/app/actions/(Admin)/blogs_function";
-import { getCourses } from "@/app/actions/(Admin)/courseActions";
+import { getCourses, getCoursesTitle } from "@/app/actions/(Admin)/courseActions";
 import Loading from "@/components/Admin components/Loading";
 import Blog_Home_Component from "@/components/Public web components/Blog Components/Blog_Home_Component";
 import Svg_Bg from "@/components/Public web components/Svg_Bg";
@@ -20,10 +20,9 @@ export default async function Blogs_Home_Page({ searchParams }) {
   // Fetch blogs based on search criteria
   const blogsResult = await searchBlogs(searchCriteria);
 
-
   // Fetch courses
-  const allCourses = await getCourses();
-  const courseTitle=allCourses.courses.map(item=>item.name)
+  const allCourses = await getCoursesTitle();
+  const titles=allCourses.coursesTitle.map((course) => course.name);
  
 
   if (!allCourses || !blogsResult) {
@@ -36,9 +35,9 @@ export default async function Blogs_Home_Page({ searchParams }) {
       <Suspense fallback={<div><Loading /></div>}>
         <Blog_Home_Component
           blog={blogsResult.blogs}
-          Allcourses={allCourses.courses.slice(0, 3)}
+          Allcourses={blogsResult.courses}
           pagination={blogsResult.pagination}
-          courseTitle={courseTitle}
+          courseTitle={titles}
         />
       </Suspense>
     </div>

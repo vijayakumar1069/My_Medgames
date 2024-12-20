@@ -5,8 +5,8 @@ const Tutor_Card = ({ tutor }) => {
   // Add null checks to prevent potential undefined errors
   const {
     _id, 
-    name = 'Unknown', 
-    image = '/default-image.png', 
+    name ,
+    image  ,
     college = '', 
     description = ''
   } = tutor || {};
@@ -20,7 +20,7 @@ const Tutor_Card = ({ tutor }) => {
         <div className="h-full flex flex-col">
           <div className="h-[350px] w-72 relative overflow-hidden rounded-3xl bg-gray-300">
             <Image
-              src={image}
+              src={image.url}
               className="h-full w-full object-cover"
               fill
               priority

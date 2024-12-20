@@ -14,15 +14,13 @@ const Blog_Card = ({ blog }) => {
   
 
   // Create optimized image URL
-  const imageUrl = photo?.data ? 
-    `data:${photo.mimetype};base64,${photo.data}` : 
-    '/fallback-blog-image.jpg';
+
 
   return (
     <article className="group max-w-md w-full bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
       <div className="relative w-full aspect-video mt-3 overflow-hidden">
         <Image
-          src={imageUrl}
+          src={photo.url}
           alt={title}
           fill
           priority={false}

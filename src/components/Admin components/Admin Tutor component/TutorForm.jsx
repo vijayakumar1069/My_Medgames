@@ -15,22 +15,20 @@ import {
 import { Input } from "@/components/ui/input";
 import { createTutor, updateTutor } from "@/app/actions/(Admin)/tutorActions";
 import { z } from "zod";
-import { ImageIcon, Trash2 } from "lucide-react";
-import Image from "next/image";
+import { ImageIcon } from "lucide-react";
 
 const TutorSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   graduation: z.string().min(3, "Graduation details required"),
-  college: z.string().min(3, "college details required"),
+  college: z.string().min(3, "College details required"),
   specialist: z.string().optional(),
   location: z.string().min(2, "Location required"),
-  image: z.string().optional(), // Base64 string or URL
 });
 
 export function TutorForm({ initialData, onSubmitSuccess }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [imagePreview, setImagePreview] = useState(initialData?.image || null);
   const fileInputRef = useRef(null);
+  const [selectedImage, setSelectedImage] = useState(initialData?.image || null);
 
   const form = useForm({
     resolver: zodResolver(TutorSchema),
@@ -40,10 +38,10 @@ export function TutorForm({ initialData, onSubmitSuccess }) {
       college: "",
       specialist: "",
       location: "",
-      image: "",
     },
   });
-  // Handle image file selection and conversion to base64
+
+  // Handle image file selection
   const handleImageChange = (e) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -60,39 +58,30 @@ export function TutorForm({ initialData, onSubmitSuccess }) {
         return;
       }
 
-      // Convert to base64
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64String = reader.result;
-        setImagePreview(base64String);
-        form.setValue("image", base64String);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  // Remove image
-  const handleRemoveImage = () => {
-    setImagePreview(null);
-    form.setValue("image", "");
-    if (fileInputRef.current) {
-      fileInputRef.current.value = ""; // Clear file input
+      setSelectedImage(file);
     }
   };
 
   async function onSubmit(data) {
+    if (!selectedImage) {
+      alert("Please upload an image.");
+      return;
+    }
+
     setIsSubmitting(true);
     try {
+     data.image=selectedImage;
+
       const result = initialData?._id
         ? await updateTutor(initialData._id, data)
         : await createTutor(data);
 
       if (result.success) {
         form.reset();
+        setSelectedImage(null);
         setIsSubmitting(false);
         onSubmitSuccess?.();
       } else {
-        // Handle error (could use toast or form-level error)
         console.error(result.error);
       }
     } catch (error) {
@@ -125,7 +114,7 @@ export function TutorForm({ initialData, onSubmitSuccess }) {
             <FormItem>
               <FormLabel>Graduation</FormLabel>
               <FormControl>
-                <Input placeholder="graduation" {...field} />
+                <Input placeholder="Graduation" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -138,25 +127,12 @@ export function TutorForm({ initialData, onSubmitSuccess }) {
             <FormItem>
               <FormLabel>College</FormLabel>
               <FormControl>
-                <Input placeholder="college" {...field} />
+                <Input placeholder="College" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        {/* <FormField
-          control={form.control}
-          name="specialist"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Specialist</FormLabel>
-              <FormControl>
-                <Input placeholder="specialist" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
         <FormField
           control={form.control}
           name="location"
@@ -164,7 +140,7 @@ export function TutorForm({ initialData, onSubmitSuccess }) {
             <FormItem>
               <FormLabel>Location</FormLabel>
               <FormControl>
-                <Input placeholder="location" {...field} />
+                <Input placeholder="Location" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -174,51 +150,20 @@ export function TutorForm({ initialData, onSubmitSuccess }) {
           <FormLabel>Tutor Image</FormLabel>
           <FormControl>
             <div className="flex flex-col items-start space-y-2">
-              {/* File Input */}
               <Input
                 ref={fileInputRef}
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
-                className="hidden"
                 id="tutor-image-upload"
               />
-
-              {/* Image Preview */}
-              {imagePreview ? (
-                <div className="relative">
-                  <Image
-                    src={imagePreview}
-                    alt="Tutor Preview"
-                    width={200}
-                    height={200}
-                    className="rounded-md object-cover"
-                  />
-                  <Button
-                    type="button"
-                    variant="destructive"
-                    size="icon"
-                    className="absolute top-0 right-0 m-1"
-                    onClick={handleRemoveImage}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                </div>
-              ) : (
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => fileInputRef.current?.click()}
-                >
-                  <ImageIcon className="mr-2 h-4 w-4" />
-                  Upload Image
-                </Button>
-              )}
             </div>
           </FormControl>
           <FormMessage />
         </FormItem>
-
+        {
+          initialData?.image && <p className="text-slate-500"><strong className="text-black">Current Image : </strong>{initialData.image.fileName !== null ? initialData.image.fileName : "sample.jpg"}</p>
+        }
         <Button type="submit" disabled={isSubmitting}>
           {isSubmitting
             ? initialData

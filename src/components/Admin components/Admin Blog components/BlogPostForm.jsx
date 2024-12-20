@@ -158,7 +158,9 @@ export function BlogPostForm({ initialData, onSubmitSuccess }) {
               </div>
             )}
           </FormItem>
-
+          {
+            initialData.photo && <p className="text-slate-500"><strong className="text-black">Current Photo : </strong>{initialData.photo.fileName !== null ? initialData.photo.fileName : "sample.jpg"}</p>
+          } 
           <FormField
             control={form.control}
             name="photo"
@@ -182,10 +184,11 @@ export function BlogPostForm({ initialData, onSubmitSuccess }) {
               </FormItem>
             )}
           />
+          
           {
-            
+            initialData.documentFile && <p className="text-slate-500"><strong className="text-black">Current Document : </strong>{initialData.documentFile.fileName !== null ? initialData.documentFile.fileName : "sample.docx"}</p>
           }
-
+            
           <FormField
             control={form.control}
             name="documentFile"
@@ -198,6 +201,7 @@ export function BlogPostForm({ initialData, onSubmitSuccess }) {
                     type="file"
                     placeholder="Upload document"
                     accept=".pdf, .doc, .docx"
+                  
                     onChange={(e) => {
                       const file = e.target.files?.[0];
                       field.onChange(file);

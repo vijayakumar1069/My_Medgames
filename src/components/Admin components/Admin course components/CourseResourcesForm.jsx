@@ -19,7 +19,7 @@ export function CourseResourcesForm({ onDataUpdate, currentData ,setActiveTab}) 
       try {
         const uploadPromises = Array.from(files).map(async (file) => {
           // Explicitly specify 'pdf' for PDF files
-          return await uploadToCloudinary(file, 'pdf')
+          return await uploadToCloudinary(file, 'pdf',"courses resources")
         })
 
         const newFiles = await Promise.all(uploadPromises)

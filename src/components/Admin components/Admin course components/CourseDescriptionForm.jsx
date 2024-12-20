@@ -96,7 +96,7 @@ const CourseCourseBuilderForm = ({
 
   const onSubmit = (data) => {
 
-
+    console.log(data);
     onDataUpdate(data);
     setActiveTab("resources");
 
@@ -256,9 +256,9 @@ const CourseCourseBuilderForm = ({
                       course={{
                         _id: currentData._id || null,
                         name: currentData.name,
-                        img_for_home: currentData.img_for_home,
+                        img_for_home: currentData.img_for_home.url,
                         img_for_course_details_page:
-                          currentData.img_for_course_details_page,
+                          currentData.img_for_course_details_page.url,
                         price: currentData.price,
 
                         description: currentData.description,

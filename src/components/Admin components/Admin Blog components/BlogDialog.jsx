@@ -35,12 +35,10 @@ export function BlogDialog({ type = "add", editID }) {
         setLoading(true);
         try {
           const res = await getBlogByIdForEdit(editID);
-          console.log("API Response:", res);
+  
           if (res.success) {
             setInitialData(res.blog);
-          } else {
-            console.log(res.message);
-          }
+          } 
         } catch (error) {
           console.error("Error fetching blog:", error);
         }

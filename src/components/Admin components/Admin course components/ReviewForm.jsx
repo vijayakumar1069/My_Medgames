@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Plus, Star, Trash2 } from "lucide-react";
+import { uploadToCloudinary } from '@/app/actions/(Admin)/cloudinaryActions';
 
 // Define the schema for reviews
 const reviewSchema = z.object({
@@ -21,15 +22,15 @@ const reviewSchema = z.object({
     z.object({
       name: z.string().min(2, "Name must be at least 2 characters"),
       review_content: z.string().min(10, "Review must be at least 10 characters"),
-      image: z.string().optional(), // Base64 string
-      rating: z
-        .number()
-        .min(1, "Rating is required")
-        .max(5, "Rating must be between 1 and 5"),
+      image: z.string().url(), // Secure URL
+      rating: z.number().min(1).max(5),
       small_description: z.string().optional(),
+      cloudinaryPublicId: z.string().optional(), // Cloudinary Public ID
+      fileName: z.string().optional(), // Original Filename
     })
-  )
+  ),
 });
+
 
 export function ReviewForm({
     onDataUpdate,
@@ -60,7 +61,7 @@ export function ReviewForm({
   });
 
   // Modified image change handler to work with field arrays
-  const handleImageChange = (event, index) => {
+  const handleImageChange = async(event, index) => {
     // Null check for event.target.files
     const files = event.target.files;
     if (!files || files.length === 0) {
@@ -69,19 +70,24 @@ export function ReviewForm({
 
     const file = files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64String = reader.result
+      // const reader = new FileReader();
+      // reader.onloadend = () => {
+      //   const base64String = reader.result
         
-        // Update form value for specific review
-        form.setValue(`reviews.${index}.image`, base64String);
+      //   // Update form value for specific review
+      //   form.setValue(`reviews.${index}.image`, base64String);
         
-        // Update image previews state
-        const newPreviews = [...imagePreviews];
-        newPreviews[index] = base64String;
-        setImagePreviews(newPreviews);
-      };
-      reader.readAsDataURL(file);
+      //   // Update image previews state
+      //   const newPreviews = [...imagePreviews];
+      //   newPreviews[index] = base64String;
+      //   setImagePreviews(newPreviews);
+      // };
+      // reader.readAsDataURL(file);
+
+      const res=await uploadToCloudinary(file,"reviews")
+      form.setValue(`reviews.${index}.image`, res.secureUrl);
+      form.setValue(`reviews.${index}.cloudinaryPublicId`, res.cloudinaryPublicId);
+      form.setValue(`reviews.${index}.fileName`, res.originalFilename);
     }
   };
 

@@ -7,15 +7,31 @@ import Tutor from '@/modals/tutors.modal';
 import { connectDB } from '@/lib/dbconnection';
 import { deepClone } from '@/lib/convert_to_JSON';
 import { cache } from 'react';
+import { deleteFromCloudinary, uploadToCloudinary } from './cloudinaryActions';
 
 
 export async function createTutor(formData) {
+
+  console.log("formData",formData);
   try {
     await connectDB();
     
+    const tutorPhotoUpload=await uploadToCloudinary(formData.image,"tutors resources")
     
-    
-    const newTutor = await Tutor.create(formData);
+    const newTutor = await Tutor.create(
+      {
+        name: formData.name,
+        graduation: formData.graduation,
+        college: formData.college,
+        specialist: formData.specialist,
+        location: formData.location,
+        image:{
+          url:tutorPhotoUpload.secureUrl,
+          cloudinary_id: tutorPhotoUpload.cloudinaryPublicId,
+          fileName:tutorPhotoUpload.originalFilename
+        }
+      }
+    );
     
     // Revalidate specific paths
     revalidatePath('/meet-our-tutors', 'page');
@@ -34,13 +50,44 @@ export async function createTutor(formData) {
 export async function updateTutor(id, formData) {
   try {
     await connectDB();
+
+  const update={};
+  if(formData.name)
+  {
+    update.name=formData.name;
+  }
+  if(formData.graduation)
+  {
+    update.graduation=formData.graduation;
+  }
+  if(formData.college)
+  {
+    update.college=formData.college;
+  }
+  if(formData.specialist)
+  {
+    update.specialist=formData.specialist;
+  }
+  if(formData.location)
+  {
+    update.location=formData.location;
+  }
+  if(formData.image)
+  {
+    // const tutorPhotoUpload=await uploadToCloudinary(formData.image,"tutors resources")
+    // update.image={
+    //   url:tutorPhotoUpload.secureUrl,
+    //   cloudinary_id: tutorPhotoUpload.cloudinaryPublicId,
+    //   fileName:tutorPhotoUpload.originalFilename
+    // };
+    update.image=formData.image;
+  }
+  
+  const tutor = await Tutor.findByIdAndUpdate(id, update, { new: true });
     
     
     
-    const updatedTutor = await Tutor.findByIdAndUpdate(id, formData, { 
-      new: true,
-      runValidators: true 
-    });
+    
     
     // Revalidate specific paths
     revalidatePath('/meet-our-tutors', 'page');
@@ -49,7 +96,7 @@ export async function updateTutor(id, formData) {
     // Optional: Revalidate layout if you have a layout that might contain tutor data
     revalidatePath('/', 'layout');
 
-    return { success: true, tutor: deepClone(updatedTutor) };
+    return { success: true };
   } catch (error) {
     console.error('Update Tutor Error:', error);
     return { success: false, error: error.message || 'An error occurred' };
@@ -59,6 +106,13 @@ export async function updateTutor(id, formData) {
 export async function deleteTutor(id) {
   try {
     await connectDB();
+    
+    const existingtutor=await Tutor.findById(id);
+    if(!existingtutor)
+    {
+      throw new Error("Failed to delete tutor");
+    }
+    await deleteFromCloudinary(existingtutor.image.cloudinary_id);
     
     await Tutor.findByIdAndDelete(id);
     
@@ -107,7 +161,7 @@ export async function getTutorById(id) {
   } catch (error) {
     console.error('Get Tutor By ID Error:', error);
     return { success: false, error: error.message || 'An error occurred' };
-    return null;
+  
   }
 }
 

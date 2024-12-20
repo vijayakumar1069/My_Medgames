@@ -46,7 +46,7 @@ const User_Selected_Blog_Component = ({
               {/* Blog Image */}
               <div className="relative w-full h-96 mt-4 mb-6">
                 <Image
-                  src={`data:${user_selected_blog.photo.mimetype};base64,${user_selected_blog.photo.data}`}
+                  src={user_selected_blog?.photo?.url}
                   fill
                   alt={user_selected_blog?.title}
                   className="object-contain object-center rounded-lg"

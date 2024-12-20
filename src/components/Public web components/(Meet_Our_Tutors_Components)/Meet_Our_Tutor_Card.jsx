@@ -19,7 +19,7 @@ const Meet_Our_Tutor_Card = ({ tutor }) => {
     >
       <div className="relative w-full h-[250px] lg:h-[300px] rounded-xl p-6 bg-[#F4F6FC]">
         <Image
-          src={image}
+          src={image.url}
           alt={name}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
