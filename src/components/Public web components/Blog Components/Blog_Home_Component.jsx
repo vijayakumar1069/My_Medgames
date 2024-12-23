@@ -68,7 +68,7 @@ const Blog_Home_Component = ({ blog, Allcourses, courseTitle, pagination }) => {
                 </div>
               )}
               {
-                blog.length === 0 && (
+                blog.length != 0 && (
                   <div className="flex justify-center mt-4">
                     <Pagination
                       pagination={pagination}
@@ -77,10 +77,10 @@ const Blog_Home_Component = ({ blog, Allcourses, courseTitle, pagination }) => {
                   </div>
                 )
               }
-               <Pagination
+               {/* <Pagination
                     pagination={pagination}
                     onPageChange={handlePageChange}
-                  />
+                  /> */}
             </div>
 
             {/* Sidebar Section */}
