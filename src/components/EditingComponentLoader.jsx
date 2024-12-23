@@ -15,7 +15,7 @@ const EditingComponentLoader = () => {
         <CardHeader>
           <CardTitle className="flex items-center justify-center space-x-2">
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            <span>Loading Editor</span>
+            <span>Loading</span>
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">

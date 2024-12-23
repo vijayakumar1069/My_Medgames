@@ -67,6 +67,16 @@ const Blog_Home_Component = ({ blog, Allcourses, courseTitle, pagination }) => {
                  
                 </div>
               )}
+              {
+                blog.length === 0 && (
+                  <div className="flex justify-center mt-4">
+                    <Pagination
+                      pagination={pagination}
+                      onPageChange={handlePageChange}
+                    />
+                  </div>
+                )
+              }
                <Pagination
                     pagination={pagination}
                     onPageChange={handlePageChange}

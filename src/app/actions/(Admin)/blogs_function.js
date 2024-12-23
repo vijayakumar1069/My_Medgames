@@ -4,7 +4,6 @@ import { deepClone } from "@/lib/convert_to_JSON";
 import { connectDB } from "@/lib/dbconnection";
 import Blog from "@/modals/blog.model";
 import coursesSchema from "@/modals/courses.schema";
-import { escapeRegExp } from "@/utils/regularExpression";
 import mammoth from "mammoth";
 import { revalidatePath } from "next/cache";
 import { cache } from "react";

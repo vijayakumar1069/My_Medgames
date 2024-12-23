@@ -24,7 +24,7 @@ export async function uploadToCloudinary(
   const defaultOptions = {
     folder: folder,
     resource_type: "auto", // Automatically detect resource type
-    upload_preset: process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
+  
 
     // Optional transformations for images
     ...(file.type.startsWith("image/") && {

@@ -21,12 +21,12 @@ const LatestBlogsComponent = ({ Allcourses }) => {
           >
             <div className="flex flex-row lg:flex-col xl:flex-row items-center gap-3 sm:gap-4">
               {/* Image Container */}
-              <div className="relative w-20 h-20 md:w-28 md:h-28 xl:w-32 xl:h-32 flex-shrink-0">
+              <div className="relative w-20 h-24 md:w-28 md:h-28 xl:w-32 xl:h-32 flex-shrink-0">
                 <Image
-                  src={course?.img_for_course_details_page}
+                  src={course?.img_for_course_details_page.url}
                   alt={course.name}
                   fill
-                  className="object-cover rounded-md"
+                  className="object-contain rounded-md"
                   sizes="(max-width: 640px) 80px, 
                          (max-width: 768px) 96px,
                          112px"
