@@ -165,7 +165,7 @@ export async function getAllBlogs() {
     await connectDB();
 
     // Fetch all blog posts
-    const blogs = await Blog.find().select("_id title description tags postedDate postedTime").lean().exec();
+    const blogs = await Blog.find().select("_id title description tags postedDate postedTime").sort({ postedDate: -1 }).lean().exec();
     if (blogs.length == 0) {
       return {
         success: false,
@@ -206,19 +206,12 @@ export const getBlogsForHome = cache(async () => {
       };
     }
 
-    // Optimize images before sending
-    const optimizedBlogs = blogs.map(blog => ({
-      ...blog,
-      photo: blog.photo ? {
-        ...blog.photo,
-        data: blog.photo.data // Consider implementing image optimization here
-      } : null
-    }));
+   
 
     return {
       success: true,
       message: "Blog posts fetched successfully",
-      blogs: deepClone(optimizedBlogs),
+      blogs: deepClone(blogs),
     };
 
   } catch (error) {

@@ -27,8 +27,7 @@ const Blog_Card = ({ blog }) => {
           quality={80}
           className="object-contain object-center transition-transform duration-500 group-hover:scale-110 brightness-100 group-hover:brightness-75"
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px"
-         
-          loading="lazy"
+       
         />
       </div>
 

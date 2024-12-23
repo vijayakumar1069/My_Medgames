@@ -6,6 +6,7 @@ import Large_Title from "./Large_Title";
 import Tutor_Card from "./Tutor_Card";
 import { getTutors } from "@/app/actions/(Admin)/tutorActions";
 import Loading from "@/components/Admin components/Loading";
+import EditingComponentLoader from '@/components/EditingComponentLoader';
 
 const Tutors = () => {
   const [homepageTutors, setHomepageTutors] = useState([]);
@@ -34,7 +35,7 @@ const Tutors = () => {
   if (isLoading) {
     return (
       <div className="w-full h-full flex justify-center items-center">
-        <Loading />
+        <EditingComponentLoader />
       </div>
     );
   }

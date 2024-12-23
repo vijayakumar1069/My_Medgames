@@ -53,19 +53,19 @@ export function CourseBasicDetailsForm({
 }) {
  
   const [loading, setLoading] = useState(false);
-console.log(currentData);
+
   const form = useForm({
     resolver: zodResolver(courseDetailsSchema),
     defaultValues: {
-      name: currentData.name || "",
-      description: currentData.description || "",
-      img_for_home: currentData.img_for_home || "", // Use empty string instead of undefined
+      name: currentData?.name || "",
+      description: currentData?.description || "",
+      img_for_home: currentData?.img_for_home || "", // Use empty string instead of undefined
       img_for_course_details_page:
-        currentData.img_for_course_details_page || "", // Use empty string instead of undefined
-      price: currentData.price || "",
-      lessons: currentData.lessons || "", // Use empty string instead of undefined
-      instructorName: currentData.instructorName || "",
-      teachingLanguage: currentData.teachingLanguage || "",
+        currentData?.img_for_course_details_page || "", // Use empty string instead of undefined
+      price: currentData?.price || "",
+      lessons: currentData?.lessons || "", // Use empty string instead of undefined
+      instructorName: currentData?.instructorName || "",
+      teachingLanguage: currentData?.teachingLanguage || "",
     },
   });
 

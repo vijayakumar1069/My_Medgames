@@ -19,6 +19,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useRequest } from "@/components/custom hooks/useRequest";
 import Skeleton from "@/components/Public web components/Skeleton";
 import Loading from "../Loading";
+import EditingComponentLoader from "@/components/EditingComponentLoader";
 
 export function TutorCardWrapper({ tutor }) {
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
@@ -57,7 +58,7 @@ export function TutorCardWrapper({ tutor }) {
     <>
       {loading && (
         <div className="absolute inset-0 z-10 bg-black/10">
-          <Loading />
+          <EditingComponentLoader />
         </div>
       )}
       <TutorCard

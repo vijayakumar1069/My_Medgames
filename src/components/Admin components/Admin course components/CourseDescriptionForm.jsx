@@ -53,15 +53,15 @@ const CourseCourseBuilderForm = ({
   currentData,
   setActiveTab,
 }) => {
-  console.log(`CourseCourseBuilderForm currentData`, currentData);
+ 
   const form = useForm({
     resolver: zodResolver(courseDescriptionSchema),
     defaultValues: {
       objective: currentData.objective || "",
-      key_features: currentData.key_features || [""],
-      topic_covered: currentData.topic_covered || [""],
-      benefits: currentData.benefits || [""],
-      additional_resources: currentData.additional_resources || [""],
+      key_features: currentData.key_features || [],
+      topic_covered: currentData.topic_covered || [],
+      benefits: currentData.benefits || [],
+      additional_resources: currentData.additional_resources || [],
       shown_on_home_screen: currentData.shown_on_home_screen || false,
       shown_on_home_screen_courses_section:
         currentData.shown_on_home_screen_courses_section || false,
@@ -255,9 +255,9 @@ const CourseCourseBuilderForm = ({
                       course={{
                         _id: currentData._id || null,
                         name: currentData.name,
-                        img_for_home: currentData.img_for_home.url,
+                        img_for_home: currentData.img_for_home,
                         img_for_course_details_page:
-                          currentData.img_for_course_details_page.url,
+                          currentData.img_for_course_details_page,
                         price: currentData.price,
 
                         description: currentData.description,

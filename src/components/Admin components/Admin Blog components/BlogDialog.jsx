@@ -18,11 +18,13 @@ import {
 } from "@/app/actions/(Admin)/blogs_function";
 import Skeleton from "@/components/Public web components/Skeleton";
 import Loading from "../Loading";
+import { useRequest } from "@/components/custom hooks/useRequest";
+import EditingComponentLoader from "@/components/EditingComponentLoader";
 
 export function BlogDialog({ type = "add", editID }) {
   const [isOpen, setIsOpen] = useState(false);
   const [initialData, setInitialData] = useState({});
-  const [loading, setLoading] = useState(false);
+ const{loading,success,error,sendRequest}=useRequest();
 
   const handleSubmitSuccess = () => {
     setIsOpen(false);
@@ -32,9 +34,9 @@ export function BlogDialog({ type = "add", editID }) {
     // Fetch data only when the dialog is open and editID is valid
     if (isOpen && type === "edit" && editID) {
       const fetchData = async () => {
-        setLoading(true);
+        
         try {
-          const res = await getBlogByIdForEdit(editID);
+          const res = await sendRequest(() => getBlogByIdForEdit(editID));
   
           if (res.success) {
             setInitialData(res.blog);
@@ -42,16 +44,18 @@ export function BlogDialog({ type = "add", editID }) {
         } catch (error) {
           console.error("Error fetching blog:", error);
         }
-        setLoading(false);
+       
       };
 
       fetchData();
     }
   }, [isOpen, editID, type]); // Trigger the fetch only when isOpen, editID, or type changes
 
-  if (loading) {
-    return <Loading />;
+  if(loading)
+  {
+    return <EditingComponentLoader />;
   }
+  
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>

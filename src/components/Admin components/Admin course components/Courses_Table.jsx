@@ -56,7 +56,7 @@ export async function Courses_Table() {
                 <TableCell>{course.price}</TableCell>
               
                 <TableCell className="flex text-center gap-2 justify-center items-center w-full mx-auto">
-                  <CourseCreationDialog type="edit" initialData={course} />
+                  <CourseCreationDialog type="edit" initialData={course._id} />
                   <DeleteCourse courseId={course._id} />
                 </TableCell>
               </TableRow>

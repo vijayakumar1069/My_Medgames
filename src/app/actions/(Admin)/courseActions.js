@@ -304,3 +304,33 @@ export async function getCoursesTitle()
     };
   }
 }
+
+
+export async function getCoursesForEdit(id) {
+
+  try {
+    await connectDB();
+
+    const courses = await coursesSchema.findById(id);
+ 
+    if (!courses) {
+      throw new Error("Failed to fetch courses");
+    }
+
+    // Process and optimize course data
+   
+
+    return {
+      success: true,
+      message: "Courses fetched successfully",
+      course: deepClone(courses),
+    };
+  } catch (error) {
+    console.error("Error fetching courses:", error);
+    return {
+      success: false,
+      message: "Failed to fetch courses",
+      error: error.message,
+    };
+  }
+}

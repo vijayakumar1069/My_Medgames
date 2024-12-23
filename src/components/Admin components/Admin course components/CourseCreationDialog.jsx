@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -20,18 +20,19 @@ import { ReviewForm } from "./ReviewForm";
 import CourseBasicDetailsForm from "./CourseBasicDetailsForm";
 import {
   createCourse,
+  getCoursesForEdit,
   updateCourse,
 } from "@/app/actions/(Admin)/courseActions";
 import { useRequest } from "@/components/custom hooks/useRequest";
 import { CourseVideoForm } from "./CourseVideoForm";
 import { EditIcon, PlusIcon } from "lucide-react";
+import Loading from "../Loading";
+import EditingComponentLoader from "@/components/EditingComponentLoader";
 
 export function CourseCreationDialog({ type = "add", initialData }) {
   const [activeTab, setActiveTab] = useState("basic");
-  const [courseData, setCourseData] = useState(
-    type == "edit" ? initialData : {}
-  );
- 
+  const [courseData, setCourseData] = useState({});
+
   const [isOpen, setIsOpen] = useState(false);
 
   const { loading, success, error, sendRequest } = useRequest();
@@ -40,25 +41,40 @@ export function CourseCreationDialog({ type = "add", initialData }) {
     setActiveTab(tabName);
   };
 
+  // const handleDataUpdate = (newData) => {
+  //   setCourseData((prev) => ({
+  //     ...prev,
+  //     ...newData,
+  //   }));
+  // };
   const handleDataUpdate = (newData) => {
-    setCourseData((prev) => ({
-      ...prev,
-      ...newData,
-    }));
+    setCourseData((prev) => {
+      // Only update fields that are actually different
+      const updatedFields = Object.keys(newData).reduce((acc, key) => {
+        if (newData[key] !== prev[key]) {
+          acc[key] = newData[key];
+        }
+        return acc;
+      }, {});
+
+      return {
+        ...prev,
+        ...updatedFields,
+      };
+    });
+   
   };
 
   const handleSubmit = async () => {
-    
-    const res = initialData?._id
-      ? await sendRequest(() => updateCourse(initialData?._id, courseData))
+    const res = initialData
+      ? await sendRequest(() => updateCourse(initialData, courseData))
       : await sendRequest(() => createCourse(courseData));
-    if (type == "edit") {
-      setIsOpen(false);
-      setCourseData(res.course);
-      setActiveTab("basic");
-      return;
-    
-    }
+    // if (type == "edit") {
+    //   setIsOpen(false);
+    //   setCourseData(res?.course);
+    //   setActiveTab("basic");
+    //   return;
+    // }
     if (res.success) {
       setIsOpen(false);
       setCourseData({});
@@ -66,7 +82,47 @@ export function CourseCreationDialog({ type = "add", initialData }) {
 
     setIsOpen(false);
   };
+  // const handleEdit = async() => {
 
+  // }
+  // useEffect(() => {
+  //   // Only fetch data if type is "edit"
+  //   if (type === "edit" && initialData !== undefined) {
+  //     async function getData() {
+  //       const res = await getCoursesForEdit(initialData);
+  //    
+  //       if (res.success) {
+  //         setCourseData(res?.course);
+  //       }
+  //     }
+  //     getData();
+  //   }
+  //   return () => {
+  //     setCourseData({});
+  //   };
+  // }, [type, initialData]); // Add dependencies to control when this effect runs
+  useEffect(() => {
+    // Fetch data only when the dialog is open and editID is valid
+    if (isOpen && type === "edit" && initialData) {
+      const fetchData = async () => {
+        try {
+          const res = await sendRequest(() => getCoursesForEdit(initialData));
+   
+          if (res.success) {
+            setCourseData(res?.course);
+          }
+        } catch (error) {
+          console.error("Error fetching blog:", error);
+        }
+      };
+
+      fetchData();
+    }
+  }, [isOpen, initialData, type,sendRequest]); // Trigger the fetch only when isOpen, editID, or type changes
+
+  if (loading) {
+    return <EditingComponentLoader />;
+  }
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
@@ -84,6 +140,7 @@ export function CourseCreationDialog({ type = "add", initialData }) {
             variant="outline"
             size="sm"
             className="bg-green-400 xp-2 py-4 h-9 hover:bg-green-500 text-black"
+            // onClick={handleEdit}
           >
             <EditIcon className="mr-2 h-4 w-4" /> Edit
           </Button>
