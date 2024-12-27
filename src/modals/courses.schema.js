@@ -179,6 +179,10 @@ const courseSchema = new mongoose.Schema(
         resourceType: {
           type: String,
         },
+        downloadUrl:{
+          type: String,
+          required: true,
+        }
       },
     ],
     video_section: [
@@ -200,7 +204,7 @@ const courseSchema = new mongoose.Schema(
         },
         resourceType: {
           type: String,
-        },
+        }
       },
     ],
     redirect_link: {

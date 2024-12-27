@@ -111,7 +111,7 @@ const User_Selected_Course_Component = ({ course, suggestionsCourses }) => {
                     key_features={course.key_features}
                     additional_resources={course.additional_resources}
                     benefits={course.benefits}
-                    downalodPdf={course.downloadable_pdf?.[0]?.secureUrl}
+                    downalodPdf={course.downloadable_pdf?.[0]}
                   />
                 </TabsContent>
 

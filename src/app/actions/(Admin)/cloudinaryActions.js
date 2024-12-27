@@ -27,15 +27,15 @@ export async function uploadToCloudinary(
   
 
     // Optional transformations for images
-    ...(file.type.startsWith("image/") && {
-      transformation: [
-        {
-          width: "auto",
-          crop: "limit",
-          quality: "auto",
-        },
-      ],
-    }),
+    // ...(file.type.startsWith("image/") && {
+    //   transformation: [
+    //     {
+    //       width: "auto",
+    //       crop: "limit",
+    //       quality: "auto",
+    //     },
+    //   ],
+    // }),
   };
 
   // Merge default and custom options

@@ -77,6 +77,7 @@ export function CourseCreationDialog({ type = "add", initialData }) {
     // }
     if (res.success) {
       setIsOpen(false);
+      setActiveTab("basic");
       setCourseData({});
     }
 
