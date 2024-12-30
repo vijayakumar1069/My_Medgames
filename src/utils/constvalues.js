@@ -1,5 +1,11 @@
-import { IconBell, IconBooks, IconBrandBlogger, IconBuildingBank, IconHome, IconSchool } from "@tabler/icons-react";
-import { BriefcaseMedical, CalendarClock, HandCoins } from "lucide-react";
+import {
+  IconBell,
+  IconBooks,
+  IconBrandBlogger,
+  IconBuildingBank,
+  IconHome,
+  IconSchool,
+} from "@tabler/icons-react";
 
 export const navbarvalues = [
   {
@@ -60,7 +66,6 @@ export const navbarvalues = [
     link: "/privacy-policy",
     group: true,
   },
-  
 ];
 
 export const footerLinks = [
@@ -190,8 +195,7 @@ export const services = [
     title: "UBC Interview Program",
     description: [
       "Learn from UBC med students with insider knowledge.",
-     "Interactive sessions with small class sizes and mock MMI practice.",
-
+      "Interactive sessions with small class sizes and mock MMI practice.",
     ],
     link: "/our-courses/7",
   },
@@ -903,7 +907,7 @@ export const courses = [
       "Expert feedback to build confidence and improve interview performance.",
     ],
     additional_resources: [
-      "Access to guides, sample questions, and recordings of sessions."
+      "Access to guides, sample questions, and recordings of sessions.",
     ],
 
     via: "Virtual program, zoom",
@@ -1247,7 +1251,6 @@ export const brand_Info = {
       link: "https://www.instagram.com/medgamesorg/",
       display_content: "@medgamesorg",
     },
-    
   ],
 };
 
@@ -1308,7 +1311,6 @@ export const courses_titles = [
   "Med Applications",
   "UBC Interview Program",
 ];
-
 
 export const blogs = [
   {
@@ -2080,7 +2082,6 @@ export const customized_privacy_policy = [
       ".",
     ],
   },
-  
 
   {
     type: "heading with content",
@@ -2124,14 +2125,14 @@ export const customized_privacy_policy = [
 export const upcoming_events = [
   {
     id: 1,
-    title: "MCAT Info Session",
+    title: "Summer MCAT Info Session ",
     description:
       "Med Games is holding an essay competition. The deadline to submit is April 1st 2024, at midnight EST.",
     via: "Virtual program",
-    event_date: "15",
-    event_month: "Apr",
-    event_year: "2024",
-    time: "10:00 AM - 12:00 PM EST",
+    event_date: "1",
+    event_month: "Feb",
+    event_year: "2025",
+    time: "8:00 AM - 8:30 PM EST",
     language: "English",
     imageURL: "/event_1.png",
     price: "free",
@@ -2238,11 +2239,11 @@ export const upcoming_events = [
     description:
       "Med Games is holding an essay competition. The deadline to submit is April 1st 2024, at midnight EST.",
     via: "Virtual program",
-    event_date: "15",
-    event_month: "Apr",
-    event_year: "2024",
+    event_date: "1",
+    event_month: "March",
+    event_year: "2025",
 
-    time: "10:00 AM - 12:00 PM EST",
+    time: "8:00 AM - 8:30 PM EST",
     language: "English",
     imageURL: "/event_2.png",
     price: "free",
@@ -2350,9 +2351,9 @@ export const upcoming_events = [
       "Med Games is holding an essay competition. The deadline to submit is April 1st 2024, at midnight EST.",
     via: "Virtual program",
     event_date: "15",
-    event_month: "Apr",
-    event_year: "2024",
-    time: "10:00 AM - 12:00 PM EST",
+    event_month: "March",
+    event_year: "2025",
+    time: "8:00 AM - 8:30 PM EST",
     language: "English",
     imageURL: "/event_3.png",
     price: "free",
@@ -2726,18 +2727,16 @@ export const admin_sidebar_items = [
     title: "Payments",
     icon: <IconBuildingBank />,
     link: "/admin-payments",
-  
   },
   {
     id: 6,
     title: "Blog",
     icon: <IconBrandBlogger />,
     link: "/admin-blog",
-  }
+  },
 ];
 
-
-export   const sections = [
+export const sections = [
   {
     key: "objective",
     label: "Course Objective",
@@ -2771,8 +2770,8 @@ export   const sections = [
   },
 ];
 
-export const subscribe_const=[
+export const subscribe_const = [
   "Monthly Medical Career Insights",
   "Exclusive Interview Preparation Guides",
   "Early Access to Specialized Courses",
-]
+];

@@ -41,8 +41,8 @@ const Course_Card = ({ course }) => {
             priority
             quality={80}
             style={{
-              objectFit: "contain", // Full image visible
-              objectPosition: "center",
+              objectFit: "cover", // Full image visible
+        
             }}
             className="transition-all duration-500 
                  hover:scale-105 
@@ -56,23 +56,23 @@ const Course_Card = ({ course }) => {
         )}
       </div>
 
-      <div className="p-6 space-y-4">
+      <div className="p-6 space-y-2">
         <h2 className="text-2xl font-bold text-gray-800 group-hover:text-[#4F9F76] transition-colors duration-300">
           {name}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 md:text-base text-sm">
-          <div className="flex items-center space-x-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-gray-600 md:text-base text-sm">
+          <div className="flex items-center space-x-1 md:col-span-2 lg:col-span-3 xl:col-span-2">
             <IconCalendar stroke={2} className="text-[#4F9F76] flex-shrink-0" />
             <span>
               {formatDate(startDate)} to {formatDate(endDate)}
             </span>
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1">
             <IconMapPin stroke={2} className="text-[#4F9F76] flex-shrink-0" />
             <span>{via}</span>
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 md:col-span-3">
             <IconClockHour2
               stroke={2}
               className="text-[#4F9F76] flex-shrink-0"
@@ -87,10 +87,10 @@ const Course_Card = ({ course }) => {
           {description}
         </p>
 
-        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+        <div className="flex items-center justify-between pt-2 border-t border-gray-100">
           <Link href={`/our-courses/${_id}`} prefetch={true}>
             <Button className="bg-[#4F9F76] text-white hover:bg-[#4F9F76]/90 transition-colors duration-300">
-              Get Started
+              Enroll Now
             </Button>
           </Link>
           <span className="text-2xl font-bold text-[#4F9F76] group-hover:text-opacity-80 transition-colors duration-300">

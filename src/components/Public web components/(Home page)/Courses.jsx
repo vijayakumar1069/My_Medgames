@@ -14,10 +14,10 @@ export const revalidate = 3600; // Revalidate every hour
 
 // Server Component
 const CourseGrid = ({ courses }) => (
-  <div className="lg:w-9/12 md:w-11/12 w-full grid grid-cols-1 lg:grid-cols-2 gap-6 p-5 md:p-0 justify-items-center xl:justify-items-start">
+  <div className="lg:w-9/12 md:w-11/12 w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 p-5 md:p-0 justify-items-center xl:justify-items-start">
     {courses.length > 0 ? (
       courses
-        .slice(0, 4)
+        
         .map((item) => <Course_Card key={item._id} course={item} />)
     ) : (
       <div className="flex col-span-4 justify-center items-center flex-col w-full space-y-8 p-3 py-10">

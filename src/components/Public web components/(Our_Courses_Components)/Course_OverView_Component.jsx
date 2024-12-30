@@ -17,7 +17,7 @@ const Course_OverView_Component = ({
   benefits,
   downalodPdf,
 }) => {
-  console.log(downalodPdf);
+ 
   return (
     <div className="max-w-7xl mx-auto p-6 bg-white shadow-lg rounded-lg">
       <div className="grid md:grid-cols-1 gap-8">

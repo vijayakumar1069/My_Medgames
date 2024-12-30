@@ -14,7 +14,7 @@ export default async function Blogs_Home_Page({ searchParams }) {
     search: search || "",
     tags: tags ? (Array.isArray(tags) ? tags : [tags]) : [],
     page: page ? parseInt(page) : 1,
-    limit: limit ? parseInt(limit) : 4,
+    limit: limit ? parseInt(limit) : 6,
   };
 
   // Fetch blogs based on search criteria

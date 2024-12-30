@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Pagination from "../Pagination";
 
 const Blog_Home_Component = ({ blog, Allcourses, courseTitle, pagination }) => {
+  console.log(pagination);
   const router = useRouter();
 
   const handleSearch = (searchTerm, selectedFilters) => {
@@ -64,20 +65,17 @@ const Blog_Home_Component = ({ blog, Allcourses, courseTitle, pagination }) => {
                       blog_data={item}
                     />
                   ))}
-                 
                 </div>
               )}
-              {
-                blog.length != 0 && (
-                  <div className="flex justify-center mt-4">
-                    <Pagination
-                      pagination={pagination}
-                      onPageChange={handlePageChange}
-                    />
-                  </div>
-                )
-              }
-               {/* <Pagination
+              {pagination.totalPages > 1 && (
+                <div className="flex justify-center mt-4">
+                  <Pagination
+                    pagination={pagination}
+                    onPageChange={handlePageChange}
+                  />
+                </div>
+              )}
+              {/* <Pagination
                     pagination={pagination}
                     onPageChange={handlePageChange}
                   /> */}

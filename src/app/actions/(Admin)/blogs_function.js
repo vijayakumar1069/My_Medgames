@@ -357,7 +357,7 @@ export async function searchBlogs(searchParams) {
       sortBy = "postedDate",
       sortOrder = "desc",
       page = 1,
-      limit = 3,
+      limit = 6,
     } = searchParams;
 
     // Prepare search conditions for blogs
