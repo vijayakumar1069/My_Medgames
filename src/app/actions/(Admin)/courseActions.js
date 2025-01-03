@@ -8,8 +8,6 @@ import { cache } from "react";
 import { deleteFromCloudinary } from "./cloudinaryActions";
 
 export async function createCourse(data) {
-
-
   try {
     await connectDB();
 
@@ -43,7 +41,7 @@ export async function createCourse(data) {
 
     revalidatePath("/admin-courses", "page");
     revalidatePath(`/our-courses`, "page");
-    revalidatePath('/', 'layout');
+    revalidatePath("/", "layout");
 
     return {
       success: true,
@@ -51,7 +49,6 @@ export async function createCourse(data) {
       course: deepClone(updatedCourse),
       redirectUrl: redirectUrl,
     };
-
   } catch (error) {
     console.error("Error creating course:", error);
     return {
@@ -62,15 +59,15 @@ export async function createCourse(data) {
   }
 }
 
-
-
 export const getCourses = cache(async () => {
   try {
     await connectDB();
 
     const courses = await coursesSchema
       .find()
-      .select('_id name description price startDate endDate via dailyStartTime dailyEndTime classDays key_features img_for_home img_for_course_details_page')
+      .select(
+        "_id name description price startDate endDate via dailyStartTime dailyEndTime classDays key_features img_for_home img_for_course_details_page"
+      )
       .lean()
       .exec();
 
@@ -79,9 +76,10 @@ export const getCourses = cache(async () => {
     }
 
     // Process and optimize course data
-    const processedCourses = courses.map(course => ({
+    const processedCourses = courses.map((course) => ({
       ...course,
-      img_for_course_details_page: course.img_for_course_details_page || '/fallback-course-image.jpg'
+      img_for_course_details_page:
+        course.img_for_course_details_page || "/fallback-course-image.jpg",
     }));
 
     return {
@@ -99,27 +97,55 @@ export const getCourses = cache(async () => {
   }
 });
 
-
 export async function deleteCourse(id) {
   try {
     await connectDB();
-    // Delete course from the database
+
+    // Find the course first
     const course = await coursesSchema.findById(id);
+
     if (!course) {
       throw new Error("Failed to delete course");
     }
+
+    // Delete course images from Cloudinary
     await deleteFromCloudinary(course.img_for_home.cloudinary_id);
-    await deleteFromCloudinary(course.img_for_course_details_page.cloudinary_id);
+    await deleteFromCloudinary(
+      course.img_for_course_details_page.cloudinary_id
+    );
+
+    // Delete review images from Cloudinary
+    if (course.reviews && course.reviews.length > 0) {
+      // Filter out reviews with cloudinaryPublicId
+      const reviewImagesPublicIds = course.reviews
+        .filter((review) => review.cloudinaryPublicId)
+        .map((review) => review.cloudinaryPublicId);
+
+      // Delete all review images
+      await Promise.all(
+        reviewImagesPublicIds.map((publicId) => deleteFromCloudinary(publicId))
+      );
+    }
+
+    // Delete other course-related files from Cloudinary
+    if (course.downloadable_pdf && course.downloadable_pdf.length > 0) {
+      await deleteFromCloudinary(course.downloadable_pdf[0].cloudinaryPublicId);
+    }
+
+    if (course.video_section && course.video_section.length > 0) {
+      await deleteFromCloudinary(course.video_section[0].cloudinaryPublicId);
+    }
+
     // Delete course from the database
-    const deletedCourse = await coursesSchema.findByIdAndDelete({_id: id});
+    const deletedCourse = await coursesSchema.findByIdAndDelete({ _id: id });
 
     if (!deletedCourse) {
       throw new Error("Failed to delete course");
     }
 
+    // Revalidate paths
     revalidatePath(`/our-courses`, "page");
-    // revalidatePath(`/our-courses/${id}`, "page");
-    revalidatePath('/', 'layout');
+    revalidatePath("/", "layout");
     revalidatePath("/admin-courses", "page");
 
     return {
@@ -132,7 +158,7 @@ export async function deleteCourse(id) {
     return {
       success: false,
       message: "Failed to delete course",
-      error: error.message, 
+      error: error.message,
     };
   }
 }
@@ -149,12 +175,10 @@ export async function updateCourse(id, data) {
     if (!updatedCourse) {
       throw new Error("Failed to update course");
     }
-    revalidatePath("/","page");
+    revalidatePath("/", "page");
     revalidatePath(`/our-courses/${id}`, "page");
-    revalidatePath('/', 'layout');
+    revalidatePath("/", "layout");
     revalidatePath("/admin-courses", "page");
-
-
 
     return {
       success: true,
@@ -170,7 +194,6 @@ export async function updateCourse(id, data) {
     };
   }
 }
-
 
 export async function getCourseById(id) {
   try {
@@ -190,7 +213,7 @@ export async function getCourseById(id) {
     const getSuggestions = (currentCourse, courses) => {
       // Remove current course from suggestions
       const filteredCourses = courses.filter(
-        c => c._id.toString() !== currentCourse._id.toString()
+        (c) => c._id.toString() !== currentCourse._id.toString()
       );
 
       // If total courses are less than 4, return all available
@@ -199,9 +222,7 @@ export async function getCourseById(id) {
       }
 
       // Randomly shuffle and take first 3
-      return filteredCourses
-        .sort(() => 0.5 - Math.random())
-        .slice(0, 3);
+      return filteredCourses.sort(() => 0.5 - Math.random()).slice(0, 3);
     };
 
     // Get course suggestions
@@ -211,7 +232,7 @@ export async function getCourseById(id) {
       success: true,
       message: "Course fetched successfully",
       course: deepClone(course),
-      suggestions: deepClone(suggestions)
+      suggestions: deepClone(suggestions),
     };
   } catch (error) {
     console.error("Error fetching course:", error);
@@ -228,97 +249,92 @@ export const getHomePageServices = async () => {
   try {
     await connectDB();
 
-    const services = await coursesSchema.find({
-      shown_on_home_screen: true
-    })
-    .select('_id name key_features redirect_link')
-    .limit(8)
-    .lean()
-    .exec();
+    const services = await coursesSchema
+      .find({
+        shown_on_home_screen: true,
+      })
+      .select("_id name key_features redirect_link")
+      .limit(8)
+      .lean()
+      .exec();
 
     return {
       success: true,
-      message: 'Services fetched successfully',
+      message: "Services fetched successfully",
       servicesCourses: deepClone(services),
-      fetchedAt: new Date().toISOString()
+      fetchedAt: new Date().toISOString(),
     };
   } catch (error) {
-    console.error('Services Fetch Error:', error);
+    console.error("Services Fetch Error:", error);
     return {
       success: false,
-      message: error.message || 'Failed to fetch services',
-      servicesCourses: []
+      message: error.message || "Failed to fetch services",
+      servicesCourses: [],
     };
   }
-}
-
+};
 
 export const gethomeScreenCourses = cache(async () => {
   try {
     await connectDB();
 
-    const services = await coursesSchema.find({
-      shown_on_home_screen_courses_section: true
-    })
-    .select('_id name description img_for_home price img_for_course_details_page startDate endDate via dailyStartTime dailyEndTime classDays')
-   
-    .lean()
-    .exec();
+    const services = await coursesSchema
+      .find({
+        shown_on_home_screen_courses_section: true,
+      })
+      .select(
+        "_id name description img_for_home price img_for_course_details_page startDate endDate via dailyStartTime dailyEndTime classDays"
+      )
+
+      .lean()
+      .exec();
 
     return {
       success: true,
-      message: 'Services fetched successfully',
+      message: "Services fetched successfully",
       HomeScreenCourses: deepClone(services),
-      fetchedAt: new Date().toISOString()
+      fetchedAt: new Date().toISOString(),
     };
   } catch (error) {
-    console.error('Services Fetch Error:', error);
+    console.error("Services Fetch Error:", error);
     return {
       success: false,
-      message: error.message || 'Failed to fetch Courses',
-      HomeScreenCourses: []
+      message: error.message || "Failed to fetch Courses",
+      HomeScreenCourses: [],
     };
   }
 });
 
-
-
-export async function getCoursesTitle()
-{
+export async function getCoursesTitle() {
   try {
     await connectDB();
-    const courses = await coursesSchema.find().select('name').lean();
+    const courses = await coursesSchema.find().select("name").lean();
     return {
       success: true,
-      message: 'Courses fetched successfully',
+      message: "Courses fetched successfully",
       coursesTitle: deepClone(courses),
-      
-    }
-  }
-  catch (error) {
-    console.error('Services Fetch Error:', error);
+    };
+  } catch (error) {
+    console.error("Services Fetch Error:", error);
     return {
       success: false,
-      message: error.message || 'Failed to fetch Courses',
-      HomeScreenCourses: []
+      message: error.message || "Failed to fetch Courses",
+      HomeScreenCourses: [],
     };
   }
 }
 
-
 export async function getCoursesForEdit(id) {
-
   try {
     await connectDB();
 
     const courses = await coursesSchema.findById(id);
- 
+
     if (!courses) {
       throw new Error("Failed to fetch courses");
     }
 
     // Process and optimize course data
-   
 
     return {
       success: true,

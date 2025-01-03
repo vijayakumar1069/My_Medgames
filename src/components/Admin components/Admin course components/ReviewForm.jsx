@@ -57,7 +57,7 @@ export function ReviewForm({ onDataUpdate, currentData, setActiveTab }) {
     name: "reviews",
   });
 
-  // console.log(currentData.reviews);
+
 
   // Modified image change handler to work with field arrays
   const handleImageChange = async (event, index) => {

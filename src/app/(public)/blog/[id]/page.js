@@ -27,7 +27,7 @@ export default async function User_Selected_Blog({params}) {
 
     try {
         const blogData = await getBlogById(id);
-        console.log(blogData);
+        
        
         if (!blogData?.success || !blogData?.blog) {
             notFound();

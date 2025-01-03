@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import Pagination from "../Pagination";
 
 const Blog_Home_Component = ({ blog, Allcourses, courseTitle, pagination }) => {
-  console.log(pagination);
+ 
   const router = useRouter();
 
   const handleSearch = (searchTerm, selectedFilters) => {
