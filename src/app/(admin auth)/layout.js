@@ -3,6 +3,7 @@ import { Manrope, Poppins } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/Public web components/(Home page)/Navbar";
 import Footer from "@/components/Public web components/(Home page)/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -34,8 +35,9 @@ export default function Admin_Layout({ children }) {
         </div> */}
 
         {/* Main content with padding to account for the fixed navbar */}
-        <main > 
+        <main>
           {children}
+          <SpeedInsights />
         </main>
         {/* <Footer/> */}
       </body>

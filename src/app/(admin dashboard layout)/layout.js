@@ -10,6 +10,7 @@ import Sidebar from "@/components/Admin components/Sidebar";
 import { Suspense } from "react";
 import Loading from "@/components/Admin components/Loading";
 import { Toaster } from "@/components/ui/toaster";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -31,7 +32,6 @@ export const metadata = {
 export default async function Admin_Dashboard_layout({ children }) {
   const session = await requireAuth();
 
-
   try {
     return (
       <html lang="en">
@@ -43,8 +43,11 @@ export default async function Admin_Dashboard_layout({ children }) {
             <div className="flex-1 flex flex-col">
               <Admin_Navbar />
               <main className="flex-1 overflow-y-auto p-6 bg-brand-50">
-                <Suspense fallback={<Loading />}>{children} <Toaster /></Suspense>
+                <Suspense fallback={<Loading />}>
+                  {children} <Toaster />
+                </Suspense>
               </main>
+              <SpeedInsights />
             </div>
           </div>
         </body>
