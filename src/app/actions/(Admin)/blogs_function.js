@@ -18,13 +18,17 @@ export async function createBlogPost(values) {
     await connectDB();
 
     // Convert photo to base64
-    const photoUploadResult = await uploadToCloudinary(photo,"blogs resources")
-
- 
+    const photoUploadResult = await uploadToCloudinary(
+      photo,
+      "blogs resources"
+    );
 
     // Convert document to base64
-    const documentUploadResult = await uploadToCloudinary(documentFile,"blogs resources")
-    
+    const documentUploadResult = await uploadToCloudinary(
+      documentFile,
+      "blogs resources"
+    );
+
     const slug = title.toLowerCase().split(" ").join("-");
 
     // Prepare blog data
@@ -34,15 +38,14 @@ export async function createBlogPost(values) {
       slug,
       tags,
       photo: {
-        url:photoUploadResult.secureUrl,
+        url: photoUploadResult.secureUrl,
         cloudinary_id: photoUploadResult.cloudinaryPublicId,
-        fileName:photoUploadResult.originalFilename
-       
+        fileName: photoUploadResult.originalFilename,
       },
       documentFile: {
-        url:documentUploadResult.secureUrl,
+        url: documentUploadResult.secureUrl,
         cloudinary_id: documentUploadResult.cloudinaryPublicId,
-        fileName:documentUploadResult.originalFilename
+        fileName: documentUploadResult.originalFilename,
       },
     };
 
@@ -103,22 +106,28 @@ export async function updateBlog(id, values) {
     // Handle photo update
     if (values.photo) {
       // Convert photo to base64
-      const photoUploadResult = await uploadToCloudinary(values.photo,"blogs resources")
+      const photoUploadResult = await uploadToCloudinary(
+        values.photo,
+        "blogs resources"
+      );
 
       updateData.photo = {
-        url:photoUploadResult.secureUrl,
-        cloudinary_id: photoUploadResult.cloudinaryPublicId
+        url: photoUploadResult.secureUrl,
+        cloudinary_id: photoUploadResult.cloudinaryPublicId,
       };
     }
 
     // Handle document file update
     if (values.documentFile) {
       // Convert document to base64
-      const documentUploadResult = await uploadToCloudinary(values.documentFile,"blogs resources")
+      const documentUploadResult = await uploadToCloudinary(
+        values.documentFile,
+        "blogs resources"
+      );
 
       updateData.documentFile = {
-        url:documentUploadResult.secureUrl,
-        cloudinary_id: documentUploadResult.cloudinaryPublicId
+        url: documentUploadResult.secureUrl,
+        cloudinary_id: documentUploadResult.cloudinaryPublicId,
       };
     }
 
@@ -157,14 +166,17 @@ export async function updateBlog(id, values) {
   }
 }
 
-
 export async function getAllBlogs() {
   try {
     // Ensure database connection
     await connectDB();
 
     // Fetch all blog posts
-    const blogs = await Blog.find().select("_id title description tags postedDate postedTime").sort({ postedDate: -1 }).lean().exec();
+    const blogs = await Blog.find()
+      .select("_id title description tags postedDate postedTime")
+      .sort({ postedDate: -1 })
+      .lean()
+      .exec();
     if (blogs.length == 0) {
       return {
         success: false,
@@ -201,24 +213,21 @@ export const getBlogsForHome = cache(async () => {
       return {
         success: false,
         message: "No blog posts found",
-        blogs: []
+        blogs: [],
       };
     }
-
-   
 
     return {
       success: true,
       message: "Blog posts fetched successfully",
       blogs: deepClone(blogs),
     };
-
   } catch (error) {
     console.error("Blog fetching error:", error);
     return {
       success: false,
       message: "Failed to fetch blog posts",
-      blogs: []
+      blogs: [],
     };
   }
 });
@@ -238,10 +247,8 @@ export async function getBlogById(id) {
       };
     }
     const response = await axios.get(blog.documentFile.url, {
-      responseType: 'arraybuffer'
+      responseType: "arraybuffer",
     });
-
-
 
     // Parse Word document to HTML
     const result = await mammoth.convertToHtml({ buffer: response.data });
@@ -314,7 +321,6 @@ export async function getBlogById(id) {
   }
 }
 export async function getBlogByIdForEdit(id) {
-
   try {
     // Ensure database connection
     await connectDB();
@@ -327,11 +333,11 @@ export async function getBlogByIdForEdit(id) {
         message: "No blog post found",
       };
     }
-   return {
-     success: true,
-     message: "Blog post fetched successfully",
-     blog: deepClone(blog),
-   };
+    return {
+      success: true,
+      message: "Blog post fetched successfully",
+      blog: deepClone(blog),
+    };
   } catch (error) {
     console.error("Blog and related courses fetching error:", error);
 
@@ -340,12 +346,10 @@ export async function getBlogByIdForEdit(id) {
       message: "Error fetching blog post and related courses",
       error: error.message,
     };
-   }
   }
-
+}
 
 export async function searchBlogs(searchParams) {
-
   try {
     // Ensure database connection
     await connectDB();
@@ -364,9 +368,10 @@ export async function searchBlogs(searchParams) {
     const blogSearchConditions = [];
 
     // Escape special characters for regex
-    const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const escapeRegExp = (string) =>
+      string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-    if (search) {
+    if (search != "") {
       const escapedSearch = escapeRegExp(search);
       blogSearchConditions.push({
         $or: [
@@ -386,7 +391,6 @@ export async function searchBlogs(searchParams) {
     // Construct the final query for blogs
     const blogQuery =
       blogSearchConditions.length > 0 ? { $and: blogSearchConditions } : {};
-
     // Prepare sort options
     const sortOptions = {};
     sortOptions[sortBy] = sortOrder === "desc" ? -1 : 1;
@@ -396,7 +400,12 @@ export async function searchBlogs(searchParams) {
 
     // Perform search with pagination and sorting for blogs
     const [blogs, totalBlogs] = await Promise.all([
-      Blog.find(blogQuery).sort(sortOptions).select("_id title description photo postedDate").skip(skip).limit(limit).lean(),
+      Blog.find(blogQuery)
+        .sort(sortOptions)
+        .select("_id title description photo postedDate")
+        .skip(skip)
+        .limit(limit)
+        .lean(),
       Blog.countDocuments(blogQuery),
     ]);
 
@@ -424,7 +433,10 @@ export async function searchBlogs(searchParams) {
       courseSearchConditions.length > 0 ? { $and: courseSearchConditions } : {};
 
     // Perform search for related courses
-    const courses = await coursesSchema.find(courseQuery).select('_id name description img_for_course_details_page ').lean();
+    const courses = await coursesSchema
+      .find(courseQuery)
+      .select("_id name description img_for_course_details_page ")
+      .lean();
 
     // Calculate total pages for blogs
     const totalPages = Math.ceil(totalBlogs / limit);
@@ -450,7 +462,6 @@ export async function searchBlogs(searchParams) {
     };
   }
 }
-
 
 export async function deleteBlog(id) {
   try {

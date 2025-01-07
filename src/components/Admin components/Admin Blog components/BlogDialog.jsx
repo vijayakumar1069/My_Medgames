@@ -13,9 +13,7 @@ import {
 
 import { PlusIcon, EditIcon } from "lucide-react";
 import { BlogPostForm } from "./BlogPostForm";
-import {
-  getBlogByIdForEdit,
-} from "@/app/actions/(Admin)/blogs_function";
+import { getBlogByIdForEdit } from "@/app/actions/(Admin)/blogs_function";
 import Skeleton from "@/components/Public web components/Skeleton";
 import Loading from "../Loading";
 import { useRequest } from "@/components/custom hooks/useRequest";
@@ -24,7 +22,7 @@ import EditingComponentLoader from "@/components/EditingComponentLoader";
 export function BlogDialog({ type = "add", editID }) {
   const [isOpen, setIsOpen] = useState(false);
   const [initialData, setInitialData] = useState({});
- const{loading,success,error,sendRequest}=useRequest();
+  const { loading, success, error, sendRequest } = useRequest();
 
   const handleSubmitSuccess = () => {
     setIsOpen(false);
@@ -34,28 +32,24 @@ export function BlogDialog({ type = "add", editID }) {
     // Fetch data only when the dialog is open and editID is valid
     if (isOpen && type === "edit" && editID) {
       const fetchData = async () => {
-        
         try {
           const res = await sendRequest(() => getBlogByIdForEdit(editID));
-  
+
           if (res.success) {
             setInitialData(res.blog);
-          } 
+          }
         } catch (error) {
           console.error("Error fetching blog:", error);
         }
-       
       };
 
       fetchData();
     }
   }, [isOpen, editID, type]); // Trigger the fetch only when isOpen, editID, or type changes
 
-  if(loading)
-  {
+  if (loading) {
     return <EditingComponentLoader />;
   }
-  
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
