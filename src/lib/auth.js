@@ -5,7 +5,6 @@ import { Admin } from "@/modals/admin";
 import bcryptjs from "bcryptjs";
 import { authConfig } from "./auth.config";
 
-
 export const { handlers, signIn, signOut, auth } = NextAuth({
   ...authConfig,
   providers: [
@@ -17,23 +16,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       authorize: async (credentials) => {
         await connectDB();
-     
+
         if (!credentials?.email || !credentials?.password) {
-          throw new Error("Email and password are required")
+          throw new Error("Email and password are required");
         }
 
-    
         try {
           // Find admin by email
-          const user = await Admin
-            .findOne({ email: credentials.email })
-            .select("+password");
+          const user = await Admin.findOne({ email: credentials.email }).select(
+            "+password"
+          );
 
           if (!user) {
             throw new Error("Admin not found. Please check your email.");
           }
 
-          // Check if the password is valid
           const isPasswordValid = await bcryptjs.compare(
             credentials.password,
             user.password
@@ -42,15 +39,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           if (!isPasswordValid) {
             throw new Error("Invalid password. Please try again.");
           }
-       
+
           // Return user details for the session
           return {
             _id: user._id,
             email: user.email,
-            role:user.role
+            role: user.role,
           };
         } catch (error) {
-         
           throw new Error(error.message);
         }
       },
@@ -58,10 +54,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
   pages: {
     signIn: "/admin-login",
- 
-   
-    error: "/admin-login/error-page" // Specify a custom error page
- 
+
+    error: "/admin-login/error-page", // Specify a custom error page
   },
   callbacks: {
     signIn: async ({ user, account }) => {
@@ -79,10 +73,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
     async jwt({ token, user }) {
       if (user) {
-      
         token.sub = user._id;
         token.email = user.email;
-        token.role = user.role;     
+        token.role = user.role;
       }
       return token;
     },
