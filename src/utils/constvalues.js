@@ -306,7 +306,7 @@ export const courses = [
         id: 2,
         question: "When does the CARS program start?",
         answer:
-          "The program runs from January 12, 2024, to April 12, 2025, with sessions every Sunday from 6 PM to 9 PM EST.",
+          "The program runs from January 11, 2025, to April 12, 2025, with sessions every Sunday from 6 PM to 9 PM EST.",
       },
       {
         id: 3,
@@ -582,13 +582,13 @@ export const courses = [
   },
   {
     id: 4,
-    name: "Mentorship",
+    name: "Ultimate package",
     description:
       "Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
     image: "/home_mentorship_img.png",
     details_image: "/mentorship.png",
     link: "/mcat",
-    price: "300",
+    price: "3999",
     star: "5",
     rating: "3",
     downloadable_pdf: "/mentorship_pdf.pdf",
@@ -625,6 +625,35 @@ export const courses = [
     enrollerd_student: "120",
     lessons: "15",
     teaching_language: "English",
+    reviews: [
+      {
+        id: 1,
+        name: "James L.",
+        review_content:
+          "The UBC Interview Program truly prepared me for the MMI. The mock interviews and feedback were invaluable. I felt more confident and ready for the real thing!",
+        image: "/man.png",
+        rating: 5,
+        small_description: "Mock interviews and feedback",
+      },
+      {
+        id: 2,
+        name: "Joshua",
+        review_content:
+          "The step-by-step approach for MCAT and detailed feedback on my CASPer responses made all the difference. This program truly understands what medical schools are looking for.",
+        image: "/man.png",
+        rating: 5,
+        small_description: "Comprehensive MCAT and CASPer preparation",
+      },
+      {
+        id: 3,
+        name: "Sathya",
+        review_content:
+          "Thanks to the expert advice, I felt fully prepared and performed beyond my expectations on the MCAT (received a 520 score) and CASPer (received 4th quartile). I highly recommend Med Games to any premed student.",
+        image: "/man.png",
+        rating: 5,
+        small_description: "High MCAT and CASPer performance",
+      },
+    ],
     course_faqs: [
       {
         id: 1,
@@ -660,7 +689,7 @@ export const courses = [
   },
   {
     id: 5,
-    name: "Interview Program",
+    name: "Med Interview Program",
     description:
       "Our program provides you with four authentic CASPer practice tests in PDF format. These practice tests mirror the actual CASPer experience, helping you familiarize yourself with the test structure, question types, and time constraints",
     details_image: "/interview_img.png",
@@ -748,6 +777,50 @@ export const courses = [
         image: "/man.png",
         rating: 5,
         small_description: "Personalized feedback",
+      },
+    ],
+    course_faqs: [
+      {
+        id: 1,
+        question: "What makes this program unique?",
+        answer:
+          "Six strategy videos, live interactive sessions, and four CASPer practice tests with personalized feedback covering both written and oral interview components.",
+      },
+      {
+        id: 2,
+        question: "Will this improve my interview chances?",
+        answer:
+          "We build confidence through realistic mock interviews and targeted strategies, helping students improve performance and secure medical school offers.",
+      },
+      {
+        id: 3,
+        question: "What interview formats are covered?",
+        answer:
+          "Multiple Mini Interviews (MMI), traditional interviews, and written assessments like CASPer. Comprehensive preparation for all interview styles.",
+      },
+      {
+        id: 4,
+        question: "What support is provided?",
+        answer:
+          "Personalized guidance from experienced medical students, two live practice sessions, detailed feedback, and video recording references.",
+      },
+      {
+        id: 5,
+        question: "How will I stand out in interviews?",
+        answer:
+          "Develop unique storytelling skills, demonstrate empathy, and confidently showcase your passion for medicine through strategic preparation.",
+      },
+      {
+        id: 6,
+        question: "What if I'm nervous?",
+        answer:
+          "Our program transforms interview anxiety into confidence through supportive tutoring and comprehensive practice scenarios.",
+      },
+      {
+        id: 7,
+        question: "I have no interview experience. Can I join?",
+        answer:
+          "Absolutely! We welcome all experience levels with a structured, step-by-step approach to mastering interview techniques.",
       },
     ],
   },
@@ -970,33 +1043,33 @@ export const courses = [
     course_faqs: [
       {
         id: 1,
-        question: "What are the objectives of the CARS program?",
+        question: "What is this UBC MMI Program?",
         answer:
-          "To help students actively read, understand passages, and apply effective strategies to improve accuracy and timing.",
+          "A targeted preparation program for UBC medical school interview candidates, led by current UBC medical students.",
       },
       {
         id: 2,
-        question: "When does the CARS program start?",
+        question: "What will I learn?",
         answer:
-          "The program runs from January 12, 2024, to April 12, 2025, with sessions every Sunday from 6 PM to 9 PM EST.",
+          "Strategies for MMI stations, interview techniques, and how to effectively communicate your experiences and motivations.",
       },
       {
         id: 3,
-        question: "What materials are provided for practice?",
+        question: "How is the program structured?",
         answer:
-          "Students receive ten CARS tests, customizable study schedules, and participate in interactive sessions.",
+          "Interactive online sessions with mock interviews, expert feedback, and personalized coaching.",
       },
       {
         id: 4,
-        question: "Who teaches the CARS program?",
+        question: "Who should join?",
         answer:
-          "Expert tutors with 130+ scores in the CARS section teach the program.",
+          "Students invited to UBC medical school interviews or preparing for future applications.",
       },
       {
         id: 5,
-        question: "What strategies are covered in the program?",
+        question: "What's included?",
         answer:
-          "Strategies include active reading, timing techniques, and methods for reviewing strategies and reasoning.",
+          "Practice stations, feedback sessions, interview guides, and strategies from successful UBC medical students.",
       },
     ],
   },

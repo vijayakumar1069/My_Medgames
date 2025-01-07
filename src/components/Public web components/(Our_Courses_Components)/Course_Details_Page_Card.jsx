@@ -13,9 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-
 const Course_Details_Page_Card = ({ course }) => {
-
   const {
     _id,
     name,
@@ -24,7 +22,7 @@ const Course_Details_Page_Card = ({ course }) => {
     startDate,
     endDate,
     via,
- 
+
     dailyStartTime,
     img_for_course_details_page,
     dailyEndTime,
@@ -56,7 +54,6 @@ const Course_Details_Page_Card = ({ course }) => {
     );
   }
 
-
   return (
     <div
       className="relative max-w-xl w-full bg-[#F4F6FC] rounded-lg overflow-hidden group shadow-lg hover:shadow-lg transition-shadow duration-300"
@@ -67,7 +64,11 @@ const Course_Details_Page_Card = ({ course }) => {
       {/* Top Image/Preview Section */}
       <div className="relative w-full h-72">
         <Image
-          src={img_for_course_details_page.url ==" "?undefined : img_for_course_details_page.url}
+          src={
+            img_for_course_details_page.url == " "
+              ? undefined
+              : img_for_course_details_page.url
+          }
           alt="course_image"
           fill
           style={{ objectFit: "contain" }}
@@ -102,26 +103,27 @@ const Course_Details_Page_Card = ({ course }) => {
           <div className="flex items-center space-x-1">
             <IconCalendar stroke={2} className="text-[#4F9F76]" />
             <span>
-            {formatDate(startDate)} to {formatDate(endDate)}
+              {formatDate(startDate)} to {formatDate(endDate)}
             </span>
           </div>
           <div className="flex items-center space-x-1">
             <IconMapPin stroke={2} className="text-[#4F9F76]" />
             <span>{via}</span>
           </div>
-        <div className="flex items-center space-x-1 w-full text-sm">
-          <IconClockHour2 stroke={2} className="text-[#4F9F76]" />
-          <span>
-            {dailyStartTime} to {dailyEndTime} on {classDays[0]}
-          </span>
-        </div>
+          <div className="flex items-center space-x-1 w-full text-sm">
+            <IconClockHour2 stroke={2} className="text-[#4F9F76]" />
+            <span>
+              {dailyStartTime} to {dailyEndTime} on {classDays[0]}
+            </span>
+          </div>
         </div>
         <div className="block lg:hidden">
-      
-          <Link href={`/our-courses/${_id}`}  className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
-           <span> View Details</span>
+          <Link
+            href={`/our-courses/${_id}`}
+            className=" mt-4 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white"
+          >
+            <span> View Details</span>
           </Link>
-        
         </div>
       </div>
 
@@ -174,13 +176,10 @@ const Course_Details_Page_Card = ({ course }) => {
           </div> */}
           <ul>
             {key_features.map((feature, index) => (
-              <li
-                key={index}
-                className="flex items-center space-x-1  mt-2"
-              >
+              <li key={index} className="flex items-center space-x-1  mt-2">
                 <IconCheck
                   stroke={2}
-                  className="white p-1 bg-[#4F9F76] rounded-full"
+                  className="white p-1 flex-shrink-0 bg-[#4F9F76] rounded-full"
                 />
                 <span>{feature}</span>
               </li>
@@ -191,8 +190,11 @@ const Course_Details_Page_Card = ({ course }) => {
            <span> View Details</span>
           </Button>
           </Link> */}
-           <Link href={`/our-courses/${_id}`}  className=" mt-2 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white">
-           <span> View Details</span>
+          <Link
+            href={`/our-courses/${_id}`}
+            className=" mt-2 w-fit bg-[#4F9F76] border-none px-4 py-2 rounded-md hover:bg-transparent hover:bg-white hover:text-[#4F9F76] border border-white"
+          >
+            <span> View Details</span>
           </Link>
         </div>
       </div>

@@ -17,7 +17,6 @@ const Course_OverView_Component = ({
   benefits,
   downalodPdf,
 }) => {
- 
   return (
     <div className="max-w-7xl mx-auto p-6 bg-white shadow-lg rounded-lg">
       <div className="grid md:grid-cols-1 gap-8">
@@ -137,7 +136,6 @@ const Course_OverView_Component = ({
             rel="noopener noreferrer"
             download
             className="flex items-center space-x-2"
-
           >
             <IconDownload className="mr-2" size={24} />
             <span className=" text-base"> Download Booklet</span>
