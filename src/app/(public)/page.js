@@ -1,4 +1,3 @@
-
 import { Suspense } from "react";
 import { home_FAQs } from "@/utils/constvalues";
 import Skeleton from "@/components/Public web components/Skeleton";
@@ -11,15 +10,16 @@ import Courses from "@/components/Public web components/(Home page)/Courses";
 import Tutors from "@/components/Public web components/(Home page)/Tutors";
 import BlogsWithErrorBoundary from "@/components/Public web components/(Home page)/Blogs";
 
-
+export const metadata = {
+  title: "Home",
+  description: "Home",
+};
 
 export default function Home() {
   return (
     <main className="flex flex-col lg:space-y-5 space-y-10">
-     
       <HeroSection />
 
-    
       <Suspense fallback={<Skeleton />}>
         <Courses />
       </Suspense>
