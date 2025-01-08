@@ -2,6 +2,10 @@ import { getCourseById } from "@/app/actions/(Admin)/courseActions";
 import Payment_Wrapper from "@/components/Public web components/(Our_Courses_Components)/Payments components/Payment_Wrapper";
 import { Suspense } from "react";
 
+export const metadata = {
+  title: "Payment",
+  description: "Payment",
+};
 export default async function Payment_Page({ searchParams }) {
   // Await the params object to access its properties safely
   const { id } = (await searchParams) || {}; // Ensure params is awaited

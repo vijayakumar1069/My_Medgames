@@ -1,10 +1,14 @@
 import { searchBlogs } from "@/app/actions/(Admin)/blogs_function";
-import {  getCoursesTitle } from "@/app/actions/(Admin)/courseActions";
+import { getCoursesTitle } from "@/app/actions/(Admin)/courseActions";
 import Loading from "@/components/Admin components/Loading";
 import Blog_Home_Component from "@/components/Public web components/Blog Components/Blog_Home_Component";
 import Svg_Bg from "@/components/Public web components/Svg_Bg";
 import { Suspense } from "react";
 
+export const metadata = {
+  title: "Blogs",
+  description: "Blogs",
+};
 export default async function Blogs_Home_Page({ searchParams }) {
   // Destructure search parameter
   const { search, tags, page, limit } = await searchParams;
@@ -22,8 +26,7 @@ export default async function Blogs_Home_Page({ searchParams }) {
 
   // Fetch courses
   const allCourses = await getCoursesTitle();
-  const titles=allCourses.coursesTitle.map((course) => course.name);
- 
+  const titles = allCourses.coursesTitle.map((course) => course.name);
 
   if (!allCourses || !blogsResult) {
     return <Loading />;
@@ -31,8 +34,14 @@ export default async function Blogs_Home_Page({ searchParams }) {
 
   return (
     <div>
-      <Svg_Bg  />
-      <Suspense fallback={<div><Loading /></div>}>
+      <Svg_Bg />
+      <Suspense
+        fallback={
+          <div>
+            <Loading />
+          </div>
+        }
+      >
         <Blog_Home_Component
           blog={blogsResult.blogs}
           Allcourses={blogsResult.courses}

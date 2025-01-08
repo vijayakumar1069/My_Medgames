@@ -5,6 +5,10 @@ import Meet_Our_Tutor from "@/components/Public web components/(Meet_Our_Tutors_
 import Image_Bg from "@/components/Public web components/Image_Bg";
 import Skeleton from "@/components/Public web components/Skeleton";
 
+export const metadata = {
+  title: "Meet Our Tutors",
+  description: "Meet Our Tutors",
+};
 // Server Component
 async function TutorsContent() {
   const tutors = await getTutors();

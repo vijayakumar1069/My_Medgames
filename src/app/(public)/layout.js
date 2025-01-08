@@ -19,7 +19,10 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: "MedGames",
+  title: {
+    default: "MedGames",
+    template: "%s | MedGames",
+  },
   description: "Medgames - Your favorite e-learning platform.",
 };
 

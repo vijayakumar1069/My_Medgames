@@ -4,8 +4,12 @@ import User_Selected_Course_Component from "@/components/Public web components/(
 import Svg_Bg from "@/components/Public web components/Svg_Bg";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
+export const metadata = {
+  title: "Course Details",
+  description: "Course Details",
+};
 // Error Component (Server Component)
 const ErrorDisplay = ({ message }) => (
   <div className="flex justify-center flex-col items-center h-screen">
@@ -30,7 +34,7 @@ const LoadingState = () => (
 // Main Page Component (Server Component)
 export default async function Particular_Course_Page({ params }) {
   // Validate params
-  const{id}= await params||{};
+  const { id } = (await params) || {};
   if (!params || !id) {
     return <ErrorDisplay message="Invalid course ID" />;
   }
@@ -47,19 +51,17 @@ export default async function Particular_Course_Page({ params }) {
 
     return (
       <div className="min-h-screen">
-        <Svg_Bg pageTitle={course.name}/>
+        <Svg_Bg pageTitle={course.name} />
         <Suspense fallback={<LoadingState />}>
-          <User_Selected_Course_Component 
-            course={course} 
+          <User_Selected_Course_Component
+            course={course}
             suggestionsCourses={suggestions}
           />
         </Suspense>
       </div>
     );
   } catch (error) {
-    console.error('Course fetch error:', error);
+    console.error("Course fetch error:", error);
     return <ErrorDisplay message="Failed to load course" />;
   }
 }
-
-
