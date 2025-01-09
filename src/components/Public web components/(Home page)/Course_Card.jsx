@@ -25,12 +25,9 @@ const Course_Card = ({ course }) => {
   const hasCourseDetailsImage =
     img_for_course_details_page && img_for_course_details_page.url;
 
-
- 
-
   return (
     <article className="group max-w-2xl w-full bg-[#F4F6FC] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-    <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-[#F4F6FC]">
+      <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-[#F4F6FC]">
         {(hasHomeImage || hasCourseDetailsImage) && (
           <Image
             src={
@@ -42,12 +39,10 @@ const Course_Card = ({ course }) => {
             quality={80}
             style={{
               objectFit: "cover", // Full image visible
-        
             }}
             className="transition-all duration-500 
                  hover:scale-105 
                  group-hover:brightness-110"
-          
             sizes="(max-width: 640px) 100vw, 
              (max-width: 768px) 50vw, 
              (max-width: 1024px) 33vw, 
@@ -94,7 +89,7 @@ const Course_Card = ({ course }) => {
             </Button>
           </Link>
           <span className="text-2xl font-bold text-[#4F9F76] group-hover:text-opacity-80 transition-colors duration-300">
-            ${price} USD
+            ${price} CAD
           </span>
         </div>
       </div>

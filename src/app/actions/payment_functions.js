@@ -23,7 +23,7 @@ export async function paymentclientSecret({
   try {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: purchaseCourseDetails.price * 100, // Amount in cents
-      currency: "usd",
+      currency: "cad",
       automatic_payment_methods: { enabled: true }, // This enables automatic payment methods
       description: `Payment for course: ${purchaseCourseDetails.name}`,
       shipping: {
@@ -80,8 +80,7 @@ export async function add_payment({
       status,
       courseTitle,
     });
-    if(!payment)
-    {
+    if (!payment) {
       throw new Error("Failed to add payment");
     }
     revalidatePath("/admin-payments");

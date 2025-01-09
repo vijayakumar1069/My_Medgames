@@ -14,10 +14,9 @@ const Payment_Wrapper = ({ purchaseCourseDetails }) => {
           stripe={stripePromise}
           options={{
             mode: "payment",
-            currency: "usd",
+            currency: "cad",
             amount: 100 * purchaseCourseDetails.price,
           }}
-          
         >
           <Checkout purchaseCourseDetails={purchaseCourseDetails} />{" "}
         </Elements>
