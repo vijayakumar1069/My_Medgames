@@ -9,9 +9,12 @@ export async function create_req_call(data) {
   console.log(data);
   await connectDB();
   try {
+    // Check if a user with the given email already exists
     const existingUser = await Reques_A_Call.findOne({
       email: data.email,
     });
+    console.log("Existing user:", existingUser);
+
     if (existingUser) {
       return {
         success: false,
@@ -19,13 +22,17 @@ export async function create_req_call(data) {
       };
     }
 
+    // Create a new user
     const new_user = new Reques_A_Call({
       email: data.email,
     });
+
     await new_user.save();
+
     if (!new_user) {
       throw new Error("Error creating booking consult for this email");
     }
+
     try {
       // Send SMS or email notification to admin
       const res = await contact_number_inquery(new_user.email);
@@ -33,13 +40,12 @@ export async function create_req_call(data) {
       if (res) {
         return {
           success: true,
-          message: "Consulation booked successfully",
+          message: "Consultation booked successfully",
           data: JSON.parse(JSON.stringify(new_user)),
         };
       }
     } catch (emailError) {
       console.error("Error sending email:", emailError);
-
       return {
         success: false,
         message: "Error sending notification to admin",

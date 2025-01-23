@@ -12,7 +12,7 @@ const Contact_Details_Tabs = () => {
       <TabsList className="w-full mx-auto flex justify-between items-center mb-5">
         <TabsTrigger value="schedule">Schedule</TabsTrigger>
         <TabsTrigger value="contact">Contact</TabsTrigger>
-        <TabsTrigger value="request a call">Request A Call</TabsTrigger>
+        <TabsTrigger value="request a call">Consultation </TabsTrigger>
         <TabsTrigger value="subscriber">Subscribers</TabsTrigger>
       </TabsList>
       <TabsContent value="schedule">

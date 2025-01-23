@@ -26,7 +26,7 @@ const Course_Card = ({ course }) => {
     dailyEndTime,
     classDays,
   } = course;
-  console.log(classDays);
+
   const hasHomeImage = img_for_home && img_for_home.url;
   const hasCourseDetailsImage =
     img_for_course_details_page && img_for_course_details_page.url;
