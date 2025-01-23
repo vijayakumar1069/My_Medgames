@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,13 +21,11 @@ import { uploadToCloudinary } from "@/app/actions/(Admin)/cloudinaryActions";
 const reviewSchema = z.object({
   reviews: z.array(
     z.object({
-      name: z.string().min(2, "Name must be at least 2 characters"),
       review_content: z
         .string()
         .min(10, "Review must be at least 10 characters"),
       image: z.string().url(), // Secure URL
       rating: z.number().min(1).max(5),
-      small_description: z.string().optional(),
       cloudinaryPublicId: z.string().optional(), // Cloudinary Public ID
       fileName: z.string().optional(), // Original Filename
     })
@@ -42,11 +41,9 @@ export function ReviewForm({ onDataUpdate, currentData, setActiveTab }) {
     defaultValues: {
       reviews: currentData?.reviews || [
         {
-          name: "",
           review_content: "",
           image: "",
           rating: 5,
-          small_description: "",
         },
       ],
     },
@@ -57,32 +54,16 @@ export function ReviewForm({ onDataUpdate, currentData, setActiveTab }) {
     name: "reviews",
   });
 
-
-
   // Modified image change handler to work with field arrays
   const handleImageChange = async (event, index) => {
     // Null check for event.target.files
     const files = event.target.files;
     if (!files || files.length === 0) {
-      return; // Exit if no file selected
+      return;
     }
 
     const file = files[0];
     if (file) {
-      // const reader = new FileReader();
-      // reader.onloadend = () => {
-      //   const base64String = reader.result
-
-      //   // Update form value for specific review
-      //   form.setValue(`reviews.${index}.image`, base64String);
-
-      //   // Update image previews state
-      //   const newPreviews = [...imagePreviews];
-      //   newPreviews[index] = base64String;
-      //   setImagePreviews(newPreviews);
-      // };
-      // reader.readAsDataURL(file);
-
       const res = await uploadToCloudinary(file, "reviews");
       form.setValue(`reviews.${index}.image`, res.secureUrl);
       form.setValue(
@@ -94,7 +75,15 @@ export function ReviewForm({ onDataUpdate, currentData, setActiveTab }) {
   };
 
   const onSubmit = (data) => {
-    onDataUpdate(data);
+    // Ensure all image URLs are valid before submission
+    const validatedData = {
+      ...data,
+      reviews: data.reviews.map((review) => ({
+        ...review,
+        image: review.image || "", // Ensure image is a valid URL
+      })),
+    };
+    onDataUpdate(validatedData);
     setActiveTab("faqs"); // Navigate back to home tab after form submission
     // Handle save logic here
   };
@@ -104,19 +93,6 @@ export function ReviewForm({ onDataUpdate, currentData, setActiveTab }) {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 h-fit">
         {fields.map((field, index) => (
           <div className="flex flex-col mb-4 space-y-3" key={field.id}>
-            <FormField
-              control={form.control}
-              name={`reviews.${index}.name`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter your name" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             <FormField
               control={form.control}
               name={`reviews.${index}.review_content`}
@@ -171,41 +147,6 @@ export function ReviewForm({ onDataUpdate, currentData, setActiveTab }) {
                   <FormMessage />
                 </FormItem>
               )}
-              />
-          
-            {/* {currentData?.reviews.length>0 && currentData?.reviews[index].image && (
-              <div className="">
-                <p>
-                  {" "}
-                  <strong>Preview:</strong>
-                  <a
-                    href={currentData.reviews[index].image}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 hover:underline"
-                  >
-                    {currentData.reviews[index].fileName}
-                  </a>
-                </p>
-             
-              </div>
-            )} */}
-
-            <FormField
-              control={form.control}
-              name={`reviews.${index}.small_description`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Short Description</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Optional short description"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
             />
             <div className="flex items-center space-x-2">
               <Button
@@ -231,18 +172,15 @@ export function ReviewForm({ onDataUpdate, currentData, setActiveTab }) {
           onClick={() => {
             // Add a new review and a null preview
             append({
-              name: "",
               review_content: "",
               image: "",
               rating: 0,
-              small_description: "",
             });
             setImagePreviews((prev) => [...prev, ""]); // Add an empty string instead of null
           }}
         >
           <Plus className="mr-2 h-4 w-4" /> Add Review
         </Button>
-
         <Button type="submit">Save Reviews</Button>
       </form>
     </Form>

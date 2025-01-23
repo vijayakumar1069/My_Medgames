@@ -30,17 +30,16 @@ const User_Selected_Event_Component = ({ selected_Event }) => {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center space-y-10  py-10">
       <div className="lg:w-9/12 md:w-11/12 flex flex-col justify-center items-center space-y-10 p-5">
-      <div className="relative w-full h-[400px] p-10">
-        <Image
-          src={"/event_details_img.png"}
-          fill
-          priority={true}
-          sizes="(min-width: 768px) 50vw, 100vw"
-          style={{ objectFit:"cover" }}
-       
-          alt={selected_Event.title}
-        />
-      </div>
+        <div className="relative w-full h-[400px] p-10">
+          <Image
+            src={"/event_details_img.png"}
+            fill
+            priority={true}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            style={{ objectFit: "cover" }}
+            alt={selected_Event.title}
+          />
+        </div>
         {/* Main Content */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-10 ">
           {/* Left Column: Tabs for Overview and Reviews */}
@@ -76,7 +75,7 @@ const User_Selected_Event_Component = ({ selected_Event }) => {
 
           {/* Right Column: Course Details and Enroll Button */}
           <div className="lg:col-span-1 w-full h-fit max-w-sm bg-white shadow-xl p-6 rounded-lg">
-            <h1 className="text-lg font-bold mb-4">Course Includes :</h1>
+            <h1 className="text-lg font-bold mb-4">Event Details :</h1>
             <div className="space-y-6">
               {details.map((detail, index) => (
                 <CourseDetailItem
@@ -88,8 +87,14 @@ const User_Selected_Event_Component = ({ selected_Event }) => {
               ))}
             </div>
             <div className="mt-6">
-              <Link href={`/upcoming-events/${selected_Event.id}/events-register?id=${selected_Event.id}`} passHref>
-                <Button asChild className="w-full bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]">
+              <Link
+                href={`/upcoming-events/${selected_Event.id}/events-register?id=${selected_Event.id}`}
+                passHref
+              >
+                <Button
+                  asChild
+                  className="w-full bg-[#4F9F76] text-white px-4 py-2 rounded-md hover:bg-transparent hover:text-[#4F9F76] border border-[#4F9F76]"
+                >
                   <span>Register Now</span>
                 </Button>
               </Link>

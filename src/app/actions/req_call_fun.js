@@ -9,26 +9,26 @@ export async function create_req_call(data) {
   await connectDB();
   try {
     const existingUser = await Reques_A_Call.findOne({
-      mobile_number: data.phoneNumber,
+      email: data.email,
     });
     if (existingUser) {
       return {
         success: false,
-        message: "Request call already exists for this mobile number",
+        message: "Consultation already exists for this email address",
       };
     }
 
     const new_user = new Reques_A_Call({
-      mobile_number: data.phoneNumber,
+      email: data.email,
     });
     await new_user.save();
     if (!new_user) {
-      throw new Error("Error creating request call");
+      throw new Error("Error creating booking consult for this email");
     }
     try {
       // Send SMS or email notification to admin
-      const res = await contact_number_inquery(new_user.mobile_number);
-      revalidatePath("/admin-contact-details")
+      const res = await contact_number_inquery(new_user.email);
+      revalidatePath("/admin-contact-details");
       if (res) {
         return {
           success: true,

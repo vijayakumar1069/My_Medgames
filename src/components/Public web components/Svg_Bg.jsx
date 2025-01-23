@@ -5,8 +5,8 @@ import Breadcrumb_Wrapper from "./Breadcrumb_Wrapper";
 
 const Svg_Bg = ({ pageTitle }) => {
   return (
-    <div className="relative bg-[#E9f8F3] py-8">
-      <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto px-4 lg:px-16 h-[400px] md:h-[400px] space-y-10 md:space-y-0">
+    <div className="relative bg-[#E9f8F3] py-4">
+      <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto px-4 lg:px-16 h-[270px] sm:h-[300px] md:h-[400px] space-y-1 md:space-y-0">
         {/* Left Image */}
         <div className="relative flex-shrink-0 w-24 h-24 md:w-40 md:h-40 lg:w-48 lg:h-48">
           <Image
@@ -21,8 +21,8 @@ const Svg_Bg = ({ pageTitle }) => {
 
         {/* Breadcrumb Center Content */}
         <div className="flex-grow text-center">
-          <Breadcrumb_Wrapper 
-            headingTextColor="text-black" 
+          <Breadcrumb_Wrapper
+            headingTextColor="text-black"
             pageTitle={pageTitle}
           />
         </div>

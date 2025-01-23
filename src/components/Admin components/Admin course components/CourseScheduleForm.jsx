@@ -1,25 +1,26 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "@/components/ui/calendar"
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
-} from "@/components/ui/select"
+import React from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from "@/components/ui/form"
+  FormMessage,
+} from "@/components/ui/form";
+import { MultiSelect } from "./MultiSelect";
 
 // Schedule Schema
 const scheduleSchema = z.object({
@@ -31,7 +32,6 @@ const scheduleSchema = z.object({
   via: z.enum(["Zoom", "Microsoft Teams", "Google Meet", "Offline Classes"]),
 });
 
-
 export function CourseScheduleForm({
   onDataUpdate,
   currentData,
@@ -41,20 +41,19 @@ export function CourseScheduleForm({
     resolver: zodResolver(scheduleSchema),
     defaultValues: {
       startDate: new Date(currentData.startDate) || new Date(),
-      endDate:new Date(currentData.endDate) || new Date(),
-      dailyStartTime: currentData.dailyStartTime || '',
-      dailyEndTime: currentData.dailyEndTime || '',
+      endDate: new Date(currentData.endDate) || new Date(),
+      dailyStartTime: currentData.dailyStartTime || "",
+      dailyEndTime: currentData.dailyEndTime || "",
       classDays: currentData.classDays || [],
-      via:currentData.via || "", // Default empty
+      via: currentData.via || "", // Default empty
     },
   });
 
-
   const onSubmit = (data) => {
+    console.log(data);
     onDataUpdate(data);
     setActiveTab("description");
-   
-  }
+  };
 
   return (
     <Form {...form}>
@@ -134,23 +133,46 @@ export function CourseScheduleForm({
             <FormItem>
               <FormLabel>Class Days</FormLabel>
               <FormControl>
-                <Select 
-                  onValueChange={(value) => {
-                    const currentDays = field.value || []
-                    const newDays = currentDays.includes(value)
-                      ? currentDays.filter(day => day !== value)
-                      : [...currentDays, value]
-                    field.onChange(newDays)
-                  }}
-                  value={field.value[0]}
-                >
+                <MultiSelect
+                  options={[
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ]}
+                  selected={field.value}
+                  onChange={field.onChange}
+                  placeholder="Select Class Days"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="via"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Conducted Via</FormLabel>
+              <FormControl>
+                <Select onValueChange={field.onChange} value={field.value}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select Class Days" />
+                    <SelectValue placeholder="Select Method" />
                   </SelectTrigger>
                   <SelectContent>
-                    {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
-                      <SelectItem key={day} value={day}>
-                        {day}
+                    {[
+                      "Zoom",
+                      "Microsoft Teams",
+                      "Google Meet",
+                      "Offline Classes",
+                    ].map((method) => (
+                      <SelectItem key={method} value={method}>
+                        {method}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -158,42 +180,11 @@ export function CourseScheduleForm({
               </FormControl>
               <FormMessage />
             </FormItem>
-
-
           )}
         />
-
-<FormField
-  control={form.control}
-  name="via"
-  render={({ field }) => (
-    <FormItem>
-      <FormLabel>Conducted Via</FormLabel>
-      <FormControl>
-        <Select
-          onValueChange={field.onChange}
-          value={field.value}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Select Method" />
-          </SelectTrigger>
-          <SelectContent>
-            {["Zoom", "Microsoft Teams", "Google Meet", "Offline Classes"].map((method) => (
-              <SelectItem key={method} value={method}>
-                {method}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </FormControl>
-      <FormMessage />
-    </FormItem>
-  )}
-/>
-
 
         <Button type="submit">Save Schedule</Button>
       </form>
     </Form>
-  )
+  );
 }

@@ -53,7 +53,6 @@ const CourseCourseBuilderForm = ({
   currentData,
   setActiveTab,
 }) => {
- 
   const form = useForm({
     resolver: zodResolver(courseDescriptionSchema),
     defaultValues: {
@@ -265,7 +264,7 @@ const CourseCourseBuilderForm = ({
                         endDate: currentData.endDate,
                         dailyStartTime: currentData.dailyStartTime,
                         dailyEndTime: currentData.dailyEndTime,
-                        classDays: currentData.classDays[0],
+                        classDays: currentData.classDays,
                         via: currentData.via,
                       }}
                     />

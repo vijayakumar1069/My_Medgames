@@ -133,10 +133,6 @@ const courseSchema = new mongoose.Schema(
     ],
     reviews: [
       {
-        name: {
-          type: String,
-          required: true,
-        },
         image: {
           type: String,
         },
@@ -153,9 +149,6 @@ const courseSchema = new mongoose.Schema(
         rating: {
           type: Number,
           required: true,
-        },
-        small_description: {
-          type: String,
         },
       },
     ],
@@ -179,10 +172,10 @@ const courseSchema = new mongoose.Schema(
         resourceType: {
           type: String,
         },
-        downloadUrl:{
+        downloadUrl: {
           type: String,
           required: true,
-        }
+        },
       },
     ],
     video_section: [
@@ -204,7 +197,7 @@ const courseSchema = new mongoose.Schema(
         },
         resourceType: {
           type: String,
-        }
+        },
       },
     ],
     redirect_link: {

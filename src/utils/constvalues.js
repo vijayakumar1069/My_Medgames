@@ -2200,119 +2200,119 @@ export const upcoming_events = [
     id: 1,
     title: "Summer MCAT Info Session ",
     description:
-      "Med Games is holding an essay competition. The deadline to submit is April 1st 2024, at midnight EST.",
+      "Med Games is holding an essay competition. The deadline to submit is April 1st 2025, at midnight EST.",
     via: "Virtual program",
     event_date: "1",
-    event_month: "Feb",
+    event_month: "March",
     event_year: "2025",
     time: "8:00 AM - 8:30 PM EST",
     language: "English",
     imageURL: "/event_1.png",
     price: "free",
-    content_of_event: [
-      {
-        type: "heading",
-        content: "About The Event",
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            content: "In your essay, please discuss how",
-          },
-          {
-            type: "bold",
-            content: "Artificial Intelligence",
-          },
-          {
-            type: "text",
-            content:
-              " can be effectively utilized to enhance the preparation process for the ",
-          },
-          {
-            type: "bold",
-            content: "MCAT",
-          },
-        ],
-      },
-      {
-        type: "list",
-        list_items: [
-          {
-            type: "text",
-            content:
-              "Identification of key challenges faced by premed students in preparing for the",
-          },
-          {
-            type: "bold",
-            content: "MCAT",
-          },
-          {
-            type: "text",
-            content:
-              "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
-          },
-          {
-            type: "text",
-            content: "Bulk of the essay should focus on:",
-          },
-          {
-            type: "list-disc",
-            content:
-              "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
-          },
-        ],
-      },
-      {
-        type: "heading",
-        content: "Submission Guidelines",
-      },
-      {
-        type: "list",
-        list_items: [
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "highlight",
-            content: " med.games.org@gmail.com.:",
-          },
-        ],
-      },
-    ],
+    // content_of_event: [
+    //   {
+    //     type: "heading",
+    //     content: "About The Event",
+    //   },
+    //   {
+    //     type: "paragraph",
+    //     content: [
+    //       {
+    //         type: "text",
+    //         content: "In your essay, please discuss how",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Artificial Intelligence",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           " can be effectively utilized to enhance the preparation process for the ",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "MCAT",
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     type: "list",
+    //     list_items: [
+    //       {
+    //         type: "text",
+    //         content:
+    //           "Identification of key challenges faced by premed students in preparing for the",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "MCAT",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
+    //       },
+    //       {
+    //         type: "text",
+    //         content: "Bulk of the essay should focus on:",
+    //       },
+    //       {
+    //         type: "list-disc",
+    //         content:
+    //           "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     type: "heading",
+    //     content: "Submission Guidelines",
+    //   },
+    //   {
+    //     type: "list",
+    //     list_items: [
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "highlight",
+    //         content: " med.games.org@gmail.com.:",
+    //       },
+    //     ],
+    //   },
+    // ],
   },
   {
     id: 2,
     title: "MCAT Info Session",
     description:
-      "Med Games is holding an essay competition. The deadline to submit is April 1st 2024, at midnight EST.",
+      "Med Games is holding an essay competition. The deadline to submit is April 15th 2025, at midnight EST.",
     via: "Virtual program",
-    event_date: "1",
+    event_date: "15",
     event_month: "March",
     event_year: "2025",
 
@@ -2320,433 +2320,443 @@ export const upcoming_events = [
     language: "English",
     imageURL: "/event_2.png",
     price: "free",
-    content_of_event: [
-      {
-        type: "heading",
-        content: "About The Event",
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            content: "In your essay, please discuss how",
-          },
-          {
-            type: "bold",
-            content: "Artificial Intelligence",
-          },
-          {
-            type: "text",
-            content:
-              " can be effectively utilized to enhance the preparation process for the ",
-          },
-          {
-            type: "bold",
-            content: "MCAT",
-          },
-        ],
-      },
-      {
-        type: "list",
-        list_items: [
-          {
-            type: "text",
-            content:
-              "Identification of key challenges faced by premed students in preparing for the",
-          },
-          {
-            type: "bold",
-            content: "MCAT",
-          },
-          {
-            type: "text",
-            content:
-              "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
-          },
-          {
-            type: "text",
-            content: "Bulk of the essay should focus on:",
-          },
-          {
-            type: "list-disc",
-            content:
-              "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
-          },
-        ],
-      },
-      {
-        type: "heading",
-        content: "Submission Guidelines",
-      },
-      {
-        type: "list",
-        list_items: [
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "highlight",
-            content: " med.games.org@gmail.com.:",
-          },
-        ],
-      },
-    ],
+    // content_of_event: [
+    //   {
+    //     type: "heading",
+    //     content: "About The Event",
+    //   },
+    //   {
+    //     type: "paragraph",
+    //     content: [
+    //       {
+    //         type: "text",
+    //         content: "In your essay, please discuss how",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Artificial Intelligence",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           " can be effectively utilized to enhance the preparation process for the ",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "MCAT",
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     type: "list",
+    //     list_items: [
+    //       {
+    //         type: "text",
+    //         content:
+    //           "Identification of key challenges faced by premed students in preparing for the",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "MCAT",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
+    //       },
+    //       {
+    //         type: "text",
+    //         content: "Bulk of the essay should focus on:",
+    //       },
+    //       {
+    //         type: "list-disc",
+    //         content:
+    //           "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     type: "heading",
+    //     content: "Submission Guidelines",
+    //   },
+    //   {
+    //     type: "list",
+    //     list_items: [
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "highlight",
+    //         content: " med.games.org@gmail.com.:",
+    //       },
+    //     ],
+    //   },
+    // ],
   },
   {
     id: 3,
     title: "MCAT Info Session",
     description:
-      "Med Games is holding an essay competition. The deadline to submit is April 1st 2024, at midnight EST.",
+      "Med Games is holding an essay competition. The deadline to submit is April 31st 2025, at midnight EST.",
     via: "Virtual program",
-    event_date: "15",
-    event_month: "March",
+    event_date: "1",
+    event_month: "April",
     event_year: "2025",
     time: "8:00 AM - 8:30 PM EST",
     language: "English",
     imageURL: "/event_3.png",
     price: "free",
-    content_of_event: [
-      {
-        type: "heading",
-        content: "About The Event",
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            content: "In your essay, please discuss how",
-          },
-          {
-            type: "bold",
-            content: "Artificial Intelligence",
-          },
-          {
-            type: "text",
-            content:
-              " can be effectively utilized to enhance the preparation process for the ",
-          },
-          {
-            type: "bold",
-            content: "MCAT",
-          },
-        ],
-      },
-      {
-        type: "list",
-        list_items: [
-          {
-            type: "text",
-            content:
-              "Identification of key challenges faced by premed students in preparing for the",
-          },
-          {
-            type: "bold",
-            content: "MCAT",
-          },
-          {
-            type: "text",
-            content:
-              "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
-          },
-          {
-            type: "text",
-            content: "Bulk of the essay should focus on:",
-          },
-          {
-            type: "list-disc",
-            content:
-              "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
-          },
-        ],
-      },
-      {
-        type: "heading",
-        content: "Submission Guidelines",
-      },
-      {
-        type: "list",
-        list_items: [
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "highlight",
-            content: " med.games.org@gmail.com.:",
-          },
-        ],
-      },
-    ],
+    // content_of_event: [
+    //   {
+    //     type: "heading",
+    //     content: "About The Event",
+    //   },
+    //   {
+    //     type: "paragraph",
+    //     content: [
+    //       {
+    //         type: "text",
+    //         content: "In your essay, please discuss how",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Artificial Intelligence",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           " can be effectively utilized to enhance the preparation process for the ",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "MCAT",
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     type: "list",
+    //     list_items: [
+    //       {
+    //         type: "text",
+    //         content:
+    //           "Identification of key challenges faced by premed students in preparing for the",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "MCAT",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
+    //       },
+    //       {
+    //         type: "text",
+    //         content: "Bulk of the essay should focus on:",
+    //       },
+    //       {
+    //         type: "list-disc",
+    //         content:
+    //           "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     type: "heading",
+    //     content: "Submission Guidelines",
+    //   },
+    //   {
+    //     type: "list",
+    //     list_items: [
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "highlight",
+    //         content: " med.games.org@gmail.com.:",
+    //       },
+    //     ],
+    //   },
+    // ],
   },
   {
     id: 4,
-    title: "MCAT Info Session",
+    title: "CARS program",
     description:
       "Med Games is holding an essay competition. The deadline to submit is April 1st 2024, at midnight EST.",
-    via: "Virtual program",
-    event_date: "15",
-    event_month: "Apr",
-    event_year: "2024",
-    time: "10:00 AM - 12:00 PM EST",
+    via: "Zoom",
+    event_date: "12",
+    event_month: "Jan",
+    event_year: "2025",
+    event_end_date: "12",
+    event_end_month: "Apr",
+    event_end_year: "2025",
+    day: ["Sunday's"],
+    time: "6:00 AM - 9:00 PM EST",
     language: "English",
     imageURL: "/event_4.png",
-    price: "free",
-    content_of_event: [
-      {
-        type: "heading",
-        content: "About The Event",
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            content: "In your essay, please discuss how",
-          },
-          {
-            type: "bold",
-            content: "Artificial Intelligence",
-          },
-          {
-            type: "text",
-            content:
-              " can be effectively utilized to enhance the preparation process for the ",
-          },
-          {
-            type: "bold",
-            content: "MCAT",
-          },
-        ],
-      },
-      {
-        type: "list",
-        list_items: [
-          {
-            type: "text",
-            content:
-              "Identification of key challenges faced by premed students in preparing for the",
-          },
-          {
-            type: "bold",
-            content: "MCAT",
-          },
-          {
-            type: "text",
-            content:
-              "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
-          },
-          {
-            type: "text",
-            content: "Bulk of the essay should focus on:",
-          },
-          {
-            type: "list-disc",
-            content:
-              "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
-          },
-        ],
-      },
-      {
-        type: "heading",
-        content: "Submission Guidelines",
-      },
-      {
-        type: "list",
-        list_items: [
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "highlight",
-            content: " med.games.org@gmail.com.:",
-          },
-        ],
-      },
-    ],
+    priceInValue: "$ 450",
+    price: "Paid",
+    // content_of_event: [
+    //   {
+    //     type: "heading",
+    //     content: "About The Event",
+    //   },
+    //   {
+    //     type: "paragraph",
+    //     content: [
+    //       {
+    //         type: "text",
+    //         content: "In your essay, please discuss how",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Artificial Intelligence",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           " can be effectively utilized to enhance the preparation process for the ",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "MCAT",
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     type: "list",
+    //     list_items: [
+    //       {
+    //         type: "text",
+    //         content:
+    //           "Identification of key challenges faced by premed students in preparing for the",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "MCAT",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
+    //       },
+    //       {
+    //         type: "text",
+    //         content: "Bulk of the essay should focus on:",
+    //       },
+    //       {
+    //         type: "list-disc",
+    //         content:
+    //           "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     type: "heading",
+    //     content: "Submission Guidelines",
+    //   },
+    //   {
+    //     type: "list",
+    //     list_items: [
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "bold",
+    //         content: "Eligibility:",
+    //       },
+    //       {
+    //         type: "text",
+    //         content:
+    //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+    //       },
+    //       {
+    //         type: "highlight",
+    //         content: " med.games.org@gmail.com.:",
+    //       },
+    //     ],
+    //   },
+    // ],
   },
-  {
-    id: 5,
-    title: "MCAT Info Session",
-    description:
-      "Med Games is holding an essay competition. The deadline to submit is April 1st 2024, at midnight EST.",
-    via: "Virtual program",
-    event_date: "15",
-    event_month: "Apr",
-    event_year: "2024",
-    time: "10:00 AM - 12:00 PM EST",
-    language: "English",
-    imageURL: "/event_4.png",
-    price: "free",
-    content_of_event: [
-      {
-        type: "heading",
-        content: "About The Event",
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            content: "In your essay, please discuss how",
-          },
-          {
-            type: "bold",
-            content: "Artificial Intelligence",
-          },
-          {
-            type: "text",
-            content:
-              " can be effectively utilized to enhance the preparation process for the ",
-          },
-          {
-            type: "bold",
-            content: "MCAT",
-          },
-        ],
-      },
-      {
-        type: "list",
-        list_items: [
-          {
-            type: "text",
-            content:
-              "Identification of key challenges faced by premed students in preparing for the",
-          },
-          {
-            type: "bold",
-            content: "MCAT",
-          },
-          {
-            type: "text",
-            content:
-              "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
-          },
-          {
-            type: "text",
-            content: "Bulk of the essay should focus on:",
-          },
-          {
-            type: "list-disc",
-            content:
-              "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
-          },
-        ],
-      },
-      {
-        type: "heading",
-        content: "Submission Guidelines",
-      },
-      {
-        type: "list",
-        list_items: [
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "bold",
-            content: "Eligibility:",
-          },
-          {
-            type: "text",
-            content:
-              "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
-          },
-          {
-            type: "highlight",
-            content: " med.games.org@gmail.com.:",
-          },
-        ],
-      },
-    ],
-  },
+  // {
+  //   id: 5,
+  //   title: "CASPer Program",
+  //   description:
+  //     "Med Games is holding an essay competition. The deadline to submit is April 1st 2024, at midnight EST.",
+  //   via: "Virtual program",
+  //   event_date: "27",
+  //   event_month: "Sep",
+  //   event_year: "2025",
+  //   event_end_date: "28",
+  //   event_end_month: "Sep",
+  //   event_end_year: "2025",
+  //   day: ["Saturday's", "Sunday's"],
+  //   time: "8:00 AM - 8:00 PM EST",
+  //   language: "English",
+  //   imageURL: "/event_4.png",
+  //   priceInValue: "$ 100",
+  //   price: "Paid",
+  //   // content_of_event: [
+  //   //   {
+  //   //     type: "heading",
+  //   //     content: "About The Event",
+  //   //   },
+  //   //   {
+  //   //     type: "paragraph",
+  //   //     content: [
+  //   //       {
+  //   //         type: "text",
+  //   //         content: "In your essay, please discuss how",
+  //   //       },
+  //   //       {
+  //   //         type: "bold",
+  //   //         content: "Artificial Intelligence",
+  //   //       },
+  //   //       {
+  //   //         type: "text",
+  //   //         content:
+  //   //           " can be effectively utilized to enhance the preparation process for the ",
+  //   //       },
+  //   //       {
+  //   //         type: "bold",
+  //   //         content: "MCAT",
+  //   //       },
+  //   //     ],
+  //   //   },
+  //   //   {
+  //   //     type: "list",
+  //   //     list_items: [
+  //   //       {
+  //   //         type: "text",
+  //   //         content:
+  //   //           "Identification of key challenges faced by premed students in preparing for the",
+  //   //       },
+  //   //       {
+  //   //         type: "bold",
+  //   //         content: "MCAT",
+  //   //       },
+  //   //       {
+  //   //         type: "text",
+  //   //         content:
+  //   //           "Explanation of how AI technologies can be used by Med Games to address these challenges and improve study efficiency and effectiveness for students as part of the MCAT program",
+  //   //       },
+  //   //       {
+  //   //         type: "text",
+  //   //         content: "Bulk of the essay should focus on:",
+  //   //       },
+  //   //       {
+  //   //         type: "list-disc",
+  //   //         content:
+  //   //           "Examples of AI-powered tools, applications, or platforms that can be used by Med Games to aid premed students in various aspects of MCAT preparation (e.g., content review, practice questions, test-taking strategies, study schedule creation, etc.).",
+  //   //       },
+  //   //     ],
+  //   //   },
+  //   //   {
+  //   //     type: "heading",
+  //   //     content: "Submission Guidelines",
+  //   //   },
+  //   //   {
+  //   //     type: "list",
+  //   //     list_items: [
+  //   //       {
+  //   //         type: "bold",
+  //   //         content: "Eligibility:",
+  //   //       },
+  //   //       {
+  //   //         type: "text",
+  //   //         content:
+  //   //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+  //   //       },
+  //   //       {
+  //   //         type: "bold",
+  //   //         content: "Eligibility:",
+  //   //       },
+  //   //       {
+  //   //         type: "text",
+  //   //         content:
+  //   //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+  //   //       },
+  //   //       {
+  //   //         type: "bold",
+  //   //         content: "Eligibility:",
+  //   //       },
+  //   //       {
+  //   //         type: "text",
+  //   //         content:
+  //   //           "The competition is open to all pre-med students hoping to write their MCAT during the summer of 2024.",
+  //   //       },
+  //   //       {
+  //   //         type: "highlight",
+  //   //         content: " med.games.org@gmail.com.:",
+  //   //       },
+  //   //     ],
+  //   //   },
+  //   // ],
+  // },
 ];
 
 export const why_Us_contents = [

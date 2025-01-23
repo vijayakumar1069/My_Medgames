@@ -1,9 +1,15 @@
-import { IconCalendar, IconClockHour2, IconMapPin } from "@tabler/icons-react";
+import {
+  IconCalendar,
+  IconCalendarWeek,
+  IconClockHour2,
+  IconMapPin,
+} from "@tabler/icons-react";
 import Image from "next/image";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { formatDate } from "@/utils/formatDateFunction";
+import { timeformatChange } from "@/lib/timeformater";
 
 const Course_Card = ({ course }) => {
   const {
@@ -20,7 +26,7 @@ const Course_Card = ({ course }) => {
     dailyEndTime,
     classDays,
   } = course;
-
+  console.log(classDays);
   const hasHomeImage = img_for_home && img_for_home.url;
   const hasCourseDetailsImage =
     img_for_course_details_page && img_for_course_details_page.url;
@@ -57,7 +63,7 @@ const Course_Card = ({ course }) => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-gray-600 md:text-base text-sm">
-          <div className="flex items-center space-x-1 md:col-span-2 lg:col-span-3 xl:col-span-2">
+          <div className="flex items-center space-x-1 md:col-span-2 lg:col-span-3  2xl:col-span-2">
             <IconCalendar stroke={2} className="text-[#4F9F76] flex-shrink-0" />
             <span>
               {formatDate(startDate)} to {formatDate(endDate)}
@@ -73,7 +79,19 @@ const Course_Card = ({ course }) => {
               className="text-[#4F9F76] flex-shrink-0"
             />
             <span>
-              {dailyStartTime} to {dailyEndTime} on {classDays[0]}
+              {timeformatChange(dailyStartTime)} to{" "}
+              {timeformatChange(dailyEndTime)} EST
+            </span>
+          </div>
+          <div className="flex items-center space-x-1 md:col-span-3">
+            <IconCalendarWeek
+              stroke={2}
+              className="text-[#4F9F76] flex-shrink-0"
+            />
+            <span>
+              {Array.isArray(classDays) && classDays.length > 0
+                ? classDays.join(" & ")
+                : "N/A"}
             </span>
           </div>
         </div>

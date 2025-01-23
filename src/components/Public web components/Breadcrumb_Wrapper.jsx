@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import Breadcrumb from "./Breadcrumb";
@@ -13,14 +13,14 @@ const Breadcrumb_Wrapper = ({ headingTextColor, pageTitle }) => {
 
   // Build breadcrumb items
   const breadcrumbItems = [
-    parentPage && { 
-      label: parentPage.name, 
-      href: parentPage.link 
+    parentPage && {
+      label: parentPage.name,
+      href: parentPage.link,
     },
-    pageTitle && { 
-      label: pageTitle, 
-      href: null 
-    }
+    pageTitle && {
+      label: pageTitle,
+      href: null,
+    },
   ].filter(Boolean);
 
   return (
@@ -31,10 +31,10 @@ const Breadcrumb_Wrapper = ({ headingTextColor, pageTitle }) => {
       </h1>
 
       {/* Breadcrumb */}
-      <div className="mt-4">
-        <Breadcrumb 
-          items={breadcrumbItems} 
-          headingTextColor={headingTextColor} 
+      <div className="md:mt-2">
+        <Breadcrumb
+          items={breadcrumbItems}
+          headingTextColor={headingTextColor}
         />
       </div>
     </div>

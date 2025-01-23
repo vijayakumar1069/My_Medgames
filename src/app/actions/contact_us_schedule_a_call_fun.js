@@ -33,10 +33,7 @@ export async function submitContactInquiry({ userData, inquiryType }) {
       course: inquiryType === "contact" ? userData.course : null,
       message: inquiryType === "contact" ? userData.message : null,
       preferredContact: inquiryType === "schedule" ? "zoom" : null,
-      schedules:
-        inquiryType === "schedule"
-          ? scheduleDates
-          : [],
+      schedules: inquiryType === "schedule" ? scheduleDates : [],
     };
 
     // Create and save inquiry
@@ -124,11 +121,11 @@ export async function sendInquiryConfirmationEmail(userData, inquiryType) {
   }
 }
 
-export async function contact_number_inquery(mobileNumber) {
+export async function contact_number_inquery(email) {
   try {
     // Render the user email template
     const userEmailHtml = await render(
-      <UserContactNotificationEmail mobileNumber={mobileNumber} />
+      <UserContactNotificationEmail email={email} />
     );
 
     // Prepare email options

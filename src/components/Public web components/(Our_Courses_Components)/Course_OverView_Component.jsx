@@ -85,7 +85,7 @@ const Course_OverView_Component = ({
         <div className="bg-yellow-50 p-6 rounded-lg">
           <h2 className="text-2xl font-bold text-yellow-800 mb-4 flex items-center">
             <IconAward className="mr-3 text-yellow-600" size={40} />
-            Additional Resources
+            Resources Provided
           </h2>
           <ul className="space-y-3 max-w-full">
             {additional_resources?.map((resource, index) => (

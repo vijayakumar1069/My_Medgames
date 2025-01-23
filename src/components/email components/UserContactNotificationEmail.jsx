@@ -16,7 +16,7 @@ const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
   : "";
 
-export const UserContactNotificationEmail = ({ mobileNumber }) => (
+export const UserContactNotificationEmail = ({ email }) => (
   <Html>
     <Head />
     <Preview>User Contact Attempt Notification</Preview>
@@ -39,7 +39,7 @@ export const UserContactNotificationEmail = ({ mobileNumber }) => (
             Below are their details:
           </Text>
           <Text style={info}>
-            <strong>Mobile Number:</strong> {mobileNumber}
+            <strong>Mobile Number:</strong> {email}
           </Text>
           <Text style={text}>
             Please respond to this user as soon as possible to address their
