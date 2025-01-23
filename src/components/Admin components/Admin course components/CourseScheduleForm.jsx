@@ -50,7 +50,6 @@ export function CourseScheduleForm({
   });
 
   const onSubmit = (data) => {
-    console.log(data);
     onDataUpdate(data);
     setActiveTab("description");
   };

@@ -23,6 +23,7 @@ export default async function Blogs_Home_Page({ searchParams }) {
 
   // Fetch blogs based on search criteria
   const blogsResult = await searchBlogs(searchCriteria);
+  const t = blogsResult.blogs.map((blog) => blog.title);
 
   // Fetch courses
   const allCourses = await getCoursesTitle();

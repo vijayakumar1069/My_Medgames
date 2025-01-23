@@ -412,6 +412,8 @@ export async function searchBlogs(searchParams) {
     // Prepare search conditions for courses
     const courseSearchConditions = [];
 
+    let relatedCourses = [];
+
     if (search) {
       const escapedSearch = escapeRegExp(search);
       courseSearchConditions.push({
@@ -424,7 +426,7 @@ export async function searchBlogs(searchParams) {
 
     if (tags && tags.length > 0) {
       courseSearchConditions.push({
-        tags: { $in: Array.isArray(tags) ? tags : [tags] },
+        name: { $in: Array.isArray(tags) ? tags : [tags] },
       });
     }
 
@@ -433,10 +435,28 @@ export async function searchBlogs(searchParams) {
       courseSearchConditions.length > 0 ? { $and: courseSearchConditions } : {};
 
     // Perform search for related courses
-    const courses = await coursesSchema
+    relatedCourses = await coursesSchema
       .find(courseQuery)
       .select("_id name description img_for_course_details_page ")
       .lean();
+    if (relatedCourses.length < 3) {
+      const additionalCoursesRequired = 3 - relatedCourses.length;
+
+      // Fetch random courses excluding the ones already in relatedCourses
+      const randomCourses = await coursesSchema
+        .aggregate([
+          {
+            $match: {
+              _id: { $nin: relatedCourses.map((course) => course._id) },
+            },
+          }, // Exclude already selected courses
+          { $sample: { size: additionalCoursesRequired } }, // Fetch random courses
+        ])
+        .exec();
+
+      // Merge the related courses with the random courses
+      relatedCourses = [...relatedCourses, ...randomCourses];
+    }
 
     // Calculate total pages for blogs
     const totalPages = Math.ceil(totalBlogs / limit);
@@ -445,7 +465,7 @@ export async function searchBlogs(searchParams) {
       success: true,
       message: "Blogs and related courses retrieved successfully",
       blogs: deepClone(blogs),
-      courses: deepClone(courses),
+      courses: deepClone(relatedCourses),
       pagination: {
         currentPage: page,
         totalPages,

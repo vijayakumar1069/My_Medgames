@@ -59,9 +59,9 @@ const Consultation_Form = () => {
       );
       // Close the confirmation dialog after 1 second and redirect to the schedule a call page with query parameters
       if (res.success) {
-       form.reset();
+        form.reset();
       }
-    } catch (error) {
+    } catch (err) {
       console.log(error);
     }
 

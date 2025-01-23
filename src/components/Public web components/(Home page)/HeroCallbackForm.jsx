@@ -69,7 +69,7 @@ const HeroCallbackForm = () => {
           </button>
         </div>
         <div className="">
-          {error && <p className="text-white text-sm ml-5 mt-1">{error}</p>}
+          {error && <p className="text-red-500 text-sm ml-5 mt-1">{error}</p>}
           {success && (
             <p className="text-green-500 text-sm ml-5 mt-1">{success}</p>
           )}

@@ -24,7 +24,7 @@ const Request_A_Call_Table = async () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="text-center">Phone</TableHead>
+                <TableHead className="text-center">Email</TableHead>
                 <TableHead>Action</TableHead>
               </TableRow>
             </TableHeader>
@@ -32,9 +32,12 @@ const Request_A_Call_Table = async () => {
               {res.data.length > 0 ? (
                 res.data.map((item) => (
                   <TableRow key={item._id}>
-                    <TableCell>{item.mobile_number}</TableCell>
+                    <TableCell>{item.email}</TableCell>
                     <TableCell>
-                      <DeleteDetailsButton type="request_a_call" id={item._id} />
+                      <DeleteDetailsButton
+                        type="request_a_call"
+                        id={item._id}
+                      />
                     </TableCell>
                   </TableRow>
                 ))

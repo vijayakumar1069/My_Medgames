@@ -6,6 +6,7 @@ import { contact_number_inquery } from "./contact_us_schedule_a_call_fun";
 import { revalidatePath } from "next/cache";
 
 export async function create_req_call(data) {
+  console.log(data);
   await connectDB();
   try {
     const existingUser = await Reques_A_Call.findOne({
@@ -32,7 +33,7 @@ export async function create_req_call(data) {
       if (res) {
         return {
           success: true,
-          message: "Request call created successfully",
+          message: "Consulation booked successfully",
           data: JSON.parse(JSON.stringify(new_user)),
         };
       }

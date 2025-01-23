@@ -2,7 +2,7 @@
 import { getBlogById } from "@/app/actions/(Admin)/blogs_function";
 import User_Selected_Blog_Component from "@/components/Public web components/Blog Components/User_Selected_Blog_Component";
 import Svg_Bg from "@/components/Public web components/Svg_Bg";
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
 // Create a separate loading component for blog content
@@ -19,34 +19,34 @@ const BlogLoadingFallback = () => (
 );
 
 // Make this a server component
-export default async function User_Selected_Blog({params}) {
-    const{id}= await params || {};
-    // if (!id) {
-    //     notFound();
-    // }
+export default async function User_Selected_Blog({ params }) {
+  const { id } = (await params) || {};
 
-    try {
-        const blogData = await getBlogById(id);
-        
-       
-        if (!blogData?.success || !blogData?.blog) {
-            notFound();
-        }
+  // if (!id) {
+  //     notFound();
+  // }
 
-        return (
-            <>
-                <Svg_Bg />
-                <Suspense fallback={<BlogLoadingFallback />}>
-                    <User_Selected_Blog_Component
-                        user_selected_blog={blogData.blog}
-                        documentContent={blogData.content}
-                        Allcourses={blogData.relatedCourses}
-                    />
-                </Suspense>
-            </>
-        );
-    } catch (error) {
-        console.error("Blog loading error:", error);
-        notFound();
+  try {
+    const blogData = await getBlogById(id);
+
+    if (!blogData?.success || !blogData?.blog) {
+      notFound();
     }
+
+    return (
+      <>
+        <Svg_Bg />
+        <Suspense fallback={<BlogLoadingFallback />}>
+          <User_Selected_Blog_Component
+            user_selected_blog={blogData.blog}
+            documentContent={blogData.content}
+            Allcourses={blogData.relatedCourses}
+          />
+        </Suspense>
+      </>
+    );
+  } catch (error) {
+    console.error("Blog loading error:", error);
+    notFound();
+  }
 }
