@@ -64,26 +64,17 @@ const Contact_us_Form = () => {
       message: "",
     },
   });
-  const{loading,success,error,sendRequest}=useRequest();
+  const { loading, success, error, sendRequest } = useRequest();
 
-  const onSubmit = async(data) => {
-    try {
-     const res=await sendRequest(() => submitContactInquiry({userData: data,inquiryType:"contact"}));
-      // Close the confirmation dialog after 1 second and redirect to the schedule a call page with query parameters
-      if(res.success)
-      {
-        
-        setTimeout(()=>
-        {
-          
-          setIsDialogOpen(true); // Open the confirmation dialog
-        },1000)
-      }
-      
-    } catch (error) {
-      
-      console.log(error);
-      
+  const onSubmit = async (data) => {
+    const res = await sendRequest(() =>
+      submitContactInquiry({ userData: data, inquiryType: "contact" })
+    );
+    // Close the confirmation dialog after 1 second and redirect to the schedule a call page with query parameters
+    if (res.success) {
+      setTimeout(() => {
+        setIsDialogOpen(true); // Open the confirmation dialog
+      }, 1000);
     }
 
     // setIsDialogOpen(true); // Open the confirmation dialog
@@ -209,14 +200,11 @@ const Contact_us_Form = () => {
                           />
                         </SelectTrigger>
                         <SelectContent>
-                          {
-                            courses_titles.map((course, index) => (
-                              <SelectItem key={index} value={course}>
-                                {course}
-                              </SelectItem>
-                            ))
-                          }
-                       
+                          {courses_titles.map((course, index) => (
+                            <SelectItem key={index} value={course}>
+                              {course}
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </FormControl>
@@ -246,7 +234,7 @@ const Contact_us_Form = () => {
               {success && <p className="text-green-500">{success}</p>}
               {/* Submit Button */}
               <Button
-              disabled={loading}
+                disabled={loading}
                 className="w-full bg-[#4F9F76] hover:bg-[#4F9F76]/80"
                 type="submit"
               >
@@ -255,10 +243,10 @@ const Contact_us_Form = () => {
             </form>
           </Form>
           <div className="grid grid-cols-3 lg:max-w-48 mx-auto justify-items-center  gap-x-4 gap-y-2">
-          {brand_Info.social_links.map((item, index) => (
-            <Contact_Us_card key={`${item.id}-${index}`} item={item} />
-          ))}
-        </div>
+            {brand_Info.social_links.map((item, index) => (
+              <Contact_Us_card key={`${item.id}-${index}`} item={item} />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -267,16 +255,22 @@ const Contact_us_Form = () => {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Would you like to schedule a call?</DialogTitle>
-            <DialogDescription >
+            <DialogDescription>
               Click &quot;Yes&quot; to schedule a call with your entered
               details.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button onClick={handleYesClick} className="bg-[#4F9F76] text-white hover:bg-[#274E49]">
+            <Button
+              onClick={handleYesClick}
+              className="bg-[#4F9F76] text-white hover:bg-[#274E49]"
+            >
               Yes
             </Button>
-            <Button onClick={handleNoClick} className="bg-red-600 hover:bg-red-700">
+            <Button
+              onClick={handleNoClick}
+              className="bg-red-600 hover:bg-red-700"
+            >
               No
             </Button>
           </DialogFooter>

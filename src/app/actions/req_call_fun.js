@@ -6,14 +6,12 @@ import { contact_number_inquery } from "./contact_us_schedule_a_call_fun";
 import { revalidatePath } from "next/cache";
 
 export async function create_req_call(data) {
-  console.log(data);
   await connectDB();
   try {
     // Check if a user with the given email already exists
     const existingUser = await Reques_A_Call.findOne({
       email: data.email,
     });
-    console.log("Existing user:", existingUser);
 
     if (existingUser) {
       return {

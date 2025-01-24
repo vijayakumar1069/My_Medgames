@@ -53,16 +53,12 @@ const Consultation_Form = () => {
   const { loading, success, error, sendRequest } = useRequest();
 
   const onSubmit = async (data) => {
-    try {
-      const res = await sendRequest(() =>
-        submitContactInquiry({ userData: data, inquiryType: "contact" })
-      );
-      // Close the confirmation dialog after 1 second and redirect to the schedule a call page with query parameters
-      if (res.success) {
-        form.reset();
-      }
-    } catch (err) {
-      console.log(error);
+    const res = await sendRequest(() =>
+      submitContactInquiry({ userData: data, inquiryType: "contact" })
+    );
+    // Close the confirmation dialog after 1 second and redirect to the schedule a call page with query parameters
+    if (res.success) {
+      form.reset();
     }
 
     // setIsDialogOpen(true); // Open the confirmation dialog

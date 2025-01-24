@@ -16,7 +16,6 @@ async function cleanupIndexes() {
 
     // Drop the problematic mobile_number index
     await collection.dropIndex("mobile_number_1");
-    console.log("Successfully dropped mobile_number index");
   } catch (error) {
     // If the index doesn't exist, that's fine
     if (error.code !== 27) {

@@ -23,19 +23,10 @@ const HeroCallbackForm = () => {
 
   // Submit handler
   const onSubmit = async (data) => {
-    // try {
-    //   const res = await sendRequest(() => create_req_call(data));
-    //   console.log(res);
-    //   // Close the confirmation dialog after 1 second and redirect to the schedule a call page with query parameters
-    //   if (res.success) {
-    //     form.reset();
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    // setIsDialogOpen(true); // Open the confirmation dialog
-
     const res = await sendRequest(() => create_req_call(data));
+    if (res.success) {
+      form.reset(); // Reset the form after successful submission
+    }
   };
 
   return (
@@ -70,7 +61,7 @@ const HeroCallbackForm = () => {
           </button>
         </div>
         <div className="">
-          {error && <p className="text-red-500 text-sm ml-5 mt-1">{error}</p>}
+          {error && <p className="text-white text-sm ml-5 mt-1">{error}</p>}
           {success && (
             <p className="text-green-500 text-sm ml-5 mt-1">{success}</p>
           )}

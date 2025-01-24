@@ -14,6 +14,7 @@ export async function getContactDetails(type) {
       const requests = await Reques_A_Call.find()
         .sort({ createdAt: -1 })
         .lean();
+
       return {
         success: true,
         message: "Details fetched successfully",
