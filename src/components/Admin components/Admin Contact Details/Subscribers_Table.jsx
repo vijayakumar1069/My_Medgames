@@ -19,7 +19,7 @@ const Subscribers_Table = async () => {
     }
 
     return (
-      <div className="max-w-sm text-center mx-auto">
+      <div className="max-w-xl text-center mx-auto">
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
