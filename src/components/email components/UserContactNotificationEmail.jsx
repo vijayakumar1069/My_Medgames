@@ -46,8 +46,6 @@ export const UserContactNotificationEmail = ({ email }) => (
             Please respond to this user as soon as possible to address their
             queries or concerns.
           </Text>
-
-          <Button style={button}>View Contact Details</Button>
         </Section>
 
         <Text style={text}>
