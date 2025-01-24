@@ -132,7 +132,7 @@ export async function contact_number_inquery(email) {
     const userMailOptions = {
       from: `"MedGames" <${process.env.SMTP_USER}>`,
       to: process.env.SMTP_USER,
-      subject: `New Contact Attempt`,
+      subject: `New Consultation Request - Elevate Your Medical Career!`,
       html: userEmailHtml,
     };
 

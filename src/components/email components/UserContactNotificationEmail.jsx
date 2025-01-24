@@ -12,25 +12,26 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-  : "";
+const baseURL =
+  process.env.NEXT_PUBLIC_ENVIRONMENT === "development"
+    ? "http://localhost:3000"
+    : process.env.NEXT_PUBLIC_VERCEL_URL; // Ensure your production domain is in env
 
 export const UserContactNotificationEmail = ({ email }) => (
   <Html>
     <Head />
-    <Preview>User Contact Attempt Notification</Preview>
+    <Preview>User Consultation Attempt Notification</Preview>
     <Body style={main}>
       <Container style={container}>
         <Img
-          src={`${baseUrl}/static/medgames-logo.png`}
+          src={`${baseURL}/static/medgames-logo.png`}
           width="64"
           height="64"
           alt="MedGames"
           style={{ marginBottom: "16px" }}
         />
 
-        <Text style={title}>New Contact Attempt</Text>
+        <Text style={title}>New consultation Attempt</Text>
 
         <Section style={section}>
           <Text style={text}>Dear Admin,</Text>
@@ -39,7 +40,7 @@ export const UserContactNotificationEmail = ({ email }) => (
             Below are their details:
           </Text>
           <Text style={info}>
-            <strong>Mobile Number:</strong> {email}
+            <strong>Email:</strong> {email}
           </Text>
           <Text style={text}>
             Please respond to this user as soon as possible to address their
