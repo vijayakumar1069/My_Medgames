@@ -24,7 +24,7 @@ export const UserContactNotificationEmail = ({ email }) => (
     <Body style={main}>
       <Container style={container}>
         <Img
-          src={`${baseURL}/static/medgames-logo.png`}
+          src={`${baseURL}/logo.png`}
           width="64"
           height="64"
           alt="MedGames"
