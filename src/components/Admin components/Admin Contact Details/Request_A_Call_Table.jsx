@@ -15,7 +15,7 @@ const Request_A_Call_Table = async () => {
     const res = await getContactDetails("request_a_call");
 
     if (!res || !res.success) {
-      throw new Error(res?.message || "Failed to fetch Mobile Number details.");
+      throw new Error(res?.message || "Failed to fetch consultation details.");
     }
 
     return (

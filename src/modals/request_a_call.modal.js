@@ -4,9 +4,6 @@ const request_a_call_schema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-
-    // Add validation to ensure the email is in a valid email format
-    match: [/^\S+@\S+\.\S+$/, "Please fill a valid email address"],
   },
   // Add other fields as needed
 });

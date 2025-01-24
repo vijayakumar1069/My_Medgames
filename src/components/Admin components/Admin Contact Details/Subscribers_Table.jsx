@@ -15,7 +15,7 @@ const Subscribers_Table = async () => {
     const res = await getContactDetails("subscribe");
 
     if (!res || !res.success) {
-      throw new Error(res?.message || "Failed to fetch Mobile Number details.");
+      throw new Error(res?.message || "Failed to fetch consultation details.");
     }
 
     return (
